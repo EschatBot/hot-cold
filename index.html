@@ -574,6 +574,56 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
   color: #000; text-transform: uppercase; letter-spacing: 1px;
 }
 
+/* ── HINT / EXPLANATION TEXT ────────────────────────────────── */
+.hint-text {
+  font-size: 12px; color: #666; line-height: 1.55;
+  margin-top: 8px; max-width: 380px;
+}
+.setup-divider {
+  width: 100%; max-width: 440px;
+  margin: 0 0 28px;
+  border: none;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg, #222 0px, #222 8px, transparent 8px, transparent 16px
+  );
+  position: relative;
+}
+.capture-btn .cap-hint {
+  display: block;
+  font-size: 10px; font-weight: 500; color: #555;
+  line-height: 1.4; text-align: center; letter-spacing: 0;
+  text-transform: none; margin-top: 5px;
+  white-space: normal;
+}
+.capture-btn.selected .cap-hint { color: rgba(255,215,0,0.55); }
+.privacy-hint {
+  font-size: 11px; color: #555; text-align: center;
+  margin-top: 10px; max-width: 440px; letter-spacing: 0.3px;
+  line-height: 1.5;
+}
+.reader-info-bar {
+  background: #0e0e0e; border: 1px solid #1e1e1e;
+  border-radius: 8px; padding: 10px 14px;
+  font-size: 12px; color: #555; line-height: 1.55;
+  margin-bottom: 14px;
+}
+.hud-radar-text {
+  font-size: 11px; color: #444; font-weight: 600;
+  letter-spacing: 0.3px; padding: 0 20px 10px;
+  line-height: 1.5;
+}
+.btn-sub {
+  display: block; font-size: 10px; font-weight: 400;
+  opacity: 0.55; letter-spacing: 0; text-transform: none;
+  margin-top: 3px; line-height: 1.3;
+}
+@keyframes goPulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(255,51,51,0.4), 0 0 0 0 rgba(255,215,0,0.7); }
+  60% { box-shadow: 0 0 32px rgba(255,51,51,0.55), 0 0 0 5px rgba(255,215,0,0); }
+}
+#btn-go { animation: goPulse 2.4s ease-in-out infinite; }
+
 /* ── ANIMATIONS ────────────────────────────────────────────── */
 @keyframes livePulse {
   0%, 100% { opacity: 1; transform: scale(1); }
@@ -640,32 +690,42 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
   <div class="setup-hero">
     <div class="setup-logo">Hot / Cold</div>
     <div class="setup-title">Read the<br>Room</div>
-    <div class="setup-subtitle">Reveal hidden social dynamics<br>in any conversation</div>
+    <div class="setup-subtitle">Who's hot? Who's cold?<br>Read the room — instantly.</div>
+    <div class="hint-text" style="margin:10px auto 0;text-align:center">Paste a conversation or record live audio. Hot/Cold analyzes tone, language patterns, and vocal signals to reveal who is warm, cold, engaged, or checked out — and maps every relationship in the room.</div>
   </div>
+
+  <div class="setup-divider"></div>
 
   <div class="setup-section">
     <div class="setup-label">How many people?</div>
     <div class="num-picker" id="num-picker"></div>
+    <div class="hint-text">Select the number of speakers in the conversation. You can always adjust later.</div>
   </div>
 
   <div class="setup-section">
     <div class="setup-label">Speakers <span style="color:#444;font-weight:400">(tap to name)</span></div>
     <div id="speaker-cards"></div>
+    <div class="hint-text">Names are optional — speakers are tracked by number. Tap any card to add a name for easier reading.</div>
   </div>
+
+  <div class="setup-divider"></div>
 
   <div class="setup-section">
     <div class="setup-label">Capture mode</div>
     <div class="capture-btns">
       <button class="capture-btn selected" data-mode="paste" onclick="selectCaptureMode(this,'paste')">
         <span class="cap-icon">📝</span> Paste Text
+        <span class="cap-hint">Drop in a WhatsApp export, Slack log, or any text conversation. Format: Name: message.</span>
       </button>
       <button class="capture-btn" data-mode="live" onclick="selectCaptureMode(this,'live')">
         <span class="cap-icon">🎤</span> Live Audio
+        <span class="cap-hint">Use your phone mic to capture a live conversation. Tag who's speaking in real-time. Audio never leaves your device.</span>
       </button>
     </div>
   </div>
 
   <button id="btn-go" onclick="goToCapture()">Let's Go →</button>
+  <div class="privacy-hint">All analysis runs locally in your browser. Nothing is uploaded or stored.</div>
 </div>
 
 <!-- ══ PASTE ═══════════════════════════════════════════════ -->
@@ -688,8 +748,8 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
   <div class="reader-header">
     <div class="reader-logo">🔮 Hot/Cold</div>
     <div style="display:flex;gap:8px">
-      <button class="action-btn" style="flex:none;padding:8px 12px" onclick="showScreen('screen-network')">Full View</button>
-      <button id="btn-hud-mode" onclick="enterHUD()">▶ HUD</button>
+      <button class="action-btn" style="flex:none;padding:8px 12px" onclick="showScreen('screen-network')">Full View<span class="btn-sub">Relationship network</span></button>
+      <button id="btn-hud-mode" onclick="enterHUD()">▶ HUD<span class="btn-sub">Minimal live view</span></button>
     </div>
   </div>
   <div class="reader-body" id="reader-body">
@@ -723,6 +783,7 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
     <div class="hud-live-dot"><div class="live-dot"></div>Live</div>
     <button id="btn-exit-hud" onclick="showScreen('screen-reader')">Exit HUD</button>
   </div>
+  <div class="hud-radar-text">Real-time social radar. Alerts appear as dynamics shift — rapport peaks, exit signals, energy changes.</div>
   <div class="hud-bars" id="hud-bars"></div>
   <div class="hud-alerts" id="hud-alerts">
     <div class="empty-state" style="padding:20px">
@@ -1273,7 +1334,7 @@ function renderReader() {
   const body = document.getElementById('reader-body');
   if (!state.analysis) return;
   const { profiles } = state.analysis;
-  body.innerHTML = '';
+  body.innerHTML = '<div class="reader-info-bar">Tap a speaker bar for their full profile &nbsp;·&nbsp; Tap the colored circles to see relationships &nbsp;·&nbsp; Select multiple circles for group dynamics</div>';
 
   profiles.forEach((profile, idx) => {
     const others = profiles.filter(p => p.id !== profile.id);
