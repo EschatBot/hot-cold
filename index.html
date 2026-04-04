@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Hot/Cold — Social Dynamic Reader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── RESET + BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0a;
+  --hot-red: #FF3333;
+  --hot-orange: #FF8C42;
+  --hot-yellow: #FFD700;
+  --cold-blue: #3366FF;
+  --cold-ice: #88CCFF;
+  --neutral: #00CC66;
+  --white: #FFFFFF;
+  --gray: #444;
+  --speaker-colors: #FF3333, #FFD700, #3366FF, #00CC66, #FF8C42, #FF69B4;
+  --c1: #FF3333; --c2: #FFD700; --c3: #3366FF;
+  --c4: #00CC66; --c5: #FF8C42; --c6: #FF69B4;
+  --c7: #BF5FFF; --c8: #00E5FF;
+  --border: 3px;
+  --radius: 10px;
+  --panel-z: 100;
+}
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: var(--bg); color: var(--white);
+  font-family: 'Inter', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea { font-family: inherit; color: inherit; }
+
+/* ── SCREENS ──────────────────────────────────────────────── */
+.screen {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.screen.active { opacity: 1; pointer-events: all; }
+
+/* ── SETUP SCREEN ─────────────────────────────────────────── */
+#screen-setup {
+  background: var(--bg);
+  align-items: center; justify-content: flex-start;
+  overflow-y: auto;
+  padding: 0 20px 40px;
+}
+.setup-hero {
+  width: 100%; text-align: center;
+  padding: 52px 0 32px;
+}
+.setup-logo {
+  font-size: 13px; font-weight: 800; letter-spacing: 4px;
+  color: var(--hot-yellow); text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.setup-title {
+  font-size: 38px; font-weight: 900; line-height: 1.1;
+  background: linear-gradient(135deg, var(--hot-red), var(--hot-yellow), var(--cold-blue));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+.setup-subtitle {
+  font-size: 14px; font-weight: 400; color: #888;
+  line-height: 1.5;
+}
+
+.setup-section {
+  width: 100%; max-width: 440px;
+  margin-bottom: 28px;
+}
+.setup-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 3px;
+  color: #666; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* Number picker */
+.num-picker {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.num-btn {
+  width: 52px; height: 52px; border-radius: var(--radius);
+  border: var(--border) solid #333;
+  font-size: 22px; font-weight: 800;
+  color: #555; background: #111;
+  transition: all 0.15s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.num-btn.selected {
+  border-color: var(--hot-yellow);
+  color: var(--hot-yellow);
+  background: rgba(255,215,0,0.1);
+  box-shadow: 0 0 16px rgba(255,215,0,0.3);
+}
+
+/* Speaker cards */
+#speaker-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.speaker-card {
+  border-radius: var(--radius); padding: 14px 14px 12px;
+  border: var(--border) solid;
+  background: #111;
+  display: flex; align-items: center; gap: 10px;
+  transition: transform 0.15s;
+  cursor: pointer;
+}
+.speaker-card:active { transform: scale(0.96); }
+.speaker-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  flex-shrink: 0; border: 2px solid rgba(255,255,255,0.2);
+}
+.speaker-card-info { flex: 1; min-width: 0; }
+.speaker-card-num {
+  font-size: 12px; font-weight: 800; letter-spacing: 1px; opacity: 0.7;
+}
+.speaker-card-name {
+  font-size: 14px; font-weight: 700;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.speaker-card-name.placeholder { color: #555; }
+
+/* Capture mode */
+.capture-btns {
+  display: flex; gap: 10px;
+}
+.capture-btn {
+  flex: 1; padding: 18px 10px;
+  border-radius: var(--radius);
+  border: var(--border) solid #333;
+  background: #111;
+  font-size: 13px; font-weight: 800;
+  color: #666;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  transition: all 0.15s;
+}
+.capture-btn .cap-icon { font-size: 28px; }
+.capture-btn.selected {
+  border-color: var(--hot-yellow);
+  color: var(--hot-yellow);
+  background: rgba(255,215,0,0.08);
+}
+
+/* Go button */
+#btn-go {
+  width: 100%; max-width: 440px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--hot-red);
+  border: var(--border) solid var(--hot-yellow);
+  font-size: 18px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-top: 8px;
+  transition: all 0.15s;
+  box-shadow: 0 0 24px rgba(255,51,51,0.4);
+}
+#btn-go:active { transform: scale(0.97); }
+#btn-go:disabled { opacity: 0.3; pointer-events: none; }
+
+/* ── PASTE SCREEN ─────────────────────────────────────────── */
+#screen-paste {
+  background: var(--bg);
+  padding: 0;
+}
+.paste-header {
+  padding: 20px 20px 12px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 2px solid #1a1a1a;
+}
+.back-btn {
+  width: 36px; height: 36px; border-radius: 8px;
+  border: 2px solid #333;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: #888;
+}
+.paste-title { font-size: 17px; font-weight: 800; }
+.paste-area-wrap { flex: 1; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+#paste-textarea {
+  flex: 1; background: #0f0f0f;
+  border: var(--border) solid #2a2a2a;
+  border-radius: var(--radius);
+  padding: 16px; font-size: 14px; line-height: 1.6;
+  color: var(--white); resize: none;
+  outline: none; min-height: 220px;
+  transition: border-color 0.2s;
+}
+#paste-textarea:focus { border-color: var(--hot-yellow); }
+#paste-textarea::placeholder { color: #444; }
+.paste-preview {
+  background: #111; border-radius: var(--radius);
+  border: 2px solid #222; padding: 12px 16px;
+  font-size: 13px; color: #888;
+  display: none;
+}
+.paste-preview.visible { display: block; }
+.paste-preview strong { color: var(--neutral); }
+#btn-analyze {
+  padding: 18px; border-radius: var(--radius);
+  background: var(--cold-blue);
+  border: var(--border) solid var(--cold-ice);
+  font-size: 16px; font-weight: 900; letter-spacing: 2px;
+  color: var(--white); text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(51,102,255,0.4);
+  transition: all 0.15s;
+}
+#btn-analyze:active { transform: scale(0.97); }
+#btn-analyze:disabled { opacity: 0.35; pointer-events: none; }
+
+/* ── READER SCREEN ────────────────────────────────────────── */
+#screen-reader {
+  background: var(--bg);
+  display: flex; flex-direction: column;
+}
+.reader-header {
+  padding: 18px 16px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 2px solid #1a1a1a;
+}
+.reader-logo { font-size: 16px; font-weight: 900; color: var(--hot-yellow); }
+#btn-hud-mode {
+  padding: 8px 14px; border-radius: 8px;
+  border: 2px solid var(--hot-orange);
+  color: var(--hot-orange); font-size: 12px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase;
+  background: rgba(255,140,66,0.08);
+}
+.reader-body { flex: 1; overflow-y: auto; padding: 12px 16px 20px; }
+.speaker-row-wrap {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 12px;
+}
+.speaker-bar {
+  flex: 1; border-radius: var(--radius);
+  border: var(--border) solid;
+  padding: 14px 16px;
+  background: #111;
+  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+  min-height: 66px;
+  position: relative; overflow: hidden;
+}
+.speaker-bar:active { transform: scale(0.98); }
+.speaker-bar-bg {
+  position: absolute; inset: 0; opacity: 0.12;
+  border-radius: inherit;
+}
+.speaker-bar-content { position: relative; z-index: 1; }
+.speaker-bar-top {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 4px;
+}
+.speaker-bar-num {
+  font-size: 11px; font-weight: 900; letter-spacing: 2px;
+  padding: 2px 7px; border-radius: 5px;
+  border: 2px solid currentColor;
+}
+.speaker-bar-name { font-size: 15px; font-weight: 800; }
+.speaker-bar-states {
+  font-size: 11px; font-weight: 600; color: #999;
+  letter-spacing: 0.5px;
+}
+.speaker-energy-bar {
+  margin-top: 8px; height: 4px; border-radius: 2px;
+  background: #222; overflow: hidden;
+}
+.speaker-energy-fill {
+  height: 100%; border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+/* relationship circles */
+.rel-circles {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.rel-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: var(--border) solid;
+  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+  position: relative; display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800;
+}
+.rel-circle:active { transform: scale(0.9); }
+.rel-circle.hot { box-shadow: 0 0 10px rgba(255,51,51,0.6); }
+.rel-circle.cold { box-shadow: 0 0 10px rgba(51,102,255,0.6); }
+.rel-circle.neutral { box-shadow: 0 0 8px rgba(0,204,102,0.4); }
+
+/* action bar */
+.reader-actions {
+  padding: 12px 16px 20px;
+  display: flex; gap: 10px;
+  border-top: 2px solid #1a1a1a;
+}
+.action-btn {
+  flex: 1; padding: 14px 8px;
+  border-radius: var(--radius);
+  border: var(--border) solid #333;
+  background: #111;
+  font-size: 12px; font-weight: 800; letter-spacing: 1px;
+  color: #888; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: all 0.15s;
+}
+.action-btn:active { transform: scale(0.97); }
+.action-btn.primary {
+  border-color: var(--hot-yellow); color: var(--hot-yellow);
+  background: rgba(255,215,0,0.06);
+}
+
+/* ── PANELS (slide-up) ────────────────────────────────────── */
+.panel-overlay {
+  position: fixed; inset: 0; z-index: var(--panel-z);
+  background: rgba(0,0,0,0.7);
+  display: flex; align-items: flex-end;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.panel-overlay.open { opacity: 1; pointer-events: all; }
+.panel {
+  width: 100%; max-height: 80vh;
+  background: #111; border-radius: 18px 18px 0 0;
+  border-top: var(--border) solid var(--hot-yellow);
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+  padding-bottom: 32px;
+}
+.panel-overlay.open .panel { transform: translateY(0); }
+.panel-handle {
+  width: 40px; height: 4px; border-radius: 2px;
+  background: #444; margin: 12px auto 20px;
+}
+.panel-header {
+  padding: 0 20px 16px;
+  border-bottom: 2px solid #1d1d1d;
+  display: flex; align-items: center; gap: 12px;
+}
+.panel-title { font-size: 20px; font-weight: 900; flex: 1; }
+.panel-close {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid #333; font-size: 16px; color: #666;
+  display: flex; align-items: center; justify-content: center;
+}
+.panel-body { padding: 20px 20px 0; }
+
+/* stat rows */
+.stat-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0; border-bottom: 1px solid #1a1a1a;
+}
+.stat-label { font-size: 12px; font-weight: 700; color: #666; letter-spacing: 1px; text-transform: uppercase; }
+.stat-value { font-size: 15px; font-weight: 800; }
+.stat-bar-wrap { display: flex; align-items: center; gap: 10px; }
+.mini-bar {
+  width: 80px; height: 6px; background: #222; border-radius: 3px; overflow: hidden;
+}
+.mini-bar-fill { height: 100%; border-radius: 3px; }
+
+/* warmth arrow display */
+.warmth-arrows {
+  display: flex; gap: 16px; padding: 16px 0;
+}
+.warmth-arrow-item {
+  flex: 1; text-align: center; padding: 14px 10px;
+  border-radius: var(--radius); border: 2px solid #222;
+  background: #0d0d0d;
+}
+.warmth-arrow-label { font-size: 11px; font-weight: 800; color: #666; letter-spacing: 1px; margin-bottom: 6px; }
+.warmth-arrow-score { font-size: 28px; font-weight: 900; }
+.warmth-arrow-trend { font-size: 11px; font-weight: 700; margin-top: 4px; }
+
+/* signal evidence */
+.signal-list { margin-top: 12px; }
+.signal-item {
+  padding: 8px 12px; margin-bottom: 6px;
+  background: #0d0d0d; border-radius: 8px;
+  border-left: 3px solid;
+  font-size: 13px; color: #bbb; line-height: 1.4;
+}
+
+/* sparkline */
+.sparkline-wrap { margin-top: 14px; }
+.sparkline-label { font-size: 11px; font-weight: 800; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0d0d0d; }
+
+/* Haring figure */
+.haring-figure { text-align: center; margin: 12px 0; font-size: 52px; }
+
+/* ── NETWORK / FULL DYNAMIC ────────────────────────────────── */
+#screen-network {
+  background: var(--bg);
+  display: flex; flex-direction: column;
+}
+.network-header {
+  padding: 20px 20px 12px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 2px solid #1a1a1a;
+}
+.network-title { font-size: 17px; font-weight: 800; flex: 1; }
+#network-canvas { flex: 1; display: block; }
+.network-footer {
+  padding: 14px 20px 24px;
+  border-top: 2px solid #1a1a1a;
+  font-size: 13px; color: #888; line-height: 1.5;
+  text-align: center;
+}
+#network-summary { font-weight: 700; color: var(--white); }
+
+/* ── HUD SCREEN ───────────────────────────────────────────── */
+#screen-hud {
+  background: rgba(0,0,0,0.92);
+  display: flex; flex-direction: column;
+}
+.hud-header {
+  padding: 20px 20px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.hud-live-dot {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--hot-red);
+  text-transform: uppercase;
+}
+.live-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--hot-red);
+  animation: livePulse 1.2s ease-in-out infinite;
+}
+#btn-exit-hud {
+  padding: 8px 14px; border-radius: 8px;
+  border: 2px solid #333; color: #666;
+  font-size: 12px; font-weight: 800; letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hud-bars { padding: 8px 20px 16px; }
+.hud-speaker-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.hud-speaker-id {
+  font-size: 11px; font-weight: 900; width: 28px;
+  letter-spacing: 1px;
+}
+.hud-progress-bg {
+  flex: 1; height: 10px; background: #1a1a1a;
+  border-radius: 5px; overflow: hidden;
+  border: 1px solid #2a2a2a;
+}
+.hud-progress-fill {
+  height: 100%; border-radius: 5px;
+  transition: width 0.8s ease;
+}
+.hud-score {
+  font-size: 11px; font-weight: 800; width: 30px; text-align: right;
+  color: #666;
+}
+.hud-alerts { flex: 1; padding: 0 16px; overflow-y: auto; }
+.hud-alert {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 16px; margin-bottom: 10px;
+  border-radius: var(--radius);
+  border: 2px solid #222; background: #111;
+  animation: alertIn 0.3s ease;
+  cursor: pointer;
+}
+.hud-alert-icon { font-size: 22px; flex-shrink: 0; }
+.hud-alert-text { flex: 1; }
+.hud-alert-title { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+.hud-alert-sub { font-size: 12px; color: #888; }
+.hud-alert.tier1 { border-color: var(--hot-orange); }
+.hud-alert.tier2 { border-color: var(--cold-blue); }
+.hud-alert.fading { opacity: 0; transition: opacity 0.5s ease; }
+.hud-footer {
+  padding: 12px 20px 24px;
+  border-top: 2px solid #1a1a1a;
+  font-size: 11px; color: #555; text-align: center; font-weight: 700; letter-spacing: 1px;
+}
+
+/* ── LIVE AUDIO SCREEN ─────────────────────────────────────── */
+#screen-live {
+  background: var(--bg); display: flex; flex-direction: column;
+}
+.live-header {
+  padding: 20px 20px 12px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 2px solid #1a1a1a;
+}
+.live-title { font-size: 17px; font-weight: 800; flex: 1; }
+.live-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.live-speaker-btns { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.live-speaker-btn {
+  padding: 16px 20px; border-radius: var(--radius);
+  border: var(--border) solid;
+  background: #111; font-size: 16px; font-weight: 800;
+  display: flex; align-items: center; gap: 12px;
+  transition: all 0.15s;
+  cursor: pointer; text-align: left;
+}
+.live-speaker-btn.speaking {
+  animation: speakingPulse 1s ease-in-out infinite;
+}
+.live-speaker-btn .speaking-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: currentColor;
+  display: none;
+}
+.live-speaker-btn.speaking .speaking-dot { display: block; }
+.live-transcript {
+  background: #0d0d0d; border-radius: var(--radius);
+  border: 2px solid #1d1d1d; padding: 14px;
+  max-height: 160px; overflow-y: auto;
+}
+.transcript-line {
+  font-size: 13px; line-height: 1.6; color: #999; margin-bottom: 6px;
+  padding-bottom: 6px; border-bottom: 1px solid #1a1a1a;
+}
+.transcript-line:last-child { border-bottom: none; margin-bottom: 0; }
+.transcript-speaker { font-weight: 800; }
+.live-footer { padding: 12px 20px 24px; border-top: 2px solid #1a1a1a; }
+#btn-live-done {
+  width: 100%; padding: 16px;
+  border-radius: var(--radius);
+  background: var(--neutral);
+  border: var(--border) solid #00ff88;
+  font-size: 15px; font-weight: 900; letter-spacing: 2px;
+  color: #000; text-transform: uppercase;
+}
+
+/* ── NAME EDITOR (inline modal) ───────────────────────────── */
+#name-editor-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.8);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+#name-editor-overlay.open { opacity: 1; pointer-events: all; }
+.name-editor-box {
+  width: 100%; max-width: 340px;
+  background: #111; border-radius: 14px;
+  border: var(--border) solid var(--hot-yellow);
+  padding: 24px;
+}
+.name-editor-title { font-size: 14px; font-weight: 800; color: #888; margin-bottom: 14px; letter-spacing: 1px; }
+.name-editor-input {
+  width: 100%; background: #0a0a0a;
+  border: 2px solid #2a2a2a; border-radius: 8px;
+  padding: 12px 14px; font-size: 18px; font-weight: 800;
+  color: var(--white); outline: none;
+  margin-bottom: 14px;
+  transition: border-color 0.2s;
+}
+.name-editor-input:focus { border-color: var(--hot-yellow); }
+.name-editor-btns { display: flex; gap: 10px; }
+.name-editor-cancel {
+  flex: 1; padding: 12px; border-radius: 8px;
+  border: 2px solid #333; color: #666;
+  font-size: 14px; font-weight: 800;
+}
+.name-editor-save {
+  flex: 2; padding: 12px; border-radius: 8px;
+  background: var(--hot-yellow); border: none;
+  font-size: 14px; font-weight: 900;
+  color: #000; text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ── ANIMATIONS ────────────────────────────────────────────── */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+@keyframes alertIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes speakingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; }
+  50% { box-shadow: 0 0 20px 4px rgba(255,215,0,0.3); }
+}
+@keyframes barGlow {
+  0%, 100% { box-shadow: 0 0 8px 1px currentColor; }
+  50% { box-shadow: 0 0 18px 4px currentColor; }
+}
+.pulsing { animation: barGlow 2s ease-in-out infinite; }
+
+/* loading */
+.loading-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; flex: 1; gap: 18px; padding: 40px;
+}
+.loading-ring {
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 4px solid #1a1a1a;
+  border-top-color: var(--hot-yellow);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 14px; font-weight: 800; color: #666; letter-spacing: 2px; text-transform: uppercase; }
+
+/* empty state */
+.empty-state {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; flex: 1; gap: 14px; padding: 40px;
+  text-align: center;
+}
+.empty-state-icon { font-size: 56px; }
+.empty-state-text { font-size: 15px; font-weight: 700; color: #555; line-height: 1.5; }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* toast */
+#toast {
+  position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: #222; border: 2px solid var(--neutral); border-radius: 8px;
+  padding: 10px 20px; font-size: 13px; font-weight: 700; color: var(--neutral);
+  opacity: 0; pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 300; white-space: nowrap;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ══ SETUP ══════════════════════════════════════════════ -->
+<div class="screen active" id="screen-setup">
+  <div class="setup-hero">
+    <div class="setup-logo">Hot / Cold</div>
+    <div class="setup-title">Read the<br>Room</div>
+    <div class="setup-subtitle">Reveal hidden social dynamics<br>in any conversation</div>
+  </div>
+
+  <div class="setup-section">
+    <div class="setup-label">How many people?</div>
+    <div class="num-picker" id="num-picker"></div>
+  </div>
+
+  <div class="setup-section">
+    <div class="setup-label">Speakers <span style="color:#444;font-weight:400">(tap to name)</span></div>
+    <div id="speaker-cards"></div>
+  </div>
+
+  <div class="setup-section">
+    <div class="setup-label">Capture mode</div>
+    <div class="capture-btns">
+      <button class="capture-btn selected" data-mode="paste" onclick="selectCaptureMode(this,'paste')">
+        <span class="cap-icon">📝</span> Paste Text
+      </button>
+      <button class="capture-btn" data-mode="live" onclick="selectCaptureMode(this,'live')">
+        <span class="cap-icon">🎤</span> Live Audio
+      </button>
+    </div>
+  </div>
+
+  <button id="btn-go" onclick="goToCapture()">Let's Go →</button>
+</div>
+
+<!-- ══ PASTE ═══════════════════════════════════════════════ -->
+<div class="screen" id="screen-paste">
+  <div class="paste-header">
+    <button class="back-btn" onclick="showScreen('screen-setup')">←</button>
+    <div class="paste-title">Paste Conversation</div>
+  </div>
+  <div class="paste-area-wrap">
+    <textarea id="paste-textarea"
+      placeholder="Paste any conversation here…&#10;&#10;WhatsApp, Slack, iMessage, or plain text like:&#10;Alice: Hey how are you?&#10;Bob: Good thanks!&#10;&#10;Timestamps optional."
+      oninput="onPasteInput(this)"></textarea>
+    <div class="paste-preview" id="paste-preview"></div>
+    <button id="btn-analyze" disabled onclick="analyzeConversation()">Analyze →</button>
+  </div>
+</div>
+
+<!-- ══ READER ══════════════════════════════════════════════ -->
+<div class="screen" id="screen-reader">
+  <div class="reader-header">
+    <div class="reader-logo">🔮 Hot/Cold</div>
+    <div style="display:flex;gap:8px">
+      <button class="action-btn" style="flex:none;padding:8px 12px" onclick="showScreen('screen-network')">Full View</button>
+      <button id="btn-hud-mode" onclick="enterHUD()">▶ HUD</button>
+    </div>
+  </div>
+  <div class="reader-body" id="reader-body">
+    <div class="empty-state">
+      <div class="empty-state-icon">👥</div>
+      <div class="empty-state-text">Analyze a conversation<br>to see social dynamics</div>
+    </div>
+  </div>
+  <div class="reader-actions">
+    <button class="action-btn primary" onclick="showScreen('screen-setup')">↺ New</button>
+    <button class="action-btn" onclick="showPaste()">📝 Paste</button>
+    <button class="action-btn" onclick="showLive()">🎤 Live</button>
+  </div>
+</div>
+
+<!-- ══ NETWORK / FULL DYNAMIC ══════════════════════════════ -->
+<div class="screen" id="screen-network">
+  <div class="network-header">
+    <button class="back-btn" onclick="showScreen('screen-reader')">←</button>
+    <div class="network-title">Full Dynamic</div>
+  </div>
+  <canvas id="network-canvas"></canvas>
+  <div class="network-footer">
+    <div id="network-summary">Analyzing relationships…</div>
+  </div>
+</div>
+
+<!-- ══ HUD ═════════════════════════════════════════════════ -->
+<div class="screen" id="screen-hud">
+  <div class="hud-header">
+    <div class="hud-live-dot"><div class="live-dot"></div>Live</div>
+    <button id="btn-exit-hud" onclick="showScreen('screen-reader')">Exit HUD</button>
+  </div>
+  <div class="hud-bars" id="hud-bars"></div>
+  <div class="hud-alerts" id="hud-alerts">
+    <div class="empty-state" style="padding:20px">
+      <div class="empty-state-icon">👁️</div>
+      <div class="empty-state-text" style="font-size:13px">Watching for dynamics…</div>
+    </div>
+  </div>
+  <div class="hud-footer">TAP SPEAKER BAR TO FLIP BACK</div>
+</div>
+
+<!-- ══ LIVE AUDIO ══════════════════════════════════════════ -->
+<div class="screen" id="screen-live">
+  <div class="live-header">
+    <button class="back-btn" onclick="showScreen('screen-reader')">←</button>
+    <div class="live-title">🎤 Live Audio</div>
+    <div class="live-dot" style="background:var(--hot-red)"></div>
+  </div>
+  <div class="live-body">
+    <div class="setup-label" style="margin-bottom:12px">Who's speaking now? Tap to tag.</div>
+    <div class="live-speaker-btns" id="live-speaker-btns"></div>
+    <div class="setup-label" style="margin-bottom:10px">Transcript</div>
+    <div class="live-transcript" id="live-transcript">
+      <div style="color:#444;font-size:13px">Transcript will appear here…</div>
+    </div>
+  </div>
+  <div class="live-footer">
+    <button id="btn-live-done" onclick="finishLive()">Done — Analyze →</button>
+  </div>
+</div>
+
+<!-- ══ PANELS ══════════════════════════════════════════════ -->
+<!-- Speaker profile panel -->
+<div class="panel-overlay" id="panel-speaker" onclick="closePanelOnBg(event,'panel-speaker')">
+  <div class="panel" id="panel-speaker-content">
+    <div class="panel-handle"></div>
+    <div class="panel-header">
+      <div class="panel-title" id="ps-title">Speaker #1</div>
+      <button class="panel-close" onclick="closePanel('panel-speaker')">✕</button>
+    </div>
+    <div class="panel-body" id="ps-body"></div>
+  </div>
+</div>
+
+<!-- Relationship panel -->
+<div class="panel-overlay" id="panel-rel" onclick="closePanelOnBg(event,'panel-rel')">
+  <div class="panel" id="panel-rel-content">
+    <div class="panel-handle"></div>
+    <div class="panel-header">
+      <div class="panel-title" id="pr-title">Relationship</div>
+      <button class="panel-close" onclick="closePanel('panel-rel')">✕</button>
+    </div>
+    <div class="panel-body" id="pr-body"></div>
+  </div>
+</div>
+
+<!-- Name editor -->
+<div id="name-editor-overlay" onclick="closeNameEditorBg(event)">
+  <div class="name-editor-box">
+    <div class="name-editor-title" id="ne-title">Name this speaker</div>
+    <input type="text" class="name-editor-input" id="ne-input" placeholder="e.g. Mom, Alex, Boss…" maxlength="20">
+    <div class="name-editor-btns">
+      <button class="name-editor-cancel" onclick="closeNameEditor()">Cancel</button>
+      <button class="name-editor-save" onclick="saveNameEdit()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   AFINN-165 LEXICON (curated ~300 high-signal words)
+══════════════════════════════════════════════════════════════ */
+const AFINN = {
+  "abandon":-2,"abandoned":-2,"abandons":-2,"abhor":-3,"abhorrent":-3,
+  "abuse":-3,"abused":-3,"ache":-2,"aches":-2,"aching":-2,
+  "admire":2,"admired":2,"admires":2,"adorable":3,"adore":3,
+  "afraid":-2,"aggravate":-2,"aggravating":-2,"aggression":-2,"aggressive":-2,
+  "agree":1,"agreeable":2,"alarm":-2,"alarmed":-2,"alienate":-2,
+  "amaze":3,"amazing":4,"angry":-3,"annoyed":-2,"annoying":-2,
+  "anxious":-2,"anxiety":-2,"apathy":-1,"appreciate":2,"appreciated":2,
+  "arrogant":-2,"ashamed":-2,"attack":-2,"attracted":2,"attraction":2,
+  "awesome":4,"awful":-3,
+  "bad":-3,"beautiful":3,"betrayal":-3,"betrayed":-3,"bitter":-2,
+  "blame":-2,"bliss":3,"bored":-1,"boring":-1,"brave":2,
+  "brilliant":3,"broken":-2,
+  "calm":2,"care":2,"careful":1,"celebrate":3,"certain":1,
+  "charming":2,"cheerful":3,"clueless":-1,"cold":-1,"comfort":2,
+  "comfortable":2,"compassion":2,"concerned":-1,"confident":2,"confused":-1,
+  "connect":2,"contentment":2,"cool":1,"cozy":2,"creative":2,
+  "cruel":-3,"curious":1,
+  "damage":-2,"dangerous":-2,"daring":1,"dear":2,"defend":1,
+  "delight":3,"delightful":3,"depressed":-3,"depression":-3,"deserve":1,
+  "desperate":-2,"devastated":-3,"determined":2,"devoted":2,"disappointed":-2,
+  "disappointment":-2,"disgust":-3,"disgusted":-3,"dislike":-2,"dismiss":-2,
+  "distrust":-2,"doubt":-1,"dread":-2,"dreary":-2,"dynamic":1,
+  "eager":2,"easy":1,"ecstatic":4,"embarrassed":-2,"emotional":1,
+  "empathy":2,"encourage":2,"energized":2,"engaged":2,"enjoy":2,
+  "enjoyable":2,"enthusiastic":3,"envious":-1,"evil":-3,"excellent":3,
+  "excited":3,"exhausted":-2,"fantastic":4,"fear":-2,"fearful":-2,
+  "fond":2,"foolish":-1,"friendly":2,"frightened":-2,"frustrated":-2,
+  "frustration":-2,"fulfilling":2,"fun":2,"furious":-3,
+  "genuine":2,"glad":2,"good":2,"gorgeous":3,"grateful":3,
+  "gratitude":3,"great":3,"grief":-2,"grumpy":-1,"guilt":-2,
+  "happy":3,"harm":-2,"hate":-3,"hated":-3,"helpful":2,
+  "hopeful":2,"hopeless":-2,"hurt":-2,
+  "ignore":-1,"ignored":-2,"impressed":2,"incredible":4,"indifferent":-1,
+  "inspire":2,"inspired":2,"insult":-2,"interested":1,"interesting":2,
+  "joy":3,"joyful":3,"kind":2,"laugh":2,"laughing":2,
+  "lively":2,"lonely":-2,"love":3,"lovely":3,"loving":3,
+  "loyal":2,"mad":-2,"meaningful":2,"miserable":-3,"miss":-1,
+  "nervous":-1,"nice":2,"offend":-2,"offended":-2,"overjoyed":4,
+  "overwhelmed":-2,"pain":-2,"panic":-2,"passionate":2,"peaceful":2,
+  "perfect":3,"pleased":2,"positive":2,"powerful":2,"proud":2,
+  "rage":-3,"reassure":2,"regret":-2,"reject":-2,"rejected":-2,
+  "reliable":2,"reluctant":-1,"resentful":-2,"resentment":-2,
+  "respect":2,"responsible":1,"sad":-2,"safe":2,"scared":-2,
+  "secure":2,"sensitive":1,"sorry":-1,"special":2,"strong":2,
+  "stupid":-2,"suffering":-2,"support":2,"surprised":1,"suspicious":-2,
+  "sweet":2,"terrible":-3,"thankful":2,"thrilled":3,"tired":-1,
+  "trust":2,"trusted":2,"ugly":-2,"uncomfortable":-2,"unhappy":-2,
+  "upset":-2,"warm":2,"welcoming":2,"wonder":2,"wonderful":3,
+  "worried":-2,"worry":-2,"worthless":-2,"wow":3,
+  // Extra positive
+  "blissful":3,"bright":1,"cheers":2,"cherish":2,"clarity":1,
+  "closer":1,"connection":2,"cooperative":2,"cozy":2,"delight":3,
+  "effective":1,"empowered":2,"exciting":3,"expansive":1,"fascinating":2,
+  "free":1,"genuine":2,"generous":2,"growth":2,"heart":1,
+  "honest":2,"hope":2,"hug":2,"important":1,"improvement":1,
+  "inclusive":2,"innovative":2,"intelligent":2,"laugh":2,"leader":1,
+  "meaningful":2,"motivated":2,"nurturing":2,"open":1,"optimistic":2,
+  "organized":1,"playful":2,"pleased":2,"productive":1,"proud":2,
+  "real":1,"refreshing":2,"reliable":2,"resilient":2,"safe":2,
+  "sincere":2,"smart":2,"smile":2,"solutions":1,"together":1,
+  "valuable":2,"vibrant":2,"welcoming":2,"wise":2,"yes":1,
+  // Extra negative
+  "afraid":-2,"aggravating":-2,"alone":-1,"anger":-2,"annoy":-2,
+  "avoid":-1,"awkward":-1,"bad":-2,"blame":-2,"careless":-2,
+  "challenging":-1,"complicated":-1,"conflict":-2,"difficult":-1,
+  "disagree":-1,"distant":-1,"dull":-1,"exclude":-2,"failure":-2,
+  "fake":-2,"harsh":-2,"heavy":-1,"hostile":-2,"ignore":-1,
+  "incompetent":-2,"inconsiderate":-2,"irresponsible":-2,"isolated":-2,
+  "judgmental":-2,"lack":-1,"lost":-1,"low":-1,"manipulate":-3,
+  "mean":-2,"messy":-1,"mistake":-1,"negative":-1,"no":-1,
+  "not":-1,"overwhelm":-2,"passive":-1,"problem":-1,"rude":-2,
+  "shame":-2,"slow":-1,"stress":-2,"struggle":-2,"tense":-2,
+  "toxic":-3,"uncertain":-1,"unhealthy":-2,"unkind":-2,"weak":-1,
+  "wrong":-2
+};
+
+/* ══════════════════════════════════════════════════════════════
+   EXIT LANGUAGE PATTERNS
+══════════════════════════════════════════════════════════════ */
+const EXIT_PHRASES = [
+  "anyway","i should go","gotta go","got to go","gotta run","got to run",
+  "i should get going","need to go","have to go","let me go","gotta head",
+  "take care","talk later","talk soon","catch you later","see you later",
+  "see ya","bye","goodbye","goodnight","good night","i'll let you go",
+  "don't want to keep you","good catching up","nice catching up",
+  "great catching up","was good talking","was nice talking"
+];
+
+const INCLUSIVE_WORDS = ["we","us","our","ours","together","let's","lets","both","everyone","everybody"];
+const FUTURE_WORDS = ["will","should","gonna","going to","plan","planning","next","tomorrow","weekend","soon","later","eventually"];
+const QUESTION_RE = /\?/g;
+
+/* ══════════════════════════════════════════════════════════════
+   APP STATE
+══════════════════════════════════════════════════════════════ */
+const SPEAKER_COLORS = ['#FF3333','#FFD700','#3366FF','#00CC66','#FF8C42','#FF69B4','#BF5FFF','#00E5FF'];
+const HARING_FIGS = ['🕺','💃','🤸','🧍','🧎','🤾','🙆','🤷'];
+const ENERGY_EMOJIS = {high:'🔥',mid:'⚡',low:'😶',cold:'🥶'};
+
+let state = {
+  numSpeakers: 4,
+  captureMode: 'paste',
+  speakers: [],          // [{id,name,color,fig}]
+  analysis: null,        // full analysis result
+  liveMessages: [],      // for live mode
+  currentSpeaker: null,  // for live mode
+  hudActive: false,
+  hudAlertQueue: [],
+  nameEditTarget: null,
+  networkAnimFrame: null,
+};
+
+/* ══════════════════════════════════════════════════════════════
+   SETUP SCREEN
+══════════════════════════════════════════════════════════════ */
+function initSetup() {
+  const picker = document.getElementById('num-picker');
+  picker.innerHTML = '';
+  for (let n = 2; n <= 8; n++) {
+    const btn = document.createElement('button');
+    btn.className = 'num-btn' + (n === state.numSpeakers ? ' selected' : '');
+    btn.textContent = n;
+    btn.onclick = () => selectNum(n);
+    picker.appendChild(btn);
+  }
+  renderSpeakerCards();
+}
+
+function selectNum(n) {
+  state.numSpeakers = n;
+  document.querySelectorAll('.num-btn').forEach((b,i) => {
+    b.classList.toggle('selected', i + 2 === n);
+  });
+  renderSpeakerCards();
+}
+
+function renderSpeakerCards() {
+  // Preserve existing names
+  const oldNames = {};
+  state.speakers.forEach(s => { if (s.name) oldNames[s.id] = s.name; });
+  state.speakers = [];
+  for (let i = 0; i < state.numSpeakers; i++) {
+    const id = `#${i+1}`;
+    state.speakers.push({
+      id, name: oldNames[id] || null,
+      color: SPEAKER_COLORS[i],
+      fig: HARING_FIGS[i]
+    });
+  }
+  const container = document.getElementById('speaker-cards');
+  container.innerHTML = '';
+  state.speakers.forEach((s,i) => {
+    const card = document.createElement('div');
+    card.className = 'speaker-card';
+    card.style.borderColor = s.color;
+    card.onclick = () => openNameEditor(i);
+    card.innerHTML = `
+      <div class="speaker-dot" style="background:${s.color}"></div>
+      <div class="speaker-card-info">
+        <div class="speaker-card-num">${s.id}</div>
+        <div class="speaker-card-name ${s.name ? '' : 'placeholder'}">${s.name || 'Tap to name…'}</div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function selectCaptureMode(el, mode) {
+  state.captureMode = mode;
+  document.querySelectorAll('.capture-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function goToCapture() {
+  if (state.captureMode === 'paste') showPaste();
+  else showLive();
+}
+
+function showPaste() {
+  showScreen('screen-paste');
+  document.getElementById('paste-textarea').focus();
+}
+
+function showLive() {
+  renderLiveSpeakerBtns();
+  showScreen('screen-live');
+  requestMicAccess();
+}
+
+/* ══════════════════════════════════════════════════════════════
+   NAME EDITOR
+══════════════════════════════════════════════════════════════ */
+function openNameEditor(idx) {
+  state.nameEditTarget = idx;
+  const s = state.speakers[idx];
+  document.getElementById('ne-title').textContent = `Name Speaker ${s.id}`;
+  document.getElementById('ne-input').value = s.name || '';
+  document.getElementById('name-editor-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('ne-input').focus(), 100);
+}
+function closeNameEditor() {
+  document.getElementById('name-editor-overlay').classList.remove('open');
+  state.nameEditTarget = null;
+}
+function closeNameEditorBg(e) {
+  if (e.target.id === 'name-editor-overlay') closeNameEditor();
+}
+function saveNameEdit() {
+  const val = document.getElementById('ne-input').value.trim();
+  if (state.nameEditTarget !== null) {
+    state.speakers[state.nameEditTarget].name = val || null;
+    renderSpeakerCards();
+  }
+  closeNameEditor();
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PASTE / TEXT ANALYSIS
+══════════════════════════════════════════════════════════════ */
+function onPasteInput(el) {
+  const text = el.value.trim();
+  const btn = document.getElementById('btn-analyze');
+  const preview = document.getElementById('paste-preview');
+  if (text.length < 10) {
+    btn.disabled = true;
+    preview.classList.remove('visible');
+    return;
+  }
+  const msgs = parseConversation(text);
+  if (msgs.length > 0) {
+    const speakers = [...new Set(msgs.map(m => m.speaker))];
+    preview.innerHTML = `Found <strong>${speakers.length} speaker${speakers.length!==1?'s':''}</strong>, <strong>${msgs.length} message${msgs.length!==1?'s':''}</strong>`;
+    preview.classList.add('visible');
+    btn.disabled = false;
+  } else {
+    preview.innerHTML = `No conversation format detected — will analyze as single speaker`;
+    preview.classList.add('visible');
+    btn.disabled = false;
+  }
+}
+
+function parseConversation(text) {
+  const lines = text.split('\n').filter(l => l.trim());
+  const messages = [];
+  // Patterns: "Name: msg", "[HH:MM] Name: msg", "Name (HH:MM): msg"
+  const patterns = [
+    /^\[?(\d{1,2}[:/]\d{2}(?:[:/]\d{2})?(?:\s?[AP]M)?)\]?\s+([^:]+?):\s(.+)$/i,
+    /^([^:\[\]]+):\s(.+)$/,
+    /^([^:]+)\s\[\d{1,2}:\d{2}(?:\s?[AP]M)?\]:\s(.+)$/i,
+  ];
+  for (const line of lines) {
+    let matched = false;
+    for (const pat of patterns) {
+      const m = line.match(pat);
+      if (m) {
+        const speaker = m[m.length-2].trim();
+        const content = m[m.length-1].trim();
+        if (speaker.length < 40 && content.length > 0) {
+          messages.push({ speaker, content, timestamp: Date.now() + messages.length * 1000 });
+          matched = true; break;
+        }
+      }
+    }
+    if (!matched && messages.length > 0 && !line.match(/^[\[\(]/)) {
+      // continuation
+      messages[messages.length-1].content += ' ' + line.trim();
+    }
+  }
+  return messages;
+}
+
+function analyzeConversation() {
+  const text = document.getElementById('paste-textarea').value.trim();
+  showScreen('screen-reader');
+  const body = document.getElementById('reader-body');
+  body.innerHTML = '<div class="loading-wrap"><div class="loading-ring"></div><div class="loading-text">Analyzing…</div></div>';
+
+  setTimeout(() => {
+    const msgs = parseConversation(text);
+    if (msgs.length === 0) {
+      // treat whole text as single speaker
+      msgs.push({ speaker: state.speakers[0]?.id || '#1', content: text, timestamp: Date.now() });
+    }
+    state.analysis = runAnalysis(msgs);
+    renderReader();
+    scheduleHUDAlerts();
+  }, 600);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ANALYSIS ENGINE
+══════════════════════════════════════════════════════════════ */
+function scoreText(text) {
+  const words = text.toLowerCase().replace(/[^a-z\s]/g,' ').split(/\s+/);
+  let total = 0, count = 0;
+  for (const w of words) {
+    if (AFINN[w] !== undefined) { total += AFINN[w]; count++; }
+  }
+  return count > 0 ? total / count : 0;
+}
+
+function detectExitLanguage(text) {
+  const lower = text.toLowerCase();
+  return EXIT_PHRASES.some(p => lower.includes(p));
+}
+
+function countInclusive(text) {
+  const lower = text.toLowerCase().split(/\s+/);
+  return lower.filter(w => INCLUSIVE_WORDS.includes(w)).length;
+}
+
+function countFuture(text) {
+  const lower = text.toLowerCase().split(/\s+/);
+  return lower.filter(w => FUTURE_WORDS.includes(w)).length;
+}
+
+function countQuestions(text) {
+  return (text.match(QUESTION_RE) || []).length;
+}
+
+function runAnalysis(messages) {
+  // Map speaker labels → state.speakers
+  const rawSpeakers = [...new Set(messages.map(m => m.speaker))];
+  const speakerMap = {}; // rawName → speakerObj
+  rawSpeakers.forEach((rs, i) => {
+    speakerMap[rs] = state.speakers[i] || { id: `#${i+1}`, name: rs, color: SPEAKER_COLORS[i % SPEAKER_COLORS.length], fig: HARING_FIGS[i % HARING_FIGS.length] };
+    // Store raw name on speaker for display
+    if (!speakerMap[rs].rawName) speakerMap[rs].rawName = rs;
+  });
+
+  const speakers = Object.values(speakerMap);
+  const totalMsgs = messages.length;
+
+  // Per-speaker stats
+  const spStats = {};
+  speakers.forEach(s => {
+    spStats[s.id] = {
+      messages: [], sentimentTotal: 0, sentimentCount: 0,
+      questions: 0, inclusive: 0, future: 0,
+      exitSignals: 0, exclamations: 0, emojiCount: 0,
+      totalWords: 0, responses: [],
+    };
+  });
+
+  messages.forEach((msg, idx) => {
+    const sp = speakerMap[msg.speaker];
+    if (!sp) return;
+    const st = spStats[sp.id];
+    const score = scoreText(msg.content);
+    st.messages.push({ ...msg, score, spId: sp.id });
+    st.sentimentTotal += score; st.sentimentCount++;
+    st.questions += countQuestions(msg.content);
+    st.inclusive += countInclusive(msg.content);
+    st.future += countFuture(msg.content);
+    if (detectExitLanguage(msg.content)) st.exitSignals++;
+    st.exclamations += (msg.content.match(/!/g) || []).length;
+    st.emojiCount += (msg.content.match(/[\u{1F000}-\u{1FFFF}]/gu) || []).length;
+    st.totalWords += msg.content.split(/\s+/).length;
+
+    // Response latency
+    if (idx > 0 && messages[idx-1].speaker !== msg.speaker) {
+      st.responses.push(idx);
+    }
+  });
+
+  // Build profiles
+  const profiles = speakers.map(s => {
+    const st = spStats[s.id];
+    const msgCount = st.messages.length;
+    const avgSentiment = st.sentimentCount > 0 ? st.sentimentTotal / st.sentimentCount : 0;
+    const avgLen = msgCount > 0 ? st.totalWords / msgCount : 0;
+    const speakingPct = totalMsgs > 0 ? msgCount / totalMsgs : 0;
+    const energy = Math.min(1, Math.max(0,
+      0.3 * normalize(avgSentiment, -3, 3) +
+      0.2 * normalize(st.exclamations + st.emojiCount, 0, msgCount * 2 || 1) +
+      0.3 * normalize(st.questions, 0, msgCount || 1) +
+      0.2 * normalize(avgLen, 0, 50)
+    ));
+    const dominance = speakingPct;
+    const stressLevel = Math.max(0, -avgSentiment / 3);
+    const mood = avgSentiment > 0.5 ? 'Engaged' : avgSentiment > 0 ? 'Neutral' : avgSentiment > -1 ? 'Reserved' : 'Withdrawn';
+    const energyLabel = energy > 0.7 ? 'High Energy' : energy > 0.4 ? 'Moderate' : 'Low Energy';
+    // Trend: compare first half vs second half
+    const half = Math.floor(st.messages.length / 2);
+    const firstHalf = st.messages.slice(0, half).reduce((a,m) => a + m.score, 0) / (half || 1);
+    const secondHalf = st.messages.slice(half).reduce((a,m) => a + m.score, 0) / ((st.messages.length - half) || 1);
+    const trend = secondHalf > firstHalf + 0.2 ? 'Rising' : secondHalf < firstHalf - 0.2 ? 'Falling' : 'Stable';
+
+    // History for sparkline (sentiment over chunks)
+    const chunks = 10;
+    const chunkSize = Math.max(1, Math.floor(msgCount / chunks));
+    const history = [];
+    for (let c = 0; c < chunks; c++) {
+      const slice = st.messages.slice(c*chunkSize, (c+1)*chunkSize);
+      const avg = slice.length > 0 ? slice.reduce((a,m) => a + m.score, 0) / slice.length : 0;
+      history.push(normalize(avg, -3, 3));
+    }
+
+    return {
+      ...s, msgCount, avgSentiment, avgLen, speakingPct, energy,
+      dominance, stressLevel, mood, energyLabel, trend,
+      questions: st.questions, inclusive: st.inclusive,
+      future: st.future, exitSignals: st.exitSignals,
+      history, rawName: s.rawName || s.id,
+    };
+  });
+
+  // Relationship scoring (A→B)
+  const relationships = {};
+  for (const a of speakers) {
+    for (const b of speakers) {
+      if (a.id === b.id) continue;
+      const key = `${a.id}→${b.id}`;
+      const aSt = spStats[a.id];
+      // Signals from A toward B
+      const signals = [];
+      let score = 0.5; // neutral start
+
+      // sentiment A says (overall positivity)
+      const aSentNorm = normalize(aSt.sentimentTotal / (aSt.sentimentCount || 1), -2, 2);
+      score += (aSentNorm - 0.5) * 0.25;
+      if (aSentNorm > 0.6) signals.push({ text: `Positive language overall`, valence: 1, color: '#00CC66' });
+      if (aSentNorm < 0.4) signals.push({ text: `Guarded/negative language`, valence: -1, color: '#FF3333' });
+
+      // Questions asked (interest signal)
+      const qRate = aSt.questions / (aSt.msgCount || 1);
+      if (qRate > 0.3) { score += 0.08; signals.push({ text: `High question rate (${aSt.questions} questions)`, valence: 1, color: '#3366FF' }); }
+
+      // Inclusive language
+      if (aSt.inclusive > 2) { score += 0.06; signals.push({ text: `Inclusive "we/us" language (${aSt.inclusive}×)`, valence: 1, color: '#FFD700' }); }
+
+      // Future references
+      if (aSt.future > 1) { score += 0.05; signals.push({ text: `Future-oriented references`, valence: 1, color: '#FF8C42' }); }
+
+      // Exit language penalty
+      if (aSt.exitSignals > 0) { score -= 0.1; signals.push({ text: `Exit language detected`, valence: -1, color: '#FF3333' }); }
+
+      // Engagement (message length vs partner)
+      const bSt = spStats[b.id];
+      const lenRatio = (aSt.totalWords / (aSt.msgCount||1)) / Math.max(1, bSt.totalWords / (bSt.msgCount||1));
+      if (lenRatio > 1.3) { score += 0.05; signals.push({ text: `Writes more than they do (${Math.round(lenRatio*10)/10}× longer)`, valence: 1, color: '#00CC66' }); }
+      if (lenRatio < 0.6) { score -= 0.05; signals.push({ text: `Brief responses`, valence: -1, color: '#888' }); }
+
+      // Trend
+      const aSentHistory = [];
+      const chunkSz = Math.max(1, Math.floor(aSt.messages.length / 5));
+      for (let c = 0; c < 5; c++) {
+        const sl = aSt.messages.slice(c*chunkSz,(c+1)*chunkSz);
+        aSentHistory.push(sl.length > 0 ? sl.reduce((a,m)=>a+m.score,0)/sl.length : 0);
+      }
+      const trendVal = aSentHistory.length >= 2 ?
+        aSentHistory[aSentHistory.length-1] - aSentHistory[0] : 0;
+      const trend = trendVal > 0.3 ? 'warming' : trendVal < -0.3 ? 'cooling' : 'stable';
+      if (trend === 'warming') signals.push({ text: `Tone warming over conversation`, valence: 1, color: '#FF8C42' });
+      if (trend === 'cooling') signals.push({ text: `Tone cooling over conversation`, valence: -1, color: '#3366FF' });
+
+      score = Math.min(1, Math.max(0, score));
+      relationships[key] = { from: a.id, to: b.id, score, trend, signals, history: aSentHistory.map(v=>normalize(v,-2,2)) };
+    }
+  }
+
+  return { profiles, relationships, messages, rawSpeakers };
+}
+
+function normalize(val, min, max) {
+  if (max === min) return 0.5;
+  return Math.min(1, Math.max(0, (val - min) / (max - min)));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   READER VIEW
+══════════════════════════════════════════════════════════════ */
+function renderReader() {
+  const body = document.getElementById('reader-body');
+  if (!state.analysis) return;
+  const { profiles } = state.analysis;
+  body.innerHTML = '';
+
+  profiles.forEach((profile, idx) => {
+    const others = profiles.filter(p => p.id !== profile.id);
+    const wrap = document.createElement('div');
+    wrap.className = 'speaker-row-wrap';
+
+    // Build bar
+    const bar = document.createElement('div');
+    bar.className = 'speaker-bar';
+    bar.style.borderColor = profile.color;
+    if (profile.energy > 0.7) bar.classList.add('pulsing');
+    bar.style.color = profile.color;
+
+    const bgDiv = document.createElement('div');
+    bgDiv.className = 'speaker-bar-bg';
+    bgDiv.style.background = profile.color;
+    bar.appendChild(bgDiv);
+
+    const stateDesc = `${profile.mood} · ${profile.energyLabel} · ${profile.trend}`;
+    const displayName = profile.name || profile.rawName || profile.id;
+    bar.innerHTML += `
+      <div class="speaker-bar-content">
+        <div class="speaker-bar-top">
+          <span class="speaker-bar-num" style="color:${profile.color};border-color:${profile.color}">${profile.id}</span>
+          <span class="speaker-bar-name">${displayName !== profile.id ? displayName : ''}</span>
+        </div>
+        <div class="speaker-bar-states">${stateDesc}</div>
+        <div class="speaker-energy-bar">
+          <div class="speaker-energy-fill" style="width:${Math.round(profile.energy*100)}%;background:${profile.color}"></div>
+        </div>
+      </div>
+    `;
+    bar.onclick = () => openSpeakerPanel(profile);
+    wrap.appendChild(bar);
+
+    // Relationship circles
+    const circles = document.createElement('div');
+    circles.className = 'rel-circles';
+    others.forEach(other => {
+      const relKey = `${profile.id}→${other.id}`;
+      const rel = state.analysis.relationships[relKey];
+      const score = rel ? rel.score : 0.5;
+      const circle = document.createElement('div');
+      circle.className = 'rel-circle';
+      const bg = scoreToColor(score);
+      circle.style.background = bg;
+      circle.style.borderColor = other.color;
+      circle.style.color = '#000';
+      circle.textContent = other.id.replace('#','');
+      if (score > 0.65) circle.classList.add('hot');
+      else if (score < 0.35) circle.classList.add('cold');
+      else circle.classList.add('neutral');
+      circle.onclick = () => openRelPanel(profile, other);
+      circles.appendChild(circle);
+    });
+    wrap.appendChild(circles);
+    body.appendChild(wrap);
+  });
+}
+
+function scoreToColor(score) {
+  if (score >= 0.7) return `rgba(255,51,51,${0.3 + score * 0.5})`;
+  if (score >= 0.55) return `rgba(255,140,66,${0.3 + score * 0.4})`;
+  if (score >= 0.45) return `rgba(0,204,102,0.3)`;
+  if (score >= 0.3) return `rgba(136,204,255,0.3)`;
+  return `rgba(51,102,255,${0.3 + (1-score) * 0.4})`;
+}
+
+function scoreToCSSClass(score) {
+  if (score >= 0.6) return 'hot';
+  if (score <= 0.4) return 'cold';
+  return 'neutral';
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PANELS
+══════════════════════════════════════════════════════════════ */
+function openSpeakerPanel(profile) {
+  const title = document.getElementById('ps-title');
+  const body = document.getElementById('ps-body');
+  const displayName = profile.name || profile.rawName;
+  title.textContent = `${profile.id}${displayName && displayName !== profile.id ? ' — ' + displayName : ''}`;
+  title.style.color = profile.color;
+
+  const moodFig = profile.energy > 0.7 ? '🕺' : profile.energy > 0.4 ? '🧍' : '😶';
+
+  body.innerHTML = `
+    <div class="haring-figure">${moodFig}</div>
+    <div class="stat-row">
+      <span class="stat-label">Mood</span>
+      <span class="stat-value" style="color:${profile.color}">${profile.mood}</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Energy</span>
+      <div class="stat-bar-wrap">
+        <div class="mini-bar"><div class="mini-bar-fill" style="width:${Math.round(profile.energy*100)}%;background:${profile.color}"></div></div>
+        <span class="stat-value">${Math.round(profile.energy*100)}%</span>
+      </div>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Speaking Time</span>
+      <span class="stat-value">${Math.round(profile.speakingPct*100)}%</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Avg Message</span>
+      <span class="stat-value">${Math.round(profile.avgLen)} words</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Questions Asked</span>
+      <span class="stat-value">${profile.questions}</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Inclusive Language</span>
+      <span class="stat-value">${profile.inclusive}×</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Future References</span>
+      <span class="stat-value">${profile.future}×</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Trend</span>
+      <span class="stat-value" style="color:${profile.trend==='Rising'?'#00CC66':profile.trend==='Falling'?'#FF3333':'#888'}">${profile.trend} ${profile.trend==='Rising'?'↑':profile.trend==='Falling'?'↓':'→'}</span>
+    </div>
+    ${profile.exitSignals > 0 ? `<div class="signal-item" style="border-color:#FF3333;margin-top:10px">🚪 Exit language detected in ${profile.exitSignals} message${profile.exitSignals>1?'s':''}</div>` : ''}
+    <div class="sparkline-wrap">
+      <div class="sparkline-label">Engagement Trend</div>
+      <canvas class="sparkline" id="sp-spark-${profile.id}" height="48"></canvas>
+    </div>
+  `;
+
+  openPanel('panel-speaker');
+  setTimeout(() => drawSparkline(`sp-spark-${profile.id}`, profile.history, profile.color), 60);
+}
+
+function openRelPanel(a, b) {
+  const title = document.getElementById('pr-title');
+  const body = document.getElementById('pr-body');
+  title.textContent = `${a.id} ↔ ${b.id}`;
+
+  const abKey = `${a.id}→${b.id}`;
+  const baKey = `${b.id}→${a.id}`;
+  const ab = state.analysis.relationships[abKey];
+  const ba = state.analysis.relationships[baKey];
+
+  const abScore = ab ? Math.round(ab.score * 100) : 50;
+  const baScore = ba ? Math.round(ba.score * 100) : 50;
+  const abColor = ab ? scoreToHex(ab.score) : '#888';
+  const baColor = ba ? scoreToHex(ba.score) : '#888';
+  const asymmetry = Math.abs(abScore - baScore);
+
+  body.innerHTML = `
+    <div class="warmth-arrows">
+      <div class="warmth-arrow-item" style="border-color:${a.color}20">
+        <div class="warmth-arrow-label">${a.id} → ${b.id}</div>
+        <div class="warmth-arrow-score" style="color:${abColor}">${abScore}%</div>
+        <div class="warmth-arrow-trend" style="color:${ab?.trend==='warming'?'#FF8C42':ab?.trend==='cooling'?'#3366FF':'#666'}">${ab?.trend || 'stable'}</div>
+      </div>
+      <div class="warmth-arrow-item" style="border-color:${b.color}20">
+        <div class="warmth-arrow-label">${b.id} → ${a.id}</div>
+        <div class="warmth-arrow-score" style="color:${baColor}">${baScore}%</div>
+        <div class="warmth-arrow-trend" style="color:${ba?.trend==='warming'?'#FF8C42':ba?.trend==='cooling'?'#3366FF':'#666'}">${ba?.trend || 'stable'}</div>
+      </div>
+    </div>
+    ${asymmetry > 20 ? `<div class="signal-item" style="border-color:#FFD700;margin-bottom:12px">⚠️ Asymmetric dynamic — ${asymmetry}pt gap. ${abScore > baScore ? a.id + ' shows more warmth' : b.id + ' shows more warmth'}.</div>` : ''}
+    <div class="setup-label" style="margin-bottom:8px">Signals from ${a.id}</div>
+    <div class="signal-list">
+      ${(ab?.signals || []).map(s => `<div class="signal-item" style="border-color:${s.color}">${s.valence > 0 ? '↑' : '↓'} ${s.text}</div>`).join('') || '<div class="signal-item" style="border-color:#333">No strong signals detected</div>'}
+    </div>
+    <div class="sparkline-wrap">
+      <div class="sparkline-label">Warmth Trend</div>
+      <canvas class="sparkline" id="rel-spark-${a.id}-${b.id}" height="48"></canvas>
+    </div>
+  `;
+
+  openPanel('panel-rel');
+  setTimeout(() => {
+    if (ab) drawSparkline(`rel-spark-${a.id}-${b.id}`, ab.history, abColor);
+  }, 60);
+}
+
+function scoreToHex(score) {
+  if (score >= 0.65) return '#FF3333';
+  if (score >= 0.55) return '#FF8C42';
+  if (score >= 0.45) return '#00CC66';
+  if (score >= 0.35) return '#88CCFF';
+  return '#3366FF';
+}
+
+function openPanel(id) {
+  document.getElementById(id).classList.add('open');
+}
+function closePanel(id) {
+  document.getElementById(id).classList.remove('open');
+}
+function closePanelOnBg(e, id) {
+  if (e.target === document.getElementById(id)) closePanel(id);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SPARKLINES
+══════════════════════════════════════════════════════════════ */
+function drawSparkline(canvasId, data, color) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth || canvas.parentElement?.offsetWidth || 280;
+  const h = 48;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, w, h);
+  if (!data || data.length < 2) return;
+
+  // Background
+  ctx.fillStyle = '#0d0d0d';
+  ctx.fillRect(0, 0, w, h);
+
+  // Mid-line
+  ctx.strokeStyle = '#1a1a1a'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(0, h/2); ctx.lineTo(w, h/2); ctx.stroke();
+
+  const pad = 4;
+  const xStep = (w - pad*2) / (data.length - 1);
+
+  // Fill
+  const grad = ctx.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, color + '44');
+  grad.addColorStop(1, color + '00');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = pad + i * xStep;
+    const y = h - pad - v * (h - pad*2);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.lineTo(pad + (data.length-1)*xStep, h);
+  ctx.lineTo(pad, h);
+  ctx.closePath(); ctx.fill();
+
+  // Line
+  ctx.strokeStyle = color; ctx.lineWidth = 2;
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = pad + i * xStep;
+    const y = h - pad - v * (h - pad*2);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // Dots
+  data.forEach((v, i) => {
+    const x = pad + i * xStep;
+    const y = h - pad - v * (h - pad*2);
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI*2); ctx.fill();
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   NETWORK / FULL DYNAMIC VIEW
+══════════════════════════════════════════════════════════════ */
+function renderNetwork() {
+  const canvas = document.getElementById('network-canvas');
+  if (!state.analysis) {
+    document.getElementById('network-summary').textContent = 'No data yet — analyze a conversation first';
+    return;
+  }
+  if (state.networkAnimFrame) cancelAnimationFrame(state.networkAnimFrame);
+
+  const { profiles, relationships } = state.analysis;
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 375;
+  const H = canvas.offsetHeight || 400;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  // Position nodes in a circle
+  const cx = W/2, cy = H/2;
+  const r = Math.min(W, H) * 0.32;
+  const nodes = profiles.map((p, i) => {
+    const angle = (i / profiles.length) * Math.PI * 2 - Math.PI/2;
+    return { ...p, x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle), vx: 0, vy: 0 };
+  });
+
+  let t = 0;
+  const nodeR = Math.min(32, Math.max(20, 120 / profiles.length));
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    t += 0.02;
+
+    // Draw edges
+    profiles.forEach(a => {
+      profiles.forEach(b => {
+        if (a.id >= b.id) return;
+        const na = nodes.find(n => n.id === a.id);
+        const nb = nodes.find(n => n.id === b.id);
+        if (!na || !nb) return;
+        const abRel = relationships[`${a.id}→${b.id}`];
+        const baRel = relationships[`${b.id}→${a.id}`];
+        const avgScore = ((abRel?.score || 0.5) + (baRel?.score || 0.5)) / 2;
+        const lineColor = scoreToHex(avgScore);
+        const pulse = 0.5 + 0.5 * Math.sin(t * 2 + nodes.indexOf(na));
+        const alpha = 0.2 + avgScore * 0.5 + pulse * 0.1;
+        const lw = 1 + avgScore * 4;
+
+        ctx.strokeStyle = lineColor + Math.round(alpha * 255).toString(16).padStart(2,'0');
+        ctx.lineWidth = lw;
+        ctx.beginPath(); ctx.moveTo(na.x, na.y); ctx.lineTo(nb.x, nb.y); ctx.stroke();
+      });
+    });
+
+    // Draw nodes
+    nodes.forEach((node, i) => {
+      const pulse = 1 + 0.05 * Math.sin(t * 1.5 + i * 0.8);
+      const nr = nodeR * pulse;
+      // Glow
+      if (node.energy > 0.5) {
+        const grd = ctx.createRadialGradient(node.x, node.y, nr*0.5, node.x, node.y, nr*2);
+        grd.addColorStop(0, node.color + '33');
+        grd.addColorStop(1, node.color + '00');
+        ctx.fillStyle = grd;
+        ctx.beginPath(); ctx.arc(node.x, node.y, nr*2, 0, Math.PI*2); ctx.fill();
+      }
+      // Circle fill
+      ctx.fillStyle = '#111';
+      ctx.beginPath(); ctx.arc(node.x, node.y, nr, 0, Math.PI*2); ctx.fill();
+      // Border
+      ctx.strokeStyle = node.color; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(node.x, node.y, nr, 0, Math.PI*2); ctx.stroke();
+      // Label
+      ctx.fillStyle = node.color;
+      ctx.font = `bold ${Math.round(nr*0.5)}px Inter, sans-serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(node.id, node.x, node.y);
+      // Name below
+      const label = node.name || node.rawName || node.id;
+      if (label !== node.id) {
+        ctx.fillStyle = '#888';
+        ctx.font = `700 10px Inter, sans-serif`;
+        ctx.fillText(label, node.x, node.y + nr + 12);
+      }
+    });
+
+    state.networkAnimFrame = requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Summary
+  let summary = '';
+  let strongestScore = 0, strongestPair = '';
+  let weakestScore = 1, weakestNode = '';
+  const nodeScores = {};
+  profiles.forEach(p => { nodeScores[p.id] = 0; });
+  profiles.forEach(a => {
+    profiles.forEach(b => {
+      if (a.id === b.id) return;
+      const rel = relationships[`${a.id}→${b.id}`];
+      const s = rel?.score || 0.5;
+      nodeScores[a.id] = (nodeScores[a.id] || 0) + s;
+      const pairKey = [a.id,b.id].sort().join('↔');
+      const avg = (s + (relationships[`${b.id}→${a.id}`]?.score || 0.5)) / 2;
+      if (avg > strongestScore) { strongestScore = avg; strongestPair = pairKey; }
+    });
+  });
+  profiles.forEach(p => {
+    const avg = nodeScores[p.id] / (profiles.length - 1 || 1);
+    if (avg < weakestScore) { weakestScore = avg; weakestNode = p.id; }
+  });
+  if (strongestPair) summary += `Strongest bond: ${strongestPair}`;
+  if (weakestNode && profiles.length > 2) summary += ` · ${weakestNode} is most peripheral`;
+  document.getElementById('network-summary').textContent = summary || 'Balanced group dynamics';
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HUD MODE
+══════════════════════════════════════════════════════════════ */
+function enterHUD() {
+  state.hudActive = true;
+  renderHUDBars();
+  showScreen('screen-hud');
+  if (state.analysis) scheduleHUDAlerts();
+}
+
+function renderHUDBars() {
+  const container = document.getElementById('hud-bars');
+  container.innerHTML = '';
+  const profiles = state.analysis?.profiles || state.speakers.map((s,i) => ({
+    ...s, energy: 0.5
+  }));
+  profiles.forEach(p => {
+    const row = document.createElement('div');
+    row.className = 'hud-speaker-row';
+    const energy = p.energy ?? 0.5;
+    row.innerHTML = `
+      <div class="hud-speaker-id" style="color:${p.color}">${p.id}</div>
+      <div class="hud-progress-bg">
+        <div class="hud-progress-fill" style="width:${Math.round(energy*100)}%;background:${p.color}"></div>
+      </div>
+      <div class="hud-score">${Math.round(energy*100)}</div>
+    `;
+    row.onclick = () => showScreen('screen-reader');
+    container.appendChild(row);
+  });
+}
+
+function scheduleHUDAlerts() {
+  if (!state.analysis) return;
+  const { profiles, relationships } = state.analysis;
+  const alerts = [];
+
+  // Check for rapport peaks
+  for (let i = 0; i < profiles.length; i++) {
+    for (let j = i+1; j < profiles.length; j++) {
+      const a = profiles[i], b = profiles[j];
+      const ab = relationships[`${a.id}→${b.id}`]?.score || 0.5;
+      const ba = relationships[`${b.id}→${a.id}`]?.score || 0.5;
+      if (ab > 0.65 && ba > 0.65) {
+        alerts.push({ icon:'💡', title:`Rapport peak: ${a.id} ↔ ${b.id}`, sub:`Both showing high mutual warmth`, tier:'tier1', delay: 500 });
+      }
+      if (Math.abs(ab - ba) > 0.25) {
+        const warm = ab > ba ? a.id : b.id;
+        const cool = ab > ba ? b.id : a.id;
+        alerts.push({ icon:'⚠️', title:`Asymmetric dynamic`, sub:`${warm} warmer toward ${cool} than vice versa`, tier:'tier2', delay: 1500 });
+      }
+    }
+  }
+
+  // Check for disengaging speakers
+  profiles.forEach(p => {
+    if ((p.energy || 0) < 0.3) {
+      alerts.push({ icon:'⚠️', title:`${p.id} disengaging`, sub:`Low energy and short responses`, tier:'tier2', delay: 2500 });
+    }
+    if ((p.energy || 0) > 0.8) {
+      alerts.push({ icon:'🔥', title:`Energy surge: ${p.id}`, sub:`High engagement moment`, tier:'tier1', delay: 1000 });
+    }
+    if (p.exitSignals > 0) {
+      alerts.push({ icon:'🚪', title:`${p.id} wrapping up`, sub:`Exit language detected`, tier:'tier2', delay: 3000 });
+    }
+    if (p.trend === 'Rising') {
+      alerts.push({ icon:'🎯', title:`Window open: ${p.id}`, sub:`Engagement rising — good moment to connect`, tier:'tier1', delay: 800 });
+    }
+  });
+
+  const container = document.getElementById('hud-alerts');
+  if (alerts.length === 0) return;
+  container.innerHTML = '';
+
+  alerts.slice(0,5).forEach((alert, i) => {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = `hud-alert ${alert.tier}`;
+      el.innerHTML = `<div class="hud-alert-icon">${alert.icon}</div><div class="hud-alert-text"><div class="hud-alert-title">${alert.title}</div><div class="hud-alert-sub">${alert.sub}</div></div>`;
+      container.prepend(el);
+      // Auto-dismiss after 10s
+      setTimeout(() => {
+        el.classList.add('fading');
+        setTimeout(() => el.remove(), 500);
+      }, 10000);
+    }, alert.delay + i * 400);
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIVE AUDIO MODE
+══════════════════════════════════════════════════════════════ */
+let recognition = null;
+let audioCtx = null, analyser = null, micStream = null;
+let liveCurrentSpeakerId = null;
+let liveAudioData = {};
+
+function renderLiveSpeakerBtns() {
+  const container = document.getElementById('live-speaker-btns');
+  container.innerHTML = '';
+  state.speakers.forEach(s => {
+    liveAudioData[s.id] = { energy: 0, pitchHistory: [], messages: [] };
+    const btn = document.createElement('button');
+    btn.className = 'live-speaker-btn';
+    btn.style.borderColor = s.color;
+    btn.style.color = s.color;
+    btn.id = `live-btn-${s.id.replace('#','')}`;
+    btn.innerHTML = `<div class="speaking-dot"></div><span>${s.id}${s.name ? ' — ' + s.name : ''}</span>`;
+    btn.onclick = () => setActiveSpeaker(s.id);
+    container.appendChild(btn);
+  });
+}
+
+function setActiveSpeaker(id) {
+  liveCurrentSpeakerId = id;
+  document.querySelectorAll('.live-speaker-btn').forEach(b => b.classList.remove('speaking'));
+  const btn = document.getElementById(`live-btn-${id.replace('#','')}`);
+  if (btn) btn.classList.add('speaking');
+  showToast(`${id} is speaking`);
+}
+
+async function requestMicAccess() {
+  try {
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioCtx.createMediaStreamSource(micStream);
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 2048;
+    source.connect(analyser);
+    startAudioLoop();
+    startSpeechRecognition();
+  } catch (e) {
+    showToast('Mic not available — using manual mode');
+  }
+}
+
+function startAudioLoop() {
+  const buf = new Uint8Array(analyser.frequencyBinCount);
+  function loop() {
+    if (!analyser) return;
+    analyser.getByteTimeDomainData(buf);
+    let sum = 0;
+    for (let i = 0; i < buf.length; i++) sum += Math.abs(buf[i] - 128);
+    const rms = sum / buf.length / 128;
+    if (liveCurrentSpeakerId && liveAudioData[liveCurrentSpeakerId]) {
+      liveAudioData[liveCurrentSpeakerId].energy = rms;
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+}
+
+function startSpeechRecognition() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { showToast('Speech recognition not available'); return; }
+  recognition = new SR();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.onresult = (e) => {
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      if (e.results[i].isFinal) {
+        const text = e.results[i][0].transcript.trim();
+        const spId = liveCurrentSpeakerId || state.speakers[0]?.id || '#1';
+        addLiveMessage(spId, text);
+      }
+    }
+  };
+  recognition.onerror = () => {};
+  recognition.onend = () => { if (liveCurrentSpeakerId) recognition.start(); };
+  recognition.start();
+}
+
+function addLiveMessage(spId, text) {
+  state.liveMessages.push({ speaker: spId.replace('#',''), content: text, timestamp: Date.now() });
+  const transcript = document.getElementById('live-transcript');
+  const sp = state.speakers.find(s => s.id === spId);
+  const line = document.createElement('div');
+  line.className = 'transcript-line';
+  line.innerHTML = `<span class="transcript-speaker" style="color:${sp?.color||'#fff'}">${spId}</span> ${text}`;
+  transcript.appendChild(line);
+  transcript.scrollTop = transcript.scrollHeight;
+}
+
+function finishLive() {
+  if (recognition) { recognition.stop(); recognition = null; }
+  if (micStream) { micStream.getTracks().forEach(t => t.stop()); micStream = null; }
+  if (audioCtx) { audioCtx.close(); audioCtx = null; }
+
+  if (state.liveMessages.length === 0) {
+    showToast('No messages recorded yet'); return;
+  }
+  const msgs = state.liveMessages.map(m => ({ speaker: m.speaker, content: m.content, timestamp: m.timestamp }));
+  showScreen('screen-reader');
+  const body = document.getElementById('reader-body');
+  body.innerHTML = '<div class="loading-wrap"><div class="loading-ring"></div><div class="loading-text">Analyzing…</div></div>';
+  setTimeout(() => {
+    state.analysis = runAnalysis(msgs);
+    renderReader(); scheduleHUDAlerts();
+  }, 600);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN NAVIGATION
+══════════════════════════════════════════════════════════════ */
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (id === 'screen-network') {
+    requestAnimationFrame(() => renderNetwork());
+  }
+  if (id !== 'screen-network' && state.networkAnimFrame) {
+    cancelAnimationFrame(state.networkAnimFrame);
+    state.networkAnimFrame = null;
+  }
+  if (id === 'screen-hud') state.hudActive = true;
+  else state.hudActive = false;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════════════════════════ */
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CANVAS RESIZE
+══════════════════════════════════════════════════════════════ */
+window.addEventListener('resize', () => {
+  if (document.getElementById('screen-network').classList.contains('active')) {
+    renderNetwork();
+  }
+});
+
+/* ══════════════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════════════ */
+initSetup();
+</script>
+</body>
+</html>

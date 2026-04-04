@@ -1,0 +1,1491 @@
+[
+  {
+    "title": "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank",
+    "year": 2013,
+    "citations": 6680,
+    "doi": "https://doi.org/10.18653/v1/d13-1170",
+    "oa_url": "https://aclanthology.org/D13-1170.pdf",
+    "is_oa": true,
+    "authors": [
+      "Richard Socher",
+      "Alex Perelygin",
+      "Jean Y. Wu"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Power laws, Pareto distributions and Zipf's law",
+    "year": 2005,
+    "citations": 5728,
+    "doi": "https://doi.org/10.1080/00107510500052444",
+    "oa_url": "https://arxiv.org/pdf/cond-mat/0412004",
+    "is_oa": true,
+    "authors": [
+      "MEJ Newman"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Opinion Paper: \u201cSo what if ChatGPT wrote it?\u201d Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy",
+    "year": 2023,
+    "citations": 3375,
+    "doi": "https://doi.org/10.1016/j.ijinfomgt.2023.102642",
+    "oa_url": "https://linkinghub.elsevier.com/science/article/pii/S0268401223000233/pdfft?md5=492895056a2fa29b1cb81876a1c57544&pid=1-s2.0-S0268401223000233-main.pdf",
+    "is_oa": true,
+    "authors": [
+      "Yogesh K. Dwivedi",
+      "Nir Kshetri",
+      "Laurie Hughes"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Predicting Elections with Twitter: What 140 Characters Reveal about Political Sentiment",
+    "year": 2010,
+    "citations": 2660,
+    "doi": "https://doi.org/10.1609/icwsm.v4i1.14009",
+    "oa_url": "https://ojs.aaai.org/index.php/ICWSM/article/download/14009/13858",
+    "is_oa": true,
+    "authors": [
+      "Andranik Tumasjan",
+      "Timm O. Sprenger",
+      "Philipp Sandner"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Automated Hate Speech Detection and the Problem of Offensive Language",
+    "year": 2017,
+    "citations": 2405,
+    "doi": "https://doi.org/10.1609/icwsm.v11i1.14955",
+    "oa_url": "https://ojs.aaai.org/index.php/ICWSM/article/download/14955/14805",
+    "is_oa": true,
+    "authors": [
+      "Thomas Davidson",
+      "Dana Warmsley",
+      "Michael W. Macy"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The brain basis of emotion: A meta-analytic review",
+    "year": 2012,
+    "citations": 2300,
+    "doi": "https://doi.org/10.1017/s0140525x11000446",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/80F95F093305C76BA2C66BBA48D4BC8A/S0140525X11000446a.pdf/div-class-title-the-brain-basis-of-emotion-a-meta-analytic-review-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Kristen A. Lindquist",
+      "Tor D. Wager",
+      "Hedy Kober"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Masked Presentations of Emotional Facial Expressions Modulate Amygdala Activity without Explicit Knowledge",
+    "year": 1998,
+    "citations": 2216,
+    "doi": "https://doi.org/10.1523/jneurosci.18-01-00411.1998",
+    "oa_url": "https://www.jneurosci.org/content/jneuro/18/1/411.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Paul J. Whalen",
+      "Scott L. Rauch",
+      "Nancy L. Etcoff"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Vocal communication of emotion: A review of research paradigms",
+    "year": 2003,
+    "citations": 1952,
+    "doi": "https://doi.org/10.1016/s0167-6393(02)00084-5",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0167639302000845",
+    "is_oa": true,
+    "authors": [
+      "Klaus R. Scherer"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "From Tweets to Polls: Linking Text Sentiment to Public Opinion Time Series",
+    "year": 2010,
+    "citations": 1940,
+    "doi": "https://doi.org/10.1609/icwsm.v4i1.14031",
+    "oa_url": "https://ojs.aaai.org/index.php/ICWSM/article/download/14031/13880",
+    "is_oa": true,
+    "authors": [
+      "Brendan O\u2019Connor",
+      "Ramnath Balasubramanyan",
+      "Bryan Routledge"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Deep learning for sentiment analysis: A survey",
+    "year": 2018,
+    "citations": 1824,
+    "doi": "https://doi.org/10.1002/widm.1253",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/widm.1253",
+    "is_oa": true,
+    "authors": [
+      "Lei Zhang",
+      "Shuai Wang",
+      "Bing Liu"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS): A dynamic, multimodal set of facial and vocal expressions in North American English",
+    "year": 2018,
+    "citations": 1715,
+    "doi": "https://doi.org/10.1371/journal.pone.0196391",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0196391&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Steven R. Livingstone",
+      "Frank Russo"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "The Geneva Minimalistic Acoustic Parameter Set (GeMAPS) for Voice Research and Affective Computing",
+    "year": 2015,
+    "citations": 1666,
+    "doi": "https://doi.org/10.1109/taffc.2015.2457417",
+    "oa_url": "https://doi.org/10.1109/taffc.2015.2457417",
+    "is_oa": true,
+    "authors": [
+      "Florian Eyben",
+      "Klaus R. Scherer",
+      "Bj\u00f6rn W. Schuller"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "The Enigmatic temporal pole: a review of findings on social and emotional processing",
+    "year": 2007,
+    "citations": 1365,
+    "doi": "https://doi.org/10.1093/brain/awm052",
+    "oa_url": "https://academic.oup.com/brain/article-pdf/130/7/1718/923786/awm052.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ingrid R. Olson",
+      "Alan Plotzker",
+      "Youssef Ezzyat"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "A survey on sentiment analysis methods, applications, and challenges",
+    "year": 2022,
+    "citations": 1351,
+    "doi": "https://doi.org/10.1007/s10462-022-10144-1",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s10462-022-10144-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Mayur Wankhade",
+      "Annavarapu Chandra Sekhara Rao",
+      "Chaitanya Kulkarni"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Interdependence, Interaction, and Relationships",
+    "year": 2002,
+    "citations": 1211,
+    "doi": "https://doi.org/10.1146/annurev.psych.54.101601.145059",
+    "oa_url": "https://research.vu.nl/ws/files/1898345/Rusbult%20Annual%20Review%20of%20Psychology%2054%202003%20u.pdf",
+    "is_oa": true,
+    "authors": [
+      "Caryl E. Rusbult",
+      "Paul A. M. Van Lange"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Speech Recognition Using Deep Neural Networks: A Systematic Review",
+    "year": 2019,
+    "citations": 1128,
+    "doi": "https://doi.org/10.1109/access.2019.2896880",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08632885.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ali Bou Nassif",
+      "Ismail Shahin",
+      "Imtinan Attili"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Nonverbal overload: A theoretical argument for the causes of Zoom fatigue.",
+    "year": 2021,
+    "citations": 1085,
+    "doi": "https://doi.org/10.1037/tmb0000030",
+    "oa_url": "https://tmb.apaopen.org/pub/nonverbal-overload/download/pdf",
+    "is_oa": true,
+    "authors": [
+      "Jeremy N. Bailenson"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Using Linguistic Cues for the Automatic Recognition of Personality in Conversation and Text",
+    "year": 2007,
+    "citations": 994,
+    "doi": "https://doi.org/10.1613/jair.2349",
+    "oa_url": "https://jair.org/index.php/jair/article/download/10520/25197",
+    "is_oa": true,
+    "authors": [
+      "Fran\u00e7ois Mairesse",
+      "Marilyn Walker",
+      "Matthias R. Mehl"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Emotional speech recognition: Resources, features, and methods",
+    "year": 2006,
+    "citations": 898,
+    "doi": "https://doi.org/10.1016/j.specom.2006.04.003",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Dimitrios Ververidis",
+      "Constantine Kotropoulos"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Context-Dependent Sentiment Analysis in User-Generated Videos",
+    "year": 2017,
+    "citations": 850,
+    "doi": "https://doi.org/10.18653/v1/p17-1081",
+    "oa_url": "https://www.aclweb.org/anthology/P17-1081.pdf",
+    "is_oa": true,
+    "authors": [
+      "Soujanya Poria",
+      "Erik Cambria",
+      "Devamanyu Hazarika"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Social signal processing: Survey of an emerging domain",
+    "year": 2008,
+    "citations": 798,
+    "doi": "https://doi.org/10.1016/j.imavis.2008.11.007",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0262885608002485",
+    "is_oa": true,
+    "authors": [
+      "Alessandro Vinciarelli",
+      "Maja Panti\u0107",
+      "Herv\u00e9 Bourlard"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "EEG-Based Emotion Recognition Using Regularized Graph Neural Networks",
+    "year": 2020,
+    "citations": 790,
+    "doi": "https://doi.org/10.1109/taffc.2020.2994159",
+    "oa_url": "https://dr.ntu.edu.sg/bitstream/10356/152723/2/EEG-Based_Emotion_Recognition_Using_Regularized_Graph_Neural_Networks.pdf",
+    "is_oa": true,
+    "authors": [
+      "Peixiang Zhong",
+      "Di Wang",
+      "Chunyan Miao"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Emotions from text",
+    "year": 2005,
+    "citations": 788,
+    "doi": "https://doi.org/10.3115/1220575.1220648",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.3115/1220575.1220648",
+    "is_oa": true,
+    "authors": [
+      "Cecilia Ovesdotter Alm",
+      "Dan Roth",
+      "Richard Sproat"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "A Tutorial on Text-Independent Speaker Verification",
+    "year": 2004,
+    "citations": 782,
+    "doi": "https://doi.org/10.1155/s1110865704310024",
+    "oa_url": "https://asp-eurasipjournals.springeropen.com/counter/pdf/10.1155/S1110865704310024",
+    "is_oa": true,
+    "authors": [
+      "Fr\u00e9d\u00e9ric Bimbot",
+      "Jean-Fran\u00e7ois Bonastre",
+      "Corinne Fredouille"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Why and how to use virtual reality to study human social interaction: The challenges of exploring a new research landscape",
+    "year": 2018,
+    "citations": 697,
+    "doi": "https://doi.org/10.1111/bjop.12290",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjop.12290",
+    "is_oa": true,
+    "authors": [
+      "Xueni Pan",
+      "Antonia F. de C. Hamilton"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Speech Emotion Recognition Using Deep Learning Techniques: A Review",
+    "year": 2019,
+    "citations": 650,
+    "doi": "https://doi.org/10.1109/access.2019.2936124",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08805181.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ruhul Amin Khalil",
+      "Edward Jones",
+      "Mohammad Inayatullah Babar"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Why would Musical Training Benefit the Neural Encoding of Speech? The OPERA Hypothesis",
+    "year": 2011,
+    "citations": 648,
+    "doi": "https://doi.org/10.3389/fpsyg.2011.00142",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2011.00142/pdf",
+    "is_oa": true,
+    "authors": [
+      "Aniruddh D. Patel"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "The motor theory of speech perception reviewed",
+    "year": 2006,
+    "citations": 622,
+    "doi": "https://doi.org/10.3758/bf03193857",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/BF03193857.pdf",
+    "is_oa": true,
+    "authors": [
+      "Bruno Galantucci",
+      "Carol A. Fowler",
+      "M. T. Turvey"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Sensitivity to musical emotion is influenced by tonal structure in congenital amusia",
+    "year": 2017,
+    "citations": 619,
+    "doi": "https://doi.org/10.1038/s41598-017-08005-x",
+    "oa_url": "https://www.nature.com/articles/s41598-017-08005-x.pdf",
+    "is_oa": true,
+    "authors": [
+      "Cunmei Jiang",
+      "Fang Liu",
+      "Patrick C. M. Wong"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Hemispheric lateralization of functions related to emotion",
+    "year": 1986,
+    "citations": 610,
+    "doi": "https://doi.org/10.1016/0278-2626(86)90035-7",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/0278262686900357",
+    "is_oa": true,
+    "authors": [
+      "Edward Silberman",
+      "Herbert Weingartner"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "The Emotion Process: Event Appraisal and Component Differentiation",
+    "year": 2018,
+    "citations": 609,
+    "doi": "https://doi.org/10.1146/annurev-psych-122216-011854",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-psych-122216-011854",
+    "is_oa": true,
+    "authors": [
+      "Klaus R. Scherer",
+      "Agnes Moors"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Affective Body Expression Perception and Recognition: A Survey",
+    "year": 2012,
+    "citations": 592,
+    "doi": "https://doi.org/10.1109/t-affc.2012.16",
+    "oa_url": "https://mdsoar.org/bitstreams/bd220721-aaa5-40f2-8bab-c392b96cf93b/download",
+    "is_oa": true,
+    "authors": [
+      "Andrea Kleinsmith",
+      "Nadia Bianchi\u2010Berthouze"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Expression of emotion in voice and music",
+    "year": 1995,
+    "citations": 465,
+    "doi": "https://doi.org/10.1016/s0892-1997(05)80231-0",
+    "oa_url": "http://www.jvoice.org/article/S0892199705802310/pdf",
+    "is_oa": true,
+    "authors": [
+      "Klaus R. Scherer"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "The role of intonation in emotional expressions",
+    "year": 2005,
+    "citations": 436,
+    "doi": "https://doi.org/10.1016/j.specom.2005.02.016",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0167639305000890",
+    "is_oa": true,
+    "authors": [
+      "Tanja B\u00e4nziger",
+      "Klaus R. Scherer"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Clustering-Based Speech Emotion Recognition by Incorporating Learned Features and Deep BiLSTM",
+    "year": 2020,
+    "citations": 384,
+    "doi": "https://doi.org/10.1109/access.2020.2990405",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09078789.pdf",
+    "is_oa": true,
+    "authors": [
+      "Mustaqeem Mustaqeem",
+      "Muhammad Sajjad",
+      "Soonil Kwon"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "The Distancing-Embracing model of the enjoyment of negative emotions in art reception",
+    "year": 2017,
+    "citations": 383,
+    "doi": "https://doi.org/10.1017/s0140525x17000309",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FAAF19734BAB559CD439BB46F8BDC571/S0140525X17000309a.pdf/div-class-title-the-distancing-embracing-model-of-the-enjoyment-of-negative-emotions-in-art-reception-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Winfried Menninghaus",
+      "Valentin Wagner",
+      "Julian Hanich"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Speaker recognition based on deep learning: An overview",
+    "year": 2021,
+    "citations": 359,
+    "doi": "https://doi.org/10.1016/j.neunet.2021.03.004",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Zhongxin Bai",
+      "Xiao-Lei Zhang"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "What are aesthetic emotions?",
+    "year": 2019,
+    "citations": 349,
+    "doi": "https://doi.org/10.1037/rev0000135",
+    "oa_url": "https://research.rug.nl/en/publications/c33b160d-1edc-4cb5-927f-4a0179025463",
+    "is_oa": true,
+    "authors": [
+      "Winfried Menninghaus",
+      "Valentin Wagner",
+      "Eugen Wassiliwizky"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Dialog as interpersonal synergy",
+    "year": 2013,
+    "citations": 336,
+    "doi": "https://doi.org/10.1016/j.newideapsych.2013.03.005",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Joanna R\u0105czaszek\u2010Leonardi",
+      "Kristian Tyl\u00e9n"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Artificial empathy in marketing interactions: Bridging the human-AI gap in affective and social customer experience",
+    "year": 2022,
+    "citations": 334,
+    "doi": "https://doi.org/10.1007/s11747-022-00892-5",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11747-022-00892-5.pdf",
+    "is_oa": true,
+    "authors": [
+      "Yuping Liu\u2013Thompkins",
+      "Shintaro Okazaki",
+      "Hairong Li"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Self-Supervised Speech Representation Learning: A Review",
+    "year": 2022,
+    "citations": 320,
+    "doi": "https://doi.org/10.1109/jstsp.2022.3207050",
+    "oa_url": "https://arxiv.org/pdf/2205.10643",
+    "is_oa": true,
+    "authors": [
+      "Abdelrahman Mohamed",
+      "Hung-yi Lee",
+      "Lasse Borgholt"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Swimming in a Sea of Shame: Incorporating Emotion into Explanations of Institutional Reproduction and Change",
+    "year": 2014,
+    "citations": 300,
+    "doi": "https://doi.org/10.5465/amr.2012.0074",
+    "oa_url": "https://digitalcommons.uri.edu/cba_facpubs/31",
+    "is_oa": true,
+    "authors": [
+      "W. E. Douglas Creed",
+      "Bryant A. Hudson",
+      "Gerardo A. Okhuysen"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Review and Classification of Emotion Recognition Based on EEG Brain-Computer Interface System Research: A Systematic Review",
+    "year": 2017,
+    "citations": 288,
+    "doi": "https://doi.org/10.3390/app7121239",
+    "oa_url": "https://www.mdpi.com/2076-3417/7/12/1239/pdf?version=1512107704",
+    "is_oa": true,
+    "authors": [
+      "Abeer Al-Nafjan",
+      "Manar Hosny",
+      "Yousef Al-Ohali"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Lying takes time: A meta-analysis on reaction time measures of deception.",
+    "year": 2017,
+    "citations": 274,
+    "doi": "https://doi.org/10.1037/bul0000087",
+    "oa_url": "https://biblio.ugent.be/publication/8512398",
+    "is_oa": true,
+    "authors": [
+      "Kristina Suchotzki",
+      "Bruno Verschu\u00e8re",
+      "Bram Van Bockstaele"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Investigating Conversational Dynamics: Interactive Alignment, Interpersonal Synergy, and Collective Task Performance",
+    "year": 2015,
+    "citations": 263,
+    "doi": "https://doi.org/10.1111/cogs.12251",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/cogs.12251",
+    "is_oa": true,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Kristian Tyl\u00e9n"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Lie experts' beliefs about nonverbal indicators of deception",
+    "year": 1996,
+    "citations": 251,
+    "doi": "https://doi.org/10.1007/bf02248715",
+    "oa_url": "https://research.vu.nl/ws/files/574355/Vrij%20Journal%20of%20nonverbal%20behavior%2020(1)%201996%20u.pdf",
+    "is_oa": true,
+    "authors": [
+      "Aldert Vrij",
+      "G\u00fcn R. Semin"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "The INTERSPEECH 2016 Computational Paralinguistics Challenge: Deception, Sincerity &amp; Native Language",
+    "year": 2016,
+    "citations": 239,
+    "doi": "https://doi.org/10.21437/interspeech.2016-129",
+    "oa_url": "https://opus.bibliothek.uni-augsburg.de/opus4/files/65876/0129.PDF",
+    "is_oa": true,
+    "authors": [
+      "Bj\u00f6rn W. Schuller",
+      "Stefan Steidl",
+      "Anton Batliner"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "The Cognitive-Affective-Social Theory of Learning in digital Environments (CASTLE)",
+    "year": 2021,
+    "citations": 226,
+    "doi": "https://doi.org/10.1007/s10648-021-09626-5",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s10648-021-09626-5.pdf",
+    "is_oa": true,
+    "authors": [
+      "Sascha Schneider",
+      "Maik Beege",
+      "Steve Nebel"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Status-Dependent Vasotocin Modulation of Dominance and Subordination in the Weakly Electric Fish Gymnotus omarorum",
+    "year": 2018,
+    "citations": 220,
+    "doi": "https://doi.org/10.3389/fnbeh.2018.00001",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnbeh.2018.00001/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rossana Perrone",
+      "Ana Silva"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "West flemish verb\u2010based discourse markers and the articulation of the speech act layer",
+    "year": 2014,
+    "citations": 219,
+    "doi": "https://doi.org/10.1111/stul.12023",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/stul.12023",
+    "is_oa": true,
+    "authors": [
+      "Liliane Haegeman"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "A Review of Physical and Perceptual Feature Extraction Techniques for Speech, Music and Environmental Sounds",
+    "year": 2016,
+    "citations": 218,
+    "doi": "https://doi.org/10.3390/app6050143",
+    "oa_url": "https://www.mdpi.com/2076-3417/6/5/143/pdf?version=1463044630",
+    "is_oa": true,
+    "authors": [
+      "Francesc \u00c1l\u00edas",
+      "Joan Claudi Socor\u00f3",
+      "Xavier Sevillano"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "The Role of the Dorsolateral Prefrontal Cortex for Speech and Language Processing",
+    "year": 2021,
+    "citations": 189,
+    "doi": "https://doi.org/10.3389/fnhum.2021.645209",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2021.645209/pdf",
+    "is_oa": true,
+    "authors": [
+      "Ingo Hertrich",
+      "Susanne Dietrich",
+      "Corinna Blum"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "\u201cIs voice a marker for Autism spectrum disorder? A systematic review and meta\u2010analysis\u201d",
+    "year": 2016,
+    "citations": 184,
+    "doi": "https://doi.org/10.1002/aur.1678",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aur.1678",
+    "is_oa": true,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Anna Lambrechts",
+      "Dan Bang"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Multistage speaker diarization of broadcast news",
+    "year": 2006,
+    "citations": 180,
+    "doi": "https://doi.org/10.1109/tasl.2006.878261",
+    "oa_url": "https://hal.science/hal-01434241v1/document",
+    "is_oa": true,
+    "authors": [
+      "C. Barras",
+      "Xuan Zhu",
+      "Sylvain Meignier"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Social Touch in Human\u00e2\u20ac\u201cComputer Interaction",
+    "year": 2015,
+    "citations": 177,
+    "doi": "https://doi.org/10.3389/fdigh.2015.00002",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fdigh.2015.00002/pdf",
+    "is_oa": true,
+    "authors": [
+      "Jan B. F. van Erp",
+      "Alexander Toet"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "The Power of Goal-Directed Processes in the Causation of Emotional and Other Actions",
+    "year": 2017,
+    "citations": 176,
+    "doi": "https://doi.org/10.1177/1754073916669595",
+    "oa_url": "https://biblio.ugent.be/publication/8054722/file/8054734.pdf",
+    "is_oa": true,
+    "authors": [
+      "Agnes Moors",
+      "Yannick Boddez",
+      "Jan De Houwer"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Understanding process, power, and meaning in adaptive governance: a critical institutional reading",
+    "year": 2018,
+    "citations": 175,
+    "doi": "https://doi.org/10.5751/es-10212-230249",
+    "oa_url": "https://www.ecologyandsociety.org/vol23/iss2/art49/ES-2018-10212.pdf",
+    "is_oa": true,
+    "authors": [
+      "Frances Cleaver",
+      "Luke Whaley"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "How does gaze to faces support face-to-face interaction? A review and perspective",
+    "year": 2020,
+    "citations": 167,
+    "doi": "https://doi.org/10.3758/s13423-020-01715-w",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/s13423-020-01715-w.pdf",
+    "is_oa": true,
+    "authors": [
+      "Roy S. Hessels"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "End-to-End Speech Recognition: A Survey",
+    "year": 2023,
+    "citations": 166,
+    "doi": "https://doi.org/10.1109/taslp.2023.3328283",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6570655/6633080/10301513.pdf",
+    "is_oa": true,
+    "authors": [
+      "Rohit Prabhavalkar",
+      "Takaaki Hori",
+      "Tara N. Sainath"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Fourteen-month-old infants use interpersonal synchrony as a cue to direct helpfulness",
+    "year": 2014,
+    "citations": 160,
+    "doi": "https://doi.org/10.1098/rstb.2013.0400",
+    "oa_url": "https://royalsocietypublishing.org/doi/pdf/10.1098/rstb.2013.0400",
+    "is_oa": true,
+    "authors": [
+      "Laura K. Cirelli",
+      "Stephanie Wan",
+      "Laurel J. Trainor"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Acoustic exaggeration of size in birds via tracheal elongation: comparative and theoretical analyses",
+    "year": 1999,
+    "citations": 155,
+    "doi": "https://doi.org/10.1111/j.1469-7998.1999.tb01020.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1469-7998.1999.tb01020.x",
+    "is_oa": true,
+    "authors": [
+      "W. Tecumseh Fitch"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Interrogating to detect deception and truth : effects of strategic use of evidence",
+    "year": 2005,
+    "citations": 149,
+    "doi": "https://doi.org/10.1177/1098611104264748",
+    "oa_url": "https://gupea.ub.gu.se/bitstream/2077/191/1/Hartwig2005.pdf",
+    "is_oa": true,
+    "authors": [
+      "Maria Hartwig"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "SpEx: Multi-Scale Time Domain Speaker Extraction Network",
+    "year": 2020,
+    "citations": 144,
+    "doi": "https://doi.org/10.1109/taslp.2020.2987429",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6570655/8938144/09067003.pdf",
+    "is_oa": true,
+    "authors": [
+      "Chenglin Xu",
+      "Wei Rao",
+      "Eng Siong Chng"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Advances in Multimodal Emotion Recognition Based on Brain\u2013Computer Interfaces",
+    "year": 2020,
+    "citations": 135,
+    "doi": "https://doi.org/10.3390/brainsci10100687",
+    "oa_url": "https://www.mdpi.com/2076-3425/10/10/687/pdf",
+    "is_oa": true,
+    "authors": [
+      "Zhipeng He",
+      "Zina Li",
+      "Fuzhou Yang"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Social signal processing",
+    "year": 2008,
+    "citations": 134,
+    "doi": "https://doi.org/10.1145/1459359.1459573",
+    "oa_url": "https://infoscience.epfl.ch/record/146347/files/Vinciarelli_ACM-MM_2008.pdf",
+    "is_oa": true,
+    "authors": [
+      "Alessandro Vinciarelli",
+      "Maja Panti\u0107",
+      "Herv\u00e9 Bourlard"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Physiological evidence of interpersonal dynamics in a cooperative production task",
+    "year": 2016,
+    "citations": 132,
+    "doi": "https://doi.org/10.1016/j.physbeh.2016.01.004",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S003193841630004X",
+    "is_oa": true,
+    "authors": [
+      "Dan M\u00f8nster",
+      "Dorthe D\u00f8jbak H\u00e5konsson",
+      "Jacob Eskildsen"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Deep transfer learning for automatic speech recognition: Towards better generalization",
+    "year": 2023,
+    "citations": 131,
+    "doi": "https://doi.org/10.1016/j.knosys.2023.110851",
+    "oa_url": "http://qspace.qu.edu.qa/bitstream/10576/60081/1/1-s2.0-S0950705123006019-main.pdf",
+    "is_oa": true,
+    "authors": [
+      "Hamza Kheddar",
+      "Yassine Himeur",
+      "Somaya Al-M\u00e1adeed"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Preserving privacy in speaker and speech characterisation",
+    "year": 2019,
+    "citations": 127,
+    "doi": "https://doi.org/10.1016/j.csl.2019.06.001",
+    "oa_url": "https://www.sciencedirect.com/science/article/am/pii/S0885230818303875?via%3Dihub",
+    "is_oa": true,
+    "authors": [
+      "Andreas Nautsch",
+      "Abelino Jim\u00e9nez",
+      "Amos Treiber"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Nonverbal Synchrony in Social Interactions of Patients with Schizophrenia Indicates Socio-Communicative Deficits",
+    "year": 2015,
+    "citations": 121,
+    "doi": "https://doi.org/10.1371/journal.pone.0145882",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0145882&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Zeno Kupper",
+      "Fabian Ramseyer",
+      "Holger Hoffmann"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "An open-source state-of-the-art toolbox for broadcast news diarization",
+    "year": 2013,
+    "citations": 121,
+    "doi": "https://doi.org/10.21437/interspeech.2013-383",
+    "oa_url": "http://infoscience.epfl.ch/record/192762",
+    "is_oa": true,
+    "authors": [
+      "Micka\u00ebl Rouvier",
+      "Gr\u00e9gor Dupuy",
+      "Paul du Gay"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "One Voice Fits All?",
+    "year": 2019,
+    "citations": 117,
+    "doi": "https://doi.org/10.1145/3359325",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3359325",
+    "is_oa": true,
+    "authors": [
+      "Julia Cambre",
+      "Chinmay Kulkarni"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "A Long-Term Study of Young Children's Rapport, Social Emulation, and Language Learning With a Peer-Like Robot Playmate in Preschool",
+    "year": 2019,
+    "citations": 116,
+    "doi": "https://doi.org/10.3389/frobt.2019.00081",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/frobt.2019.00081/pdf",
+    "is_oa": true,
+    "authors": [
+      "Jacqueline M. Kory-Westlund",
+      "Cynthia Breazeal"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Investigating automatic measurements of prosodic accommodation and its dynamics in social interaction",
+    "year": 2013,
+    "citations": 114,
+    "doi": "https://doi.org/10.1016/j.specom.2013.10.002",
+    "oa_url": "https://arrow.tudublin.ie/cgi/viewcontent.cgi?article=1071&context=dmcart",
+    "is_oa": true,
+    "authors": [
+      "C\u00e9line De Looze",
+      "Stefan Scherer",
+      "Brian Vaughan"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "A Taxonomy of Social Errors in Human-Robot Interaction",
+    "year": 2021,
+    "citations": 112,
+    "doi": "https://doi.org/10.1145/3439720",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3439720",
+    "is_oa": true,
+    "authors": [
+      "Leimin Tian",
+      "Sharon Oviatt"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "New Frontiers in Heart Rate Variability and Social Coherence Research: Techniques, Technologies, and Implications for Improving Group Dynamics and Outcomes",
+    "year": 2017,
+    "citations": 103,
+    "doi": "https://doi.org/10.3389/fpubh.2017.00267",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpubh.2017.00267/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rollin McCraty"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Analyzing Social Interactions: The Promises and Challenges of Using Cross Recurrence Quantification Analysis",
+    "year": 2014,
+    "citations": 103,
+    "doi": "https://doi.org/10.1007/978-3-319-09531-8_9",
+    "oa_url": "https://pure.au.dk/ws/files/89938143/2014_springer_maths_and_stats_analyzing_social_interactions.pdf",
+    "is_oa": true,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Ivana Konvalinka",
+      "Sebastian Wallot"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Social deontics: A nano\u2010level approach to human power play",
+    "year": 2018,
+    "citations": 101,
+    "doi": "https://doi.org/10.1111/jtsb.12175",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/jtsb.12175",
+    "is_oa": true,
+    "authors": [
+      "Melisa Stevanovic"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Reduced nonverbal interpersonal synchrony in autism spectrum disorder independent of partner diagnosis: a motion energy study",
+    "year": 2020,
+    "citations": 98,
+    "doi": "https://doi.org/10.1186/s13229-019-0305-1",
+    "oa_url": "https://molecularautism.biomedcentral.com/counter/pdf/10.1186/s13229-019-0305-1",
+    "is_oa": true,
+    "authors": [
+      "Alexandra L. Georgescu",
+      "S. Koeroglu",
+      "Antonia F. de C. Hamilton"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Interpersonal Coordination: Methods, Achievements, and Challenges",
+    "year": 2017,
+    "citations": 97,
+    "doi": "https://doi.org/10.3389/fpsyg.2017.01685",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01685/pdf",
+    "is_oa": true,
+    "authors": [
+      "Carlos Cornejo",
+      "Zamara Cuadros",
+      "Ricardo Morales"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Rhythmic Features of Movement Synchrony for Bonding Individuals in Dyadic Interaction",
+    "year": 2019,
+    "citations": 87,
+    "doi": "https://doi.org/10.1007/s10919-019-00315-0",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s10919-019-00315-0.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ken Fujiwara",
+      "Masanori Kimura",
+      "Ikuo Daibo"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Acoustic-Prosodic Entrainment and Rapport in Collaborative Learning Dialogues",
+    "year": 2014,
+    "citations": 87,
+    "doi": "https://doi.org/10.1145/2666633.2666635",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/2666633.2666635",
+    "is_oa": true,
+    "authors": [
+      "Nichola Lubold",
+      "Heather Pon-Barry"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Measuring Mindreading: A Review of Behavioral Approaches to Testing Cognitive and Affective Mental State Attribution in Neurologically Typical Adults",
+    "year": 2017,
+    "citations": 75,
+    "doi": "https://doi.org/10.3389/fpsyg.2017.00047",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2017.00047/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rose Turner",
+      "Fatima M. Felisberti"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Unlocking the Emotional World of Visual Media: An Overview of the Science, Research, and Impact of Understanding Emotion",
+    "year": 2023,
+    "citations": 72,
+    "doi": "https://doi.org/10.1109/jproc.2023.3273517",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/5/4357935/10132377.pdf",
+    "is_oa": true,
+    "authors": [
+      "James Z. Wang",
+      "Sicheng Zhao",
+      "Chenyan Wu"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Attachment-Related Differences in Emotion Regulation in Adults: A Systematic Review on Attachment Representations",
+    "year": 2023,
+    "citations": 63,
+    "doi": "https://doi.org/10.3390/brainsci13060884",
+    "oa_url": "https://www.mdpi.com/2076-3425/13/6/884/pdf?version=1685523565",
+    "is_oa": true,
+    "authors": [
+      "Dirk W. Eilert",
+      "Anna Buchheim"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Multimodal temporal machine learning for Bipolar Disorder and Depression Recognition",
+    "year": 2021,
+    "citations": 56,
+    "doi": "https://doi.org/10.1007/s10044-021-01001-y",
+    "oa_url": null,
+    "is_oa": true,
+    "authors": [
+      "Francesco Ceccarelli",
+      "Marwa Mahmoud"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Nonverbal Communication in Politics",
+    "year": 2016,
+    "citations": 53,
+    "doi": "https://doi.org/10.1177/0002764216678280",
+    "oa_url": "https://ueaeprints.uea.ac.uk/id/eprint/61973/1/Accepted_manuscript.pdf",
+    "is_oa": true,
+    "authors": [
+      "Delia Dumitrescu"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Selective facial mimicry of native over foreign speakers in preverbal infants",
+    "year": 2019,
+    "citations": 50,
+    "doi": "https://doi.org/10.1016/j.jecp.2019.01.015",
+    "oa_url": "https://doi.org/10.1016/j.jecp.2019.01.015",
+    "is_oa": true,
+    "authors": [
+      "Carina de Klerk",
+      "Chiara Bulgarelli",
+      "Antonia F. de C. Hamilton"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Effectiveness of a short audiovisual emotion recognition training program in adults",
+    "year": 2017,
+    "citations": 49,
+    "doi": "https://doi.org/10.1007/s11031-017-9631-9",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11031-017-9631-9.pdf",
+    "is_oa": true,
+    "authors": [
+      "Katja Schlegel",
+      "Ishabel M. Vicaria",
+      "Derek M. Isaacowitz"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Emotional Intelligence and Mismatching Expressive and Verbal Messages: A Contribution to Detection of Deception",
+    "year": 2014,
+    "citations": 46,
+    "doi": "https://doi.org/10.1371/journal.pone.0092570",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0092570&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Jerzy Wojciechowski",
+      "Maciej Stolarski",
+      "Gerald Matthews"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "An Investigation of the Free Energy Principle for Emotion Recognition",
+    "year": 2020,
+    "citations": 42,
+    "doi": "https://doi.org/10.3389/fncom.2020.00030",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fncom.2020.00030/pdf",
+    "is_oa": true,
+    "authors": [
+      "Daphne Demekas",
+      "Thomas Parr",
+      "Karl Friston"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "The promise of social signal processing for research on decision-making in entrepreneurial contexts",
+    "year": 2019,
+    "citations": 39,
+    "doi": "https://doi.org/10.1007/s11187-019-00205-1",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11187-019-00205-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Werner Liebregts",
+      "Pourya Darnihamedani",
+      "Eric Postma"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Entrepreneurial Pitching: A Critical Review and\u00a0Integrative Framework",
+    "year": 2024,
+    "citations": 37,
+    "doi": "https://doi.org/10.5465/annals.2022.0066",
+    "oa_url": "https://escholarship.org/content/qt6994466p/qt6994466p.pdf",
+    "is_oa": true,
+    "authors": [
+      "Sai Kalvapalle",
+      "Nelson Phillips",
+      "Joep Cornelissen"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Advancing research and practice in entrepreneurship through speech analysis \u2013 From descriptive rhetorical terms to phonetically informed acoustic charisma profiles",
+    "year": 2017,
+    "citations": 36,
+    "doi": "https://doi.org/10.20396/joss.v6i1.14983",
+    "oa_url": "https://econtents.bc.unicamp.br/inpec/index.php/joss/article/download/14983/10042",
+    "is_oa": true,
+    "authors": [
+      "Oliver Niebuhr",
+      "Alexander Brem",
+      "Silke Tegtmeier"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "How Charisma Is Perceived from Speech: A Multidimensional Approach",
+    "year": 2012,
+    "citations": 34,
+    "doi": "https://doi.org/10.1109/socialcom-passat.2012.68",
+    "oa_url": "https://hal.science/hal-00728891v1/file/ICSC2012-Signorello_DErrico_Poggi_Demolin-How_charisma_is_perceived_from_speech.pdf",
+    "is_oa": true,
+    "authors": [
+      "Rosario Signorello",
+      "Francesca D\u2019Errico",
+      "Isabella Poggi"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Speech Melody Matters\u2014How Robots Profit from Using Charismatic Speech",
+    "year": 2019,
+    "citations": 31,
+    "doi": "https://doi.org/10.1145/3344274",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3344274",
+    "is_oa": true,
+    "authors": [
+      "Kerstin Fischer",
+      "Oliver Niebuhr",
+      "Lars Christian Jensen"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Applying Self-Supervised Representation Learning for Emotion Recognition Using Physiological Signals",
+    "year": 2022,
+    "citations": 29,
+    "doi": "https://doi.org/10.3390/s22239102",
+    "oa_url": "https://www.mdpi.com/1424-8220/22/23/9102/pdf?version=1669213798",
+    "is_oa": true,
+    "authors": [
+      "Kevin G. Montero Quispe",
+      "Daniel M. S. Utyiama",
+      "Eulanda M. dos Santos"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "UXmood\u2014A Sentiment Analysis and Information Visualization Tool to Support the Evaluation of Usability and User Experience",
+    "year": 2019,
+    "citations": 27,
+    "doi": "https://doi.org/10.3390/info10120366",
+    "oa_url": "https://www.mdpi.com/2078-2489/10/12/366/pdf?version=1574677292",
+    "is_oa": true,
+    "authors": [
+      "Roberto Yuri da Silva Franco",
+      "Rodrigo Santos do Amor Divino Lima",
+      "R. Paix\u00e3o"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Differences between multimedia and text-based assessments of emotion management: An exploration with the multimedia emotion management assessment (MEMA)",
+    "year": 2015,
+    "citations": 26,
+    "doi": "https://doi.org/10.1080/02699931.2015.1061482",
+    "oa_url": "https://biblio.ugent.be/publication/8116175/file/8116187.pdf",
+    "is_oa": true,
+    "authors": [
+      "Carolyn MacCann",
+      "Filip Lievens",
+      "Nele Libbrecht"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Non-verbal emotion communication training induces specific changes in brain function and structure",
+    "year": 2013,
+    "citations": 26,
+    "doi": "https://doi.org/10.3389/fnhum.2013.00648",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2013.00648/pdf",
+    "is_oa": true,
+    "authors": [
+      "Benjamin Kreifelts",
+      "Heike Jacob",
+      "Carolin Br\u00fcck"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Veracity judgement, not accuracy: Reconsidering the role of facial expressions, empathy, and emotion recognition training on deception detection",
+    "year": 2020,
+    "citations": 26,
+    "doi": "https://doi.org/10.1177/1747021820978851",
+    "oa_url": "https://journals.sagepub.com/doi/pdf/10.1177/1747021820978851",
+    "is_oa": true,
+    "authors": [
+      "Mircea Zloteanu",
+      "Peter Bull",
+      "Eva G. Krumhuber"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Effectiveness, Attractiveness, and Emotional Response to Voice Pitch and Hand Gestures in Public Speaking",
+    "year": 2022,
+    "citations": 24,
+    "doi": "https://doi.org/10.3389/fcomm.2022.869084",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fcomm.2022.869084/pdf",
+    "is_oa": true,
+    "authors": [
+      "Emma Rodero"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Real-time emotion detection by quantitative facial motion analysis",
+    "year": 2023,
+    "citations": 21,
+    "doi": "https://doi.org/10.1371/journal.pone.0282730",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0282730&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Jordan R. Saadon",
+      "Fan Yang",
+      "Ryan Burgert"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "The influence of micro-expressions on deception detection",
+    "year": 2023,
+    "citations": 21,
+    "doi": "https://doi.org/10.1007/s11042-023-14551-6",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11042-023-14551-6.pdf",
+    "is_oa": true,
+    "authors": [
+      "Suleyman Yildirim",
+      "Meshack Sandra Chimeumanu",
+      "Zeeshan A. Rana"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Case Report: Women, Be Aware that Your Vocal Charisma can Dwindle in Remote Meetings",
+    "year": 2021,
+    "citations": 20,
+    "doi": "https://doi.org/10.3389/fcomm.2020.611555",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fcomm.2020.611555/pdf",
+    "is_oa": true,
+    "authors": [
+      "Ingo Siegert",
+      "Oliver Niebuhr"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Vocal Fundamental Frequency and Sound Pressure Level in Charismatic Speech: A Cross-Gender and -Language Study",
+    "year": 2019,
+    "citations": 17,
+    "doi": "https://doi.org/10.1016/j.jvoice.2019.04.007",
+    "oa_url": "https://hal.science/hal-02429571",
+    "is_oa": true,
+    "authors": [
+      "Rosario Signorello",
+      "Didier D\u00e9molin",
+      "Nathalie Henrich Bernardoni"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Perceived emotional states mediate willingness to buy from advertising speech",
+    "year": 2023,
+    "citations": 14,
+    "doi": "https://doi.org/10.3389/fpsyg.2022.1014921",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2022.1014921/pdf",
+    "is_oa": true,
+    "authors": [
+      "Mizuki Nagano",
+      "Yusuke Ijima",
+      "Sadao Hiroya"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "The Humble Charisma of a White-Dressed Man in a Desert Place: Pope Francis\u2019 Communicative Style in the Covid-19 Pandemic",
+    "year": 2021,
+    "citations": 14,
+    "doi": "https://doi.org/10.3389/fpsyg.2021.683259",
+    "oa_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.683259/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rosa Scardigno",
+      "Concetta Papapicco",
+      "Valentina Luccarelli"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Myth busted? Challenging what we think we know about charismatic speech",
+    "year": 2019,
+    "citations": 12,
+    "doi": "https://doi.org/10.14712/24646830.2019.17",
+    "oa_url": "https://karolinum.cz/data/clanek/7243/Phil_2019_2_0027.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jan Michalsky",
+      "Oliver Niebuhr"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Encouraging participant embodiment during VR-assisted public speaking training improves persuasiveness and charisma and reduces anxiety in secondary school students",
+    "year": 2023,
+    "citations": 9,
+    "doi": "https://doi.org/10.3389/frvir.2023.1074062",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/frvir.2023.1074062/pdf?isPublishedV2=False",
+    "is_oa": true,
+    "authors": [
+      "\u00cfo Valls-Rat\u00e9s",
+      "Oliver Niebuhr",
+      "Pilar Prieto"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "The Voice of the People: Populism and Donald Trump\u2019s Use of Informal Voice",
+    "year": 2024,
+    "citations": 7,
+    "doi": "https://doi.org/10.1007/s12115-024-00969-7",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s12115-024-00969-7.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jens Kjeldgaard\u2010Christiansen"
+    ],
+    "query": "persuasion charisma voice prosody"
+  }
+]

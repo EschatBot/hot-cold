@@ -1,0 +1,5485 @@
+[
+  {
+    "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+    "year": 2020,
+    "citations": 36109,
+    "doi": "https://doi.org/10.1038/s41592-019-0686-2",
+    "oa_url": "https://www.nature.com/articles/s41592-019-0686-2.pdf",
+    "is_oa": true,
+    "authors": [
+      "Pauli Virtanen",
+      "Ralf Gommers",
+      "Travis E. Oliphant"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "WGCNA: an R package for weighted correlation network analysis",
+    "year": 2008,
+    "citations": 28378,
+    "doi": "https://doi.org/10.1186/1471-2105-9-559",
+    "oa_url": "https://bmcbioinformatics.biomedcentral.com/counter/pdf/10.1186/1471-2105-9-559",
+    "is_oa": true,
+    "authors": [
+      "Peter Langfelder",
+      "Steve Horvath"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "The qualitative content analysis process",
+    "year": 2008,
+    "citations": 21741,
+    "doi": "https://doi.org/10.1111/j.1365-2648.2007.04569.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1365-2648.2007.04569.x",
+    "is_oa": true,
+    "authors": [
+      "Satu Elo",
+      "Helvi Kyng\u00e4s"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Fast unfolding of communities in large networks",
+    "year": 2008,
+    "citations": 20795,
+    "doi": "https://doi.org/10.1088/1742-5468/2008/10/p10008",
+    "oa_url": "https://arxiv.org/pdf/0803.0476",
+    "is_oa": true,
+    "authors": [
+      "Vincent D. Blondel",
+      "Jean\u2010Loup Guillaume",
+      "Renaud Lambiotte"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Older Adults' Reasons for Using Technology while Aging in Place",
+    "year": 2015,
+    "citations": 19720,
+    "doi": "https://doi.org/10.1159/000430949",
+    "oa_url": "https://karger.com/ger/article-pdf/62/2/226/2837897/000430949.pdf",
+    "is_oa": true,
+    "authors": [
+      "Sebastiaan Theodorus Micha\u00ebl Peek",
+      "Katrien Luijkx",
+      "M. D. Rijnaard"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "2013 ESH/ESC Guidelines for the management of arterial hypertension",
+    "year": 2013,
+    "citations": 13652,
+    "doi": "https://doi.org/10.1093/eurheartj/eht151",
+    "oa_url": "https://academic.oup.com/eurheartj/article-pdf/34/28/2159/17895598/eht151.pdf",
+    "is_oa": true,
+    "authors": [
+      "Giuseppe Mancia",
+      "Robert Fagard",
+      "Krzysztof Narkiewicz"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Internet of Things (IoT): A vision, architectural elements, and future directions",
+    "year": 2013,
+    "citations": 11820,
+    "doi": "https://doi.org/10.1016/j.future.2013.01.010",
+    "oa_url": "http://hdl.handle.net/11343/197439",
+    "is_oa": true,
+    "authors": [
+      "Jayavardhana Gubbi",
+      "Rajkumar Buyya",
+      "Slaven Marusic"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Saturation in qualitative research: exploring its conceptualization and operationalization",
+    "year": 2017,
+    "citations": 11078,
+    "doi": "https://doi.org/10.1007/s11135-017-0574-8",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11135-017-0574-8.pdf",
+    "is_oa": true,
+    "authors": [
+      "Benjamin Saunders",
+      "Julius Sim",
+      "Tom Kingstone"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+    "year": 2019,
+    "citations": 10203,
+    "doi": "https://doi.org/10.18653/v1/d19-1410",
+    "oa_url": "https://www.aclweb.org/anthology/D19-1410.pdf",
+    "is_oa": true,
+    "authors": [
+      "Nils Reimers",
+      "Iryna Gurevych"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Dexamethasone in Hospitalized Patients with Covid-19",
+    "year": 2020,
+    "citations": 9990,
+    "doi": "https://doi.org/10.1056/nejmoa2021436",
+    "oa_url": "https://research-information.bris.ac.uk/en/publications/a1023d7d-0cb1-48ae-a4df-ddc504d2c19d",
+    "is_oa": true,
+    "authors": [
+      "The RECOVERY Collaborative Group"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Designing qualitative research",
+    "year": 1989,
+    "citations": 9930,
+    "doi": "https://doi.org/10.5860/choice.27-1232",
+    "oa_url": "https://www.drugsandalcohol.ie/11280/1/Drugnet_19.pdf",
+    "is_oa": true,
+    "authors": [
+      "Shaliha, Farnaz",
+      "Mozaffari, Maryam",
+      "Ramezani, Faeze"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Dementia prevention, intervention, and care: 2020 report of the Lancet Commission",
+    "year": 2020,
+    "citations": 9860,
+    "doi": "https://doi.org/10.1016/s0140-6736(20)30367-6",
+    "oa_url": "http://www.thelancet.com/article/S0140673620303676/pdf",
+    "is_oa": true,
+    "authors": [
+      "Gill Livingston",
+      "Jonathan Huntley",
+      "Andrew Sommerlad"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "2019 ESC/EAS Guidelines for the management of dyslipidaemias: <i>lipid modification to reduce cardiovascular risk</i>",
+    "year": 2019,
+    "citations": 8601,
+    "doi": "https://doi.org/10.1093/eurheartj/ehz455",
+    "oa_url": "https://academic.oup.com/eurheartj/article-pdf/41/1/111/33707502/ehz455.pdf",
+    "is_oa": true,
+    "authors": [
+      "Fran\u00e7ois Mach",
+      "Colin Baigent",
+      "Alberico L. Catapano"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Global, regional, and national age-sex-specific mortality for 282 causes of death in 195 countries and territories, 1980\u20132017: a systematic analysis for the Global Burden of Disease Study 2017",
+    "year": 2018,
+    "citations": 8570,
+    "doi": "https://doi.org/10.1016/s0140-6736(18)32203-7",
+    "oa_url": "http://www.thelancet.com/article/S0140673618322037/pdf",
+    "is_oa": true,
+    "authors": [
+      "Gregory A. Roth",
+      "Degu Abate",
+      "Kalkidan Hassen Abate"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "European Guidelines on cardiovascular disease prevention in clinical practice (version 2012): The Fifth Joint Task Force of the European Society of Cardiology and Other Societies on Cardiovascular Disease Prevention in Clinical Practice (constituted by representatives of nine societies and by invited experts) * Developed with the special contribution of the European Association for Cardiovascular Prevention &amp; Rehabilitation (EACPR)",
+    "year": 2012,
+    "citations": 8507,
+    "doi": "https://doi.org/10.1093/eurheartj/ehs092",
+    "oa_url": "https://academic.oup.com/eurheartj/article-pdf/33/13/1635/17893548/ehs092.pdf",
+    "is_oa": true,
+    "authors": [
+      "Authors/Task Force Members:",
+      "Joep Perk",
+      "Guy De Backer"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI",
+    "year": 2019,
+    "citations": 8390,
+    "doi": "https://doi.org/10.1016/j.inffus.2019.12.012",
+    "oa_url": "https://arxiv.org/pdf/1910.10045",
+    "is_oa": true,
+    "authors": [
+      "Alejandro Barredo Arrieta",
+      "Natalia D\u00edaz-Rodr\u00edguez",
+      "Javier Del Ser"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Strengthening the Reporting of Observational Studies in Epidemiology (STROBE): Explanation and Elaboration",
+    "year": 2007,
+    "citations": 8251,
+    "doi": "https://doi.org/10.1371/journal.pmed.0040297",
+    "oa_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.0040297&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Jan P. Vandenbroucke",
+      "Erik von Elm",
+      "Douglas G. Altman"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "The International Classification of Headache Disorders, 3rd edition (beta version)",
+    "year": 2013,
+    "citations": 8174,
+    "doi": "https://doi.org/10.1177/0333102413485658",
+    "oa_url": "https://journals.sagepub.com/doi/pdf/10.1177/0333102413485658",
+    "is_oa": true,
+    "authors": [
+      "Ettlin, Dominik A"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Internet of Things: A Survey on Enabling Technologies, Protocols, and Applications",
+    "year": 2015,
+    "citations": 8152,
+    "doi": "https://doi.org/10.1109/comst.2015.2444095",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/9739/7331734/07123563.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ala Al\u2010Fuqaha",
+      "Mohsen Guizani",
+      "Mehdi Mohammadi"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Quantum cryptography",
+    "year": 2002,
+    "citations": 8148,
+    "doi": "https://doi.org/10.1103/revmodphys.74.145",
+    "oa_url": "http://link.aps.org/pdf/10.1103/RevModPhys.74.145",
+    "is_oa": true,
+    "authors": [
+      "Nicolas Gisin",
+      "G. Ribordy",
+      "Wolfgang Tittel"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "What Will 5G Be?",
+    "year": 2014,
+    "citations": 8105,
+    "doi": "https://doi.org/10.1109/jsac.2014.2328098",
+    "oa_url": "https://repositori.upf.edu/bitstreams/fc28283a-2b87-4440-8960-ea80da00759d/download",
+    "is_oa": true,
+    "authors": [
+      "Jeffrey G. Andrews",
+      "Stefano Buzzi",
+      "Wan Choi"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Dexamethasone in Hospitalized Patients with Covid-19.",
+    "year": 2020,
+    "citations": 8025,
+    "doi": "https://doi.org/10.17863/cam.57006",
+    "oa_url": "https://dirros.openscience.si/IzpisGradiva.php?id=15123",
+    "is_oa": true,
+    "authors": [
+      "RECOVERY Collaborative Group",
+      "Peter Horby",
+      "Wei Shen Lim"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Biological insights from 108 schizophrenia-associated genetic loci",
+    "year": 2014,
+    "citations": 8022,
+    "doi": "https://doi.org/10.1038/nature13595",
+    "oa_url": "https://www.nature.com/articles/nature13595.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jacqueline I. Goldstein",
+      "\u00a0Phil Lee",
+      "Stephan Ripke"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Inference and analysis of cell-cell communication using CellChat",
+    "year": 2021,
+    "citations": 7805,
+    "doi": "https://doi.org/10.1038/s41467-021-21246-9",
+    "oa_url": "https://www.nature.com/articles/s41467-021-21246-9.pdf",
+    "is_oa": true,
+    "authors": [
+      "Suoqin Jin",
+      "Christian F. Guerrero\u2010Juarez",
+      "Lihua Zhang"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Epidemiology and causes of preterm birth",
+    "year": 2008,
+    "citations": 7694,
+    "doi": "https://doi.org/10.1016/s0140-6736(08)60074-4",
+    "oa_url": "http://www.thelancet.com/article/S0140673608600744/pdf",
+    "is_oa": true,
+    "authors": [
+      "Robert L. Goldenberg",
+      "Jennifer F. Culhane",
+      "Jay D. Iams"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Fractional Brownian Motions, Fractional Noises and Applications",
+    "year": 1968,
+    "citations": 7594,
+    "doi": "https://doi.org/10.1137/1010093",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Beno\u00eet B. Mandelbrot",
+      "John W. Van Ness"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Technology Acceptance Model 3 and a Research Agenda on Interventions",
+    "year": 2008,
+    "citations": 7544,
+    "doi": "https://doi.org/10.1111/j.1540-5915.2008.00192.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1540-5915.2008.00192.x",
+    "is_oa": true,
+    "authors": [
+      "Viswanath Venkatesh",
+      "Hillol Bala"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Worldwide trends in body-mass index, underweight, overweight, and obesity from 1975 to 2016: a pooled analysis of 2416 population-based measurement studies in 128\u00b79 million children, adolescents, and adults",
+    "year": 2017,
+    "citations": 7530,
+    "doi": "https://doi.org/10.1016/s0140-6736(17)32129-3",
+    "oa_url": "http://www.thelancet.com/article/S0140673617321293/pdf",
+    "is_oa": true,
+    "authors": [
+      "Leandra Abarca-G\u00f3mez",
+      "Ziad Abdeen",
+      "Zargar Abdul Hamid"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Structural absorption by barbule microstructures of super black bird of paradise feathers",
+    "year": 2017,
+    "citations": 7464,
+    "doi": "https://doi.org/10.1038/s41467-017-02088-w",
+    "oa_url": "https://www.nature.com/articles/s41467-017-02088-w.pdf",
+    "is_oa": true,
+    "authors": [
+      "Dakota E. McCoy",
+      "Teresa J. Feo",
+      "Todd Alan Harvey"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Dissociable Intrinsic Connectivity Networks for Salience Processing and Executive Control",
+    "year": 2007,
+    "citations": 7403,
+    "doi": "https://doi.org/10.1523/jneurosci.5587-06.2007",
+    "oa_url": "https://www.jneurosci.org/content/jneuro/27/9/2349.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "William W. Seeley",
+      "Vinod Menon",
+      "Alan F. Schatzberg"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Global, regional, and national incidence, prevalence, and years lived with disability for 310 diseases and injuries, 1990\u20132015: a systematic analysis for the Global Burden of Disease Study 2015",
+    "year": 2016,
+    "citations": 7327,
+    "doi": "https://doi.org/10.1016/s0140-6736(16)31678-6",
+    "oa_url": "http://www.thelancet.com/article/S0140673616316786/pdf",
+    "is_oa": true,
+    "authors": [
+      "Theo Vos",
+      "Christine A. Allen",
+      "Megha Arora"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Surviving Sepsis Campaign: International Guidelines for Management of Severe Sepsis and Septic Shock, 2012",
+    "year": 2013,
+    "citations": 7323,
+    "doi": "https://doi.org/10.1007/s00134-012-2769-8",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s00134-012-2769-8.pdf",
+    "is_oa": true,
+    "authors": [
+      "R.P. Dellinger",
+      "Mitchell M. Levy",
+      "Andrew Rhodes"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Review of deep learning: concepts, CNN architectures, challenges, applications, future directions",
+    "year": 2021,
+    "citations": 7220,
+    "doi": "https://doi.org/10.1186/s40537-021-00444-8",
+    "oa_url": "https://journalofbigdata.springeropen.com/counter/pdf/10.1186/s40537-021-00444-8",
+    "is_oa": true,
+    "authors": [
+      "Laith Alzubaidi",
+      "Jinglan Zhang",
+      "Amjad J. Humaidi"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Exploring Network Structure, Dynamics, and Function using NetworkX",
+    "year": 2008,
+    "citations": 7186,
+    "doi": "https://doi.org/10.25080/tcwv9851",
+    "oa_url": "https://proceedings.scipy.org/articles/TCWV9851.pdf",
+    "is_oa": true,
+    "authors": [
+      "Aric Hagberg",
+      "Dan Schult",
+      "Pieter J. Swart"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "An introduction to cybernetics",
+    "year": 1956,
+    "citations": 7178,
+    "doi": "https://doi.org/10.5962/bhl.title.5851",
+    "oa_url": "https://www.biodiversitylibrary.org/itempdf/26977",
+    "is_oa": true,
+    "authors": [
+      "W. Ross Ashby"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Heavy Metal Toxicity and the Environment",
+    "year": 2012,
+    "citations": 6874,
+    "doi": "https://doi.org/10.1007/978-3-7643-8340-4_6",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/978-3-7643-8340-4_6.pdf",
+    "is_oa": true,
+    "authors": [
+      "Paul B. Tchounwou",
+      "Cl\u00e9ment G. Yedjou",
+      "Anita K. Patlolla"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "The magical number 4 in short-term memory: A reconsideration of mental storage capacity",
+    "year": 2001,
+    "citations": 6714,
+    "doi": "https://doi.org/10.1017/s0140525x01003922",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/44023F1147D4A1D44BDC0AD226838496/S0140525X01003922a.pdf/div-class-title-the-magical-number-4-in-short-term-memory-a-reconsideration-of-mental-storage-capacity-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Nelson Cowan"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank",
+    "year": 2013,
+    "citations": 6680,
+    "doi": "https://doi.org/10.18653/v1/d13-1170",
+    "oa_url": "https://aclanthology.org/D13-1170.pdf",
+    "is_oa": true,
+    "authors": [
+      "Richard Socher",
+      "Alex Perelygin",
+      "Jean Y. Wu"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Structure of the SARS-CoV-2 spike receptor-binding domain bound to the ACE2 receptor",
+    "year": 2020,
+    "citations": 6664,
+    "doi": "https://doi.org/10.1038/s41586-020-2180-5",
+    "oa_url": "https://www.nature.com/articles/s41586-020-2180-5.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jun Lan",
+      "Jiwan Ge",
+      "Jinfang Yu"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Technological transitions as evolutionary reconfiguration processes: a multi-level perspective and a case-study",
+    "year": 2002,
+    "citations": 6475,
+    "doi": "https://doi.org/10.1016/s0048-7333(02)00062-8",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0048733302000628",
+    "is_oa": true,
+    "authors": [
+      "Frank W. Geels"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Structural Equation Modeling and Regression: Guidelines for Research Practice",
+    "year": 2000,
+    "citations": 6329,
+    "doi": "https://doi.org/10.17705/1cais.00407",
+    "oa_url": "https://aisel.aisnet.org/cgi/viewcontent.cgi?article=2531&context=cais",
+    "is_oa": true,
+    "authors": [
+      "David Gefen",
+      "Detmar W. Straub",
+      "Marie\u2010Claude Boudreau"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "The Shared Socioeconomic Pathways and their energy, land use, and greenhouse gas emissions implications: An overview",
+    "year": 2016,
+    "citations": 6225,
+    "doi": "https://doi.org/10.1016/j.gloenvcha.2016.05.009",
+    "oa_url": "https://www.sciencedirect.com/science/article/am/pii/S0959378016300681?via%3Dihub",
+    "is_oa": true,
+    "authors": [
+      "Keywan Riahi",
+      "Detlef P. van Vuuren",
+      "Elmar Kriegler"
+    ],
+    "query": "social signal processing interaction"
+  },
+  {
+    "title": "Co-creation experiences: The next practice in value creation",
+    "year": 2004,
+    "citations": 6178,
+    "doi": "https://doi.org/10.1002/dir.20015",
+    "oa_url": "http://deepblue.lib.umich.edu/bitstream/2027.42/35225/1/20015_ftp.pdf",
+    "is_oa": true,
+    "authors": [
+      "C. K. Prahalad",
+      "Venkat Ramaswamy"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Open for innovation: the role of openness in explaining innovation performance among U.K. manufacturing firms",
+    "year": 2005,
+    "citations": 6115,
+    "doi": "https://doi.org/10.1002/smj.507",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/smj.507",
+    "is_oa": true,
+    "authors": [
+      "Keld Laursen",
+      "Ammon Salter"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Biological properties of extracellular vesicles and their physiological functions",
+    "year": 2015,
+    "citations": 5795,
+    "doi": "https://doi.org/10.3402/jev.v4.27066",
+    "oa_url": "https://www.tandfonline.com/doi/pdf/10.3402/jev.v4.27066?needAccess=true&role=button",
+    "is_oa": true,
+    "authors": [
+      "Mar\u0131\u0301a Y\u00e1\u00f1ez-M\u00f3",
+      "Pia Siljander",
+      "Zoraida Andreu"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Women and Human Development",
+    "year": 2000,
+    "citations": 5792,
+    "doi": "https://doi.org/10.1017/cbo9780511841286",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F2B710E9FCC03D22B25D465DD7B25DD4/9780511841286int_p1-33_CBO.pdf/introduction_feminism_and_international_development.pdf",
+    "is_oa": true,
+    "authors": [
+      "Martha C. Nussbaum"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Power laws, Pareto distributions and Zipf's law",
+    "year": 2005,
+    "citations": 5728,
+    "doi": "https://doi.org/10.1080/00107510500052444",
+    "oa_url": "https://arxiv.org/pdf/cond-mat/0412004",
+    "is_oa": true,
+    "authors": [
+      "MEJ Newman"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Whatever next? Predictive brains, situated agents, and the future of cognitive science",
+    "year": 2013,
+    "citations": 5690,
+    "doi": "https://doi.org/10.1017/s0140525x12000477",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33542C736E17E3D1D44E8D03BE5F4CD9/S0140525X12000477a.pdf/div-class-title-whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Andy Clark"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "A new framework for developing and evaluating complex interventions: update of Medical Research Council guidance",
+    "year": 2021,
+    "citations": 5571,
+    "doi": "https://doi.org/10.1136/bmj.n2061",
+    "oa_url": "https://www.bmj.com/content/bmj/374/bmj.n2061.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Kathryn Skivington",
+      "Lynsay Matthews",
+      "Sharon Simpson"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Evolutionary Games and Population Dynamics",
+    "year": 1998,
+    "citations": 5509,
+    "doi": "https://doi.org/10.1017/cbo9781139173179",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Josef Hofbauer",
+      "Karl Sigmund"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Characteristics of SARS-CoV-2 and COVID-19",
+    "year": 2020,
+    "citations": 5386,
+    "doi": "https://doi.org/10.1038/s41579-020-00459-7",
+    "oa_url": "https://www.nature.com/articles/s41579-020-00459-7.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ben Hu",
+      "Hua Guo",
+      "Peng Zhou"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Climate Change 2014 - Synthesis Report",
+    "year": 2015,
+    "citations": 5299,
+    "doi": "https://doi.org/10.59327/ipcc/ar5-9789291691432",
+    "oa_url": "https://www.ipcc.ch/site/assets/uploads/2018/02/SYR_AR5_FINAL_full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Intergovernmental Panel on Climate Change"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Implementation intentions: Strong effects of simple plans.",
+    "year": 1999,
+    "citations": 5199,
+    "doi": "https://doi.org/10.1037/0003-066x.54.7.493",
+    "oa_url": "https://kops.uni-konstanz.de/server/api/core/bitstreams/14cc2a36-5f01-4dc1-b9ca-f2d0ca0c8930/content",
+    "is_oa": true,
+    "authors": [
+      "Peter M. Gollwitzer"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Sensitivity of revised diagnostic criteria for the behavioural variant of frontotemporal dementia",
+    "year": 2011,
+    "citations": 5168,
+    "doi": "https://doi.org/10.1093/brain/awr179",
+    "oa_url": "https://academic.oup.com/brain/article-pdf/134/9/2456/17346405/awr179.pdf",
+    "is_oa": true,
+    "authors": [
+      "Katya Rascovsky",
+      "John R. Hodges",
+      "David S. Knopman"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Neurocircuitry of Addiction",
+    "year": 2009,
+    "citations": 5151,
+    "doi": "https://doi.org/10.1038/npp.2009.110",
+    "oa_url": "https://www.nature.com/articles/npp2009110.pdf",
+    "is_oa": true,
+    "authors": [
+      "George F. Koob",
+      "Nora D. Volkow"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "4 Research Methods: Quantitative and Qualitative Approaches",
+    "year": 2023,
+    "citations": 5005,
+    "doi": "https://doi.org/10.21832/9781800417151-006",
+    "oa_url": "https://www.degruyter.com/document/doi/10.21832/9781800417151-006/pdf",
+    "is_oa": true,
+    "authors": [
+      "Durk Gorter",
+      "Jasone Cenoz"
+    ],
+    "query": "group dynamics social network interaction"
+  },
+  {
+    "title": "Using social and behavioural science to support COVID-19 pandemic response",
+    "year": 2020,
+    "citations": 5000,
+    "doi": "https://doi.org/10.1038/s41562-020-0884-z",
+    "oa_url": "https://www.nature.com/articles/s41562-020-0884-z.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jay Joseph Van Bavel",
+      "Katherine Baicker",
+      "Paulo S. Boggio"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Vulnerability",
+    "year": 2006,
+    "citations": 4989,
+    "doi": "https://doi.org/10.1016/j.gloenvcha.2006.02.006",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "W. Neil Adger"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Typology of sociotechnical transition pathways",
+    "year": 2007,
+    "citations": 4909,
+    "doi": "https://doi.org/10.1016/j.respol.2007.01.003",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0048733307000248",
+    "is_oa": true,
+    "authors": [
+      "Frank W. Geels",
+      "Johan Schot"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "The World Mental Health (WMH) Survey Initiative version of the World Health Organization (WHO) Composite International Diagnostic Interview (CIDI)",
+    "year": 2004,
+    "citations": 4792,
+    "doi": "https://doi.org/10.1002/mpr.168",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/mpr.168",
+    "is_oa": true,
+    "authors": [
+      "Ronald C. Kessler",
+      "T. Bedirhan \u00dcst\u00fcn"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "The Duality of Technology: Rethinking the Concept of Technology in Organizations",
+    "year": 1992,
+    "citations": 4713,
+    "doi": "https://doi.org/10.1287/orsc.3.3.398",
+    "oa_url": "https://dspace.mit.edu/bitstream/1721.1/2300/1/SWP-3141-22161783-CCS-TR-105.pdf",
+    "is_oa": true,
+    "authors": [
+      "Wanda J. Orlikowski"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Systematic review of research on artificial intelligence applications in higher education \u2013 where are the educators?",
+    "year": 2019,
+    "citations": 4605,
+    "doi": "https://doi.org/10.1186/s41239-019-0171-0",
+    "oa_url": "https://educationaltechnologyjournal.springeropen.com/track/pdf/10.1186/s41239-019-0171-0",
+    "is_oa": true,
+    "authors": [
+      "Olaf Zawacki\u2010Richter",
+      "Victoria I. Mar\u00edn",
+      "Melissa Bond"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "A Survey of Convolutional Neural Networks: Analysis, Applications, and Prospects",
+    "year": 2021,
+    "citations": 4597,
+    "doi": "https://doi.org/10.1109/tnnls.2021.3084827",
+    "oa_url": "http://hdl.handle.net/10072/405164",
+    "is_oa": true,
+    "authors": [
+      "Zewen Li",
+      "Fan Liu",
+      "Wenjie Yang"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Six views of embodied cognition",
+    "year": 2002,
+    "citations": 4431,
+    "doi": "https://doi.org/10.3758/bf03196322",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/BF03196322.pdf",
+    "is_oa": true,
+    "authors": [
+      "Margaret Wilson"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "International regimes, transactions, and change: embedded liberalism in the postwar economic order",
+    "year": 1982,
+    "citations": 4388,
+    "doi": "https://doi.org/10.1017/s0020818300018993",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "John Gerard Ruggie"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Diagnosis and management of dementia with Lewy bodies",
+    "year": 2017,
+    "citations": 4320,
+    "doi": "https://doi.org/10.1212/wnl.0000000000004058",
+    "oa_url": "https://n.neurology.org/content/neurology/89/1/88.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ian G. McKeith",
+      "Bradley F. Boeve",
+      "Dennis W. Dickson"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Clusters and knowledge: local buzz, global pipelines and the process of knowledge creation",
+    "year": 2004,
+    "citations": 4316,
+    "doi": "https://doi.org/10.1191/0309132504ph469oa",
+    "oa_url": "https://utoronto.scholaris.ca/bitstreams/7bb7a50f-4228-4afd-9ea2-6719622aec7d/download",
+    "is_oa": true,
+    "authors": [
+      "Harald Bathelt",
+      "Anders Malmberg",
+      "Peter Maskell"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Semi-Supervised Learning",
+    "year": 2006,
+    "citations": 4289,
+    "doi": "https://doi.org/10.7551/mitpress/9780262033589.001.0001",
+    "oa_url": "http://hdl.handle.net/11858/00-001M-0000-0013-D029-E",
+    "is_oa": true,
+    "authors": [
+      "Olivier Chapelle",
+      "Bernhard Schlkopf",
+      "Alexander Zien"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Where Is the Semantic System? A Critical Review and Meta-Analysis of 120 Functional Neuroimaging Studies",
+    "year": 2009,
+    "citations": 4115,
+    "doi": "https://doi.org/10.1093/cercor/bhp055",
+    "oa_url": "https://academic.oup.com/cercor/article-pdf/19/12/2767/17300551/bhp055.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jeffrey R. Binder",
+      "Rutvik H. Desai",
+      "William W. Graves"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Instance-Based Learning Algorithms",
+    "year": 1991,
+    "citations": 4094,
+    "doi": "https://doi.org/10.1023/a:1022689900470",
+    "oa_url": "https://link.springer.com/content/pdf/10.1023%2FA%3A1022689900470.pdf",
+    "is_oa": true,
+    "authors": [
+      "David W. Aha",
+      "Dennis Kibler",
+      "Marc K. Albert"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Bayesian t tests for accepting and rejecting the null hypothesis",
+    "year": 2009,
+    "citations": 3899,
+    "doi": "https://doi.org/10.3758/pbr.16.2.225",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/PBR.16.2.225.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jeffrey N. Rouder",
+      "Paul L. Speckman",
+      "Dongchu Sun"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Five disruptive technology directions for 5G",
+    "year": 2014,
+    "citations": 3817,
+    "doi": "https://doi.org/10.1109/mcom.2014.6736746",
+    "oa_url": "https://vbn.aau.dk/ws/files/208323943/Five_disruptive_technology_directions_for_5G.pdf",
+    "is_oa": true,
+    "authors": [
+      "Federico Boccardi",
+      "Robert W. Heath",
+      "Angel Lozano"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Artificial Intelligence (AI): Multidisciplinary perspectives on emerging challenges, opportunities, and agenda for research, practice and policy",
+    "year": 2019,
+    "citations": 3816,
+    "doi": "https://doi.org/10.1016/j.ijinfomgt.2019.08.002",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S026840121930917X",
+    "is_oa": true,
+    "authors": [
+      "Yogesh K. Dwivedi",
+      "Laurie Hughes",
+      "Elvira Ismagilova"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Clinical Practice Guidelines for the Prevention and Management of Pain, Agitation/Sedation, Delirium, Immobility, and Sleep Disruption in Adult Patients in the ICU",
+    "year": 2018,
+    "citations": 3719,
+    "doi": "https://doi.org/10.1097/ccm.0000000000003299",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "John W. Devlin",
+      "Yoanna Skrobik",
+      "C\u00e9line G\u00e9linas"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "From sectoral systems of innovation to socio-technical systems",
+    "year": 2004,
+    "citations": 3666,
+    "doi": "https://doi.org/10.1016/j.respol.2004.01.015",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0048733304000496",
+    "is_oa": true,
+    "authors": [
+      "Frank W. Geels"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Oxytocin increases trust in humans",
+    "year": 2005,
+    "citations": 3654,
+    "doi": "https://doi.org/10.1038/nature03701",
+    "oa_url": "https://www.nature.com/articles/nature03701.pdf",
+    "is_oa": true,
+    "authors": [
+      "Michael Kosfeld",
+      "Markus Heinrichs",
+      "Paul J. Zak"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Global Surgery 2030: evidence and solutions for achieving health, welfare, and economic development",
+    "year": 2015,
+    "citations": 3596,
+    "doi": "https://doi.org/10.1016/s0140-6736(15)60160-x",
+    "oa_url": "http://www.thelancet.com/article/S014067361560160X/pdf",
+    "is_oa": true,
+    "authors": [
+      "John G. Meara",
+      "Andrew Leather",
+      "Lars Hagander"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "The interdisciplinary study of coordination",
+    "year": 1994,
+    "citations": 3404,
+    "doi": "https://doi.org/10.1145/174666.174668",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/174666.174668",
+    "is_oa": true,
+    "authors": [
+      "Thomas W. Malone",
+      "Kevin Crowston"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Opinion Paper: \u201cSo what if ChatGPT wrote it?\u201d Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy",
+    "year": 2023,
+    "citations": 3375,
+    "doi": "https://doi.org/10.1016/j.ijinfomgt.2023.102642",
+    "oa_url": "https://linkinghub.elsevier.com/science/article/pii/S0268401223000233/pdfft?md5=492895056a2fa29b1cb81876a1c57544&pid=1-s2.0-S0268401223000233-main.pdf",
+    "is_oa": true,
+    "authors": [
+      "Yogesh K. Dwivedi",
+      "Nir Kshetri",
+      "Laurie Hughes"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Deciphering the Liquidity and Credit Crunch 2007\u20132008",
+    "year": 2009,
+    "citations": 3371,
+    "doi": "https://doi.org/10.1257/jep.23.1.77",
+    "oa_url": "https://www.aeaweb.org/articles/pdf/doi/10.1257/jep.23.1.77",
+    "is_oa": true,
+    "authors": [
+      "Markus K. Brunnermeier"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Discursive psychology",
+    "year": 2001,
+    "citations": 3306,
+    "doi": "https://doi.org/10.5040/9781350933927.ch-002",
+    "oa_url": "https://dspace.lboro.ac.uk/2134/9485",
+    "is_oa": true,
+    "authors": [
+      "Derek Edwards",
+      "Jonathan Potter"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "<scp>BORIS</scp>: a free, versatile open\u2010source event\u2010logging software for video/audio coding and live observations",
+    "year": 2016,
+    "citations": 3297,
+    "doi": "https://doi.org/10.1111/2041-210x.12584",
+    "oa_url": "https://besjournals.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/2041-210X.12584",
+    "is_oa": true,
+    "authors": [
+      "Olivier Friard",
+      "Marco Gamba"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Shaping Functional Architecture by Oscillatory Alpha Activity: Gating by Inhibition",
+    "year": 2010,
+    "citations": 3294,
+    "doi": "https://doi.org/10.3389/fnhum.2010.00186",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2010.00186/pdf",
+    "is_oa": true,
+    "authors": [
+      "Ole Jensen",
+      "Ali Mazaheri"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "The Lancet Commission on global mental health and sustainable development",
+    "year": 2018,
+    "citations": 3250,
+    "doi": "https://doi.org/10.1016/s0140-6736(18)31612-x",
+    "oa_url": "https://kclpure.kcl.ac.uk/ws/files/102654274/The_Lancet_Commission_on_PATEL_Firstonline16October2018_GREEN_AAM_CC_BY_NC_ND_.pdf",
+    "is_oa": true,
+    "authors": [
+      "Vikram Patel",
+      "Shekhar Saxena",
+      "Crick Lund"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "An Integrative Framework for Collaborative Governance",
+    "year": 2011,
+    "citations": 3239,
+    "doi": "https://doi.org/10.1093/jopart/mur011",
+    "oa_url": "https://academic.oup.com/jpart/article-pdf/22/1/1/2781333/mur011.pdf",
+    "is_oa": true,
+    "authors": [
+      "Kirk Emerson",
+      "Tina Nabatchi",
+      "Stephen Balogh"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "The neuropathological diagnosis of Alzheimer\u2019s disease",
+    "year": 2019,
+    "citations": 3221,
+    "doi": "https://doi.org/10.1186/s13024-019-0333-5",
+    "oa_url": "https://molecularneurodegeneration.biomedcentral.com/counter/pdf/10.1186/s13024-019-0333-5",
+    "is_oa": true,
+    "authors": [
+      "Michael DeTure",
+      "Dennis W. Dickson"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Clinical Practice Guidelines for the Management Candidiasis: 2009 Update by the Infectious Diseases Society of America",
+    "year": 2009,
+    "citations": 3201,
+    "doi": "https://doi.org/10.1086/596757",
+    "oa_url": "https://academic.oup.com/cid/article-pdf/48/5/503/34134993/48-5-503.pdf",
+    "is_oa": true,
+    "authors": [
+      "Peter G. Pappas",
+      "Carol A. Kauffman",
+      "David R. Andes"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Artificial Intelligence in Education: A Review",
+    "year": 2020,
+    "citations": 3199,
+    "doi": "https://doi.org/10.1109/access.2020.2988510",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09069875.pdf",
+    "is_oa": true,
+    "authors": [
+      "Lijia Chen",
+      "Pingping Chen",
+      "Zhijian Lin"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Ancient Admixture in Human History",
+    "year": 2012,
+    "citations": 3100,
+    "doi": "https://doi.org/10.1534/genetics.112.145037",
+    "oa_url": "https://www.genetics.org/content/genetics/192/3/1065.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Nick Patterson",
+      "Priya Moorjani",
+      "Yontao Luo"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "A survey of socially interactive robots",
+    "year": 2003,
+    "citations": 3079,
+    "doi": "https://doi.org/10.1016/s0921-8890(02)00372-x",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S092188900200372X",
+    "is_oa": true,
+    "authors": [
+      "Terrence Fong",
+      "Illah Nourbakhsh",
+      "Kerstin Dautenhahn"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Developing the theory of formative assessment",
+    "year": 2009,
+    "citations": 3043,
+    "doi": "https://doi.org/10.1007/s11092-008-9068-5",
+    "oa_url": "https://kclpure.kcl.ac.uk/ws/files/9119063/Black2009_Developing_the_theory_of_formative_assessment.pdf",
+    "is_oa": true,
+    "authors": [
+      "Paul Black",
+      "Dylan Wiliam"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Differentiable dynamical systems",
+    "year": 1967,
+    "citations": 3011,
+    "doi": "https://doi.org/10.1090/s0002-9904-1967-11798-1",
+    "oa_url": "https://www.ams.org/bull/1967-73-06/S0002-9904-1967-11798-1/S0002-9904-1967-11798-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Stephen T. Smale"
+    ],
+    "query": "conversation turn taking analysis"
+  },
+  {
+    "title": "Measurement Instruments for the Anthropomorphism, Animacy, Likeability, Perceived Intelligence, and Perceived Safety of Robots",
+    "year": 2008,
+    "citations": 2958,
+    "doi": "https://doi.org/10.1007/s12369-008-0001-3",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s12369-008-0001-3.pdf",
+    "is_oa": true,
+    "authors": [
+      "Christoph Bartneck",
+      "Dana Kuli\u0107",
+      "Elizabeth A. Croft"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "The Internet of Things for Health Care: A Comprehensive Survey",
+    "year": 2015,
+    "citations": 2958,
+    "doi": "https://doi.org/10.1109/access.2015.2437951",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/7042252/07113786.pdf",
+    "is_oa": true,
+    "authors": [
+      "S. M. Riazul Islam",
+      "Daehan Kwak",
+      "Md. Humaun Kabir"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Learning and protection of proprietary assets in strategic alliances: building relational capital",
+    "year": 2000,
+    "citations": 2956,
+    "doi": "https://doi.org/10.1002/(sici)1097-0266(200003)21:3<217::aid-smj95>3.0.co;2-y",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/%28SICI%291097-0266%28200003%2921%3A3%3C217%3A%3AAID-SMJ95%3E3.0.CO%3B2-Y",
+    "is_oa": true,
+    "authors": [
+      "Prashant Kale",
+      "Harbir Singh",
+      "Howard V. Perlmutter"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "A conceptual framework for research on subjective cognitive decline in preclinical Alzheimer's disease",
+    "year": 2014,
+    "citations": 2955,
+    "doi": "https://doi.org/10.1016/j.jalz.2014.01.001",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1016/j.jalz.2014.01.001",
+    "is_oa": true,
+    "authors": [
+      "Frank Jessen",
+      "Rebecca E. Amariglio",
+      "Martin P.J. van Boxtel"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Towards a theory of ecosystems",
+    "year": 2018,
+    "citations": 2906,
+    "doi": "https://doi.org/10.1002/smj.2904",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/smj.2904",
+    "is_oa": true,
+    "authors": [
+      "Michael G. Jacobides",
+      "Carmelo Cennamo",
+      "Annabelle Gawer"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Instance-based learning algorithms",
+    "year": 1991,
+    "citations": 2904,
+    "doi": "https://doi.org/10.1007/bf00153759",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/BF00153759.pdf",
+    "is_oa": true,
+    "authors": [
+      "David W. Aha",
+      "Dennis Kibler",
+      "Marc K. Albert"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Working memory span tasks: A methodological review and user\u2019s guide",
+    "year": 2005,
+    "citations": 2837,
+    "doi": "https://doi.org/10.3758/bf03196772",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/BF03196772.pdf",
+    "is_oa": true,
+    "authors": [
+      "Andrew R. A. Conway",
+      "Michael J. Kane",
+      "Michael F. Bunting"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "2013 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy",
+    "year": 2013,
+    "citations": 2805,
+    "doi": "https://doi.org/10.1093/eurheartj/eht150",
+    "oa_url": "https://academic.oup.com/eurheartj/article-pdf/34/29/2281/17895881/eht150.pdf",
+    "is_oa": true,
+    "authors": [
+      "Michele Brignole",
+      "Angelo Auricchio",
+      "Gonzalo Bar\u00f3n\u2010Esquivias"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Work Group Diversity and Group Performance: An Integrative Model and Research Agenda.",
+    "year": 2004,
+    "citations": 2779,
+    "doi": "https://doi.org/10.1037/0021-9010.89.6.1008",
+    "oa_url": "https://research.vu.nl/ws/files/2734382/Knippenberg%20Journal%20of%20Applied%20Psychology%2089(6)%202004%20u.pdf",
+    "is_oa": true,
+    "authors": [
+      "Daan van Knippenberg",
+      "Carsten K. W. De Dreu",
+      "Astrid C. Homan"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Safeguarding human health in the Anthropocene epoch: report of The Rockefeller Foundation\u2013Lancet Commission on planetary health",
+    "year": 2015,
+    "citations": 2761,
+    "doi": "https://doi.org/10.1016/s0140-6736(15)60901-1",
+    "oa_url": "http://www.thelancet.com/article/S0140673615609011/pdf",
+    "is_oa": true,
+    "authors": [
+      "Sarah Whitmee",
+      "Andy Haines",
+      "Chris Beyrer"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Groupware: some issues and experiences",
+    "year": 1991,
+    "citations": 2752,
+    "doi": "https://doi.org/10.1145/99977.99987",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/99977.99987",
+    "is_oa": true,
+    "authors": [
+      "Clarence A. Ellis",
+      "Simon Gibbs",
+      "Gail L. Rein"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Predicting Elections with Twitter: What 140 Characters Reveal about Political Sentiment",
+    "year": 2010,
+    "citations": 2660,
+    "doi": "https://doi.org/10.1609/icwsm.v4i1.14009",
+    "oa_url": "https://ojs.aaai.org/index.php/ICWSM/article/download/14009/13858",
+    "is_oa": true,
+    "authors": [
+      "Andranik Tumasjan",
+      "Timm O. Sprenger",
+      "Philipp Sandner"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The myth of language universals: Language diversity and its importance for cognitive science",
+    "year": 2009,
+    "citations": 2609,
+    "doi": "https://doi.org/10.1017/s0140525x0999094x",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/25D362A6566FCA4F51054D1C41104654/S0140525X0999094Xa.pdf/div-class-title-the-myth-of-language-universals-language-diversity-and-its-importance-for-cognitive-science-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Nicholas Evans",
+      "Stephen C. Levinson"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Toward an integrative social identity model of collective action: A quantitative research synthesis of three socio-psychological perspectives.",
+    "year": 2008,
+    "citations": 2596,
+    "doi": "https://doi.org/10.1037/0033-2909.134.4.504",
+    "oa_url": "https://research.vu.nl/en/publications/43cc0d8e-767b-452f-84fd-87f973c47006",
+    "is_oa": true,
+    "authors": [
+      "Martijn van Zomeren",
+      "Tom Postmes",
+      "Russell Spears"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Toward a mechanistic psychology of dialogue",
+    "year": 2004,
+    "citations": 2590,
+    "doi": "https://doi.org/10.1017/s0140525x04000056",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/83442BA495E0D5F81BDB615E4109DBD2/S0140525X04000056a.pdf/div-class-title-toward-a-mechanistic-psychology-of-dialogue-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Martin J. Pickering",
+      "Simon Garrod"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Revolutionizing healthcare: the role of artificial intelligence in clinical practice",
+    "year": 2023,
+    "citations": 2587,
+    "doi": "https://doi.org/10.1186/s12909-023-04698-z",
+    "oa_url": "https://bmcmededuc.biomedcentral.com/counter/pdf/10.1186/s12909-023-04698-z",
+    "is_oa": true,
+    "authors": [
+      "Shuroug A. Alowais",
+      "Sahar S. Alghamdi",
+      "Nada Alsuhebany"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "An agenda for sustainability transitions research: State of the art and future directions",
+    "year": 2019,
+    "citations": 2575,
+    "doi": "https://doi.org/10.1016/j.eist.2019.01.004",
+    "oa_url": "https://cris.maastrichtuniversity.nl/en/publications/4e5d6bc1-4477-4e88-a54d-cddb80f2e368",
+    "is_oa": true,
+    "authors": [
+      "Jonathan K\u00f6hler",
+      "Frank W. Geels",
+      "Florian Kern"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Ethnicity without groups",
+    "year": 2002,
+    "citations": 2573,
+    "doi": "https://doi.org/10.1017/s0003975602001066",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0DCD6F79DE1F989E4C2AA6E201F6FEEF/S0003975602001066a.pdf/div-class-title-ethnicity-without-groups-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Rogers Brubaker"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "The Fundamental Institutions of China's Reforms and Development",
+    "year": 2011,
+    "citations": 2512,
+    "doi": "https://doi.org/10.1257/jel.49.4.1076",
+    "oa_url": "http://hub.hku.hk/bitstream/10722/153452/2/Content.pdf",
+    "is_oa": true,
+    "authors": [
+      "Chenggang Xu"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Acetylcholinesterase Inhibitors: Pharmacology and Toxicology",
+    "year": 2013,
+    "citations": 2494,
+    "doi": "https://doi.org/10.2174/1570159x11311030006",
+    "oa_url": "http://www.eurekaselect.com/article/50871",
+    "is_oa": true,
+    "authors": [
+      "Mirjana B. \u010colovi\u0107",
+      "Danijela Krsti\u0107",
+      "Tamara Lazarevi\u0107\u2010Pa\u0161ti"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Applications of structural equation modeling in marketing and consumer research: A review",
+    "year": 1996,
+    "citations": 2485,
+    "doi": "https://doi.org/10.1016/0167-8116(95)00038-0",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/0167811695000380",
+    "is_oa": true,
+    "authors": [
+      "Hans Baumgartner",
+      "Christian Homburg"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "The use of focus group discussion methodology: Insights from two decades of application in conservation",
+    "year": 2018,
+    "citations": 2476,
+    "doi": "https://doi.org/10.1111/2041-210x.12860",
+    "oa_url": "https://besjournals.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/2041-210X.12860",
+    "is_oa": true,
+    "authors": [
+      "Tobias Ochieng Nyumba",
+      "Kerrie A. Wilson",
+      "Christina Derrick"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Traumatic brain injury: integrated approaches to improve prevention, clinical care, and research",
+    "year": 2017,
+    "citations": 2459,
+    "doi": "https://doi.org/10.1016/s1474-4422(17)30371-x",
+    "oa_url": "http://www.thelancet.com/article/S147444221730371X/pdf",
+    "is_oa": true,
+    "authors": [
+      "Andrew I.R. Maas",
+      "David Menon",
+      "P. David Adelson"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "The case study approach",
+    "year": 2011,
+    "citations": 2445,
+    "doi": "https://doi.org/10.1186/1471-2288-11-100",
+    "oa_url": "https://bmcmedresmethodol.biomedcentral.com/counter/pdf/10.1186/1471-2288-11-100",
+    "is_oa": true,
+    "authors": [
+      "Sarah Crowe",
+      "Kathrin Cresswell",
+      "Ann Robertson"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Automated Hate Speech Detection and the Problem of Offensive Language",
+    "year": 2017,
+    "citations": 2405,
+    "doi": "https://doi.org/10.1609/icwsm.v11i1.14955",
+    "oa_url": "https://ojs.aaai.org/index.php/ICWSM/article/download/14955/14805",
+    "is_oa": true,
+    "authors": [
+      "Thomas Davidson",
+      "Dana Warmsley",
+      "Michael W. Macy"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Designing payments for environmental services in theory and practice: An overview of the issues",
+    "year": 2008,
+    "citations": 2386,
+    "doi": "https://doi.org/10.1016/j.ecolecon.2008.03.011",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0921800908001420",
+    "is_oa": true,
+    "authors": [
+      "Stefanie Engel",
+      "Stefano Pagiola",
+      "Sven Wunder"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Academic engagement and commercialisation: A review of the literature on university\u2013industry relations",
+    "year": 2012,
+    "citations": 2382,
+    "doi": "https://doi.org/10.1016/j.respol.2012.09.007",
+    "oa_url": "https://linkinghub.elsevier.com/science/article/pii/S0048733312002235/pdfft?md5=06b5b1a1ae57713ff2c2c3063b4b494a&pid=1-s2.0-S0048733312002235-main.pdf",
+    "is_oa": true,
+    "authors": [
+      "Markus Perkmann",
+      "Valentina Tartari",
+      "Maureen McKelvey"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "A Survey of 5G Network: Architecture and Emerging Technologies",
+    "year": 2015,
+    "citations": 2377,
+    "doi": "https://doi.org/10.1109/access.2015.2461602",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/7042252/07169508.pdf",
+    "is_oa": true,
+    "authors": [
+      "Akhil Gupta",
+      "Rakesh Kumar Jha"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Modes of Foreign Entry: A Transaction Cost Analysis and Propositions",
+    "year": 1986,
+    "citations": 2350,
+    "doi": "https://doi.org/10.1057/palgrave.jibs.8490432",
+    "oa_url": "https://link.springer.com/content/pdf/10.1057/palgrave.jibs.8490432.pdf",
+    "is_oa": true,
+    "authors": [
+      "Erin Anderson",
+      "Hubert Gatignon"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Setting the future of digital and social media marketing research: Perspectives and research propositions",
+    "year": 2020,
+    "citations": 2329,
+    "doi": "https://doi.org/10.1016/j.ijinfomgt.2020.102168",
+    "oa_url": "https://doi.org/10.1016/j.ijinfomgt.2020.102168",
+    "is_oa": true,
+    "authors": [
+      "Yogesh K. Dwivedi",
+      "Elvira Ismagilova",
+      "David L. Hughes"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Unraveling the Central State, but How? Types of Multi-level Governance",
+    "year": 2003,
+    "citations": 2322,
+    "doi": "https://doi.org/10.1017/s0003055403000649",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/8A5A618038BDE546E5C582096F0B201F/S0003055403000649a.pdf/div-class-title-unraveling-the-central-state-but-how-types-of-multi-level-governance-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "HOOGHE LIESBET",
+      "MARKS GARY"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "The brain basis of emotion: A meta-analytic review",
+    "year": 2012,
+    "citations": 2300,
+    "doi": "https://doi.org/10.1017/s0140525x11000446",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/80F95F093305C76BA2C66BBA48D4BC8A/S0140525X11000446a.pdf/div-class-title-the-brain-basis-of-emotion-a-meta-analytic-review-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Kristen A. Lindquist",
+      "Tor D. Wager",
+      "Hedy Kober"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Third-party punishment and social norms",
+    "year": 2004,
+    "citations": 2288,
+    "doi": "https://doi.org/10.1016/s1090-5138(04)00005-4",
+    "oa_url": "https://linkinghub.elsevier.com/science/article/pii/S1090513804000054",
+    "is_oa": true,
+    "authors": [
+      "Ernst Fehr",
+      "Urs Fischbacher"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "GPT-4 Technical Report",
+    "year": 2023,
+    "citations": 2266,
+    "doi": "https://doi.org/10.4230/lipics.cosit.2024.11",
+    "oa_url": "https://arxiv.org/pdf/2303.08774",
+    "is_oa": true,
+    "authors": [
+      "OpenAI",
+      "Wijayagunawardhana, W. A. Hasindu N."
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Understanding the science experiences of successful women of color: Science identity as an analytic lens",
+    "year": 2007,
+    "citations": 2251,
+    "doi": "https://doi.org/10.1002/tea.20237",
+    "oa_url": "http://libres.uncg.edu/ir/uncg/f/H_Carlone_Understanding_2007.pdf",
+    "is_oa": true,
+    "authors": [
+      "Heidi B. Carlone",
+      "Angela Johnson"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "Masked Presentations of Emotional Facial Expressions Modulate Amygdala Activity without Explicit Knowledge",
+    "year": 1998,
+    "citations": 2216,
+    "doi": "https://doi.org/10.1523/jneurosci.18-01-00411.1998",
+    "oa_url": "https://www.jneurosci.org/content/jneuro/18/1/411.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Paul J. Whalen",
+      "Scott L. Rauch",
+      "Nancy L. Etcoff"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Global, regional, and national disability-adjusted life-years (DALYs) for 315 diseases and injuries and healthy life expectancy (HALE), 1990\u20132015: a systematic analysis for the Global Burden of Disease Study 2015",
+    "year": 2016,
+    "citations": 2213,
+    "doi": "https://doi.org/10.1016/s0140-6736(16)31460-x",
+    "oa_url": "http://www.thelancet.com/article/S014067361631460X/pdf",
+    "is_oa": true,
+    "authors": [
+      "Nicholas J Kassebaum",
+      "Megha Arora",
+      "Ryan M Barber"
+    ],
+    "query": "negotiation communication strategy outcome"
+  },
+  {
+    "title": "A comprehensive survey on support vector machine classification: Applications, challenges and trends",
+    "year": 2020,
+    "citations": 2191,
+    "doi": "https://doi.org/10.1016/j.neucom.2019.10.118",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0925231220307153",
+    "is_oa": true,
+    "authors": [
+      "Jair Cervantes",
+      "Farid Garc\u00eda\u2010Lamont",
+      "Lisbeth Rodr\u00edguez-Mazahua"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Endocrine Treatment of Gender-Dysphoric/Gender-Incongruent Persons: An Endocrine Society* Clinical Practice Guideline",
+    "year": 2017,
+    "citations": 2189,
+    "doi": "https://doi.org/10.1210/jc.2017-01658",
+    "oa_url": "https://academic.oup.com/jcem/article-pdf/102/11/3869/21533864/jc.2017-01658.pdf",
+    "is_oa": true,
+    "authors": [
+      "Wylie C. Hembree",
+      "Peggy T. Cohen\u2010Kettenis",
+      "Louis Gooren"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "FREQUENCY EFFECTS IN LANGUAGE PROCESSING",
+    "year": 2002,
+    "citations": 2159,
+    "doi": "https://doi.org/10.1017/s0272263102002024",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C4A2C08A0900E306078B9819D7ABF428/S0272263102002024a.pdf/div-class-title-frequency-effects-in-language-processing-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Nick C. Ellis"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "How artificial intelligence will change the future of marketing",
+    "year": 2019,
+    "citations": 2158,
+    "doi": "https://doi.org/10.1007/s11747-019-00696-0",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11747-019-00696-0.pdf",
+    "is_oa": true,
+    "authors": [
+      "Thomas H. Davenport",
+      "Abhijit Guha",
+      "Dhruv Grewal"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Evidence-based guidelines on the therapeutic use of repetitive transcranial magnetic stimulation (rTMS): An update (2014\u20132018)",
+    "year": 2020,
+    "citations": 2150,
+    "doi": "https://doi.org/10.1016/j.clinph.2019.11.002",
+    "oa_url": "https://www.sciencedirect.com/science/article/am/pii/S1388245719312799?via%3Dihub",
+    "is_oa": true,
+    "authors": [
+      "Jean\u2010Pascal Lefaucheur",
+      "Andr\u00e9 Alem\u00e1n",
+      "Chris Baeken"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Is Adolescence a Sensitive Period for Sociocultural Processing?",
+    "year": 2013,
+    "citations": 2136,
+    "doi": "https://doi.org/10.1146/annurev-psych-010213-115202",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-psych-010213-115202",
+    "is_oa": true,
+    "authors": [
+      "Sarah\u2010Jayne Blakemore",
+      "Kathryn L. Mills"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Evidence-based guidelines on the therapeutic use of repetitive transcranial magnetic stimulation (rTMS)",
+    "year": 2014,
+    "citations": 2105,
+    "doi": "https://doi.org/10.1016/j.clinph.2014.05.021",
+    "oa_url": "http://infoscience.epfl.ch/record/223932",
+    "is_oa": true,
+    "authors": [
+      "Jean\u2010Pascal Lefaucheur",
+      "Nathalie Andr\u00e9\u2010Obadia",
+      "Andrea Antal"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Weaning from mechanical ventilation",
+    "year": 2007,
+    "citations": 2079,
+    "doi": "https://doi.org/10.1183/09031936.00010206",
+    "oa_url": "https://erj.ersjournals.com/content/erj/29/5/1033.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "J-M. Boles",
+      "Julian Bion",
+      "Alfred F. Connors"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Edge Intelligence: Paving the Last Mile of Artificial Intelligence With Edge Computing",
+    "year": 2019,
+    "citations": 2078,
+    "doi": "https://doi.org/10.1109/jproc.2019.2918951",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/5/8789751/08736011.pdf",
+    "is_oa": true,
+    "authors": [
+      "Zhi Zhou",
+      "Xu Chen",
+      "En Li"
+    ],
+    "query": "game theory social interaction cooperation"
+  },
+  {
+    "title": "Social Science Research: Principles, Methods and Practices",
+    "year": 2019,
+    "citations": 2049,
+    "doi": "https://doi.org/10.26192/q7w89",
+    "oa_url": "https://digitalcommons.usf.edu/oa_textbooks/3",
+    "is_oa": true,
+    "authors": [
+      "Anol Bhattacherjee",
+      "Toleman, Mark",
+      "Rowling, Samara"
+    ],
+    "query": "cognitive load speech patterns"
+  },
+  {
+    "title": "Postfeminist media culture",
+    "year": 2007,
+    "citations": 2042,
+    "doi": "https://doi.org/10.1177/1367549407075898",
+    "oa_url": "http://eprints.lse.ac.uk/2449/1/Postfeminist_media_culture_%28LSERO%29.pdf",
+    "is_oa": true,
+    "authors": [
+      "Rosalind Gill"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Datafication, dataism and dataveillance: Big Data between scientific paradigm and ideology",
+    "year": 2014,
+    "citations": 2041,
+    "doi": "https://doi.org/10.24908/ss.v12i2.4776",
+    "oa_url": "https://ojs.library.queensu.ca/index.php/surveillance-and-society/article/download/datafication/datafic",
+    "is_oa": true,
+    "authors": [
+      "Jos\u00e9 van Dijck"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Hepatic encephalopathy in chronic liver disease: 2014 Practice Guideline by the American Association for the Study Of Liver Diseases and the European Association for the Study of the Liver",
+    "year": 2014,
+    "citations": 2019,
+    "doi": "https://doi.org/10.1002/hep.27210",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/hep.27210",
+    "is_oa": true,
+    "authors": [
+      "Hendrik Vilstrup",
+      "Piero Amodio",
+      "Jasmohan S. Bajaj"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Brave new world: service robots in the frontline",
+    "year": 2018,
+    "citations": 2019,
+    "doi": "https://doi.org/10.1108/josm-04-2018-0119",
+    "oa_url": "https://www.emerald.com/insight/content/doi/10.1108/JOSM-04-2018-0119/full/pdf?title=brave-new-world-service-robots-in-the-frontline",
+    "is_oa": true,
+    "authors": [
+      "Jochen Wirtz",
+      "Paul G. Patterson",
+      "Werner H. Kunz"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "A Survey on Explainable Artificial Intelligence (XAI): Toward Medical XAI",
+    "year": 2020,
+    "citations": 2014,
+    "doi": "https://doi.org/10.1109/tnnls.2020.3027314",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/5962385/9591206/09233366.pdf",
+    "is_oa": true,
+    "authors": [
+      "Erico Tjoa",
+      "Cuntai Guan"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Vocal communication of emotion: A review of research paradigms",
+    "year": 2003,
+    "citations": 1952,
+    "doi": "https://doi.org/10.1016/s0167-6393(02)00084-5",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0167639302000845",
+    "is_oa": true,
+    "authors": [
+      "Klaus R. Scherer"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Access-Based Consumption: The Case of Car Sharing: Table 1.",
+    "year": 2012,
+    "citations": 1940,
+    "doi": "https://doi.org/10.1086/666376",
+    "oa_url": "https://academic.oup.com/jcr/article-pdf/39/4/881/19927026/666376.pdf",
+    "is_oa": true,
+    "authors": [
+      "Fleura Bardhi",
+      "Giana M. Eckhardt"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "From Tweets to Polls: Linking Text Sentiment to Public Opinion Time Series",
+    "year": 2010,
+    "citations": 1940,
+    "doi": "https://doi.org/10.1609/icwsm.v4i1.14031",
+    "oa_url": "https://ojs.aaai.org/index.php/ICWSM/article/download/14031/13880",
+    "is_oa": true,
+    "authors": [
+      "Brendan O\u2019Connor",
+      "Ramnath Balasubramanyan",
+      "Bryan Routledge"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Exercise Standards for Testing and Training",
+    "year": 2001,
+    "citations": 1921,
+    "doi": "https://doi.org/10.1161/hc3901.095960",
+    "oa_url": "https://www.ahajournals.org/doi/pdf/10.1161/hc3901.095960",
+    "is_oa": true,
+    "authors": [
+      "Gerald F. Fletcher",
+      "Gary Balady",
+      "Ezra A. Amsterdam"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Reuters Institute Digital News Report 2015",
+    "year": 2015,
+    "citations": 1906,
+    "doi": "https://doi.org/10.2139/ssrn.2619576",
+    "oa_url": "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=2619576",
+    "is_oa": true,
+    "authors": [
+      "Nic Newman",
+      "David A. Levy",
+      "Rasmus Kleis Nielsen"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Network Function Virtualization: State-of-the-Art and Research Challenges",
+    "year": 2015,
+    "citations": 1869,
+    "doi": "https://doi.org/10.1109/comst.2015.2477041",
+    "oa_url": "https://hdl.handle.net/2117/83775",
+    "is_oa": true,
+    "authors": [
+      "Rashid Mijumbi",
+      "Joan Serrat",
+      "Juan\u2010Luis Gorricho"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Beyond misinformation: Understanding and coping with the \u201cpost-truth\u201d era.",
+    "year": 2017,
+    "citations": 1832,
+    "doi": "https://doi.org/10.1016/j.jarmac.2017.07.008",
+    "oa_url": "https://api.research-repository.uwa.edu.au/ws/files/22250770/Lewandowsky.2017.JARMAC.pdf",
+    "is_oa": true,
+    "authors": [
+      "Stephan Lewandowsky",
+      "Ullrich K. H. Ecker",
+      "John Cook"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Statins for the primary prevention of cardiovascular disease",
+    "year": 2013,
+    "citations": 1829,
+    "doi": "https://doi.org/10.1002/14651858.cd004816.pub5",
+    "oa_url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004816.pub5/pdf/full",
+    "is_oa": true,
+    "authors": [
+      "Fiona Taylor",
+      "Mark D. Huffman",
+      "Ana Filipa Macedo"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Deep learning for sentiment analysis: A survey",
+    "year": 2018,
+    "citations": 1824,
+    "doi": "https://doi.org/10.1002/widm.1253",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/widm.1253",
+    "is_oa": true,
+    "authors": [
+      "Lei Zhang",
+      "Shuai Wang",
+      "Bing Liu"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The 2020 report of The Lancet Countdown on health and climate change: responding to converging crises",
+    "year": 2020,
+    "citations": 1819,
+    "doi": "https://doi.org/10.1016/s0140-6736(20)32290-x",
+    "oa_url": "https://trepo.tuni.fi/handle/10024/216694",
+    "is_oa": true,
+    "authors": [
+      "Nick Watts",
+      "Markus Amann",
+      "Nigel W. Arnell"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "Lead toxicity: a review",
+    "year": 2015,
+    "citations": 1809,
+    "doi": "https://doi.org/10.1515/intox-2015-0009",
+    "oa_url": "https://content.sciendo.com/downloadpdf/journals/intox/8/2/article-p55.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ab Latif Wani",
+      "Anjum Ara",
+      "Jawed Ahmad Usmani"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Data center TCP (DCTCP)",
+    "year": 2010,
+    "citations": 1805,
+    "doi": "https://doi.org/10.1145/1851182.1851192",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/1851182.1851192",
+    "is_oa": true,
+    "authors": [
+      "Mohammad Alizadeh",
+      "Albert Greenberg",
+      "David A. Maltz"
+    ],
+    "query": "voice stress analysis detection"
+  },
+  {
+    "title": "From translations to problematic networks: An introduction to co-word analysis",
+    "year": 1983,
+    "citations": 1802,
+    "doi": "https://doi.org/10.1177/053901883022002003",
+    "oa_url": "https://hal.science/hal-04908593v1/file/Il%20a%20voulu%20voir%20les%20choses%C2%A0%C2%AB%C2%A0irre%CC%81duites%20et%20fe%CC%81rie%CC%81es%C2%A0%C2%BB.pdf",
+    "is_oa": true,
+    "authors": [
+      "Michel Callon",
+      "Jean-Pierre Courtial",
+      "William A. Turner"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Social cognition and the brain: A meta\u2010analysis",
+    "year": 2008,
+    "citations": 1795,
+    "doi": "https://doi.org/10.1002/hbm.20547",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/hbm.20547?download=true",
+    "is_oa": true,
+    "authors": [
+      "Frank Van Overwalle"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "From Efficient Markets Theory to Behavioral Finance",
+    "year": 2003,
+    "citations": 1723,
+    "doi": "https://doi.org/10.1257/089533003321164967",
+    "oa_url": "https://www.aeaweb.org/articles/pdf/doi/10.1257/089533003321164967",
+    "is_oa": true,
+    "authors": [
+      "Robert J. Shiller"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "Personality, Gender, and Age in the Language of Social Media: The Open-Vocabulary Approach",
+    "year": 2013,
+    "citations": 1717,
+    "doi": "https://doi.org/10.1371/journal.pone.0073791",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0073791&type=printable",
+    "is_oa": true,
+    "authors": [
+      "H. Andrew Schwartz",
+      "Johannes C. Eichstaedt",
+      "Margaret L. Kern"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS): A dynamic, multimodal set of facial and vocal expressions in North American English",
+    "year": 2018,
+    "citations": 1715,
+    "doi": "https://doi.org/10.1371/journal.pone.0196391",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0196391&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Steven R. Livingstone",
+      "Frank Russo"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "A Metaverse: Taxonomy, Components, Applications, and Open Challenges",
+    "year": 2022,
+    "citations": 1702,
+    "doi": "https://doi.org/10.1109/access.2021.3140175",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/9668973/09667507.pdf",
+    "is_oa": true,
+    "authors": [
+      "Sangmin Park",
+      "Young\u2010Gab Kim"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The future of social media in marketing",
+    "year": 2019,
+    "citations": 1700,
+    "doi": "https://doi.org/10.1007/s11747-019-00695-1",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11747-019-00695-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Gil Appel",
+      "Lauren Grewal",
+      "Rhonda Hadi"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The Development and Psychometric Properties of LIWC2015",
+    "year": 2015,
+    "citations": 1685,
+    "doi": "https://doi.org/10.15781/t25p41",
+    "oa_url": "http://hdl.handle.net/2152/31333",
+    "is_oa": true,
+    "authors": [
+      "James W. Pennebaker",
+      "Cindy K. Chung",
+      "Jordan, Kayla"
+    ],
+    "query": "sentiment analysis conversation text"
+  },
+  {
+    "title": "The Geneva Minimalistic Acoustic Parameter Set (GeMAPS) for Voice Research and Affective Computing",
+    "year": 2015,
+    "citations": 1666,
+    "doi": "https://doi.org/10.1109/taffc.2015.2457417",
+    "oa_url": "https://doi.org/10.1109/taffc.2015.2457417",
+    "is_oa": true,
+    "authors": [
+      "Florian Eyben",
+      "Klaus R. Scherer",
+      "Bj\u00f6rn W. Schuller"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "ChatGPT: Bullshit spewer or the end of traditional assessments in higher education?",
+    "year": 2023,
+    "citations": 1599,
+    "doi": "https://doi.org/10.37074/jalt.2023.6.1.9",
+    "oa_url": "https://journals.sfu.ca/jalt/index.php/jalt/article/download/689/539",
+    "is_oa": true,
+    "authors": [
+      "J\u00fcrgen Rudolph",
+      "Samson Tan",
+      "Shannon Tan"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Basic psychological need theory: Advancements, critical themes, and future directions",
+    "year": 2020,
+    "citations": 1595,
+    "doi": "https://doi.org/10.1007/s11031-019-09818-1",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11031-019-09818-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Maarten Vansteenkiste",
+      "Richard M. Ryan",
+      "Bart Soenens"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Autism spectrum disorder",
+    "year": 2020,
+    "citations": 1583,
+    "doi": "https://doi.org/10.1038/s41572-019-0138-4",
+    "oa_url": "https://kclpure.kcl.ac.uk/ws/files/122611358/LOrd_et_al_2020_NRDP_Nealry_final_version_Autism_spectrum_disorder.pdf",
+    "is_oa": true,
+    "authors": [
+      "Catherine Lord",
+      "Traolach Brugha",
+      "Tony Charman"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Early, Accurate Diagnosis and Early Intervention in Cerebral Palsy",
+    "year": 2017,
+    "citations": 1532,
+    "doi": "https://doi.org/10.1001/jamapediatrics.2017.1689",
+    "oa_url": null,
+    "is_oa": true,
+    "authors": [
+      "Iona Novak",
+      "Catherine Morgan",
+      "Lars Adde"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Equivalence Testing for Psychological Research: A Tutorial",
+    "year": 2018,
+    "citations": 1501,
+    "doi": "https://doi.org/10.1177/2515245918770963",
+    "oa_url": "https://pure.tue.nl/ws/files/91049519/PREPRINT_Lakens_etal_EquivalenceTestingTutorial_20171117.pdf",
+    "is_oa": true,
+    "authors": [
+      "Dani\u00ebl Lakens",
+      "Anne M. Scheel",
+      "Peder Mortvedt Isager"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "An integrative review of sensory marketing: Engaging the senses to affect perception, judgment and behavior",
+    "year": 2011,
+    "citations": 1491,
+    "doi": "https://doi.org/10.1016/j.jcps.2011.08.003",
+    "oa_url": "http://deepblue.lib.umich.edu/bitstream/2027.42/142108/1/jcpy332.pdf",
+    "is_oa": true,
+    "authors": [
+      "Aradhna Krishna"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "COVID-19 and the workplace: Implications, issues, and insights for future research and action.",
+    "year": 2020,
+    "citations": 1479,
+    "doi": "https://doi.org/10.1037/amp0000716",
+    "oa_url": "https://pure.eur.nl/ws/files/57646358/2020_58612_001.pdf",
+    "is_oa": true,
+    "authors": [
+      "Kevin M. Kniffin",
+      "Jayanth Narayanan",
+      "Frederik Anseel"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Proceedings of the 28th International Conference on Computational Linguistics",
+    "year": 2020,
+    "citations": 1422,
+    "doi": "https://doi.org/10.18653/v1/2020.coling-main",
+    "oa_url": "https://www.aclweb.org/anthology/2020.coling-main.0.pdf",
+    "is_oa": true,
+    "authors": [
+      "Xiaodan Zhu",
+      "Preslav Nakov",
+      "Jun Zhao"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Introducing compassion-focused therapy",
+    "year": 2009,
+    "citations": 1377,
+    "doi": "https://doi.org/10.1192/apt.bp.107.005264",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/ECBC8B7B87E90ABB58C4530CDEE04088/S1355514600005654a.pdf/div-class-title-introducing-compassion-focused-therapy-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Paul Gilbert"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "The Enigmatic temporal pole: a review of findings on social and emotional processing",
+    "year": 2007,
+    "citations": 1365,
+    "doi": "https://doi.org/10.1093/brain/awm052",
+    "oa_url": "https://academic.oup.com/brain/article-pdf/130/7/1718/923786/awm052.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ingrid R. Olson",
+      "Alan Plotzker",
+      "Youssef Ezzyat"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "A survey on sentiment analysis methods, applications, and challenges",
+    "year": 2022,
+    "citations": 1351,
+    "doi": "https://doi.org/10.1007/s10462-022-10144-1",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s10462-022-10144-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Mayur Wankhade",
+      "Annavarapu Chandra Sekhara Rao",
+      "Chaitanya Kulkarni"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Attention-deficit/hyperactivity disorder",
+    "year": 2015,
+    "citations": 1328,
+    "doi": "https://doi.org/10.1038/nrdp.2015.20",
+    "oa_url": "https://www.nature.com/articles/nrdp201520.pdf",
+    "is_oa": true,
+    "authors": [
+      "Stephen V. Faraone",
+      "Philip Asherson",
+      "Tobias Banaschewski"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Parkinson disease-associated cognitive impairment",
+    "year": 2021,
+    "citations": 1281,
+    "doi": "https://doi.org/10.1038/s41572-021-00280-3",
+    "oa_url": "https://www.nature.com/articles/s41572-021-00280-3.pdf",
+    "is_oa": true,
+    "authors": [
+      "Dag Aarsland",
+      "Lucia Batzu",
+      "Glenda M. Halliday"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Myalgic encephalomyelitis: International Consensus Criteria",
+    "year": 2011,
+    "citations": 1262,
+    "doi": "https://doi.org/10.1111/j.1365-2796.2011.02428.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1365-2796.2011.02428.x",
+    "is_oa": true,
+    "authors": [
+      "Bruce M. Carruthers",
+      "Marjorie I. van de Sande",
+      "Kenny L. De Meirleir"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Hearing Impairment and Cognitive Energy: The Framework for Understanding Effortful Listening (FUEL)",
+    "year": 2016,
+    "citations": 1245,
+    "doi": "https://doi.org/10.1097/aud.0000000000000312",
+    "oa_url": "https://doi.org/10.1097/aud.0000000000000312",
+    "is_oa": true,
+    "authors": [
+      "M. Kathleen Pichora\u2010Fuller",
+      "Sophia E. Kramer",
+      "Mark A. Eckert"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Advances in Social Media Research: Past, Present and Future",
+    "year": 2017,
+    "citations": 1245,
+    "doi": "https://doi.org/10.1007/s10796-017-9810-y",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s10796-017-9810-y.pdf",
+    "is_oa": true,
+    "authors": [
+      "Kawaljeet Kaur Kapoor",
+      "Kuttimani Tamilmani",
+      "Nripendra P. Rana"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Ketamine and Ketamine Metabolite Pharmacology: Insights into Therapeutic Mechanisms",
+    "year": 2018,
+    "citations": 1221,
+    "doi": "https://doi.org/10.1124/pr.117.015198",
+    "oa_url": "https://pharmrev.aspetjournals.org/content/pharmrev/70/3/621.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Panos Zanos",
+      "Ruin Moaddel",
+      "Patrick J. Morris"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Interdependence, Interaction, and Relationships",
+    "year": 2002,
+    "citations": 1211,
+    "doi": "https://doi.org/10.1146/annurev.psych.54.101601.145059",
+    "oa_url": "https://research.vu.nl/ws/files/1898345/Rusbult%20Annual%20Review%20of%20Psychology%2054%202003%20u.pdf",
+    "is_oa": true,
+    "authors": [
+      "Caryl E. Rusbult",
+      "Paul A. M. Van Lange"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Duchenne muscular dystrophy",
+    "year": 2021,
+    "citations": 1200,
+    "doi": "https://doi.org/10.1038/s41572-021-00248-3",
+    "oa_url": "https://www.nature.com/articles/s41572-021-00248-3.pdf",
+    "is_oa": true,
+    "authors": [
+      "Dongsheng Duan",
+      "Nathalie Goemans",
+      "Shin\u2019ichi Takeda"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Harnessing neuroplasticity for clinical applications",
+    "year": 2011,
+    "citations": 1199,
+    "doi": "https://doi.org/10.1093/brain/awr039",
+    "oa_url": "https://academic.oup.com/brain/article-pdf/134/6/1591/1052566/awr039.pdf",
+    "is_oa": true,
+    "authors": [
+      "Steven C. Cramer",
+      "Mriganka Sur",
+      "Bruce H. Dobkin"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "The Rise of Consumer Health Wearables: Promises and Barriers",
+    "year": 2016,
+    "citations": 1198,
+    "doi": "https://doi.org/10.1371/journal.pmed.1001953",
+    "oa_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1001953&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Lukasz Piwek",
+      "David A. Ellis",
+      "Sally Andrews"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "The Psychology of Change: Self-Affirmation and Social Psychological Intervention",
+    "year": 2014,
+    "citations": 1153,
+    "doi": "https://doi.org/10.1146/annurev-psych-010213-115137",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-psych-010213-115137",
+    "is_oa": true,
+    "authors": [
+      "Geoffrey L. Cohen",
+      "David K. Sherman"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Mental health in elite athletes: International Olympic Committee consensus statement (2019)",
+    "year": 2019,
+    "citations": 1147,
+    "doi": "https://doi.org/10.1136/bjsports-2019-100715",
+    "oa_url": "https://bjsm.bmj.com/content/bjsports/53/11/667.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Claudia L. Reardon",
+      "Brian Hainline",
+      "Cindy Miller Aron"
+    ],
+    "query": "speech depression detection biomarker"
+  },
+  {
+    "title": "Speech Recognition Using Deep Neural Networks: A Systematic Review",
+    "year": 2019,
+    "citations": 1128,
+    "doi": "https://doi.org/10.1109/access.2019.2896880",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08632885.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ali Bou Nassif",
+      "Ismail Shahin",
+      "Imtinan Attili"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Dehumanization and Infrahumanization",
+    "year": 2013,
+    "citations": 1111,
+    "doi": "https://doi.org/10.1146/annurev-psych-010213-115045",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-psych-010213-115045",
+    "is_oa": true,
+    "authors": [
+      "Nick Haslam",
+      "Steve Loughnan"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Nonverbal overload: A theoretical argument for the causes of Zoom fatigue.",
+    "year": 2021,
+    "citations": 1085,
+    "doi": "https://doi.org/10.1037/tmb0000030",
+    "oa_url": "https://tmb.apaopen.org/pub/nonverbal-overload/download/pdf",
+    "is_oa": true,
+    "authors": [
+      "Jeremy N. Bailenson"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Peer Relationships in Adolescence",
+    "year": 2009,
+    "citations": 1056,
+    "doi": "https://doi.org/10.1002/9780470479193.adlpsy002004",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/9780470479193.adlpsy002004",
+    "is_oa": true,
+    "authors": [
+      "B. Bradford Brown",
+      "James H. Larson"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Stereotype content model across cultures: Towards universal similarities and some differences",
+    "year": 2009,
+    "citations": 1031,
+    "doi": "https://doi.org/10.1348/014466608x314935",
+    "oa_url": "http://hdl.handle.net/10669/83506",
+    "is_oa": true,
+    "authors": [
+      "Amy J. C. Cuddy",
+      "Susan T. Fiske",
+      "Virginia S. Y. Kwan"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "The Economics and Psychology of Personality Traits",
+    "year": 2008,
+    "citations": 1028,
+    "doi": "https://doi.org/10.1353/jhr.2008.0017",
+    "oa_url": "http://papers.nber.org/papers/w13810.pdf",
+    "is_oa": true,
+    "authors": [
+      "Lex Borghans",
+      "Angela Duckworth",
+      "James J. Heckman"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Haptic perception: A tutorial",
+    "year": 2009,
+    "citations": 1026,
+    "doi": "https://doi.org/10.3758/app.71.7.1439",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/APP.71.7.1439.pdf",
+    "is_oa": true,
+    "authors": [
+      "Susan J. Lederman",
+      "Roberta L. Klatzky"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Using Linguistic Cues for the Automatic Recognition of Personality in Conversation and Text",
+    "year": 2007,
+    "citations": 994,
+    "doi": "https://doi.org/10.1613/jair.2349",
+    "oa_url": "https://jair.org/index.php/jair/article/download/10520/25197",
+    "is_oa": true,
+    "authors": [
+      "Fran\u00e7ois Mairesse",
+      "Marilyn Walker",
+      "Matthias R. Mehl"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "The economics and psychology of personality traits",
+    "year": 2008,
+    "citations": 975,
+    "doi": "https://doi.org/10.26481/umaror.2008001",
+    "oa_url": "https://cris.maastrichtuniversity.nl/en/publications/00ee4c7d-33eb-4792-a610-75f9a02a89c6",
+    "is_oa": true,
+    "authors": [
+      "Lex Borghans",
+      "Angela Duckworth",
+      "James J. Heckman"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "The Wheel of Wellness Counseling for Wellness: A Holistic Model for Treatment Planning",
+    "year": 2000,
+    "citations": 953,
+    "doi": "https://doi.org/10.1002/j.1556-6676.2000.tb01906.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/j.1556-6676.2000.tb01906.x",
+    "is_oa": true,
+    "authors": [
+      "Jane E. Myers",
+      "Thomas J. Sweeney",
+      "J. Melvin Witmer"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Imaginary Relish and Exquisite Torture: The Elaborated Intrusion Theory of Desire.",
+    "year": 2005,
+    "citations": 940,
+    "doi": "https://doi.org/10.1037/0033-295x.112.2.446",
+    "oa_url": "http://hdl.handle.net/10026.1/988",
+    "is_oa": true,
+    "authors": [
+      "David J. Kavanagh",
+      "Jackie Andrade",
+      "Jon May"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Sensor Mania! The Internet of Things, Wearable Computing, Objective Metrics, and the Quantified Self 2.0",
+    "year": 2012,
+    "citations": 911,
+    "doi": "https://doi.org/10.3390/jsan1030217",
+    "oa_url": "https://www.mdpi.com/2224-2708/1/3/217/pdf?version=1352474286",
+    "is_oa": true,
+    "authors": [
+      "Melanie Swan"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Emotional speech recognition: Resources, features, and methods",
+    "year": 2006,
+    "citations": 898,
+    "doi": "https://doi.org/10.1016/j.specom.2006.04.003",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Dimitrios Ververidis",
+      "Constantine Kotropoulos"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Context-Dependent Sentiment Analysis in User-Generated Videos",
+    "year": 2017,
+    "citations": 850,
+    "doi": "https://doi.org/10.18653/v1/p17-1081",
+    "oa_url": "https://www.aclweb.org/anthology/P17-1081.pdf",
+    "is_oa": true,
+    "authors": [
+      "Soujanya Poria",
+      "Erik Cambria",
+      "Devamanyu Hazarika"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "A Social Psychology of Bilingualism",
+    "year": 1967,
+    "citations": 840,
+    "doi": "https://doi.org/10.1111/j.1540-4560.1967.tb00578.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1540-4560.1967.tb00578.x",
+    "is_oa": true,
+    "authors": [
+      "Wallace E. Lambert"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Visible embodiment: Gestures as simulated action",
+    "year": 2008,
+    "citations": 835,
+    "doi": "https://doi.org/10.3758/pbr.15.3.495",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/PBR.15.3.495.pdf",
+    "is_oa": true,
+    "authors": [
+      "Autumn B. Hostetter",
+      "Martha W. Alibali"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "MISA",
+    "year": 2020,
+    "citations": 815,
+    "doi": "https://doi.org/10.1145/3394171.3413678",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3394171.3413678",
+    "is_oa": true,
+    "authors": [
+      "Devamanyu Hazarika",
+      "Roger Zimmermann",
+      "Soujanya Poria"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Deep Learning for Audio Signal Processing",
+    "year": 2019,
+    "citations": 800,
+    "doi": "https://doi.org/10.1109/jstsp.2019.2908700",
+    "oa_url": "https://arxiv.org/pdf/1905.00078",
+    "is_oa": true,
+    "authors": [
+      "H.\u2010G. Purwins",
+      "Bo Li",
+      "Tuomas Virtanen"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Social signal processing: Survey of an emerging domain",
+    "year": 2008,
+    "citations": 798,
+    "doi": "https://doi.org/10.1016/j.imavis.2008.11.007",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0262885608002485",
+    "is_oa": true,
+    "authors": [
+      "Alessandro Vinciarelli",
+      "Maja Panti\u0107",
+      "Herv\u00e9 Bourlard"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "EEG-Based Emotion Recognition Using Regularized Graph Neural Networks",
+    "year": 2020,
+    "citations": 790,
+    "doi": "https://doi.org/10.1109/taffc.2020.2994159",
+    "oa_url": "https://dr.ntu.edu.sg/bitstream/10356/152723/2/EEG-Based_Emotion_Recognition_Using_Regularized_Graph_Neural_Networks.pdf",
+    "is_oa": true,
+    "authors": [
+      "Peixiang Zhong",
+      "Di Wang",
+      "Chunyan Miao"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Emotions from text",
+    "year": 2005,
+    "citations": 788,
+    "doi": "https://doi.org/10.3115/1220575.1220648",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.3115/1220575.1220648",
+    "is_oa": true,
+    "authors": [
+      "Cecilia Ovesdotter Alm",
+      "Dan Roth",
+      "Richard Sproat"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "A Tutorial on Text-Independent Speaker Verification",
+    "year": 2004,
+    "citations": 782,
+    "doi": "https://doi.org/10.1155/s1110865704310024",
+    "oa_url": "https://asp-eurasipjournals.springeropen.com/counter/pdf/10.1155/S1110865704310024",
+    "is_oa": true,
+    "authors": [
+      "Fr\u00e9d\u00e9ric Bimbot",
+      "Jean-Fran\u00e7ois Bonastre",
+      "Corinne Fredouille"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "A Survey of Wearable Devices and Challenges",
+    "year": 2017,
+    "citations": 771,
+    "doi": "https://doi.org/10.1109/comst.2017.2731979",
+    "oa_url": "https://unsworks.unsw.edu.au/bitstreams/56930255-2cd1-4702-aeae-d3a9479efe56/download",
+    "is_oa": true,
+    "authors": [
+      "Suranga Seneviratne",
+      "Yining Hu",
+      "Tham Nguyen"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Hot Spots and Blind Spots: Geographical Clusters of Firms and Innovation",
+    "year": 1996,
+    "citations": 764,
+    "doi": "https://doi.org/10.5465/amr.1996.9704071867",
+    "oa_url": "http://libres.uncg.edu/ir/asu/f/Pouder_Richard_1996_Hot Spots Blind Spots.pdf",
+    "is_oa": true,
+    "authors": [
+      "Richard W. Pouder",
+      "Caron H. St. John"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Mental illness and well-being: the central importance of positive psychology and recovery approaches",
+    "year": 2010,
+    "citations": 736,
+    "doi": "https://doi.org/10.1186/1472-6963-10-26",
+    "oa_url": "https://bmchealthservres.biomedcentral.com/counter/pdf/10.1186/1472-6963-10-26",
+    "is_oa": true,
+    "authors": [
+      "Mike Slade"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "A tutorial survey of architectures, algorithms, and applications for deep learning",
+    "year": 2014,
+    "citations": 732,
+    "doi": "https://doi.org/10.1017/atsip.2013.9",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/023B6ADF962FA37F8EC684B209E3DFAE/S2048770313000097a.pdf/div-class-title-a-tutorial-survey-of-architectures-algorithms-and-applications-for-deep-learning-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Li Deng"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Repositioning English and multilingualism in English as a Lingua Franca",
+    "year": 2015,
+    "citations": 728,
+    "doi": "https://doi.org/10.1515/eip-2015-0003",
+    "oa_url": "https://content.sciendo.com/downloadpdf/journals/eip/2/3/article-p49.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jennifer Jenkins"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Oral Literature in Africa",
+    "year": 2012,
+    "citations": 720,
+    "doi": "https://doi.org/10.11647/obp.0025",
+    "oa_url": "https://books.openbookpublishers.com/10.11647/obp.0025.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ruth Finnegan"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Genetics and intelligence differences: five special findings",
+    "year": 2014,
+    "citations": 712,
+    "doi": "https://doi.org/10.1038/mp.2014.105",
+    "oa_url": "https://www.nature.com/articles/mp2014105.pdf",
+    "is_oa": true,
+    "authors": [
+      "Robert Plomin",
+      "Ian J. Deary"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Comparison of extended versus brief treatments for marijuana use.",
+    "year": 2000,
+    "citations": 712,
+    "doi": "https://doi.org/10.1037/0022-006x.68.5.898",
+    "oa_url": "http://libres.uncg.edu/ir/asu/f/Curtin_Lisa_2000_Comparison_of_Extended.pdf",
+    "is_oa": true,
+    "authors": [
+      "Robert S. Stephens",
+      "Roger A. Roffman",
+      "Lisa Curtin"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Why and how to use virtual reality to study human social interaction: The challenges of exploring a new research landscape",
+    "year": 2018,
+    "citations": 697,
+    "doi": "https://doi.org/10.1111/bjop.12290",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/bjop.12290",
+    "is_oa": true,
+    "authors": [
+      "Xueni Pan",
+      "Antonia F. de C. Hamilton"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Semantic Processing in the Anterior Temporal Lobes: A Meta-analysis of the Functional Neuroimaging Literature",
+    "year": 2009,
+    "citations": 680,
+    "doi": "https://doi.org/10.1162/jocn.2009.21309",
+    "oa_url": "https://direct.mit.edu/jocn/article-pdf/22/6/1083/1939563/jocn.2009.21309.pdf",
+    "is_oa": true,
+    "authors": [
+      "Maya Visser",
+      "Elizabeth Jefferies",
+      "Matthew A. Lambon Ralph"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Deep Metric Learning: A Survey",
+    "year": 2019,
+    "citations": 665,
+    "doi": "https://doi.org/10.3390/sym11091066",
+    "oa_url": "https://www.mdpi.com/2073-8994/11/9/1066/pdf?version=1567244037",
+    "is_oa": true,
+    "authors": [
+      "Mahmut Kaya",
+      "Hasan \u015eakir B\u0131lge"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Speech Emotion Recognition Using Deep Learning Techniques: A Review",
+    "year": 2019,
+    "citations": 650,
+    "doi": "https://doi.org/10.1109/access.2019.2936124",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08805181.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ruhul Amin Khalil",
+      "Edward Jones",
+      "Mohammad Inayatullah Babar"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Why would Musical Training Benefit the Neural Encoding of Speech? The OPERA Hypothesis",
+    "year": 2011,
+    "citations": 648,
+    "doi": "https://doi.org/10.3389/fpsyg.2011.00142",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2011.00142/pdf",
+    "is_oa": true,
+    "authors": [
+      "Aniruddh D. Patel"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "An empirical survey of data augmentation for time series classification with neural networks",
+    "year": 2021,
+    "citations": 643,
+    "doi": "https://doi.org/10.1371/journal.pone.0254841",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0254841&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Brian Kenji Iwana",
+      "Seiichi Uchida"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Service robot implementation: a theoretical framework and research agenda",
+    "year": 2019,
+    "citations": 630,
+    "doi": "https://doi.org/10.1080/02642069.2019.1672666",
+    "oa_url": "https://www.tandfonline.com/doi/pdf/10.1080/02642069.2019.1672666?needAccess=true",
+    "is_oa": true,
+    "authors": [
+      "Daniel Belanche",
+      "Luis V. Casal\u00f3",
+      "Carlos Flavi\u00e1n"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "The Neurodevelopment of Empathy in Humans",
+    "year": 2010,
+    "citations": 623,
+    "doi": "https://doi.org/10.1159/000317771",
+    "oa_url": "https://www.karger.com/Article/Pdf/317771",
+    "is_oa": true,
+    "authors": [
+      "Jean Decety"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "The motor theory of speech perception reviewed",
+    "year": 2006,
+    "citations": 622,
+    "doi": "https://doi.org/10.3758/bf03193857",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/BF03193857.pdf",
+    "is_oa": true,
+    "authors": [
+      "Bruno Galantucci",
+      "Carol A. Fowler",
+      "M. T. Turvey"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Sensitivity to musical emotion is influenced by tonal structure in congenital amusia",
+    "year": 2017,
+    "citations": 619,
+    "doi": "https://doi.org/10.1038/s41598-017-08005-x",
+    "oa_url": "https://www.nature.com/articles/s41598-017-08005-x.pdf",
+    "is_oa": true,
+    "authors": [
+      "Cunmei Jiang",
+      "Fang Liu",
+      "Patrick C. M. Wong"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "The Simulation of Smiles (SIMS) model: Embodied simulation and the meaning of facial expression",
+    "year": 2010,
+    "citations": 611,
+    "doi": "https://doi.org/10.1017/s0140525x10000865",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FE0A911744186EBD3706B53794D4AEE9/S0140525X10000865a.pdf/div-class-title-the-simulation-of-smiles-sims-model-embodied-simulation-and-the-meaning-of-facial-expression-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Paula M. Niedenthal",
+      "Martial Mermillod",
+      "Marcus Maringer"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "Hemispheric lateralization of functions related to emotion",
+    "year": 1986,
+    "citations": 610,
+    "doi": "https://doi.org/10.1016/0278-2626(86)90035-7",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/0278262686900357",
+    "is_oa": true,
+    "authors": [
+      "Edward Silberman",
+      "Herbert Weingartner"
+    ],
+    "query": "vocal emotion recognition acoustic features"
+  },
+  {
+    "title": "The Emotion Process: Event Appraisal and Component Differentiation",
+    "year": 2018,
+    "citations": 609,
+    "doi": "https://doi.org/10.1146/annurev-psych-122216-011854",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-psych-122216-011854",
+    "is_oa": true,
+    "authors": [
+      "Klaus R. Scherer",
+      "Agnes Moors"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Prejudice towards Muslims in The Netherlands: Testing integrated threat theory",
+    "year": 2008,
+    "citations": 606,
+    "doi": "https://doi.org/10.1348/014466608x284443",
+    "oa_url": "https://pure.rug.nl/ws/files/2706988/VelascoGonzalezK-Prejudice-2008.pdf",
+    "is_oa": true,
+    "authors": [
+      "Karina Velasco Gonz\u00e1lez",
+      "Maykel Verkuyten",
+      "Jeroen Weesie"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Interoception, contemplative practice, and health",
+    "year": 2015,
+    "citations": 604,
+    "doi": "https://doi.org/10.3389/fpsyg.2015.00763",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00763/pdf",
+    "is_oa": true,
+    "authors": [
+      "Norman A. S. Farb",
+      "Jennifer Daubenmier",
+      "Cynthia Price"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Affective Body Expression Perception and Recognition: A Survey",
+    "year": 2012,
+    "citations": 592,
+    "doi": "https://doi.org/10.1109/t-affc.2012.16",
+    "oa_url": "https://mdsoar.org/bitstreams/bd220721-aaa5-40f2-8bab-c392b96cf93b/download",
+    "is_oa": true,
+    "authors": [
+      "Andrea Kleinsmith",
+      "Nadia Bianchi\u2010Berthouze"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Social complexity as a proximate and ultimate factor in communicative complexity",
+    "year": 2012,
+    "citations": 575,
+    "doi": "https://doi.org/10.1098/rstb.2011.0213",
+    "oa_url": "https://royalsocietypublishing.org/doi/pdf/10.1098/rstb.2011.0213",
+    "is_oa": true,
+    "authors": [
+      "Todd M. Freeberg",
+      "Robin Dunbar",
+      "Terry J. Ord"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Advances in the Cross\u2010Linguistic Study of Ideophones",
+    "year": 2012,
+    "citations": 574,
+    "doi": "https://doi.org/10.1002/lnc3.361",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/lnc3.361",
+    "is_oa": true,
+    "authors": [
+      "Mark Dingemanse"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Abusive Supervision",
+    "year": 2017,
+    "citations": 572,
+    "doi": "https://doi.org/10.1146/annurev-orgpsych-041015-062539",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-orgpsych-041015-062539",
+    "is_oa": true,
+    "authors": [
+      "Bennett J. Tepper",
+      "Lauren Simon",
+      "Hee Man Park"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Scoping review on the use of socially assistive robot technology in elderly care",
+    "year": 2018,
+    "citations": 554,
+    "doi": "https://doi.org/10.1136/bmjopen-2017-018815",
+    "oa_url": "https://bmjopen.bmj.com/content/bmjopen/8/2/e018815.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jordan Abdi",
+      "Ahmed Al\u2010Hindawi",
+      "Tiffany Ng"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "A century of work teams in the Journal of Applied Psychology.",
+    "year": 2017,
+    "citations": 550,
+    "doi": "https://doi.org/10.1037/apl0000128",
+    "oa_url": "https://pure.eur.nl/ws/files/47665799/repub-108121.pdf",
+    "is_oa": true,
+    "authors": [
+      "John E. Mathieu",
+      "John R. Hollenbeck",
+      "Daan van Knippenberg"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Leader distance: a review and a proposed theory",
+    "year": 2002,
+    "citations": 547,
+    "doi": "https://doi.org/10.1016/s1048-9843(02)00155-8",
+    "oa_url": "https://iris.unil.ch/bitstreams/cc24df6e-2402-4884-bb43-2ac091657553/download",
+    "is_oa": true,
+    "authors": [
+      "John Antonakis",
+      "Leanne Atwater"
+    ],
+    "query": "nonverbal communication power dominance"
+  },
+  {
+    "title": "Controversies in Narcissism",
+    "year": 2017,
+    "citations": 547,
+    "doi": "https://doi.org/10.1146/annurev-clinpsy-032816-045244",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-clinpsy-032816-045244",
+    "is_oa": true,
+    "authors": [
+      "Joshua D. Miller",
+      "Donald R. Lynam",
+      "Courtland S. Hyatt"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "World happiness report [2012]",
+    "year": 2013,
+    "citations": 542,
+    "doi": "https://doi.org/10.14288/1.0053622",
+    "oa_url": "http://eprints.lse.ac.uk/47487/1/World%20happiness%20report%28lsero%29.pdf",
+    "is_oa": true,
+    "authors": [
+      "John F. Helliwell",
+      "Richard Layard",
+      "Jeffrey D. Sachs"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "STRUCTURAL MODELS OF PERSONALITY AND THEIR RELATION TO ANTISOCIAL BEHAVIOR: A META\u2010ANALYTIC REVIEW*",
+    "year": 2001,
+    "citations": 541,
+    "doi": "https://doi.org/10.1111/j.1745-9125.2001.tb00940.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1745-9125.2001.tb00940.x",
+    "is_oa": true,
+    "authors": [
+      "Joshua D. Miller",
+      "Donald R. Lynam"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Neurotypical Peers are Less Willing to Interact with Those with Autism based on Thin Slice Judgments",
+    "year": 2017,
+    "citations": 535,
+    "doi": "https://doi.org/10.1038/srep40700",
+    "oa_url": "https://www.nature.com/articles/srep40700.pdf",
+    "is_oa": true,
+    "authors": [
+      "Noah J. Sasson",
+      "Daniel J. Faso",
+      "Jack Nugent"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Sensory marketing, embodiment, and grounded cognition: A review and introduction",
+    "year": 2013,
+    "citations": 518,
+    "doi": "https://doi.org/10.1016/j.jcps.2013.12.006",
+    "oa_url": "http://deepblue.lib.umich.edu/bitstream/2027.42/141359/1/jcpy159.pdf",
+    "is_oa": true,
+    "authors": [
+      "Aradhna Krishna",
+      "Norbert Schwarz"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "The current conceptualization of negative symptoms in schizophrenia",
+    "year": 2017,
+    "citations": 508,
+    "doi": "https://doi.org/10.1002/wps.20385",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/wps.20385",
+    "is_oa": true,
+    "authors": [
+      "Stephen R. Marder",
+      "Silvana Galderisi"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Looking for honesty: The primary role of morality (vs. sociability and competence) in information gathering",
+    "year": 2010,
+    "citations": 495,
+    "doi": "https://doi.org/10.1002/ejsp.744",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ejsp.744",
+    "is_oa": true,
+    "authors": [
+      "Marco Brambilla",
+      "Patrice Rusconi",
+      "Simona Sacchi"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "The empathic brain and its dysfunction in psychiatric populations: implications for intervention across different clinical conditions",
+    "year": 2007,
+    "citations": 492,
+    "doi": "https://doi.org/10.1186/1751-0759-1-22",
+    "oa_url": "https://bpsmedicine.biomedcentral.com/counter/pdf/10.1186/1751-0759-1-22",
+    "is_oa": true,
+    "authors": [
+      "Jean Decety",
+      "Yoshiya Moriguchi"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Music as a coevolved system for social bonding",
+    "year": 2020,
+    "citations": 480,
+    "doi": "https://doi.org/10.1017/s0140525x20000333",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Patrick E. Savage",
+      "Psyche Loui",
+      "Bronwyn Tarr"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Attachment and Autonomy During Adolescence",
+    "year": 2009,
+    "citations": 477,
+    "doi": "https://doi.org/10.1002/9780470479193.adlpsy001012",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/9780470479193.adlpsy001012",
+    "is_oa": true,
+    "authors": [
+      "Kathleen Boykin McElhaney",
+      "Joseph P. Allen",
+      "Joe Stephenson"
+    ],
+    "query": "interpersonal warmth coldness behavior"
+  },
+  {
+    "title": "Peer rejection: developmental processes and intervention strategies",
+    "year": 2004,
+    "citations": 473,
+    "doi": "https://doi.org/10.5860/choice.42-1238",
+    "oa_url": "https://scholarsphere.psu.edu/resources/46d6b64e-b0ba-4e20-86da-4d95dd0709dc/downloads/22117",
+    "is_oa": true,
+    "authors": [
+      "Karen L. Bierman"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Expression of emotion in voice and music",
+    "year": 1995,
+    "citations": 465,
+    "doi": "https://doi.org/10.1016/s0892-1997(05)80231-0",
+    "oa_url": "http://www.jvoice.org/article/S0892199705802310/pdf",
+    "is_oa": true,
+    "authors": [
+      "Klaus R. Scherer"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Embers of society: Firelight talk among the Ju/\u2019hoansi Bushmen",
+    "year": 2014,
+    "citations": 460,
+    "doi": "https://doi.org/10.1073/pnas.1404212111",
+    "oa_url": "https://www.pnas.org/content/pnas/111/39/14027.full.pdf",
+    "is_oa": true,
+    "authors": [
+      "Polly Wiessner"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Maintaining Legitimacy: Controversies, Orders of Worth, and Public Justifications",
+    "year": 2010,
+    "citations": 458,
+    "doi": "https://doi.org/10.1111/j.1467-6486.2010.00990.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1467-6486.2010.00990.x",
+    "is_oa": true,
+    "authors": [
+      "Gerardo Patriotta",
+      "Jean\u2010Pascal Gond",
+      "Friederike Schultz"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "The role of intonation in emotional expressions",
+    "year": 2005,
+    "citations": 436,
+    "doi": "https://doi.org/10.1016/j.specom.2005.02.016",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0167639305000890",
+    "is_oa": true,
+    "authors": [
+      "Tanja B\u00e4nziger",
+      "Klaus R. Scherer"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Consensus Paper: Cerebellum and Social Cognition",
+    "year": 2020,
+    "citations": 435,
+    "doi": "https://doi.org/10.1007/s12311-020-01155-1",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s12311-020-01155-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Frank Van Overwalle",
+      "Mario Manto",
+      "Zaira Cattaneo"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Synchrony in Psychotherapy: A Review and an Integrative Framework for the Therapeutic Alliance",
+    "year": 2016,
+    "citations": 431,
+    "doi": "https://doi.org/10.3389/fpsyg.2016.00862",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2016.00862/pdf",
+    "is_oa": true,
+    "authors": [
+      "Sander L. Koole",
+      "Wolfgang Tschacher"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Robot Therapy: A New Approach for Mental Healthcare of the Elderly \u2013 A Mini-Review",
+    "year": 2010,
+    "citations": 423,
+    "doi": "https://doi.org/10.1159/000319015",
+    "oa_url": "https://karger.com/ger/article-pdf/57/4/378/2835721/000319015.pdf",
+    "is_oa": true,
+    "authors": [
+      "Takanori Shibata",
+      "Kazuyoshi Wada"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Mimicry for money: Behavioral consequences of imitation",
+    "year": 2003,
+    "citations": 393,
+    "doi": "https://doi.org/10.1016/s0022-1031(03)00014-3",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S0022103103000143",
+    "is_oa": true,
+    "authors": [
+      "Rick B. van Baaren",
+      "Rob W. Holland",
+      "Bregje Steenaert"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Can Large Language Models Transform Computational Social Science?",
+    "year": 2023,
+    "citations": 387,
+    "doi": "https://doi.org/10.1162/coli_a_00502",
+    "oa_url": "https://direct.mit.edu/coli/article-pdf/doi/10.1162/coli_a_00502/2191886/coli_a_00502.pdf",
+    "is_oa": true,
+    "authors": [
+      "Caleb Ziems",
+      "William A. Held",
+      "Omar Ahmed Shaikh"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Clustering-Based Speech Emotion Recognition by Incorporating Learned Features and Deep BiLSTM",
+    "year": 2020,
+    "citations": 384,
+    "doi": "https://doi.org/10.1109/access.2020.2990405",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09078789.pdf",
+    "is_oa": true,
+    "authors": [
+      "Mustaqeem Mustaqeem",
+      "Muhammad Sajjad",
+      "Soonil Kwon"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "The Distancing-Embracing model of the enjoyment of negative emotions in art reception",
+    "year": 2017,
+    "citations": 383,
+    "doi": "https://doi.org/10.1017/s0140525x17000309",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FAAF19734BAB559CD439BB46F8BDC571/S0140525X17000309a.pdf/div-class-title-the-distancing-embracing-model-of-the-enjoyment-of-negative-emotions-in-art-reception-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Winfried Menninghaus",
+      "Valentin Wagner",
+      "Julian Hanich"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Resilience in farm animals: biology, management, breeding and implications for animal welfare",
+    "year": 2016,
+    "citations": 377,
+    "doi": "https://doi.org/10.1071/an15297",
+    "oa_url": "https://www.publish.csiro.au/an/pdf/AN15297",
+    "is_oa": true,
+    "authors": [
+      "Ian G. Colditz",
+      "Brad C. Hine"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Jocular mockery, (dis)affiliation, and face",
+    "year": 2010,
+    "citations": 374,
+    "doi": "https://doi.org/10.1016/j.pragma.2009.12.018",
+    "oa_url": "https://linkinghub.elsevier.com/science/article/pii/S0378216609003348",
+    "is_oa": true,
+    "authors": [
+      "Michael Haugh"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Embodiment and sense-making in autism",
+    "year": 2013,
+    "citations": 368,
+    "doi": "https://doi.org/10.3389/fnint.2013.00015",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnint.2013.00015/pdf",
+    "is_oa": true,
+    "authors": [
+      "Hanne De Jaegher"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Speaker recognition based on deep learning: An overview",
+    "year": 2021,
+    "citations": 359,
+    "doi": "https://doi.org/10.1016/j.neunet.2021.03.004",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Zhongxin Bai",
+      "Xiao-Lei Zhang"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "What are aesthetic emotions?",
+    "year": 2019,
+    "citations": 349,
+    "doi": "https://doi.org/10.1037/rev0000135",
+    "oa_url": "https://research.rug.nl/en/publications/c33b160d-1edc-4cb5-927f-4a0179025463",
+    "is_oa": true,
+    "authors": [
+      "Winfried Menninghaus",
+      "Valentin Wagner",
+      "Eugen Wassiliwizky"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Gesture, sign, and language: The coming of age of sign language and gesture studies",
+    "year": 2015,
+    "citations": 349,
+    "doi": "https://doi.org/10.1017/s0140525x15001247",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/40B9B8E3C35C7005D4D588EC39E34C80/S0140525X15001247a.pdf/div-class-title-gesture-sign-and-language-the-coming-of-age-of-sign-language-and-gesture-studies-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Susan Goldin\u2010Meadow",
+      "Diane Brentari"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Parents' and informal caregivers' views and experiences of communication about routine childhood vaccination: a synthesis of qualitative evidence",
+    "year": 2017,
+    "citations": 344,
+    "doi": "https://doi.org/10.1002/14651858.cd011787.pub2",
+    "oa_url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011787.pub2/media/CDSR/CD011787/CD011787.pdf",
+    "is_oa": true,
+    "authors": [
+      "Heather MR Ames",
+      "Claire Glenton",
+      "Simon Lewin"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Chapter 5 Human Mimicry",
+    "year": 2009,
+    "citations": 340,
+    "doi": "https://doi.org/10.1016/s0065-2601(08)00405-x",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S006526010800405X",
+    "is_oa": true,
+    "authors": [
+      "Tanya L. Chartrand",
+      "Rick van Baaren"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Dialog as interpersonal synergy",
+    "year": 2013,
+    "citations": 336,
+    "doi": "https://doi.org/10.1016/j.newideapsych.2013.03.005",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Joanna R\u0105czaszek\u2010Leonardi",
+      "Kristian Tyl\u00e9n"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Artificial empathy in marketing interactions: Bridging the human-AI gap in affective and social customer experience",
+    "year": 2022,
+    "citations": 334,
+    "doi": "https://doi.org/10.1007/s11747-022-00892-5",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11747-022-00892-5.pdf",
+    "is_oa": true,
+    "authors": [
+      "Yuping Liu\u2013Thompkins",
+      "Shintaro Okazaki",
+      "Hairong Li"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "The interactive brain hypothesis",
+    "year": 2012,
+    "citations": 327,
+    "doi": "https://doi.org/10.3389/fnhum.2012.00163",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2012.00163/pdf",
+    "is_oa": true,
+    "authors": [
+      "Ezequiel A. Di Paolo",
+      "Hanne De Jaegher"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Speculative futures on ChatGPT and generative artificial intelligence (AI): A collective reflection from the educational landscape",
+    "year": 2023,
+    "citations": 321,
+    "doi": "https://doi.org/10.5281/zenodo.7636568",
+    "oa_url": "https://eprints.gla.ac.uk/294292/1/294292.pdf",
+    "is_oa": true,
+    "authors": [
+      "Aras Bozkurt",
+      "J. Xiao",
+      "Steven Imanuel Lambert"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Self-Supervised Speech Representation Learning: A Review",
+    "year": 2022,
+    "citations": 320,
+    "doi": "https://doi.org/10.1109/jstsp.2022.3207050",
+    "oa_url": "https://arxiv.org/pdf/2205.10643",
+    "is_oa": true,
+    "authors": [
+      "Abdelrahman Mohamed",
+      "Hung-yi Lee",
+      "Lasse Borgholt"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Fraternal Bonding in the Locker Room: A Profeminist Analysis of Talk about Competition and Women",
+    "year": 1991,
+    "citations": 317,
+    "doi": "https://doi.org/10.1123/ssj.8.2.119",
+    "oa_url": "https://journals.humankinetics.com/downloadpdf/journals/ssj/8/2/article-p119.pdf",
+    "is_oa": true,
+    "authors": [
+      "Timothy J. Curry"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Lipopolysaccharide-Induced Model of Neuroinflammation: Mechanisms of Action, Research Application and Future Directions for Its Use",
+    "year": 2022,
+    "citations": 317,
+    "doi": "https://doi.org/10.3390/molecules27175481",
+    "oa_url": "https://www.mdpi.com/1420-3049/27/17/5481/pdf?version=1661512940",
+    "is_oa": true,
+    "authors": [
+      "Anna Skrzypczak-Wiercioch",
+      "Kinga Sa\u0142at"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Primary progressive aphasia: a clinical approach",
+    "year": 2018,
+    "citations": 311,
+    "doi": "https://doi.org/10.1007/s00415-018-8762-6",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007%2Fs00415-018-8762-6.pdf",
+    "is_oa": true,
+    "authors": [
+      "Charles R. Marshall",
+      "Chris JD Hardy",
+      "Anna Volkmer"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Mock impoliteness, jocular mockery and jocular abuse in Australian and British English",
+    "year": 2012,
+    "citations": 306,
+    "doi": "https://doi.org/10.1016/j.pragma.2012.02.003",
+    "oa_url": "https://research-repository.griffith.edu.au/bitstreams/924ad834-a70f-57ff-920a-12d9fb030ab7/download",
+    "is_oa": true,
+    "authors": [
+      "Michael Haugh",
+      "Derek Bousfield"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Swimming in a Sea of Shame: Incorporating Emotion into Explanations of Institutional Reproduction and Change",
+    "year": 2014,
+    "citations": 300,
+    "doi": "https://doi.org/10.5465/amr.2012.0074",
+    "oa_url": "https://digitalcommons.uri.edu/cba_facpubs/31",
+    "is_oa": true,
+    "authors": [
+      "W. E. Douglas Creed",
+      "Bryant A. Hudson",
+      "Gerardo A. Okhuysen"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Harnessing Artificial Intelligence Capabilities to Improve Cybersecurity",
+    "year": 2020,
+    "citations": 300,
+    "doi": "https://doi.org/10.1109/access.2020.2968045",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/08963730.pdf",
+    "is_oa": true,
+    "authors": [
+      "Sherali Zeadally",
+      "Erwin Adi",
+      "Zubair Baig"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Reward and motivation systems: A brain mapping study of early\u2010stage intense romantic love in Chinese participants",
+    "year": 2010,
+    "citations": 293,
+    "doi": "https://doi.org/10.1002/hbm.21017",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/hbm.21017?download=true",
+    "is_oa": true,
+    "authors": [
+      "Xiaomeng Xu",
+      "Arthur Aron",
+      "Lucy Brown"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Well-Being and Romantic Relationships: A Systematic Review in Adolescence and Emerging Adulthood",
+    "year": 2019,
+    "citations": 289,
+    "doi": "https://doi.org/10.3390/ijerph16132415",
+    "oa_url": "https://www.mdpi.com/1660-4601/16/13/2415/pdf?version=1562489709",
+    "is_oa": true,
+    "authors": [
+      "Mercedes G\u00f3mez-L\u00f3pez",
+      "Carmen Viejo",
+      "Rosario Ortega Ruiz"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Review and Classification of Emotion Recognition Based on EEG Brain-Computer Interface System Research: A Systematic Review",
+    "year": 2017,
+    "citations": 288,
+    "doi": "https://doi.org/10.3390/app7121239",
+    "oa_url": "https://www.mdpi.com/2076-3417/7/12/1239/pdf?version=1512107704",
+    "is_oa": true,
+    "authors": [
+      "Abeer Al-Nafjan",
+      "Manar Hosny",
+      "Yousef Al-Ohali"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Why professionals fail to catch liars and how they can improve",
+    "year": 2004,
+    "citations": 287,
+    "doi": "https://doi.org/10.1348/1355325041719356",
+    "oa_url": "https://researchportal.port.ac.uk/ws/files/30925/LEGALINV.pdf",
+    "is_oa": true,
+    "authors": [
+      "Aldert Vrij"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Lying takes time: A meta-analysis on reaction time measures of deception.",
+    "year": 2017,
+    "citations": 274,
+    "doi": "https://doi.org/10.1037/bul0000087",
+    "oa_url": "https://biblio.ugent.be/publication/8512398",
+    "is_oa": true,
+    "authors": [
+      "Kristina Suchotzki",
+      "Bruno Verschu\u00e8re",
+      "Bram Van Bockstaele"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Breaking Bread: the Functions of Social Eating",
+    "year": 2017,
+    "citations": 274,
+    "doi": "https://doi.org/10.1007/s40750-017-0061-4",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007%2Fs40750-017-0061-4.pdf",
+    "is_oa": true,
+    "authors": [
+      "Robin Dunbar"
+    ],
+    "query": "laughter social bonding conversation"
+  },
+  {
+    "title": "Rethinking Interdisciplinarity across the Social Sciences and Neurosciences",
+    "year": 2015,
+    "citations": 265,
+    "doi": "https://doi.org/10.1057/9781137407962",
+    "oa_url": "https://link.springer.com/content/pdf/10.1057/9781137407962.pdf?pdf=button",
+    "is_oa": true,
+    "authors": [
+      "Felicity Callard",
+      "Des Fitzgerald"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Investigating Conversational Dynamics: Interactive Alignment, Interpersonal Synergy, and Collective Task Performance",
+    "year": 2015,
+    "citations": 263,
+    "doi": "https://doi.org/10.1111/cogs.12251",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/cogs.12251",
+    "is_oa": true,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Kristian Tyl\u00e9n"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "A Discriminative Model for Polyphonic Piano Transcription",
+    "year": 2006,
+    "citations": 263,
+    "doi": "https://doi.org/10.1155/2007/48317",
+    "oa_url": "https://asp-eurasipjournals.springeropen.com/counter/pdf/10.1155/2007/48317",
+    "is_oa": true,
+    "authors": [
+      "Graham E. Poliner",
+      "Daniel P. W. Ellis"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Evidence from Meta-Analyses of the Facial Width-to-Height Ratio as an Evolved Cue of Threat",
+    "year": 2015,
+    "citations": 258,
+    "doi": "https://doi.org/10.1371/journal.pone.0132726",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0132726&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Shawn N. Geniole",
+      "Thomas F. Denson",
+      "Barnaby Dixson"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Body Language Communication",
+    "year": 2024,
+    "citations": 258,
+    "doi": "https://doi.org/10.1007/978-3-031-70064-4",
+    "oa_url": "https://link.springer.com/content/pdf/bfm:978-3-031-70064-4/1",
+    "is_oa": true,
+    "authors": [
+      "Thomas Wiben Jensen",
+      "Elena Clare Cuffari"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Affordances and the musically extended mind",
+    "year": 2014,
+    "citations": 258,
+    "doi": "https://doi.org/10.3389/fpsyg.2013.01003",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2013.01003/pdf",
+    "is_oa": true,
+    "authors": [
+      "Joel Krueger"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Deepfake detection using deep learning methods: A systematic and comprehensive review",
+    "year": 2023,
+    "citations": 257,
+    "doi": "https://doi.org/10.1002/widm.1520",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/widm.1520",
+    "is_oa": true,
+    "authors": [
+      "Arash Heidari",
+      "Nima Jafari Navimipour",
+      "Hasan Da\u011f"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Lie experts' beliefs about nonverbal indicators of deception",
+    "year": 1996,
+    "citations": 251,
+    "doi": "https://doi.org/10.1007/bf02248715",
+    "oa_url": "https://research.vu.nl/ws/files/574355/Vrij%20Journal%20of%20nonverbal%20behavior%2020(1)%201996%20u.pdf",
+    "is_oa": true,
+    "authors": [
+      "Aldert Vrij",
+      "G\u00fcn R. Semin"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Strong Demands and Weak Institutions: The Origins and Evolution of the Democratic Deficit in the Philippines",
+    "year": 2003,
+    "citations": 248,
+    "doi": "https://doi.org/10.1017/s1598240800001363",
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0D658C26517E837B61B296B657A4B599/S1598240800001363a.pdf/div-class-title-strong-demands-and-weak-institutions-the-origins-and-evolution-of-the-democratic-deficit-in-the-philippines-div.pdf",
+    "is_oa": true,
+    "authors": [
+      "Paul D. Hutchcroft",
+      "Joel Rocamora"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Measurement of Trust in Automation: A Narrative Review and Reference Guide",
+    "year": 2021,
+    "citations": 245,
+    "doi": "https://doi.org/10.3389/fpsyg.2021.604977",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2021.604977/pdf",
+    "is_oa": true,
+    "authors": [
+      "Spencer Kohn",
+      "Ewart J. de Visser",
+      "Eva Wiese"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "The INTERSPEECH 2016 Computational Paralinguistics Challenge: Deception, Sincerity &amp; Native Language",
+    "year": 2016,
+    "citations": 239,
+    "doi": "https://doi.org/10.21437/interspeech.2016-129",
+    "oa_url": "https://opus.bibliothek.uni-augsburg.de/opus4/files/65876/0129.PDF",
+    "is_oa": true,
+    "authors": [
+      "Bj\u00f6rn W. Schuller",
+      "Stefan Steidl",
+      "Anton Batliner"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "CrossSense",
+    "year": 2018,
+    "citations": 231,
+    "doi": "https://doi.org/10.1145/3241539.3241570",
+    "oa_url": "https://eprints.lancs.ac.uk/id/eprint/126425/7/paper.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jie Zhang",
+      "Zhanyong Tang",
+      "Meng Li"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "The Cognitive-Affective-Social Theory of Learning in digital Environments (CASTLE)",
+    "year": 2021,
+    "citations": 226,
+    "doi": "https://doi.org/10.1007/s10648-021-09626-5",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s10648-021-09626-5.pdf",
+    "is_oa": true,
+    "authors": [
+      "Sascha Schneider",
+      "Maik Beege",
+      "Steve Nebel"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "The International Criminal Court",
+    "year": 2006,
+    "citations": 224,
+    "doi": "https://doi.org/10.4324/9780203414514",
+    "oa_url": "https://www.doabooks.org/doab?func=search&query=rid:38625",
+    "is_oa": true,
+    "authors": [
+      "Marlies Glasius"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Theory of Workarounds",
+    "year": 2014,
+    "citations": 224,
+    "doi": "https://doi.org/10.17705/1cais.03455",
+    "oa_url": null,
+    "is_oa": false,
+    "authors": [
+      "Steven Alter"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Accuracy and awareness in the perception and categorization of male sexual orientation.",
+    "year": 2008,
+    "citations": 224,
+    "doi": "https://doi.org/10.1037/a0013194",
+    "oa_url": "https://utoronto.scholaris.ca/bitstreams/b8cc5356-2fb6-4fe0-a3a5-8549e19cfa61/download",
+    "is_oa": true,
+    "authors": [
+      "Nicholas O. Rule",
+      "Nalini Ambady",
+      "Reginald B. Adams"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Computational Sociolinguistics: A Survey",
+    "year": 2016,
+    "citations": 221,
+    "doi": "https://doi.org/10.1162/coli_a_00258",
+    "oa_url": "https://www.mitpressjournals.org/doi/pdf/10.1162/COLI_a_00258",
+    "is_oa": true,
+    "authors": [
+      "Dong Nguyen",
+      "A. Seza Do\u011fru\u00f6z",
+      "Carolyn Penstein Ros\u00e9"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Status-Dependent Vasotocin Modulation of Dominance and Subordination in the Weakly Electric Fish Gymnotus omarorum",
+    "year": 2018,
+    "citations": 220,
+    "doi": "https://doi.org/10.3389/fnbeh.2018.00001",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnbeh.2018.00001/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rossana Perrone",
+      "Ana Silva"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "West flemish verb\u2010based discourse markers and the articulation of the speech act layer",
+    "year": 2014,
+    "citations": 219,
+    "doi": "https://doi.org/10.1111/stul.12023",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/stul.12023",
+    "is_oa": true,
+    "authors": [
+      "Liliane Haegeman"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "A Review of Physical and Perceptual Feature Extraction Techniques for Speech, Music and Environmental Sounds",
+    "year": 2016,
+    "citations": 218,
+    "doi": "https://doi.org/10.3390/app6050143",
+    "oa_url": "https://www.mdpi.com/2076-3417/6/5/143/pdf?version=1463044630",
+    "is_oa": true,
+    "authors": [
+      "Francesc \u00c1l\u00edas",
+      "Joan Claudi Socor\u00f3",
+      "Xavier Sevillano"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "A Connectionist Model of English Past Tense and Plural Morphology",
+    "year": 1999,
+    "citations": 212,
+    "doi": "https://doi.org/10.1207/s15516709cog2304_4",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1207/s15516709cog2304_4",
+    "is_oa": true,
+    "authors": [
+      "Kim Plunkett",
+      "Patrick Juola"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Deep Learning on Multi Sensor Data for Counter UAV Applications\u2014A Systematic Review",
+    "year": 2019,
+    "citations": 195,
+    "doi": "https://doi.org/10.3390/s19224837",
+    "oa_url": "https://www.mdpi.com/1424-8220/19/22/4837/pdf?version=1573145800",
+    "is_oa": true,
+    "authors": [
+      "Stamatios Samaras",
+      "Eleni Diamantidou",
+      "Dimitrios Ataloglou"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "The reach of gene\u2013culture coevolution in animals",
+    "year": 2019,
+    "citations": 193,
+    "doi": "https://doi.org/10.1038/s41467-019-10293-y",
+    "oa_url": "https://www.nature.com/articles/s41467-019-10293-y.pdf",
+    "is_oa": true,
+    "authors": [
+      "Hal Whitehead",
+      "Kevin N. Laland",
+      "Luke Rendell"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Legal Geography: Becoming Spatial Detectives",
+    "year": 2015,
+    "citations": 191,
+    "doi": "https://doi.org/10.1111/gec3.12209",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/gec3.12209",
+    "is_oa": true,
+    "authors": [
+      "Luke Bennett",
+      "Antonia Layard"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "A General Framework for Adversarial Examples with Objectives",
+    "year": 2019,
+    "citations": 191,
+    "doi": "https://doi.org/10.1145/3317611",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3317611",
+    "is_oa": true,
+    "authors": [
+      "Mahmood Sharif",
+      "Sruti Bhagavatula",
+      "Lujo Bauer"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Adaptive, intelligent presentation of information for the museum visitor in PEACH",
+    "year": 2007,
+    "citations": 190,
+    "doi": "https://doi.org/10.1007/s11257-007-9029-6",
+    "oa_url": "http://hdl.handle.net/11572/272679",
+    "is_oa": true,
+    "authors": [
+      "Oliviero Stock",
+      "Massimo Zancanaro",
+      "Paolo Busetta"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "The Role of the Dorsolateral Prefrontal Cortex for Speech and Language Processing",
+    "year": 2021,
+    "citations": 189,
+    "doi": "https://doi.org/10.3389/fnhum.2021.645209",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2021.645209/pdf",
+    "is_oa": true,
+    "authors": [
+      "Ingo Hertrich",
+      "Susanne Dietrich",
+      "Corinna Blum"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Understanding ethnic inequalities in mental healthcare in the UK: A meta-ethnography",
+    "year": 2022,
+    "citations": 186,
+    "doi": "https://doi.org/10.1371/journal.pmed.1004139",
+    "oa_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1004139&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Narinder Bansal",
+      "Saffron Karlsen",
+      "S. P. Sashidharan"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "\u201cIs voice a marker for Autism spectrum disorder? A systematic review and meta\u2010analysis\u201d",
+    "year": 2016,
+    "citations": 184,
+    "doi": "https://doi.org/10.1002/aur.1678",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aur.1678",
+    "is_oa": true,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Anna Lambrechts",
+      "Dan Bang"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Multistage speaker diarization of broadcast news",
+    "year": 2006,
+    "citations": 180,
+    "doi": "https://doi.org/10.1109/tasl.2006.878261",
+    "oa_url": "https://hal.science/hal-01434241v1/document",
+    "is_oa": true,
+    "authors": [
+      "C. Barras",
+      "Xuan Zhu",
+      "Sylvain Meignier"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Social Touch in Human\u00e2\u20ac\u201cComputer Interaction",
+    "year": 2015,
+    "citations": 177,
+    "doi": "https://doi.org/10.3389/fdigh.2015.00002",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fdigh.2015.00002/pdf",
+    "is_oa": true,
+    "authors": [
+      "Jan B. F. van Erp",
+      "Alexander Toet"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Digitizing Literacy: Reflections on the Haptics of Writing",
+    "year": 2010,
+    "citations": 177,
+    "doi": "https://doi.org/10.5772/8710",
+    "oa_url": "https://www.intechopen.com/citation-pdf-url/9927",
+    "is_oa": true,
+    "authors": [
+      "Anne Mangen",
+      "Jean\u2010Luc Velay"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "The Power of Goal-Directed Processes in the Causation of Emotional and Other Actions",
+    "year": 2017,
+    "citations": 176,
+    "doi": "https://doi.org/10.1177/1754073916669595",
+    "oa_url": "https://biblio.ugent.be/publication/8054722/file/8054734.pdf",
+    "is_oa": true,
+    "authors": [
+      "Agnes Moors",
+      "Yannick Boddez",
+      "Jan De Houwer"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "A review of \u201cmusic and movement\u201d therapies for children with autism: embodied interventions for multisystem development",
+    "year": 2013,
+    "citations": 176,
+    "doi": "https://doi.org/10.3389/fnint.2013.00022",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnint.2013.00022/pdf",
+    "is_oa": true,
+    "authors": [
+      "Sudha Srinivasan",
+      "Anjana Bhat"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Understanding process, power, and meaning in adaptive governance: a critical institutional reading",
+    "year": 2018,
+    "citations": 175,
+    "doi": "https://doi.org/10.5751/es-10212-230249",
+    "oa_url": "https://www.ecologyandsociety.org/vol23/iss2/art49/ES-2018-10212.pdf",
+    "is_oa": true,
+    "authors": [
+      "Frances Cleaver",
+      "Luke Whaley"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Facial Expression Recognition Using Computer Vision: A Systematic Review",
+    "year": 2019,
+    "citations": 171,
+    "doi": "https://doi.org/10.3390/app9214678",
+    "oa_url": "https://www.mdpi.com/2076-3417/9/21/4678/pdf",
+    "is_oa": true,
+    "authors": [
+      "Daniel Canedo",
+      "Ant\u00f3nio J. R. Neves"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "How does gaze to faces support face-to-face interaction? A review and perspective",
+    "year": 2020,
+    "citations": 167,
+    "doi": "https://doi.org/10.3758/s13423-020-01715-w",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/s13423-020-01715-w.pdf",
+    "is_oa": true,
+    "authors": [
+      "Roy S. Hessels"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Automatic Personality Perception: Prediction of Trait Attribution Based on Prosodic Features",
+    "year": 2012,
+    "citations": 167,
+    "doi": "https://doi.org/10.1109/t-affc.2012.5",
+    "oa_url": "https://infoscience.epfl.ch/record/192534/files/Mohammadi_IEEETRANSACTIONSONAFFECTIVECOMPUTING_2012.pdf",
+    "is_oa": true,
+    "authors": [
+      "Gelareh Mohammadi",
+      "Alessandro Vinciarelli"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Chorusing, synchrony, and the evolutionary functions of rhythm",
+    "year": 2014,
+    "citations": 166,
+    "doi": "https://doi.org/10.3389/fpsyg.2014.01118",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2014.01118/pdf",
+    "is_oa": true,
+    "authors": [
+      "Andrea Ravignani"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "End-to-End Speech Recognition: A Survey",
+    "year": 2023,
+    "citations": 166,
+    "doi": "https://doi.org/10.1109/taslp.2023.3328283",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6570655/6633080/10301513.pdf",
+    "is_oa": true,
+    "authors": [
+      "Rohit Prabhavalkar",
+      "Takaaki Hori",
+      "Tara N. Sainath"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Impairments of Social Motor Synchrony Evident in Autism Spectrum Disorder",
+    "year": 2016,
+    "citations": 162,
+    "doi": "https://doi.org/10.3389/fpsyg.2016.01323",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2016.01323/pdf",
+    "is_oa": true,
+    "authors": [
+      "Paula Fitzpatrick",
+      "Jean A. Frazier",
+      "David Cochran"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Fourteen-month-old infants use interpersonal synchrony as a cue to direct helpfulness",
+    "year": 2014,
+    "citations": 160,
+    "doi": "https://doi.org/10.1098/rstb.2013.0400",
+    "oa_url": "https://royalsocietypublishing.org/doi/pdf/10.1098/rstb.2013.0400",
+    "is_oa": true,
+    "authors": [
+      "Laura K. Cirelli",
+      "Stephanie Wan",
+      "Laurel J. Trainor"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "HomeBank: An Online Repository of Daylong Child-Centered Audio Recordings",
+    "year": 2016,
+    "citations": 159,
+    "doi": "https://doi.org/10.1055/s-0036-1580745",
+    "oa_url": "http://www.thieme-connect.de/products/ejournals/pdf/10.1055/s-0036-1580745.pdf",
+    "is_oa": true,
+    "authors": [
+      "Anne S. Warlaumont",
+      "Elika Bergelson",
+      "Alejandrina Cristi\u00e0"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "<b>Language spread and language policy</b> : Issues, implications, and case studies. Ed. by Peter H. Lowenberg (GURT '87 [Georgetown University Round Table on Languages and Linguistics].) Washington, DC: Georgetown University Press, 1988. Pp. xi, 408. $16.95.",
+    "year": 1989,
+    "citations": 156,
+    "doi": "https://doi.org/10.2307/415338",
+    "oa_url": "http://repository.digital.georgetown.edu/downloads/6a6c699f-7bb0-4f3a-bec6-aaf1a9cdcadb",
+    "is_oa": true,
+    "authors": [
+      "Carol M. Eastman"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Acoustic exaggeration of size in birds via tracheal elongation: comparative and theoretical analyses",
+    "year": 1999,
+    "citations": 155,
+    "doi": "https://doi.org/10.1111/j.1469-7998.1999.tb01020.x",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1469-7998.1999.tb01020.x",
+    "is_oa": true,
+    "authors": [
+      "W. Tecumseh Fitch"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Attachment, Neurobiology, and Mentalizing along the Psychosis Continuum",
+    "year": 2016,
+    "citations": 150,
+    "doi": "https://doi.org/10.3389/fnhum.2016.00406",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2016.00406/pdf",
+    "is_oa": true,
+    "authors": [
+      "Martin Debban\u00e9",
+      "George Salaminios",
+      "Patrick Luyten"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Interrogating to detect deception and truth : effects of strategic use of evidence",
+    "year": 2005,
+    "citations": 149,
+    "doi": "https://doi.org/10.1177/1098611104264748",
+    "oa_url": "https://gupea.ub.gu.se/bitstream/2077/191/1/Hartwig2005.pdf",
+    "is_oa": true,
+    "authors": [
+      "Maria Hartwig"
+    ],
+    "query": "deception detection voice pitch"
+  },
+  {
+    "title": "Migration Policymaking in Europe : The Dynamics of Actors and Contexts in Past and Present",
+    "year": 2011,
+    "citations": 148,
+    "doi": "https://doi.org/10.26530/oapen_401760",
+    "oa_url": "https://library.oapen.org/bitstream/20.500.12657/34584/1/401760.pdf",
+    "is_oa": true,
+    "authors": [
+      "Rinus Penninx"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Englishization, Identity Regulation and Imperialism",
+    "year": 2016,
+    "citations": 147,
+    "doi": "https://doi.org/10.1177/0170840616655494",
+    "oa_url": "https://purehost.bath.ac.uk/ws/files/144103399/Englishization.pdf",
+    "is_oa": true,
+    "authors": [
+      "Mehdi Boussebaa",
+      "Andrew D. Brown"
+    ],
+    "query": "vocal accommodation dominance status"
+  },
+  {
+    "title": "Child\u2013Robot Relationship Formation: A Narrative Review of Empirical Research",
+    "year": 2019,
+    "citations": 144,
+    "doi": "https://doi.org/10.1007/s12369-019-00569-0",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s12369-019-00569-0.pdf",
+    "is_oa": true,
+    "authors": [
+      "Caroline L. van Straten",
+      "Jochen Peter",
+      "Rinaldo K\u00fchne"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "SpEx: Multi-Scale Time Domain Speaker Extraction Network",
+    "year": 2020,
+    "citations": 144,
+    "doi": "https://doi.org/10.1109/taslp.2020.2987429",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6570655/8938144/09067003.pdf",
+    "is_oa": true,
+    "authors": [
+      "Chenglin Xu",
+      "Wei Rao",
+      "Eng Siong Chng"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Challenges of developing a digital scribe to reduce clinical documentation burden",
+    "year": 2019,
+    "citations": 142,
+    "doi": "https://doi.org/10.1038/s41746-019-0190-1",
+    "oa_url": "https://www.nature.com/articles/s41746-019-0190-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Juan C. Quiroz",
+      "Liliana Laranjo",
+      "A. Baki Kocaball\u0131"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Editorial",
+    "year": 2013,
+    "citations": 137,
+    "doi": "https://doi.org/10.1075/ni.23.1.01dep",
+    "oa_url": "https://ids-pub.bsz-bw.de/files/1532/Deppermann_Editorial_Positioning_2013.pdf",
+    "is_oa": true,
+    "authors": [
+      "Arnulf Deppermann"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "A thorough evaluation of the Language Environment Analysis (LENA) system",
+    "year": 2020,
+    "citations": 135,
+    "doi": "https://doi.org/10.3758/s13428-020-01393-5",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/s13428-020-01393-5.pdf",
+    "is_oa": true,
+    "authors": [
+      "Alejandrina Cristi\u00e0",
+      "Marvin Lavechin",
+      "Camila Scaff"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Advances in Multimodal Emotion Recognition Based on Brain\u2013Computer Interfaces",
+    "year": 2020,
+    "citations": 135,
+    "doi": "https://doi.org/10.3390/brainsci10100687",
+    "oa_url": "https://www.mdpi.com/2076-3425/10/10/687/pdf",
+    "is_oa": true,
+    "authors": [
+      "Zhipeng He",
+      "Zina Li",
+      "Fuzhou Yang"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Social signal processing",
+    "year": 2008,
+    "citations": 134,
+    "doi": "https://doi.org/10.1145/1459359.1459573",
+    "oa_url": "https://infoscience.epfl.ch/record/146347/files/Vinciarelli_ACM-MM_2008.pdf",
+    "is_oa": true,
+    "authors": [
+      "Alessandro Vinciarelli",
+      "Maja Panti\u0107",
+      "Herv\u00e9 Bourlard"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Physiological evidence of interpersonal dynamics in a cooperative production task",
+    "year": 2016,
+    "citations": 132,
+    "doi": "https://doi.org/10.1016/j.physbeh.2016.01.004",
+    "oa_url": "https://www.sciencedirect.com/science/article/pii/S003193841630004X",
+    "is_oa": true,
+    "authors": [
+      "Dan M\u00f8nster",
+      "Dorthe D\u00f8jbak H\u00e5konsson",
+      "Jacob Eskildsen"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Deep transfer learning for automatic speech recognition: Towards better generalization",
+    "year": 2023,
+    "citations": 131,
+    "doi": "https://doi.org/10.1016/j.knosys.2023.110851",
+    "oa_url": "http://qspace.qu.edu.qa/bitstream/10576/60081/1/1-s2.0-S0950705123006019-main.pdf",
+    "is_oa": true,
+    "authors": [
+      "Hamza Kheddar",
+      "Yassine Himeur",
+      "Somaya Al-M\u00e1adeed"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Preserving privacy in speaker and speech characterisation",
+    "year": 2019,
+    "citations": 127,
+    "doi": "https://doi.org/10.1016/j.csl.2019.06.001",
+    "oa_url": "https://www.sciencedirect.com/science/article/am/pii/S0885230818303875?via%3Dihub",
+    "is_oa": true,
+    "authors": [
+      "Andreas Nautsch",
+      "Abelino Jim\u00e9nez",
+      "Amos Treiber"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "Potential Applications of Social Robots in Robot-Assisted Interventions for Social Anxiety",
+    "year": 2022,
+    "citations": 126,
+    "doi": "https://doi.org/10.1007/s12369-021-00851-0",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s12369-021-00851-0.pdf",
+    "is_oa": true,
+    "authors": [
+      "Samira Rasouli",
+      "Garima Gupta",
+      "Elizabeth S. Nilsen"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Word identification and eye fixation locations in visual and visual-plus-auditory presentations of spoken sentences",
+    "year": 2003,
+    "citations": 125,
+    "doi": "https://doi.org/10.3758/bf03194581",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/BF03194581.pdf",
+    "is_oa": true,
+    "authors": [
+      "Charissa R. Lansing",
+      "George W. McConkie"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Dance on the Brain: Enhancing Intra- and Inter-Brain Synchrony",
+    "year": 2021,
+    "citations": 125,
+    "doi": "https://doi.org/10.3389/fnhum.2020.584312",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2020.584312/pdf",
+    "is_oa": true,
+    "authors": [
+      "Julia C. Basso",
+      "Medha K. Satyal",
+      "Rachel Rugh"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Phonetic convergence across multiple measures and model talkers",
+    "year": 2016,
+    "citations": 124,
+    "doi": "https://doi.org/10.3758/s13414-016-1226-0",
+    "oa_url": "https://link.springer.com/content/pdf/10.3758/s13414-016-1226-0.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jennifer S. Pardo",
+      "Adelya Urmanche",
+      "Sherilyn Wilman"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "Nonverbal Synchrony in Social Interactions of Patients with Schizophrenia Indicates Socio-Communicative Deficits",
+    "year": 2015,
+    "citations": 121,
+    "doi": "https://doi.org/10.1371/journal.pone.0145882",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0145882&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Zeno Kupper",
+      "Fabian Ramseyer",
+      "Holger Hoffmann"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "An open-source state-of-the-art toolbox for broadcast news diarization",
+    "year": 2013,
+    "citations": 121,
+    "doi": "https://doi.org/10.21437/interspeech.2013-383",
+    "oa_url": "http://infoscience.epfl.ch/record/192762",
+    "is_oa": true,
+    "authors": [
+      "Micka\u00ebl Rouvier",
+      "Gr\u00e9gor Dupuy",
+      "Paul du Gay"
+    ],
+    "query": "speaker diarization identification"
+  },
+  {
+    "title": "One Voice Fits All?",
+    "year": 2019,
+    "citations": 117,
+    "doi": "https://doi.org/10.1145/3359325",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3359325",
+    "is_oa": true,
+    "authors": [
+      "Julia Cambre",
+      "Chinmay Kulkarni"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "A Long-Term Study of Young Children's Rapport, Social Emulation, and Language Learning With a Peer-Like Robot Playmate in Preschool",
+    "year": 2019,
+    "citations": 116,
+    "doi": "https://doi.org/10.3389/frobt.2019.00081",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/frobt.2019.00081/pdf",
+    "is_oa": true,
+    "authors": [
+      "Jacqueline M. Kory-Westlund",
+      "Cynthia Breazeal"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Investigating automatic measurements of prosodic accommodation and its dynamics in social interaction",
+    "year": 2013,
+    "citations": 114,
+    "doi": "https://doi.org/10.1016/j.specom.2013.10.002",
+    "oa_url": "https://arrow.tudublin.ie/cgi/viewcontent.cgi?article=1071&context=dmcart",
+    "is_oa": true,
+    "authors": [
+      "C\u00e9line De Looze",
+      "Stefan Scherer",
+      "Brian Vaughan"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "A Taxonomy of Social Errors in Human-Robot Interaction",
+    "year": 2021,
+    "citations": 112,
+    "doi": "https://doi.org/10.1145/3439720",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3439720",
+    "is_oa": true,
+    "authors": [
+      "Leimin Tian",
+      "Sharon Oviatt"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Music as a coevolved system for social bonding",
+    "year": 2020,
+    "citations": 111,
+    "doi": "https://doi.org/10.31234/osf.io/qp3st",
+    "oa_url": "https://psyarxiv.com/qp3st/download",
+    "is_oa": true,
+    "authors": [
+      "Patrick E. Savage",
+      "Psyche Loui",
+      "Bronwyn Tarr"
+    ],
+    "query": "speech prosody interpersonal attraction"
+  },
+  {
+    "title": "New Frontiers in Heart Rate Variability and Social Coherence Research: Techniques, Technologies, and Implications for Improving Group Dynamics and Outcomes",
+    "year": 2017,
+    "citations": 103,
+    "doi": "https://doi.org/10.3389/fpubh.2017.00267",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpubh.2017.00267/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rollin McCraty"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Analyzing Social Interactions: The Promises and Challenges of Using Cross Recurrence Quantification Analysis",
+    "year": 2014,
+    "citations": 103,
+    "doi": "https://doi.org/10.1007/978-3-319-09531-8_9",
+    "oa_url": "https://pure.au.dk/ws/files/89938143/2014_springer_maths_and_stats_analyzing_social_interactions.pdf",
+    "is_oa": true,
+    "authors": [
+      "Riccardo Fusaroli",
+      "Ivana Konvalinka",
+      "Sebastian Wallot"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Social deontics: A nano\u2010level approach to human power play",
+    "year": 2018,
+    "citations": 101,
+    "doi": "https://doi.org/10.1111/jtsb.12175",
+    "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/jtsb.12175",
+    "is_oa": true,
+    "authors": [
+      "Melisa Stevanovic"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Reduced nonverbal interpersonal synchrony in autism spectrum disorder independent of partner diagnosis: a motion energy study",
+    "year": 2020,
+    "citations": 98,
+    "doi": "https://doi.org/10.1186/s13229-019-0305-1",
+    "oa_url": "https://molecularautism.biomedcentral.com/counter/pdf/10.1186/s13229-019-0305-1",
+    "is_oa": true,
+    "authors": [
+      "Alexandra L. Georgescu",
+      "S. Koeroglu",
+      "Antonia F. de C. Hamilton"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Dynamical methods for evaluating the time-dependent unfolding of social coordination in children with autism",
+    "year": 2013,
+    "citations": 98,
+    "doi": "https://doi.org/10.3389/fnint.2013.00021",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnint.2013.00021/pdf",
+    "is_oa": true,
+    "authors": [
+      "Paula Fitzpatrick",
+      "Rachel Diorio",
+      "Michael J. Richardson"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Interpersonal Coordination: Methods, Achievements, and Challenges",
+    "year": 2017,
+    "citations": 97,
+    "doi": "https://doi.org/10.3389/fpsyg.2017.01685",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01685/pdf",
+    "is_oa": true,
+    "authors": [
+      "Carlos Cornejo",
+      "Zamara Cuadros",
+      "Ricardo Morales"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Rhythmic Features of Movement Synchrony for Bonding Individuals in Dyadic Interaction",
+    "year": 2019,
+    "citations": 87,
+    "doi": "https://doi.org/10.1007/s10919-019-00315-0",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s10919-019-00315-0.pdf",
+    "is_oa": true,
+    "authors": [
+      "Ken Fujiwara",
+      "Masanori Kimura",
+      "Ikuo Daibo"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Acoustic-Prosodic Entrainment and Rapport in Collaborative Learning Dialogues",
+    "year": 2014,
+    "citations": 87,
+    "doi": "https://doi.org/10.1145/2666633.2666635",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/2666633.2666635",
+    "is_oa": true,
+    "authors": [
+      "Nichola Lubold",
+      "Heather Pon-Barry"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Imitation",
+    "year": 2014,
+    "citations": 87,
+    "doi": "https://doi.org/10.1146/annurev-anthro-102313-030008",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-anthro-102313-030008",
+    "is_oa": true,
+    "authors": [
+      "Michael Lempert"
+    ],
+    "query": "vocal rapport synchrony entrainment"
+  },
+  {
+    "title": "Measuring Mindreading: A Review of Behavioral Approaches to Testing Cognitive and Affective Mental State Attribution in Neurologically Typical Adults",
+    "year": 2017,
+    "citations": 75,
+    "doi": "https://doi.org/10.3389/fpsyg.2017.00047",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2017.00047/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rose Turner",
+      "Fatima M. Felisberti"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Unlocking the Emotional World of Visual Media: An Overview of the Science, Research, and Impact of Understanding Emotion",
+    "year": 2023,
+    "citations": 72,
+    "doi": "https://doi.org/10.1109/jproc.2023.3273517",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/5/4357935/10132377.pdf",
+    "is_oa": true,
+    "authors": [
+      "James Z. Wang",
+      "Sicheng Zhao",
+      "Chenyan Wu"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Attachment-Related Differences in Emotion Regulation in Adults: A Systematic Review on Attachment Representations",
+    "year": 2023,
+    "citations": 63,
+    "doi": "https://doi.org/10.3390/brainsci13060884",
+    "oa_url": "https://www.mdpi.com/2076-3425/13/6/884/pdf?version=1685523565",
+    "is_oa": true,
+    "authors": [
+      "Dirk W. Eilert",
+      "Anna Buchheim"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Multimodal temporal machine learning for Bipolar Disorder and Depression Recognition",
+    "year": 2021,
+    "citations": 56,
+    "doi": "https://doi.org/10.1007/s10044-021-01001-y",
+    "oa_url": null,
+    "is_oa": true,
+    "authors": [
+      "Francesco Ceccarelli",
+      "Marwa Mahmoud"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Nonverbal Communication in Politics",
+    "year": 2016,
+    "citations": 53,
+    "doi": "https://doi.org/10.1177/0002764216678280",
+    "oa_url": "https://ueaeprints.uea.ac.uk/id/eprint/61973/1/Accepted_manuscript.pdf",
+    "is_oa": true,
+    "authors": [
+      "Delia Dumitrescu"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Selective facial mimicry of native over foreign speakers in preverbal infants",
+    "year": 2019,
+    "citations": 50,
+    "doi": "https://doi.org/10.1016/j.jecp.2019.01.015",
+    "oa_url": "https://doi.org/10.1016/j.jecp.2019.01.015",
+    "is_oa": true,
+    "authors": [
+      "Carina de Klerk",
+      "Chiara Bulgarelli",
+      "Antonia F. de C. Hamilton"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Effectiveness of a short audiovisual emotion recognition training program in adults",
+    "year": 2017,
+    "citations": 49,
+    "doi": "https://doi.org/10.1007/s11031-017-9631-9",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11031-017-9631-9.pdf",
+    "is_oa": true,
+    "authors": [
+      "Katja Schlegel",
+      "Ishabel M. Vicaria",
+      "Derek M. Isaacowitz"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Thin-Slice Judgments in the Clinical Context",
+    "year": 2014,
+    "citations": 47,
+    "doi": "https://doi.org/10.1146/annurev-clinpsy-090413-123522",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-clinpsy-090413-123522",
+    "is_oa": true,
+    "authors": [
+      "Michael L. Slepian",
+      "Kathleen R. Bogart",
+      "Nalini Ambady"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Emotional Intelligence and Mismatching Expressive and Verbal Messages: A Contribution to Detection of Deception",
+    "year": 2014,
+    "citations": 46,
+    "doi": "https://doi.org/10.1371/journal.pone.0092570",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0092570&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Jerzy Wojciechowski",
+      "Maciej Stolarski",
+      "Gerald Matthews"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "An Investigation of the Free Energy Principle for Emotion Recognition",
+    "year": 2020,
+    "citations": 42,
+    "doi": "https://doi.org/10.3389/fncom.2020.00030",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fncom.2020.00030/pdf",
+    "is_oa": true,
+    "authors": [
+      "Daphne Demekas",
+      "Thomas Parr",
+      "Karl Friston"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "The promise of social signal processing for research on decision-making in entrepreneurial contexts",
+    "year": 2019,
+    "citations": 39,
+    "doi": "https://doi.org/10.1007/s11187-019-00205-1",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11187-019-00205-1.pdf",
+    "is_oa": true,
+    "authors": [
+      "Werner Liebregts",
+      "Pourya Darnihamedani",
+      "Eric Postma"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Enhancing Facial Expression Recognition System in Online Learning Context Using Efficient Deep Learning Model",
+    "year": 2023,
+    "citations": 39,
+    "doi": "https://doi.org/10.1109/access.2023.3325407",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10287346.pdf",
+    "is_oa": true,
+    "authors": [
+      "Mohammed Aly",
+      "Abdullatif Ghallab",
+      "Islam S. Fathi"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Entrepreneurial Pitching: A Critical Review and\u00a0Integrative Framework",
+    "year": 2024,
+    "citations": 37,
+    "doi": "https://doi.org/10.5465/annals.2022.0066",
+    "oa_url": "https://escholarship.org/content/qt6994466p/qt6994466p.pdf",
+    "is_oa": true,
+    "authors": [
+      "Sai Kalvapalle",
+      "Nelson Phillips",
+      "Joep Cornelissen"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Advancing research and practice in entrepreneurship through speech analysis \u2013 From descriptive rhetorical terms to phonetically informed acoustic charisma profiles",
+    "year": 2017,
+    "citations": 36,
+    "doi": "https://doi.org/10.20396/joss.v6i1.14983",
+    "oa_url": "https://econtents.bc.unicamp.br/inpec/index.php/joss/article/download/14983/10042",
+    "is_oa": true,
+    "authors": [
+      "Oliver Niebuhr",
+      "Alexander Brem",
+      "Silke Tegtmeier"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "How Charisma Is Perceived from Speech: A Multidimensional Approach",
+    "year": 2012,
+    "citations": 34,
+    "doi": "https://doi.org/10.1109/socialcom-passat.2012.68",
+    "oa_url": "https://hal.science/hal-00728891v1/file/ICSC2012-Signorello_DErrico_Poggi_Demolin-How_charisma_is_perceived_from_speech.pdf",
+    "is_oa": true,
+    "authors": [
+      "Rosario Signorello",
+      "Francesca D\u2019Errico",
+      "Isabella Poggi"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Randomized controlled trial of computer-based treatment of social cognition in schizophrenia: the TRuSST trial protocol",
+    "year": 2015,
+    "citations": 32,
+    "doi": "https://doi.org/10.1186/s12888-015-0510-1",
+    "oa_url": "https://bmcpsychiatry.biomedcentral.com/track/pdf/10.1186/s12888-015-0510-1",
+    "is_oa": true,
+    "authors": [
+      "Annika Rose",
+      "Sophia Vinogradov",
+      "Melissa Fisher"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Speech Melody Matters\u2014How Robots Profit from Using Charismatic Speech",
+    "year": 2019,
+    "citations": 31,
+    "doi": "https://doi.org/10.1145/3344274",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3344274",
+    "is_oa": true,
+    "authors": [
+      "Kerstin Fischer",
+      "Oliver Niebuhr",
+      "Lars Christian Jensen"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Graph-Based Facial Affect Analysis: A Review",
+    "year": 2022,
+    "citations": 29,
+    "doi": "https://doi.org/10.1109/taffc.2022.3215918",
+    "oa_url": "https://ieeexplore.ieee.org/ielx7/5165369/5520654/09924612.pdf",
+    "is_oa": true,
+    "authors": [
+      "Yang Liu",
+      "Xingming Zhang",
+      "Yante Li"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Applying Self-Supervised Representation Learning for Emotion Recognition Using Physiological Signals",
+    "year": 2022,
+    "citations": 29,
+    "doi": "https://doi.org/10.3390/s22239102",
+    "oa_url": "https://www.mdpi.com/1424-8220/22/23/9102/pdf?version=1669213798",
+    "is_oa": true,
+    "authors": [
+      "Kevin G. Montero Quispe",
+      "Daniel M. S. Utyiama",
+      "Eulanda M. dos Santos"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Unguided virtual-reality training can enhance the oral presentation skills of high-school students",
+    "year": 2022,
+    "citations": 27,
+    "doi": "https://doi.org/10.3389/fcomm.2022.910952",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fcomm.2022.910952/pdf",
+    "is_oa": true,
+    "authors": [
+      "\u00cfo Valls-Rat\u00e9s",
+      "Oliver Niebuhr",
+      "Pilar Prieto"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "UXmood\u2014A Sentiment Analysis and Information Visualization Tool to Support the Evaluation of Usability and User Experience",
+    "year": 2019,
+    "citations": 27,
+    "doi": "https://doi.org/10.3390/info10120366",
+    "oa_url": "https://www.mdpi.com/2078-2489/10/12/366/pdf?version=1574677292",
+    "is_oa": true,
+    "authors": [
+      "Roberto Yuri da Silva Franco",
+      "Rodrigo Santos do Amor Divino Lima",
+      "R. Paix\u00e3o"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Differences between multimedia and text-based assessments of emotion management: An exploration with the multimedia emotion management assessment (MEMA)",
+    "year": 2015,
+    "citations": 26,
+    "doi": "https://doi.org/10.1080/02699931.2015.1061482",
+    "oa_url": "https://biblio.ugent.be/publication/8116175/file/8116187.pdf",
+    "is_oa": true,
+    "authors": [
+      "Carolyn MacCann",
+      "Filip Lievens",
+      "Nele Libbrecht"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Non-verbal emotion communication training induces specific changes in brain function and structure",
+    "year": 2013,
+    "citations": 26,
+    "doi": "https://doi.org/10.3389/fnhum.2013.00648",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fnhum.2013.00648/pdf",
+    "is_oa": true,
+    "authors": [
+      "Benjamin Kreifelts",
+      "Heike Jacob",
+      "Carolin Br\u00fcck"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Randomized Clinical Trial with e-MotionalTraining\u00ae 1.0 for Social Cognition Rehabilitation in Schizophrenia",
+    "year": 2018,
+    "citations": 26,
+    "doi": "https://doi.org/10.3389/fpsyt.2018.00040",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2018.00040/pdf",
+    "is_oa": true,
+    "authors": [
+      "Yolanda Maro\u00f1o Souto",
+      "Miriam V\u00e1zquez Campo",
+      "Francisco D\u00edaz Llenderrozas"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Veracity judgement, not accuracy: Reconsidering the role of facial expressions, empathy, and emotion recognition training on deception detection",
+    "year": 2020,
+    "citations": 26,
+    "doi": "https://doi.org/10.1177/1747021820978851",
+    "oa_url": "https://journals.sagepub.com/doi/pdf/10.1177/1747021820978851",
+    "is_oa": true,
+    "authors": [
+      "Mircea Zloteanu",
+      "Peter Bull",
+      "Eva G. Krumhuber"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Social robotics and the modulation of social perception and bias",
+    "year": 2019,
+    "citations": 25,
+    "doi": "https://doi.org/10.1098/rstb.2018.0037",
+    "oa_url": "https://royalsocietypublishing.org/doi/pdf/10.1098/rstb.2018.0037",
+    "is_oa": true,
+    "authors": [
+      "Joshua Skewes",
+      "David M. Amodio",
+      "Johanna Seibt"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Effectiveness, Attractiveness, and Emotional Response to Voice Pitch and Hand Gestures in Public Speaking",
+    "year": 2022,
+    "citations": 24,
+    "doi": "https://doi.org/10.3389/fcomm.2022.869084",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fcomm.2022.869084/pdf",
+    "is_oa": true,
+    "authors": [
+      "Emma Rodero"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Real-time emotion detection by quantitative facial motion analysis",
+    "year": 2023,
+    "citations": 21,
+    "doi": "https://doi.org/10.1371/journal.pone.0282730",
+    "oa_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0282730&type=printable",
+    "is_oa": true,
+    "authors": [
+      "Jordan R. Saadon",
+      "Fan Yang",
+      "Ryan Burgert"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "The influence of micro-expressions on deception detection",
+    "year": 2023,
+    "citations": 21,
+    "doi": "https://doi.org/10.1007/s11042-023-14551-6",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11042-023-14551-6.pdf",
+    "is_oa": true,
+    "authors": [
+      "Suleyman Yildirim",
+      "Meshack Sandra Chimeumanu",
+      "Zeeshan A. Rana"
+    ],
+    "query": "microexpression vocal correlate emotion"
+  },
+  {
+    "title": "Case Report: Women, Be Aware that Your Vocal Charisma can Dwindle in Remote Meetings",
+    "year": 2021,
+    "citations": 20,
+    "doi": "https://doi.org/10.3389/fcomm.2020.611555",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fcomm.2020.611555/pdf",
+    "is_oa": true,
+    "authors": [
+      "Ingo Siegert",
+      "Oliver Niebuhr"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Vocal Fundamental Frequency and Sound Pressure Level in Charismatic Speech: A Cross-Gender and -Language Study",
+    "year": 2019,
+    "citations": 17,
+    "doi": "https://doi.org/10.1016/j.jvoice.2019.04.007",
+    "oa_url": "https://hal.science/hal-02429571",
+    "is_oa": true,
+    "authors": [
+      "Rosario Signorello",
+      "Didier D\u00e9molin",
+      "Nathalie Henrich Bernardoni"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Perceived emotional states mediate willingness to buy from advertising speech",
+    "year": 2023,
+    "citations": 14,
+    "doi": "https://doi.org/10.3389/fpsyg.2022.1014921",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2022.1014921/pdf",
+    "is_oa": true,
+    "authors": [
+      "Mizuki Nagano",
+      "Yusuke Ijima",
+      "Sadao Hiroya"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "The Humble Charisma of a White-Dressed Man in a Desert Place: Pope Francis\u2019 Communicative Style in the Covid-19 Pandemic",
+    "year": 2021,
+    "citations": 14,
+    "doi": "https://doi.org/10.3389/fpsyg.2021.683259",
+    "oa_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.683259/pdf",
+    "is_oa": true,
+    "authors": [
+      "Rosa Scardigno",
+      "Concetta Papapicco",
+      "Valentina Luccarelli"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Proceedings of the Joint Workshop on Social Dynamics and Personal Attributes in Social Media",
+    "year": 2014,
+    "citations": 13,
+    "doi": "https://doi.org/10.3115/v1/w14-27",
+    "oa_url": "https://aclanthology.org/W14-27.pdf",
+    "is_oa": true,
+    "authors": [
+      "Alice Oh",
+      "Benjamin Van Durme",
+      "Svitlana Volkova"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Anthologizing Shakespeare, 1593-1603",
+    "year": 2019,
+    "citations": 13,
+    "doi": "https://doi.org/10.17863/cam.40256",
+    "oa_url": "https://www.repository.cam.ac.uk/bitstreams/008f93d9-c619-4feb-85a9-6f6e52f983b1/download",
+    "is_oa": true,
+    "authors": [
+      "Theodore Benjamin Burke Tregear"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Robots for Foreign Language Learning: Speaking Style Influences Student Performance",
+    "year": 2021,
+    "citations": 13,
+    "doi": "https://doi.org/10.3389/frobt.2021.680509",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/frobt.2021.680509/pdf",
+    "is_oa": true,
+    "authors": [
+      "Kerstin Fischer",
+      "Oliver Niebuhr",
+      "Maria Alm"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Myth busted? Challenging what we think we know about charismatic speech",
+    "year": 2019,
+    "citations": 12,
+    "doi": "https://doi.org/10.14712/24646830.2019.17",
+    "oa_url": "https://karolinum.cz/data/clanek/7243/Phil_2019_2_0027.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jan Michalsky",
+      "Oliver Niebuhr"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "An Attractiveness Bias? How Women Entrepreneurs\u2019 Physical Appearance Affects Men Investors",
+    "year": 2024,
+    "citations": 10,
+    "doi": "https://doi.org/10.1177/01492063241249699",
+    "oa_url": "https://journals.sagepub.com/doi/pdf/10.1177/01492063241249699",
+    "is_oa": true,
+    "authors": [
+      "Robert A. Schreiber",
+      "Manuel He\u00df",
+      "Dietmar Grichnik"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "South Asian Language Practices: Mother Tongue, Medium, and Media",
+    "year": 2022,
+    "citations": 9,
+    "doi": "https://doi.org/10.1146/annurev-anthro-041420-110048",
+    "oa_url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-anthro-041420-110048",
+    "is_oa": true,
+    "authors": [
+      "Chaise LaDousa",
+      "Christina P. Davis"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "Encouraging participant embodiment during VR-assisted public speaking training improves persuasiveness and charisma and reduces anxiety in secondary school students",
+    "year": 2023,
+    "citations": 9,
+    "doi": "https://doi.org/10.3389/frvir.2023.1074062",
+    "oa_url": "https://www.frontiersin.org/articles/10.3389/frvir.2023.1074062/pdf?isPublishedV2=False",
+    "is_oa": true,
+    "authors": [
+      "\u00cfo Valls-Rat\u00e9s",
+      "Oliver Niebuhr",
+      "Pilar Prieto"
+    ],
+    "query": "persuasion charisma voice prosody"
+  },
+  {
+    "title": "The Voice of the People: Populism and Donald Trump\u2019s Use of Informal Voice",
+    "year": 2024,
+    "citations": 7,
+    "doi": "https://doi.org/10.1007/s12115-024-00969-7",
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s12115-024-00969-7.pdf",
+    "is_oa": true,
+    "authors": [
+      "Jens Kjeldgaard\u2010Christiansen"
+    ],
+    "query": "persuasion charisma voice prosody"
+  }
+]

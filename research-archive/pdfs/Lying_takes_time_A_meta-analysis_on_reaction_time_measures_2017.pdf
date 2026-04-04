@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lying takes time : a meta-analysis on reaction time measures of deception</title>
+        <link href="https://biblio.ugent.be/opensearch.xml" title="Ghent University Academic Bibliography OpenSearch description" type="application/opensearchdescription+xml" rel="search">
+        <link rel="alternate" type="application/rss+xml" title="Ghent University Academic Bibliography hourly feed" href="https://biblio.ugent.be/feed/hourly">
+        <link rel="alternate" type="application/rss+xml" title="Ghent University Academic Bibliography daily feed" href="https://biblio.ugent.be/feed/daily">
+        <link rel="alternate" type="application/rss+xml" title="Ghent University Academic Bibliography weekly feed" href="https://biblio.ugent.be/feed/weekly">
+        <link rel="alternate" type="application/rss+xml" title="Ghent University Academic Bibliography monthly feed" href="https://biblio.ugent.be/feed/monthly">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/css/ugent.css">
+        <link rel="stylesheet" media="all" href="/assets/css/prettify.css">
+        <link rel="stylesheet" href="/static/css/biblio.css?20230509">
+        <link rel="icon" href="/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/static/icons/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <script type="text/javascript" nonce="MqjfxGDL8II1kfpojE6Vd1">
+            document.createElement("picture")
+        </script>
+        <script type="text/javascript" src="/static/js/vendor/modernizr-custom.min.js" async=""></script>
+        <script type="text/javascript" src="/static/js/vendor/picturefill.min.js" async=""></script>
+        <script type="text/javascript" src="/static/js/vendor/jquery.min.js"></script>
+        
+    <!-- highwire press meta tags -->
+    <meta name="citation_title" content="Lying takes time : a meta-analysis on reaction time measures of deception"/>
+    <meta name="citation_author" content="Suchotzki, Kristina"/>
+    <meta name="citation_author" content="Verschuere, Bruno"/>
+    <meta name="citation_author" content="Van Bockstaele, Bram"/>
+    <meta name="citation_author" content="Ben-Shakhar, Gershon"/>
+    <meta name="citation_author" content="Crombez, Geert"/>
+    <meta name="citation_publication_date" content="2017"/>
+    <meta name="citation_journal_title" content="PSYCHOLOGICAL BULLETIN"/>
+    <meta name="citation_volume" content="143"/>
+    <meta name="citation_issue" content="4"/>
+    <meta name="citation_firstpage" content="428"/>
+    <meta name="citation_lastpage" content="453"/>
+    <meta name="citation_issn" content="1939-1455"/>
+    <meta name="citation_issn" content="0033-2909"/>
+    <meta name="citation_pdf_url" content="https://biblio.ugent.be/publication/8512398/file/8512399.pdf"/>
+    <!-- eprints meta tags -->
+    <meta name="eprints.official_url" content="http://hdl.handle.net/1854/LU-8512398"/>
+    <meta name="eprints.title" content="Lying takes time : a meta-analysis on reaction time measures of deception"/>
+    <meta name="eprints.creators_name" content="Suchotzki, Kristina"/>
+    <meta name="eprints.creators_name" content="Verschuere, Bruno"/>
+    <meta name="eprints.creators_name" content="Van Bockstaele, Bram"/>
+    <meta name="eprints.creators_name" content="Ben-Shakhar, Gershon"/>
+    <meta name="eprints.creators_name" content="Crombez, Geert"/>
+    <meta name="eprints.publication" content="PSYCHOLOGICAL BULLETIN"/>
+    <meta name="eprints.volume" content="143"/>
+    <meta name="eprints.number" content="4"/>
+    <meta name="eprints.issn" content="1939-1455"/>
+    <meta name="eprints.issn" content="0033-2909"/>
+    <meta name="eprints.document_url" content="https://biblio.ugent.be/publication/8512398/file/8512399.pdf"/>
+    <meta name="eprints.id_number" content="doi:10.1037/bul0000087"/>
+    <!--dc meta tags -->
+    <meta name="dc.creator" content="Suchotzki, Kristina"/>
+    <meta name="dc.creator" content="Verschuere, Bruno"/>
+    <meta name="dc.creator" content="Van Bockstaele, Bram"/>
+    <meta name="dc.creator" content="Ben-Shakhar, Gershon"/>
+    <meta name="dc.creator" content="Crombez, Geert"/>
+    <meta name="dc.date" content="2017"/>
+    <meta name="dc.format" content="application/pdf"/>
+    <meta name="dc.identifier" content="https://biblio.ugent.be/publication/8512398"/>
+    <meta name="dc.identifier" content="http://hdl.handle.net/1854/LU-8512398"/>
+    <meta name="dc.identifier" content="http://doi.org/10.1037/bul0000087"/>
+    <meta name="dc.identifier" content="https://biblio.ugent.be/publication/8512398/file/8512399"/>
+    <meta name="dc.language" content="eng"/>
+    <meta name="dc.publisher" content="American Psychological Association (APA)"/>
+    <meta name="dc.rights" content="info:eu-repo/semantics/openAccess"/>
+    <meta name="dc.source" content="PSYCHOLOGICAL BULLETIN"/>
+    <meta name="dc.source" content="ISSN: 1939-1455"/>
+    <meta name="dc.source" content="ISSN: 0033-2909"/>
+    <meta name="dc.title" content="Lying takes time : a meta-analysis on reaction time measures of deception"/>
+    <meta name="dc.type" content="journalArticle"/>
+    <meta name="dc.type" content="info:eu-repo/semantics/article"/>
+    <meta name="dc.type" content="info:eu-repo/semantics/publishedVersion"/>
+    <!-- end meta tags -->
+    <link rel="canonical" href="https://biblio.ugent.be/publication/8512398"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.json" title="JSON" type="application/json"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.yaml" title="YAML" type="text/x-yaml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.bibtex" title="BibTeX" type="text/x-bibtex"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.ris" title="RIS (reference software)" type="application/x-research-info-systems"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.csv" title="CSV" type="text/csv"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.xlsx" title="Excel" type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.rdf" title="RDF" type="application/rdf+xml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.mods" title="MODS" type="application/xml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.mods_vabb" title="VABB" type="application/xml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.mods_36" title="MODS 3.6" type="application/xml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.dc" title="Dublin Core" type="application/xml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.mets" title="METS" type="application/xml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.didl" title="DIDL" type="application/xml"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.txt" title="Text" type="text/plain"/>
+    <link rel="alternate" href="https://biblio.ugent.be/publication/8512398.doc" title="Word" type="application/msword"/>
+
+    </head>
+
+    <body>
+        <div class="fluid-container">
+            <div class="row">
+                <header class="pageheader col-xs-12 ">
+                    <nav class="navbar navbar-default">
+                        <div class="row">
+                            <div class="navbar-header col-xs-12 col-sm-2">
+                                <div class="page-logo">
+                                    <a href="https://biblio.ugent.be" class="link">
+                                        <img src="/static/images/logo_ugent_nl.svg" alt="Universiteit Gent">
+                                    </a>
+                                </div>
+                                <a href="#" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" role="button">
+                                    <span class="">MENU</span>
+                                    <div class="block">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div id="navbar" class="collapse navbar-collapse col-sm-10" role="navigation">
+                                <div class="row menu">
+                                    <div class="col-xs-12">
+                                        <div class="bg-primary spacer">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <ul class="nav-tertiary nav navbar-nav navbar-right">
+                                                        <li>
+                                                            <a href="https://backoffice.biblio.ugent.be" rel="nofollow">Add publications and datasets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/user/list" rel="nofollow">
+                                                                Lists
+                                                            </a>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <a href="/user/login" rel="nofollow">Sign in</a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-sm-offset-2 branding-container faculty-1">
+                            <a href="https://biblio.ugent.be"><h1>Academic Bibliography</h1></a>
+                            <span class="tagline">Search 200 years of publications by Ghent University researchers.</span>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <div class="fluid-container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-2 pbottom-medium">
+                    <form class="filter-form search-form" action="https://biblio.ugent.be/publication" method="get">
+                      <div class="input-group">
+                          <input class="form-control" type="text" name="text" value="">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Search publications and datasets</button>
+                            <a class="btn btn-primary apply-filter" href="https://biblio.ugent.be/advanced-search?q=">Advanced search</a>
+                          </span>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="fluid-container filter-form">
+            <div class="pull-right input-group">
+                
+    <span>2 files | 1.09 MB</span>
+    <div class="dropdown inline-block mleft-small mright-small">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            Download
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right list-unstyled">
+            <li>
+                <a href="https://biblio.ugent.be/publication/8512398/file/8512399.pdf" title="Download &quot;Suchotzki Verschuere PB.pdf&quot;">
+                    <span class="glyphicon glyphicon-download-alt text-success"></span>
+                    Download &quot;Suchotzki Verschuere PB.pdf&quot;
+                </a>
+            </li>
+            <li>
+                <a href="https://biblio.ugent.be/publication/8512398/file/8518599.txt" title="Download &quot;savedrecs.txt&quot;">
+                    <span class="glyphicon glyphicon-download-alt text-success"></span>
+                    Download &quot;savedrecs.txt&quot;
+                </a>
+            </li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#downloads" title="All downloads">See all downloads</a></li>
+         </ul>
+    </div>
+  
+  <a class="btn btn-primary" href="/user/login?redirect_to=https%3A%2F%2Fbiblio.ugent.be%2Fpublication%2F8512398%3Fmodal%3Dlist-add-8512398" rel="nofollow">Add to list <span class="caret"></span></a>
+
+
+
+            </div>
+            <ol class="breadcrumb mbottom-medium">
+                
+                <li>
+                    
+                        <a href="https://biblio.ugent.be/publication">Search results</a>
+                     
+                </li>
+                
+                <li>
+                    
+                        Lying takes time : a meta-analysis on...
+                     
+                </li>
+                
+            </ol>
+        </div>
+
+        <div class="fluid-container">
+            <div class="row">
+                <div class="col-xs-12" id="messages">
+                  
+
+                </div>
+            </div>
+            <div class="row pbottom-large">
+                
+
+<article class="col-sm-9">
+    <div class="clearfix pbottom-default">
+          <div class="pull-left pbottom-default pright-default">
+            <img src="https://biblio.ugent.be/publication/8512398/file/8518599/thumbnail.png">
+          </div>
+          <h1 class="title long" id="8512398" itemprop="name">Lying takes time : a meta-analysis on reaction time measures of deception</h1>
+          <div class="mbottom-tiny">
+<span class="authors"><span class="contributor vcard">
+<strong><a class="url plain" href="/person/2CCDC01E-F0EE-11E1-A9DE-61C894A0A6B4" target="_parent"><span class="fn">Kristina Suchotzki</span></a>
+(<span class="locality">UGent</span>)
+</strong></span><span class="contributor vcard">, 
+<strong><a class="url plain" href="/person/F602FE6E-F0ED-11E1-A9DE-61C894A0A6B4" target="_parent"><span class="fn">Bruno Verschuere</span></a>
+(<span class="locality">UGent</span>)
+</strong></span><span class="contributor vcard">, 
+<strong><a class="url plain" href="/person/F95B578C-F0ED-11E1-A9DE-61C894A0A6B4" target="_parent"><span class="fn">Bram Van Bockstaele</span></a>
+(<span class="locality">UGent</span>)
+</strong></span><span class="contributor vcard">, <a class="url plain" href="/publication?q=author%3D%22Ben-Shakhar%2C+Gershon%22+or+(type+any+%22bookEditor+issueEditor%22+and+editor%3D%22Ben-Shakhar%2C+Gershon%22)" target="_parent"><span class="fn">Gershon Ben-Shakhar</span></a></span><span class="contributor vcard"> and 
+<strong><a class="url plain" href="/person/F56D04D6-F0ED-11E1-A9DE-61C894A0A6B4" target="_parent"><span class="fn">Geert Crombez</span></a>
+(<span class="locality">UGent</span>)
+</strong></span></span>
+</div>
+
+          <div class="text-muted">
+    (<span class="year"><a class="plain" href="https://biblio.ugent.be/publication?q=year+exact+2017" target="_parent">2017</a></span>)
+    <span class="parent"><a class="plain" href="https://biblio.ugent.be/publication?q=parent+exact+%22PSYCHOLOGICAL+BULLETIN%22" target="_parent">PSYCHOLOGICAL BULLETIN</a>.</span>
+    <span class="volume">143</span><span class="issue">(4)</span>.
+    <span class="pages">p.428-453</span>
+</div>
+
+    </div>
+
+    <dl class="subtle roomy pbottom-default mbottom-default border-bottom">
+      <dt>Author</dt>
+      <dd><span class="contributor vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">
+<strong><a class="url plain" href="/person/2CCDC01E-F0EE-11E1-A9DE-61C894A0A6B4" target="_parent" itemprop="url"><span class="fn" itemprop="name">Kristina Suchotzki</span></a>
+(<span class="locality" itemprop="affiliation" itemscope itemtype="http://schema.org/CollegeOrUniversity"><span itemprop="name">UGent</span></span>)
+</strong></span><span class="contributor vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">, 
+<strong><a class="url plain" href="/person/F602FE6E-F0ED-11E1-A9DE-61C894A0A6B4" target="_parent" itemprop="url"><span class="fn" itemprop="name">Bruno Verschuere</span></a>
+(<span class="locality" itemprop="affiliation" itemscope itemtype="http://schema.org/CollegeOrUniversity"><span itemprop="name">UGent</span></span>)
+</strong></span><span class="contributor vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">, 
+<strong><a class="url plain" href="/person/F95B578C-F0ED-11E1-A9DE-61C894A0A6B4" target="_parent" itemprop="url"><span class="fn" itemprop="name">Bram Van Bockstaele</span></a>
+(<span class="locality" itemprop="affiliation" itemscope itemtype="http://schema.org/CollegeOrUniversity"><span itemprop="name">UGent</span></span>)
+</strong></span><span class="contributor vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">, <a class="url plain" href="/publication?q=author%3D%22Ben-Shakhar%2C+Gershon%22+or+(type+any+%22bookEditor+issueEditor%22+and+editor%3D%22Ben-Shakhar%2C+Gershon%22)" target="_parent"><span class="fn" itemprop="name">Gershon Ben-Shakhar</span></a></span><span class="contributor vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"> and 
+<strong><a class="url plain" href="/person/F56D04D6-F0ED-11E1-A9DE-61C894A0A6B4" target="_parent" itemprop="url"><span class="fn" itemprop="name">Geert Crombez</span></a>
+(<span class="locality" itemprop="affiliation" itemscope itemtype="http://schema.org/CollegeOrUniversity"><span itemprop="name">UGent</span></span>)
+</strong></span></dd>
+      <dt>Organization</dt>
+      <dd>
+      <ul class="list-unstyled">
+      <li itemprop="sourceOrganization" itemscope itemtype="http://schema.org/Organization"><a class="plain" href="https://biblio.ugent.be/organization/PP05" itemprop="url"><span itemprop="name">Department of Experimental clinical and health psychology</span></a></li>
+      </ul>
+      </dd>
+      
+      
+      
+      
+      
+    </dl>
+
+    <div class="mbottom-default">
+      <h2 id="downloads">Downloads</h2>
+      <ul class="list-unstyled">
+        <li class="ptop-default pbottom-default border-bottom">
+          <div class="pull-right">
+              <span class="glyphicon glyphicon-download-alt text-success"></span>
+              <a class="btn btn-default mleft-default" href="https://biblio.ugent.be/publication/8512398/file/8512399.pdf" title="Download &quot;Suchotzki Verschuere PB.pdf&quot;">Download</a>
+          </div>
+          <div>Suchotzki Verschuere PB.pdf</div>
+          <ul class="list-unstyled list-inline text-muted">
+            <li>
+              full text
+              
+            </li>
+            <li class="divider">|</li>
+            <li>
+              <span class="text-success">open access</span>
+              
+            </li>
+            <li class="divider">|</li>
+            <li>PDF</li>
+            <li class="divider">|</li>
+            <li>1.07 MB</li>
+          </ul>
+        </li>
+        <li class="ptop-default pbottom-default border-bottom">
+          <div class="pull-right">
+              <span class="glyphicon glyphicon-download-alt text-success"></span>
+              <a class="btn btn-default mleft-default" href="https://biblio.ugent.be/publication/8512398/file/8518599.txt" title="Download &quot;savedrecs.txt&quot;">Download</a>
+          </div>
+          <div>savedrecs.txt</div>
+          <ul class="list-unstyled list-inline text-muted">
+            <li>
+              data factsheet
+              
+            </li>
+            <li class="divider">|</li>
+            <li>
+              <span class="text-success">open access</span>
+              
+            </li>
+            <li class="divider">|</li>
+            <li>Text</li>
+            <li class="divider">|</li>
+            <li>20.57 KB</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mbottom-default">Citation</h2>
+      <ul class="nav nav-tabs list-unstyled mbottom-default" role="tablist" id="citation-tab-nav">
+        <li role="presentation" class="active"><a href="#tab-cite-this" role="tab">Cite this</a></li>
+        <li role="presentation"><a href="#tab-bibtex" role="tab">BibTeX</a></li>
+        <li role="presentation"><a href="#tab-metrics" role="tab">Metrics</a></li>
+      </ul>
+      <script type="text/javascript" nonce="MqjfxGDL8II1kfpojE6Vd1">
+            $('#citation-tab-nav a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+      </script>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab-cite-this">
+            <p class="mbottom-default">
+                Please use this url to cite or link to this publication:
+                <a href="http://hdl.handle.net/1854/LU-8512398" target="_parent" itemprop="url">http://hdl.handle.net/1854/LU-8512398</a>
+            </p>
+            <dl class="subtle roomy">
+              
+              
+              <dt>MLA</dt>
+              <dd>  <div class="csl-entry">Suchotzki, Kristina, et al. “Lying Takes Time : A Meta-Analysis on Reaction Time Measures of Deception.” <i>PSYCHOLOGICAL BULLETIN</i>, vol. 143, no. 4, American Psychological Association (APA), 2017, pp. 428–53, doi:10.1037/bul0000087.</div>
+</dd>
+              
+              <dt>APA</dt>
+              <dd>  <div class="csl-entry">Suchotzki, K., Verschuere, B., Van Bockstaele, B., Ben-Shakhar, G., &#38; Crombez, G. (2017). Lying takes time : a meta-analysis on reaction time measures of deception. <i>PSYCHOLOGICAL BULLETIN</i>, <i>143</i>(4), 428–453. https://doi.org/10.1037/bul0000087</div>
+</dd>
+              
+              <dt>Chicago author-date</dt>
+              <dd>  <div class="csl-entry">Suchotzki, Kristina, Bruno Verschuere, Bram Van Bockstaele, Gershon Ben-Shakhar, and Geert Crombez. 2017. “Lying Takes Time : A Meta-Analysis on Reaction Time Measures of Deception.” <i>PSYCHOLOGICAL BULLETIN</i> 143 (4): 428–53. https://doi.org/10.1037/bul0000087.</div>
+</dd>
+              
+              <dt>Chicago author-date (all authors)</dt>
+              <dd>  <div class="csl-entry">Suchotzki, Kristina, Bruno Verschuere, Bram Van Bockstaele, Gershon Ben-Shakhar, and Geert Crombez. 2017. “Lying Takes Time : A Meta-Analysis on Reaction Time Measures of Deception.” <i>PSYCHOLOGICAL BULLETIN</i> 143 (4): 428–453. doi:10.1037/bul0000087.</div>
+</dd>
+              
+              <dt>Vancouver</dt>
+              <dd>  <div class="csl-entry">
+    <div class="csl-left-margin">1. </div><div class="csl-right-inline">Suchotzki K, Verschuere B, Van Bockstaele B, Ben-Shakhar G, Crombez G. Lying takes time : a meta-analysis on reaction time measures of deception. PSYCHOLOGICAL BULLETIN. 2017;143(4):428–53.</div>
+   </div>
+</dd>
+              
+              <dt>IEEE</dt>
+              <dd>  <div class="csl-entry">
+    <div class="csl-left-margin">[1]</div><div class="csl-right-inline">K. Suchotzki, B. Verschuere, B. Van Bockstaele, G. Ben-Shakhar, and G. Crombez, “Lying takes time : a meta-analysis on reaction time measures of deception,” <i>PSYCHOLOGICAL BULLETIN</i>, vol. 143, no. 4, pp. 428–453, 2017.</div>
+  </div>
+</dd>
+            </dl>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab-bibtex">
+            <pre>@article{8512398,
+  author       = {{Suchotzki, Kristina and Verschuere, Bruno and Van Bockstaele, Bram and Ben-Shakhar, Gershon and Crombez, Geert}},
+  issn         = {{1939-1455}},
+  journal      = {{PSYCHOLOGICAL BULLETIN}},
+  language     = {{eng}},
+  number       = {{4}},
+  pages        = {{428--453}},
+  publisher    = {{American Psychological Association (APA)}},
+  title        = {{Lying takes time : a meta-analysis on reaction time measures of deception}},
+  url          = {{http://doi.org/10.1037/bul0000087}},
+  volume       = {{143}},
+  year         = {{2017}},
+}
+
+</pre>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab-metrics">
+          <dl class="roomy subtle">
+              <dt>Altmetric</dt>
+              <dd><a href="https://www.altmetric.com/explorer/outputs?scope=all&identifier=10.1037%2Fbul0000087" target="_parent"><strong>View in Altmetric</strong></a></li>
+              <dt>Web of Science</dt>
+              <dd>Times cited: <a class="external" href="http://gateway.isiknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=Alerting&SrcApp=Alerting&DestApp=WOS&DestLinkType=CitingArticles;KeyUT=000396444900003" target="_parent"><strong class="wos-times-cited"></strong></a></dd>
+              <script type="text/javascript" nonce="MqjfxGDL8II1kfpojE6Vd1">
+                $.getJSON('https://biblio.ugent.be/info/times-cited?ut=000396444900003', function(data) {
+                  $('.wos-times-cited').text(data.times_cited);
+                });
+              </script>
+          </ul>
+        </div>
+      </div>
+    </div>
+</article>
+<aside class="col-sm-3">
+  <div class="bg-tertiary padding-20">
+    <dl class="subtle roomy">
+      <dt>Year</dt>
+      <dd itemprop="datePublished">2017</dd>
+      <dt>Publication type</dt>
+      <dd>
+        Journal Article
+        (Original Article)
+      </dd>
+      <dt>Publication status</dt>
+      <dd>published</dd>
+      <dt>
+        Journal title
+      </dt>
+      <dd><a class="plain" href="https://biblio.ugent.be/publication?q=parent+exact+%22PSYCHOLOGICAL+BULLETIN%22">PSYCHOLOGICAL BULLETIN</a></dd>
+      <dt>ISSN</dt>
+      
+      <dd><a class="plain" href="https://biblio.ugent.be/publication?q=issn+exact+%221939-1455%22">1939-1455</a></dd>
+      <dd><a class="plain" href="https://biblio.ugent.be/publication?q=issn+exact+%220033-2909%22">0033-2909</a></dd>
+      <dt>Volume</dt>
+      <dd>143</dd>
+      <dt>Issue</dt>
+      <dd>4</dd>
+      <dt>Pages</dt>
+      <dd>428 - 453</dd>
+      <dt>Publisher</dt>
+      <dd itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><a class="plain" href="https://biblio.ugent.be/publication?q=publisher+exact+%22American+Psychological+Association+(APA)%22" itemprop="name">American Psychological Association (APA)</a></dd>
+      <dt>DOI</dt>
+      <dd><a href="http://doi.org/10.1037/bul0000087" target="_parent" class="external">10.1037/bul0000087</a></dd>
+      <dt>Language</dt>
+      <dd><a class="plain" href="https://biblio.ugent.be/publication?q=language+exact+eng" itemprop="inLanguage">English</a></dd>
+      <dt>UGent publication?</dt>
+      <dd>yes</dd>
+      <dt>UGent classification</dt>
+      <dd><a class="plain" href="https://biblio.ugent.be/classification/A1">A1</a></dd>
+      <dt>Web of Science type</dt>
+      <dd>Article</dd>
+      <dt>Web of Science id</dt>
+      <dd><a href="http://gateway.isiknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=Alerting&SrcApp=Alerting&DestApp=WOS&DestLinkType=FullRecord;KeyUT=000396444900003" target="_parent" class="external">000396444900003</a></dd>
+      <dt>JCR category</dt>
+      <dd><a class="plain" href="https://biblio.ugent.be/publication?q=jcr.category+exact+%22PSYCHOLOGY%2C+MULTIDISCIPLINARY%22">PSYCHOLOGY, MULTIDISCIPLINARY</a></dd>
+      <dt>JCR impact factor</dt>
+      <dd>13.25 (2017)</dd>
+      <dt>JCR rank</dt>
+      <dd>4/135 (2017)</dd>
+      <dt>JCR quartile</dt>
+      <dd>1 (2017)</dd>
+      <dt>Copyright statement</dt>
+      <dd><i>No license (in copyright)</i></dd>
+      <dt>id</dt>
+      <dd>8512398</dd>
+      <dt>Handle</dt>
+      <dd><a href="http://hdl.handle.net/1854/LU-8512398" target="_parent">http://hdl.handle.net/1854/LU-8512398</a></dd>
+      
+      <dt>Date created</dt>
+      <dd>2017-03-03 09:43:12</dd>
+      <dt>Date last changed</dt>
+      <dd>2026-03-31 14:30:09</dd>
+    </dl>
+  </div>
+</aside>
+
+            </div>
+        </div>
+
+        <footer class="page-footer fluid-container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bg-primary padding-20">
+                        <div class="mbottom-small border-bottom">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4">
+                                    <h2 class="h4">Contents</h2>
+                                    <ul class="linklist linklist-inverted">
+                                        <li><a href="https://biblio.ugent.be/publication?q=type<>researchData">Publications</a>
+                                        <li><a href="https://biblio.ugent.be/publication?type=researchData">Datasets</a>
+                                        <li><a href="https://biblio.ugent.be/person">Authors</a>
+                                        <li><a href="https://biblio.ugent.be/organization">Organizations</a>
+                                        <li><a href="https://biblio.ugent.be/project">Projects</a>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <h2 class="h4">Support</h2>
+                                    <ul class="linklist linklist-inverted">
+                                        <li><a href="https://onderzoektips.ugent.be/en/tips/00002094">FAQ</a>
+                                        <li><a rel="nofollow" href="https://www.ugent.be/intranet/en/research/impact/schol-publishing">Open Access</a>
+                                        <li><a rel="nofollow" href="https://www.ugent.be/intranet/en/research/impact/schol-publishing/oa-support.htm">Support and trainings</a>
+                                        <li><a href="https://biblio.ugent.be/doc/api">Download &amp; API</a>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <h2 class="h4">Contact</h2>
+                                    <ul class="linklist linklist-inverted list-unstyled">
+                                        <li>
+                                            Do you have any questions regarding the use of the Academic Bibliography?
+                                            <a href="https://biblio.ugent.be/contact">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="list-inline list-unstyled">
+                                    <li>
+                                        Developed by <a href="http://lib.ugent.be">Ghent University Library</a>.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="/static/js/vendor/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/js/vendor/bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="/static/js/vendor/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/static/js/vendor/bootstrap-confirm-button.min.js"></script>
+        <script type="text/javascript" src="/static/js/biblio.js"></script>
+        <script type="text/javascript" nonce="MqjfxGDL8II1kfpojE6Vd1">
+          (function(window, document, dataLayerName, id) {
+window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
+var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+tags.async=!0,tags.src="https://ugent.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+!function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+})(window, document, 'dataLayer', 'c90b181b-b9cf-4eeb-8a3a-0b1ad9485cd0');
+
+
+          Biblio.init({
+            searchParams: {"file_access":[],"q":[],"type":[],"subject":[],"organization":[],"classification":[],"publication_status":[],"year":[],"sort":[],"language":[]},
+            embedParams: {}
+          });
+
+          
+        </script>
+        
+    </body>
+</html>
+
