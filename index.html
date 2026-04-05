@@ -206,6 +206,33 @@ input, textarea { font-family: inherit; color: inherit; }
 }
 .paste-preview.visible { display: block; }
 .paste-preview strong { color: var(--neutral); }
+.paste-preview .btn-edit-speakers {
+  display: inline; font-size: 12px; font-weight: 700;
+  color: #555; text-decoration: underline; cursor: pointer;
+  background: none; border: none; padding: 0; margin-left: 6px;
+}
+.speaker-mismatch-bar {
+  background: #0f0f0f; border-radius: var(--radius);
+  border: 3px solid var(--hot-yellow); padding: 12px 16px;
+  font-size: 13px; color: #ccc; line-height: 1.5;
+  display: none; flex-wrap: wrap; align-items: center; gap: 8px;
+}
+.speaker-mismatch-bar.visible { display: flex; }
+.speaker-mismatch-bar strong { color: var(--hot-yellow); }
+.btn-auto-adjust {
+  padding: 6px 12px; border-radius: 6px;
+  background: var(--hot-yellow); border: none;
+  font-size: 12px; font-weight: 900; color: #000;
+  letter-spacing: 0.5px; cursor: pointer; white-space: nowrap;
+  font-family: inherit;
+}
+.btn-auto-adjust:active { transform: scale(0.96); }
+.mismatch-edit-link {
+  font-size: 12px; font-weight: 700; color: #555;
+  text-decoration: underline; cursor: pointer;
+  background: none; border: none; padding: 0;
+  font-family: inherit; margin-left: auto;
+}
 #btn-analyze {
   padding: 18px; border-radius: var(--radius);
   background: var(--cold-blue);
@@ -1185,6 +1212,7 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
       placeholder="Paste any conversation here…&#10;&#10;WhatsApp, Slack, iMessage, or plain text like:&#10;Alice: Hey how are you?&#10;Bob: Good thanks!&#10;&#10;Timestamps optional."
       oninput="onPasteInput(this)"></textarea>
     <div class="paste-preview" id="paste-preview"></div>
+    <div class="speaker-mismatch-bar" id="speaker-mismatch-bar"></div>
     <button id="btn-analyze" disabled onclick="analyzeConversation()">Analyze →</button>
   </div>
 </div>
@@ -1527,22 +1555,71 @@ function onPasteInput(el) {
   const text = el.value.trim();
   const btn = document.getElementById('btn-analyze');
   const preview = document.getElementById('paste-preview');
+  const mismatchBar = document.getElementById('speaker-mismatch-bar');
   if (text.length < 10) {
     btn.disabled = true;
     preview.classList.remove('visible');
+    mismatchBar.classList.remove('visible');
     return;
   }
   const msgs = parseConversation(text);
   if (msgs.length > 0) {
-    const speakers = [...new Set(msgs.map(m => m.speaker))];
-    preview.innerHTML = `Found <strong>${speakers.length} speaker${speakers.length!==1?'s':''}</strong>, <strong>${msgs.length} message${msgs.length!==1?'s':''}</strong>`;
-    preview.classList.add('visible');
+    const detectedNames = [...new Set(msgs.map(m => m.speaker))];
+    const n = detectedNames.length;
+    const nameList = detectedNames.join(', ');
+    if (n !== state.numSpeakers) {
+      // Mismatch: show notification bar, hide plain preview
+      preview.classList.remove('visible');
+      mismatchBar.innerHTML =
+        `<span>Found <strong>${n} speaker${n!==1?'s':''}</strong> (${nameList}) — you set up ${state.numSpeakers}.</span>` +
+        `<button class="btn-auto-adjust" onclick="autoAdjustSpeakers()">Auto-adjust ✓</button>` +
+        `<button class="mismatch-edit-link" onclick="showScreen('screen-setup')">Edit speakers</button>`;
+      mismatchBar.classList.add('visible');
+    } else {
+      // Count matches: silently populate names from the conversation
+      autoAdjustSpeakers();
+      mismatchBar.classList.remove('visible');
+      preview.innerHTML =
+        `Found <strong>${n} speaker${n!==1?'s':''}</strong> (${nameList}), <strong>${msgs.length} message${msgs.length!==1?'s':''}</strong>` +
+        `<button class="btn-edit-speakers" onclick="showScreen('screen-setup')">Edit speakers</button>`;
+      preview.classList.add('visible');
+    }
     btn.disabled = false;
   } else {
+    mismatchBar.classList.remove('visible');
     preview.innerHTML = `No conversation format detected — will analyze as single speaker`;
     preview.classList.add('visible');
     btn.disabled = false;
   }
+}
+
+function autoAdjustSpeakers() {
+  const text = document.getElementById('paste-textarea').value.trim();
+  const msgs = parseConversation(text);
+  if (msgs.length === 0) return;
+  const detectedNames = [...new Set(msgs.map(m => m.speaker))];
+  const n = detectedNames.length;
+  // Rebuild state speakers using detected names
+  state.numSpeakers = n;
+  state.speakers = detectedNames.map((name, i) => ({
+    id: `#${i+1}`,
+    name: name,
+    color: SPEAKER_COLORS[i % SPEAKER_COLORS.length],
+    fig: HARING_FIGS[i % HARING_FIGS.length]
+  }));
+  // Sync num picker on setup screen
+  document.querySelectorAll('.num-btn').forEach((b, i) => {
+    b.classList.toggle('selected', i + 2 === n);
+  });
+  // Update mismatch bar → confirmed state
+  const mismatchBar = document.getElementById('speaker-mismatch-bar');
+  const preview = document.getElementById('paste-preview');
+  const nameList = detectedNames.join(', ');
+  mismatchBar.classList.remove('visible');
+  preview.innerHTML =
+    `Found <strong>${n} speaker${n!==1?'s':''}</strong> (${nameList}), <strong>${msgs.length} message${msgs.length!==1?'s':''}</strong>` +
+    `<button class="btn-edit-speakers" onclick="showScreen('screen-setup')">Edit speakers</button>`;
+  preview.classList.add('visible');
 }
 
 function parseConversation(text) {
@@ -1586,6 +1663,24 @@ function analyzeConversation() {
     if (msgs.length === 0) {
       // treat whole text as single speaker
       msgs.push({ speaker: state.speakers[0]?.id || '#1', content: text, timestamp: Date.now() });
+    } else {
+      // Auto-remap state.speakers to match the speakers actually in the text.
+      // Prefer existing speaker entry if names already match (e.g. user auto-adjusted),
+      // otherwise create entries using detected names as defaults.
+      const detectedNames = [...new Set(msgs.map(m => m.speaker))];
+      const nameToExisting = {};
+      state.speakers.forEach(s => { if (s.name) nameToExisting[s.name] = s; });
+      const needsRemap = detectedNames.length !== state.speakers.length ||
+        detectedNames.some((name, i) => state.speakers[i]?.name !== name);
+      if (needsRemap) {
+        state.numSpeakers = detectedNames.length;
+        state.speakers = detectedNames.map((name, i) => nameToExisting[name] || {
+          id: `#${i+1}`,
+          name: name,
+          color: SPEAKER_COLORS[i % SPEAKER_COLORS.length],
+          fig: HARING_FIGS[i % HARING_FIGS.length]
+        });
+      }
     }
     state.analysis = runAnalysis(msgs);
     renderReader();
