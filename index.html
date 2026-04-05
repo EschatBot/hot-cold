@@ -979,6 +979,290 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
   z-index: 300; white-space: nowrap;
 }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ══════════════════════════════════════════════════════════════
+   ELITE VISUAL POLISH
+══════════════════════════════════════════════════════════════ */
+
+/* ── SCREEN TRANSITIONS WITH translateY ── */
+.screen {
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.screen.active { transform: translateY(0); }
+
+/* ── UNIVERSAL BUTTON MICRO-INTERACTIONS ── */
+button { transition: transform 0.1s ease, filter 0.15s ease, box-shadow 0.15s ease; }
+button:active { transform: scale(0.96) !important; }
+button:hover:not(:disabled) { filter: brightness(1.08); }
+button:focus-visible { outline: 2px solid rgba(255,255,255,0.28); outline-offset: 3px; }
+/* Preserve element-specific active scales */
+.speaker-bar:active  { transform: scale(0.98) !important; }
+.rel-circle:active   { transform: scale(0.88) !important; }
+#btn-go:active, #btn-analyze:active { transform: scale(0.97) !important; }
+
+/* ── NUM BUTTON SPRING ── */
+@keyframes num-spring {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.1); }
+  60%  { transform: scale(0.96); }
+  80%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+.num-btn.selected { animation: num-spring 0.42s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+
+/* ── SPEAKER BARS SLIDE-IN WITH STAGGER ── */
+@keyframes slide-from-left {
+  from { transform: translateX(-22px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+.speaker-row-wrap {
+  animation: slide-from-left 0.38s ease forwards;
+  opacity: 0;
+}
+/* Stagger — reader-body children: narrative(opt), legend, infoBar, then row-wraps from ~child 3-4 */
+.speaker-row-wrap:nth-child(3)  { animation-delay: 0.00s; }
+.speaker-row-wrap:nth-child(4)  { animation-delay: 0.08s; }
+.speaker-row-wrap:nth-child(5)  { animation-delay: 0.16s; }
+.speaker-row-wrap:nth-child(6)  { animation-delay: 0.24s; }
+.speaker-row-wrap:nth-child(7)  { animation-delay: 0.32s; }
+.speaker-row-wrap:nth-child(8)  { animation-delay: 0.40s; }
+.speaker-row-wrap:nth-child(9)  { animation-delay: 0.48s; }
+.speaker-row-wrap:nth-child(10) { animation-delay: 0.56s; }
+.speaker-row-wrap:nth-child(11) { animation-delay: 0.64s; }
+
+/* ── RELATIONSHIP CIRCLES POP-IN ── */
+@keyframes circle-pop {
+  0%   { transform: scale(0); opacity: 0; }
+  55%  { transform: scale(1.18); opacity: 1; }
+  75%  { transform: scale(0.93); }
+  100% { transform: scale(1); }
+}
+.rel-circle {
+  opacity: 0;
+  animation: circle-pop 0.38s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+.rel-circles .rel-circle:nth-child(1) { animation-delay: 0.10s; }
+.rel-circles .rel-circle:nth-child(2) { animation-delay: 0.17s; }
+.rel-circles .rel-circle:nth-child(3) { animation-delay: 0.24s; }
+.rel-circles .rel-circle:nth-child(4) { animation-delay: 0.31s; }
+.rel-circles .rel-circle:nth-child(5) { animation-delay: 0.38s; }
+.rel-circles .rel-circle:nth-child(6) { animation-delay: 0.45s; }
+.rel-circles .rel-circle:nth-child(7) { animation-delay: 0.52s; }
+
+/* ── HOT/COLD GLOW EFFECTS ── */
+@keyframes ember-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255,51,51,0.55), 0 0 26px rgba(255,80,0,0.22), inset 0 0 0 2px rgba(255,255,255,0.14); }
+  50%       { box-shadow: 0 0 20px rgba(255,51,51,0.85), 0 0 48px rgba(255,80,0,0.38), inset 0 0 0 2px rgba(255,255,255,0.14); }
+}
+@keyframes frost-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(51,102,255,0.55), 0 0 26px rgba(100,160,255,0.2), inset 0 0 0 2px rgba(255,255,255,0.1); filter: saturate(0.88); }
+  50%       { box-shadow: 0 0 20px rgba(51,102,255,0.82), 0 0 42px rgba(100,160,255,0.34), inset 0 0 0 2px rgba(255,255,255,0.1); filter: saturate(0.8); }
+}
+.rel-circle.hot {
+  animation: circle-pop 0.38s cubic-bezier(0.34,1.56,0.64,1) forwards, ember-pulse 2.6s ease-in-out 0.4s infinite;
+}
+.rel-circle.cold {
+  animation: circle-pop 0.38s cubic-bezier(0.34,1.56,0.64,1) forwards, frost-pulse 3.2s ease-in-out 0.4s infinite;
+}
+.rel-circle.neutral {
+  animation: circle-pop 0.38s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  box-shadow: 0 0 8px rgba(0,204,102,0.3), inset 0 0 0 2px rgba(255,255,255,0.1);
+}
+/* Re-apply nth-child delays to overriding selectors */
+.rel-circles .rel-circle.hot:nth-child(1),
+.rel-circles .rel-circle.cold:nth-child(1),
+.rel-circles .rel-circle.neutral:nth-child(1) { animation-delay: 0.10s; }
+.rel-circles .rel-circle.hot:nth-child(2),
+.rel-circles .rel-circle.cold:nth-child(2),
+.rel-circles .rel-circle.neutral:nth-child(2) { animation-delay: 0.17s; }
+.rel-circles .rel-circle.hot:nth-child(3),
+.rel-circles .rel-circle.cold:nth-child(3),
+.rel-circles .rel-circle.neutral:nth-child(3) { animation-delay: 0.24s; }
+.rel-circles .rel-circle.hot:nth-child(4),
+.rel-circles .rel-circle.cold:nth-child(4),
+.rel-circles .rel-circle.neutral:nth-child(4) { animation-delay: 0.31s; }
+.rel-circles .rel-circle.hot:nth-child(5),
+.rel-circles .rel-circle.cold:nth-child(5),
+.rel-circles .rel-circle.neutral:nth-child(5) { animation-delay: 0.38s; }
+.rel-circles .rel-circle.hot:nth-child(6),
+.rel-circles .rel-circle.cold:nth-child(6),
+.rel-circles .rel-circle.neutral:nth-child(6) { animation-delay: 0.45s; }
+.rel-circles .rel-circle.hot:nth-child(7),
+.rel-circles .rel-circle.cold:nth-child(7),
+.rel-circles .rel-circle.neutral:nth-child(7) { animation-delay: 0.52s; }
+
+/* ── SPEAKER DOT WHITE INNER BORDER (Haring figure effect) ── */
+.speaker-dot {
+  border: 2px solid rgba(255,255,255,0.3) !important;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.4) inset;
+}
+
+/* ── NARRATIVE CARD SLIDE-UP ENTRANCE ── */
+@keyframes narrative-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.narrative-card {
+  animation: narrative-enter 0.5s ease forwards, narrative-glow 4s ease-in-out 0.6s infinite;
+}
+
+/* ── ENERGY BAR LIVING SHIMMER ── */
+@keyframes shimmer-slide {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.speaker-energy-fill {
+  background-image: linear-gradient(
+    90deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: shimmer-slide 2.2s linear infinite !important;
+}
+
+/* ── PANEL SPRING BOUNCE ── */
+.panel {
+  transition: transform 0.44s cubic-bezier(0.34,1.56,0.64,1) !important;
+}
+
+/* ── TYPOGRAPHY UPGRADES ── */
+.narrative-card-text {
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em !important;
+  color: #d8d8d8 !important;
+}
+.narrative-card-label {
+  font-size: 10px !important;
+  letter-spacing: 3px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+}
+.stat-label {
+  font-weight: 600 !important;
+  color: #777 !important;
+}
+.warmth-arrow-score {
+  font-size: 34px !important;
+  font-weight: 900 !important;
+}
+.speaker-bar-states {
+  font-style: italic !important;
+  font-weight: 400 !important;
+  color: #666 !important;
+}
+
+/* ── HARING DIVIDER ENERGY ── */
+@keyframes fig-sway {
+  0%, 100% { transform: rotate(-2deg) scale(1);    }
+  50%       { transform: rotate(2deg)  scale(1.07); }
+}
+.haring-divider        { opacity: 0.3; }
+.haring-divider-figs   {
+  font-size: 32px !important;
+  display: inline-block;
+  animation: fig-sway 3.5s ease-in-out infinite;
+}
+
+/* ── PHONE MOCKUP 3D + FLOAT ── */
+@keyframes phone-float {
+  0%, 100% { transform: perspective(800px) rotateY(-3deg) translateY(0px); }
+  50%       { transform: perspective(800px) rotateY(-3deg) translateY(-6px); }
+}
+.phone-mockup {
+  animation: phone-float 4.2s ease-in-out infinite;
+  box-shadow: 0 44px 80px rgba(0,0,0,0.85), 0 0 0 1px #1e1e1e,
+              16px 28px 48px rgba(0,0,0,0.6) !important;
+}
+.phone-energy-fill {
+  background-image: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.28) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 1.8s linear infinite;
+}
+
+/* ── AMBIENT ORBS — VISIBILITY BOOST ── */
+.orb-1 { opacity: 0.15 !important; }
+.orb-2 { opacity: 0.13 !important; }
+.orb-3 { opacity: 0.12 !important; }
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9998;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ── READER AMBIENT ORB ── */
+#screen-reader::after {
+  content: '';
+  position: fixed;
+  width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,51,51,0.065) 0%, transparent 70%);
+  top: -100px; right: -80px;
+  pointer-events: none; z-index: 0;
+  animation: orbDrift1 20s ease-in-out infinite;
+}
+
+/* ── THREE-DOT LOADING ANIMATION ── */
+@keyframes dot-pulse-1 {
+  0%, 75%, 100% { transform: translateY(0);    opacity: 0.35; }
+  20%            { transform: translateY(-12px); opacity: 1; }
+}
+@keyframes dot-pulse-2 {
+  0%, 75%, 100% { transform: translateY(0);    opacity: 0.35; }
+  38%            { transform: translateY(-12px); opacity: 1; }
+}
+@keyframes dot-pulse-3 {
+  0%, 75%, 100% { transform: translateY(0);    opacity: 0.35; }
+  56%            { transform: translateY(-12px); opacity: 1; }
+}
+.loading-ring {
+  width: 12px !important; height: 12px !important;
+  border: none !important; border-radius: 50% !important;
+  background: var(--hot-orange) !important;
+  animation: dot-pulse-2 1.4s ease-in-out infinite !important;
+  position: relative !important;
+}
+.loading-ring::before {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--hot-yellow);
+  top: 0; right: calc(100% + 10px);
+  animation: dot-pulse-1 1.4s ease-in-out infinite;
+}
+.loading-ring::after {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--hot-red);
+  top: 0; left: calc(100% + 10px);
+  animation: dot-pulse-3 1.4s ease-in-out infinite;
+}
+.loading-text {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px !important;
+  color: #666 !important;
+}
+
+/* ── RADIUS REFINEMENTS — organic Haring feel ── */
+.num-btn      { border-radius: 12px !important; }
+.speaker-card { border-radius: 14px !important; }
+.capture-btn  { border-radius: 14px !important; }
+#btn-go       { border-radius: 14px !important; }
+#btn-analyze  { border-radius: 14px !important; }
+#btn-demo     { border-radius: 14px !important; }
+.action-btn   { border-radius: 12px !important; }
+.speaker-bar  { border-radius: 14px !important; }
+.panel        { border-radius: 22px 22px 0 0 !important; }
+.back-btn     { border-radius: 12px !important; }
+.pipeline-step, .signal-card, .privacy-card, .citation-card { border-radius: 14px !important; }
 </style>
 </head>
 <body>
@@ -1869,7 +2153,7 @@ function analyzeConversation() {
   const text = document.getElementById('paste-textarea').value.trim();
   showScreen('screen-reader');
   const body = document.getElementById('reader-body');
-  body.innerHTML = '<div class="loading-wrap"><div class="loading-ring"></div><div class="loading-text">Analyzing…</div></div>';
+  body.innerHTML = '<div class="loading-wrap"><div class="loading-ring"></div><div class="loading-text">Reading the room…</div></div>';
 
   setTimeout(() => {
     const msgs = parseConversation(text);
@@ -3005,7 +3289,7 @@ function finishLive() {
   const msgs = state.liveMessages.map(m => ({ speaker: m.speaker, content: m.content, timestamp: m.timestamp }));
   showScreen('screen-reader');
   const body = document.getElementById('reader-body');
-  body.innerHTML = '<div class="loading-wrap"><div class="loading-ring"></div><div class="loading-text">Analyzing…</div></div>';
+  body.innerHTML = '<div class="loading-wrap"><div class="loading-ring"></div><div class="loading-text">Reading the room…</div></div>';
   setTimeout(() => {
     state.analysis = runAnalysis(msgs);
     renderReader(); scheduleHUDAlerts();
