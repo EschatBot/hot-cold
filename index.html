@@ -884,6 +884,53 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
 }
 .landing-final-sub { font-size: 14px; color: #666; margin-bottom: 32px; line-height: 1.6; }
 
+/* narrative summary card */
+.narrative-card {
+  background: rgba(255,255,255,0.03);
+  border: 2px solid #252525;
+  border-left: 4px solid var(--hot-yellow);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.narrative-card-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 3px;
+  color: #555; text-transform: uppercase; margin-bottom: 8px;
+}
+.narrative-card-text {
+  font-size: 14px; line-height: 1.75; color: #ccc; font-weight: 400;
+}
+
+/* demo button */
+#btn-demo {
+  padding: 18px; border-radius: var(--radius);
+  background: transparent;
+  border: var(--border) solid #444;
+  font-size: 14px; font-weight: 800; letter-spacing: 1px;
+  color: #666; text-transform: uppercase;
+  transition: all 0.15s;
+}
+#btn-demo:active { transform: scale(0.97); }
+#btn-demo:hover { border-color: #666; color: #888; }
+
+/* paste button row */
+.paste-btn-row {
+  display: flex; gap: 10px;
+}
+.paste-btn-row #btn-analyze { flex: 2; }
+.paste-btn-row #btn-demo { flex: 1; }
+
+/* share button */
+#btn-share {
+  padding: 8px 12px; border-radius: 8px;
+  border: 2px solid #333; color: #666;
+  font-size: 12px; font-weight: 800; letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.03);
+  transition: all 0.15s;
+}
+#btn-share:active { transform: scale(0.97); }
+
 /* toast */
 #toast {
   position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
@@ -1213,7 +1260,10 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
       oninput="onPasteInput(this)"></textarea>
     <div class="paste-preview" id="paste-preview"></div>
     <div class="speaker-mismatch-bar" id="speaker-mismatch-bar"></div>
-    <button id="btn-analyze" disabled onclick="analyzeConversation()">Analyze →</button>
+    <div class="paste-btn-row">
+      <button id="btn-demo" onclick="loadDemo()">▷ Try Demo</button>
+      <button id="btn-analyze" disabled onclick="analyzeConversation()">Analyze →</button>
+    </div>
   </div>
 </div>
 
@@ -1221,7 +1271,8 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
 <div class="screen" id="screen-reader">
   <div class="reader-header">
     <div class="reader-logo">🔮 Hot/Cold</div>
-    <div style="display:flex;gap:8px">
+    <div style="display:flex;gap:8px;align-items:center">
+      <button id="btn-share" onclick="shareAnalysis()" title="Share results">↑ Share</button>
       <button class="action-btn" style="flex:none;padding:8px 12px" onclick="showScreen('screen-network')">Full View<span class="btn-sub">Relationship network</span></button>
       <button id="btn-hud-mode" onclick="enterHUD()">▶ HUD<span class="btn-sub">Minimal live view</span></button>
     </div>
@@ -1329,13 +1380,13 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
 
 <script>
 /* ══════════════════════════════════════════════════════════════
-   AFINN-165 LEXICON (curated ~300 high-signal words)
+   AFINN-165 LEXICON (~1000 high-signal words for conversation)
 ══════════════════════════════════════════════════════════════ */
 const AFINN = {
-  "abandon":-2,"abandoned":-2,"abandons":-2,"abhor":-3,"abhorrent":-3,
-  "abuse":-3,"abused":-3,"ache":-2,"aches":-2,"aching":-2,
-  "admire":2,"admired":2,"admires":2,"adorable":3,"adore":3,
-  "afraid":-2,"aggravate":-2,"aggravating":-2,"aggression":-2,"aggressive":-2,
+  // Core emotions
+  "abandon":-2,"abandoned":-2,"abhor":-3,"abuse":-3,"abused":-3,
+  "ache":-2,"admire":2,"adorable":3,"adore":3,"afraid":-2,
+  "aggravate":-2,"aggravating":-2,"aggression":-2,"aggressive":-2,
   "agree":1,"agreeable":2,"alarm":-2,"alarmed":-2,"alienate":-2,
   "amaze":3,"amazing":4,"angry":-3,"annoyed":-2,"annoying":-2,
   "anxious":-2,"anxiety":-2,"apathy":-1,"appreciate":2,"appreciated":2,
@@ -1364,7 +1415,7 @@ const AFINN = {
   "gratitude":3,"great":3,"grief":-2,"grumpy":-1,"guilt":-2,
   "happy":3,"harm":-2,"hate":-3,"hated":-3,"helpful":2,
   "hopeful":2,"hopeless":-2,"hurt":-2,
-  "ignore":-1,"ignored":-2,"impressed":2,"incredible":4,"indifferent":-1,
+  "ignore":-2,"ignored":-2,"impressed":2,"incredible":4,"indifferent":-1,
   "inspire":2,"inspired":2,"insult":-2,"interested":1,"interesting":2,
   "joy":3,"joyful":3,"kind":2,"laugh":2,"laughing":2,
   "lively":2,"lonely":-2,"love":3,"lovely":3,"loving":3,
@@ -1381,31 +1432,95 @@ const AFINN = {
   "trust":2,"trusted":2,"ugly":-2,"uncomfortable":-2,"unhappy":-2,
   "upset":-2,"warm":2,"welcoming":2,"wonder":2,"wonderful":3,
   "worried":-2,"worry":-2,"worthless":-2,"wow":3,
-  // Extra positive
+  // Positive: warmth, affection, praise
   "blissful":3,"bright":1,"cheers":2,"cherish":2,"clarity":1,
-  "closer":1,"connection":2,"cooperative":2,"cozy":2,"delight":3,
-  "effective":1,"empowered":2,"exciting":3,"expansive":1,"fascinating":2,
-  "free":1,"genuine":2,"generous":2,"growth":2,"heart":1,
-  "honest":2,"hope":2,"hug":2,"important":1,"improvement":1,
-  "inclusive":2,"innovative":2,"intelligent":2,"laugh":2,"leader":1,
-  "meaningful":2,"motivated":2,"nurturing":2,"open":1,"optimistic":2,
-  "organized":1,"playful":2,"pleased":2,"productive":1,"proud":2,
-  "real":1,"refreshing":2,"reliable":2,"resilient":2,"safe":2,
-  "sincere":2,"smart":2,"smile":2,"solutions":1,"together":1,
-  "valuable":2,"vibrant":2,"welcoming":2,"wise":2,"yes":1,
-  // Extra negative
-  "afraid":-2,"aggravating":-2,"alone":-1,"anger":-2,"annoy":-2,
-  "avoid":-1,"awkward":-1,"bad":-2,"blame":-2,"careless":-2,
+  "closer":1,"connection":2,"cooperative":2,"effective":1,"empowered":2,
+  "exciting":3,"fascinating":2,"free":1,"generous":2,"growth":2,
+  "heart":1,"honest":2,"hope":2,"hug":2,"important":1,
+  "inclusive":2,"innovative":2,"intelligent":2,"leader":1,
+  "motivated":2,"nurturing":2,"open":1,"optimistic":2,
+  "organized":1,"playful":2,"productive":1,
+  "real":1,"refreshing":2,"resilient":2,"sincere":2,"smart":2,
+  "smile":2,"together":1,"valuable":2,"vibrant":2,"wise":2,"yes":1,
+  // Slang & conversational positives
+  "lit":3,"fire":2,"sick":2,"dope":3,"legit":2,"clutch":2,
+  "goat":3,"slay":3,"vibe":2,"vibes":2,"hyped":3,"stoked":3,
+  "pumped":2,"psyched":2,"chill":1,"chillin":1,"rad":2,"stellar":3,
+  "solid":2,"tight":2,"fresh":2,"ace":2,"boss":2,"killer":2,
+  "mint":2,"nailed":2,"crushed":2,"killed":2,"smashed":2,
+  "blessed":3,"grateful":3,"thankful":2,"thriving":3,"living":1,
+  // Slang & conversational negatives
+  "sucks":-3,"sucked":-2,"suck":-2,"lame":-2,"lol":-1,"meh":-1,
+  "blah":-1,"ugh":-2,"eww":-2,"yikes":-2,"cringe":-2,"cringy":-2,
+  "sketchy":-2,"shady":-2,"sus":-2,"sketch":-2,"wack":-2,"whack":-2,
+  "trash":-3,"garbage":-3,"junk":-2,"clown":-2,"clowns":-2,
+  "rip":-1,"dead":-1,"dying":-1,"nope":-1,"nah":-1,"pissed":-3,
+  "screwed":-2,"sucks":-3,"dragging":-1,"dragged":-1,
+  // Relationship words (positive)
+  "darling":3,"honey":3,"babe":2,"bae":2,"sweetheart":3,
+  "bestie":3,"buddy":2,"pal":2,"mate":2,"dude":0,"bro":1,"sis":1,
+  "fam":2,"squad":2,"crew":1,"homie":2,"friend":2,"friends":2,
+  "partner":1,"teammate":2,"ally":2,"soulmate":3,
+  // Relationship words (negative)
+  "enemy":-3,"enemies":-3,"rival":-2,"rivals":-2,"backstabber":-3,
+  "liar":-3,"fake":-2,"phony":-2,"toxic":-3,"manipulative":-3,
+  "abusive":-3,"controlling":-2,"narcissist":-2,
+  // Workplace
+  "deadline":-1,"deadlines":-1,"fired":-3,"hired":2,"promoted":3,
+  "promotion":3,"raise":2,"bonus":2,"layoff":-3,"laid":-2,
+  "overworked":-2,"burnout":-3,"burnt":-2,"stressed":-2,"pressure":-2,
+  "achievement":3,"accomplishment":3,"success":3,"milestone":2,
+  "opportunity":2,"career":1,"growth":2,"leadership":2,
+  "recognition":2,"reward":2,"feedback":1,"constructive":1,
+  "criticism":-1,"micromanage":-2,"toxic":-3,
+  // Intensifiers (boost nearby sentiment)
+  "absolutely":1,"totally":1,"completely":1,"definitely":1,
+  "certainly":1,"genuinely":1,"truly":1,"deeply":2,"incredibly":2,
+  "extremely":1,"super":1,"really":1,"very":1,"so":0,
+  "barely":-1,"hardly":-1,"never":-1,"nothing":-1,"no":-1,
+  // Social dynamics
+  "agree":1,"agreed":1,"disagree":-1,"disagreed":-1,"whatever":-2,
+  "honestly":1,"frankly":1,"basically":0,"literally":0,"seriously":0,
+  "obviously":0,"clearly":0,"actually":0,"tbh":1,"ngl":0,
+  "fair":1,"unfair":-2,"bias":-1,"biased":-2,"fair":1,
+  // Emotional processing
+  "healing":2,"recovered":2,"recovering":1,"moving":1,"closure":1,
+  "processing":0,"reflecting":0,"realizing":0,"accepting":1,
+  "letting":0,"growing":2,"changed":0,"changing":0,"progress":2,
+  // Questions/curiosity (engagement signals)
+  "wondering":1,"curious":1,"interested":1,"fascinated":2,
+  "want":1,"would":0,"could":0,"maybe":0,"perhaps":0,
+  // Profanity (strong negatives in social context)
+  "damn":-1,"hell":-1,"crap":-2,"shit":-3,"fuck":-4,"fucking":-4,
+  "wtf":-2,"bs":-2,"asshole":-3,"idiot":-2,"moron":-2,"jerk":-2,
+  "bastard":-3,"bitch":-3,"dick":-3,"ass":-2,
+  // Positive amplifiers
+  "love":3,"loved":3,"loving":3,"obsessed":2,"obsessing":2,
+  "adore":3,"adoring":3,"worship":2,"treasure":3,"cherish":2,
+  "miss":1,"missed":1,"need":1,"needed":1,
+  // Negative states
+  "alone":-2,"lonely":-2,"isolated":-2,"excluded":-2,"left":-1,
+  "forgotten":-2,"invisible":-2,"dismissed":-2,"disrespected":-2,
+  "ignored":-2,"rejected":-2,"abandoned":-3,"betrayed":-3,
+  "anger":-2,"annoy":-2,"avoid":-1,"awkward":-1,"careless":-2,
   "challenging":-1,"complicated":-1,"conflict":-2,"difficult":-1,
-  "disagree":-1,"distant":-1,"dull":-1,"exclude":-2,"failure":-2,
-  "fake":-2,"harsh":-2,"heavy":-1,"hostile":-2,"ignore":-1,
-  "incompetent":-2,"inconsiderate":-2,"irresponsible":-2,"isolated":-2,
+  "distant":-1,"dull":-1,"exclude":-2,"failure":-2,
+  "harsh":-2,"heavy":-1,"hostile":-2,
+  "incompetent":-2,"inconsiderate":-2,"irresponsible":-2,
   "judgmental":-2,"lack":-1,"lost":-1,"low":-1,"manipulate":-3,
-  "mean":-2,"messy":-1,"mistake":-1,"negative":-1,"no":-1,
-  "not":-1,"overwhelm":-2,"passive":-1,"problem":-1,"rude":-2,
-  "shame":-2,"slow":-1,"stress":-2,"struggle":-2,"tense":-2,
-  "toxic":-3,"uncertain":-1,"unhealthy":-2,"unkind":-2,"weak":-1,
-  "wrong":-2
+  "mean":-2,"messy":-1,"mistake":-1,"negative":-1,
+  "overwhelm":-2,"passive":-1,"problem":-1,"rude":-2,
+  "shame":-2,"stress":-2,"struggle":-2,"tense":-2,
+  "uncertain":-1,"unhealthy":-2,"unkind":-2,"weak":-1,"wrong":-2,
+  // More conversational positives
+  "haha":2,"hahaha":2,"lmao":2,"lmfao":2,"omg":1,"yay":3,
+  "woah":1,"wow":3,"nice":2,"neat":1,"cool":1,"great":3,
+  "perfect":3,"brilliant":3,"amazing":4,"awesome":4,"fantastic":4,
+  "superb":3,"excellent":3,"wonderful":3,"magnificent":3,
+  // Agreement / connection
+  "same":1,"exactly":1,"totally":1,"right":1,"true":1,"yes":1,
+  "yep":1,"yeah":1,"absolutely":1,"indeed":1,"sure":1,"of course":1,
+  "definitely":1,"agreed":1,"ikr":2,"facts":1,"preach":1,
 };
 
 /* ══════════════════════════════════════════════════════════════
@@ -1625,27 +1740,37 @@ function autoAdjustSpeakers() {
 function parseConversation(text) {
   const lines = text.split('\n').filter(l => l.trim());
   const messages = [];
-  // Patterns: "Name: msg", "[HH:MM] Name: msg", "Name (HH:MM): msg"
+  // WhatsApp system message indicators (skip these)
+  const waSystemRe = /^\[[\d\/,\s:APMapm]+\]\s+(?:Messages and calls|.+ added .+|.+ left|.+ removed .+|.+ changed .+|.+ created .+|You were added|Security code changed)/i;
+  // Patterns ordered: most specific first
   const patterns = [
+    // WhatsApp: [M/D/YY, H:MM AM] Name: message  or  [DD/MM/YYYY, HH:MM:SS] Name: message
+    /^\[(\d{1,2}\/\d{1,2}\/\d{2,4},?\s+\d{1,2}:\d{2}(?::\d{2})?\s*(?:AM|PM|am|pm)?)\]\s+([^:]+?):\s(.+)$/,
+    // [HH:MM] Name: msg or [HH:MM AM] Name: msg
     /^\[?(\d{1,2}[:/]\d{2}(?:[:/]\d{2})?(?:\s?[AP]M)?)\]?\s+([^:]+?):\s(.+)$/i,
+    // Name: msg (plain)
     /^([^:\[\]]+):\s(.+)$/,
+    // Name [HH:MM]: msg
     /^([^:]+)\s\[\d{1,2}:\d{2}(?:\s?[AP]M)?\]:\s(.+)$/i,
   ];
   for (const line of lines) {
+    // Skip WhatsApp system messages
+    if (waSystemRe.test(line)) continue;
     let matched = false;
     for (const pat of patterns) {
       const m = line.match(pat);
       if (m) {
         const speaker = m[m.length-2].trim();
         const content = m[m.length-1].trim();
-        if (speaker.length < 40 && content.length > 0) {
+        // Reject if "speaker" looks like a system notice (no letters, too long, or contains digits only)
+        if (speaker.length < 40 && speaker.length > 0 && content.length > 0 && /[a-zA-Z]/.test(speaker)) {
           messages.push({ speaker, content, timestamp: Date.now() + messages.length * 1000 });
           matched = true; break;
         }
       }
     }
     if (!matched && messages.length > 0 && !line.match(/^[\[\(]/)) {
-      // continuation
+      // continuation line
       messages[messages.length-1].content += ' ' + line.trim();
     }
   }
@@ -1806,57 +1931,153 @@ function runAnalysis(messages) {
     };
   });
 
-  // Relationship scoring (A→B)
+  // Relationship scoring (A→B) — pair-specific: score based on A's messages that directly follow B's
   const relationships = {};
   for (const a of speakers) {
     for (const b of speakers) {
       if (a.id === b.id) continue;
       const key = `${a.id}→${b.id}`;
       const aSt = spStats[a.id];
-      // Signals from A toward B
-      const signals = [];
-      let score = 0.5; // neutral start
-
-      // sentiment A says (overall positivity)
-      const aSentNorm = normalize(aSt.sentimentTotal / (aSt.sentimentCount || 1), -2, 2);
-      score += (aSentNorm - 0.5) * 0.25;
-      if (aSentNorm > 0.6) signals.push({ text: `Positive language overall`, valence: 1, color: '#00CC66' });
-      if (aSentNorm < 0.4) signals.push({ text: `Guarded/negative language`, valence: -1, color: '#FF3333' });
-
-      // Questions asked (interest signal)
-      const qRate = aSt.questions / (aSt.msgCount || 1);
-      if (qRate > 0.3) { score += 0.08; signals.push({ text: `High question rate (${aSt.questions} questions)`, valence: 1, color: '#3366FF' }); }
-
-      // Inclusive language
-      if (aSt.inclusive > 2) { score += 0.06; signals.push({ text: `Inclusive "we/us" language (${aSt.inclusive}×)`, valence: 1, color: '#FFD700' }); }
-
-      // Future references
-      if (aSt.future > 1) { score += 0.05; signals.push({ text: `Future-oriented references`, valence: 1, color: '#FF8C42' }); }
-
-      // Exit language penalty
-      if (aSt.exitSignals > 0) { score -= 0.1; signals.push({ text: `Exit language detected`, valence: -1, color: '#FF3333' }); }
-
-      // Engagement (message length vs partner)
       const bSt = spStats[b.id];
-      const lenRatio = (aSt.totalWords / (aSt.msgCount||1)) / Math.max(1, bSt.totalWords / (bSt.msgCount||1));
-      if (lenRatio > 1.3) { score += 0.05; signals.push({ text: `Writes more than they do (${Math.round(lenRatio*10)/10}× longer)`, valence: 1, color: '#00CC66' }); }
-      if (lenRatio < 0.6) { score -= 0.05; signals.push({ text: `Brief responses`, valence: -1, color: '#888' }); }
+      const signals = [];
+      let score = 0.5;
 
-      // Trend
-      const aSentHistory = [];
-      const chunkSz = Math.max(1, Math.floor(aSt.messages.length / 5));
-      for (let c = 0; c < 5; c++) {
-        const sl = aSt.messages.slice(c*chunkSz,(c+1)*chunkSz);
-        aSentHistory.push(sl.length > 0 ? sl.reduce((a,m)=>a+m.score,0)/sl.length : 0);
+      // Collect A's messages that directly follow B's messages
+      const aResponsesToB = [];
+      for (let idx = 1; idx < messages.length; idx++) {
+        const msg = messages[idx];
+        const prevMsg = messages[idx - 1];
+        if (speakerMap[msg.speaker]?.id === a.id && speakerMap[prevMsg.speaker]?.id === b.id) {
+          aResponsesToB.push({ ...msg, score: scoreText(msg.content) });
+        }
       }
-      const trendVal = aSentHistory.length >= 2 ?
-        aSentHistory[aSentHistory.length-1] - aSentHistory[0] : 0;
-      const trend = trendVal > 0.3 ? 'warming' : trendVal < -0.3 ? 'cooling' : 'stable';
-      if (trend === 'warming') signals.push({ text: `Tone warming over conversation`, valence: 1, color: '#FF8C42' });
-      if (trend === 'cooling') signals.push({ text: `Tone cooling over conversation`, valence: -1, color: '#3366FF' });
+
+      // 1. Sentiment of A's responses to B specifically
+      if (aResponsesToB.length > 0) {
+        const responseSent = aResponsesToB.reduce((s, m) => s + m.score, 0) / aResponsesToB.length;
+        const sentNorm = normalize(responseSent, -2, 2);
+        score += (sentNorm - 0.5) * 0.32;
+        if (sentNorm > 0.65) signals.push({ text: `Warm tone in direct responses to ${b.id}`, valence: 1, color: '#00CC66' });
+        else if (sentNorm > 0.52) signals.push({ text: `Generally positive responses to ${b.id}`, valence: 1, color: '#00CC66' });
+        if (sentNorm < 0.38) signals.push({ text: `Guarded/negative tone toward ${b.id}`, valence: -1, color: '#FF3333' });
+      } else {
+        // No direct responses — use overall sentiment but weighted less
+        const aSentNorm = normalize(aSt.sentimentTotal / (aSt.sentimentCount || 1), -2, 2);
+        score += (aSentNorm - 0.5) * 0.15;
+        if (aSentNorm > 0.6) signals.push({ text: `Positive language overall`, valence: 1, color: '#00CC66' });
+        if (aSentNorm < 0.4) signals.push({ text: `Guarded/negative language`, valence: -1, color: '#FF3333' });
+      }
+
+      // 2. Questions A asks in responses to B
+      const responseQuestions = aResponsesToB.reduce((s, m) => s + countQuestions(m.content), 0);
+      const qInResponses = aResponsesToB.length > 0 ? responseQuestions / aResponsesToB.length : 0;
+      if (qInResponses > 0.3 || responseQuestions >= 2) {
+        score += 0.09;
+        signals.push({ text: `Asks ${b.id} questions directly (${responseQuestions})`, valence: 1, color: '#3366FF' });
+      } else if (aSt.questions > 2 && aResponsesToB.length === 0) {
+        score += 0.05;
+        signals.push({ text: `High question rate overall (${aSt.questions})`, valence: 1, color: '#3366FF' });
+      }
+
+      // 3. Response length: A's responses to B vs A's overall average
+      const aAvgLen = aSt.totalWords / (aSt.msgCount || 1);
+      if (aResponsesToB.length > 0) {
+        const responseAvgLen = aResponsesToB.reduce((s, m) => s + m.content.split(/\s+/).length, 0) / aResponsesToB.length;
+        const lenRatio = responseAvgLen / Math.max(1, aAvgLen);
+        if (lenRatio > 1.35) {
+          score += 0.08;
+          signals.push({ text: `Writes more to ${b.id} than usual (${Math.round(lenRatio*10)/10}× avg)`, valence: 1, color: '#00CC66' });
+        } else if (lenRatio < 0.55) {
+          score -= 0.07;
+          signals.push({ text: `Notably shorter responses to ${b.id}`, valence: -1, color: '#888' });
+        }
+      } else {
+        // Fallback: compare A's overall length vs B's
+        const bAvgLen = bSt.totalWords / (bSt.msgCount || 1);
+        const lenRatio = aAvgLen / Math.max(1, bAvgLen);
+        if (lenRatio > 1.3) { score += 0.04; signals.push({ text: `Writes longer messages generally`, valence: 1, color: '#00CC66' }); }
+        if (lenRatio < 0.6) { score -= 0.04; signals.push({ text: `Brief messages overall`, valence: -1, color: '#888' }); }
+      }
+
+      // 4. Inclusive language in A's responses to B
+      const responseInclusive = aResponsesToB.reduce((s, m) => s + countInclusive(m.content), 0);
+      if (responseInclusive >= 2) {
+        score += 0.06;
+        signals.push({ text: `Inclusive "we/us" language in exchanges with ${b.id}`, valence: 1, color: '#FFD700' });
+      } else if (aSt.inclusive > 2 && aResponsesToB.length === 0) {
+        score += 0.04;
+        signals.push({ text: `Inclusive "we/us" language (${aSt.inclusive}×)`, valence: 1, color: '#FFD700' });
+      }
+
+      // 5. Name usage: does A use B's name?
+      const bDisplayName = (b.name || b.rawName || '').toLowerCase().trim();
+      if (bDisplayName.length > 1) {
+        const allAContent = aSt.messages.map(m => m.content.toLowerCase()).join(' ');
+        const escapedName = bDisplayName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const nameUseCount = (allAContent.match(new RegExp('\\b' + escapedName + '\\b', 'g')) || []).length;
+        if (nameUseCount >= 1) {
+          score += 0.07;
+          signals.push({ text: `Uses ${b.id}'s name directly (${nameUseCount}×)`, valence: 1, color: '#FF8C42' });
+        }
+      }
+
+      // 6. Response rate: how often does A respond to B vs how often B speaks?
+      const bMsgCount = bSt.messages.length;
+      const responseRate = bMsgCount > 0 ? aResponsesToB.length / bMsgCount : 0;
+      if (responseRate >= 0.5 && bMsgCount >= 2) {
+        score += 0.05;
+        signals.push({ text: `Responds to most of ${b.id}'s messages`, valence: 1, color: '#00CC66' });
+      } else if (responseRate < 0.15 && bMsgCount >= 3) {
+        score -= 0.07;
+        signals.push({ text: `Rarely responds directly to ${b.id}`, valence: -1, color: '#3366FF' });
+      }
+
+      // 7. Future references
+      const responseFuture = aResponsesToB.reduce((s, m) => s + countFuture(m.content), 0);
+      if (responseFuture >= 2 || (aResponsesToB.length === 0 && aSt.future > 1)) {
+        score += 0.05;
+        signals.push({ text: `Future-oriented references`, valence: 1, color: '#FF8C42' });
+      }
+
+      // 8. Exit language in A's responses to B specifically
+      const exitInResponses = aResponsesToB.some(m => detectExitLanguage(m.content));
+      if (exitInResponses) {
+        score -= 0.09;
+        signals.push({ text: `Exit language in responses to ${b.id}`, valence: -1, color: '#FF3333' });
+      } else if (aSt.exitSignals > 0 && aResponsesToB.length === 0) {
+        score -= 0.06;
+        signals.push({ text: `Exit language detected overall`, valence: -1, color: '#FF3333' });
+      }
+
+      // 9. Trend: A's sentiment toward B over time
+      let trend = 'stable';
+      let trendHistory = [];
+      if (aResponsesToB.length >= 3) {
+        const half = Math.floor(aResponsesToB.length / 2);
+        const firstHalfSent = aResponsesToB.slice(0, half).reduce((s, m) => s + m.score, 0) / half;
+        const secondHalfSent = aResponsesToB.slice(half).reduce((s, m) => s + m.score, 0) / (aResponsesToB.length - half);
+        const trendVal = secondHalfSent - firstHalfSent;
+        trend = trendVal > 0.3 ? 'warming' : trendVal < -0.3 ? 'cooling' : 'stable';
+        trendHistory = aResponsesToB.map(m => normalize(m.score, -2, 2));
+        if (trend === 'warming') signals.push({ text: `Warming toward ${b.id} as conversation progresses`, valence: 1, color: '#FF8C42' });
+        if (trend === 'cooling') signals.push({ text: `Cooling toward ${b.id} as conversation progresses`, valence: -1, color: '#3366FF' });
+      } else {
+        // Fallback trend from overall history
+        const chunkSz = Math.max(1, Math.floor(aSt.messages.length / 5));
+        const aSentHistory = [];
+        for (let c = 0; c < 5; c++) {
+          const sl = aSt.messages.slice(c*chunkSz,(c+1)*chunkSz);
+          aSentHistory.push(sl.length > 0 ? sl.reduce((acc,m)=>acc+m.score,0)/sl.length : 0);
+        }
+        const trendVal = aSentHistory.length >= 2 ? aSentHistory[aSentHistory.length-1] - aSentHistory[0] : 0;
+        trend = trendVal > 0.3 ? 'warming' : trendVal < -0.3 ? 'cooling' : 'stable';
+        trendHistory = aSentHistory.map(v => normalize(v, -2, 2));
+        if (trend === 'warming') signals.push({ text: `Overall tone warming over conversation`, valence: 1, color: '#FF8C42' });
+        if (trend === 'cooling') signals.push({ text: `Overall tone cooling over conversation`, valence: -1, color: '#3366FF' });
+      }
 
       score = Math.min(1, Math.max(0, score));
-      relationships[key] = { from: a.id, to: b.id, score, trend, signals, history: aSentHistory.map(v=>normalize(v,-2,2)) };
+      relationships[key] = { from: a.id, to: b.id, score, trend, signals, history: trendHistory, responsesCount: aResponsesToB.length };
     }
   }
 
@@ -1869,13 +2090,145 @@ function normalize(val, min, max) {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   NARRATIVE SUMMARY GENERATOR
+══════════════════════════════════════════════════════════════ */
+function generateNarrative(analysis) {
+  const { profiles, relationships } = analysis;
+  if (profiles.length < 2) return null;
+
+  const getName = (p) => p.name || p.rawName || p.id;
+
+  // Sort by overall warmth (avg sentiment + energy)
+  const byWarmth = [...profiles].sort((a, b) => (b.avgSentiment + b.energy) - (a.avgSentiment + a.energy));
+  const warmest = byWarmth[0];
+  const coldest = byWarmth[byWarmth.length - 1];
+
+  // Compute average outgoing warmth per person
+  const outgoingAvg = {};
+  profiles.forEach(p => {
+    const others = profiles.filter(o => o.id !== p.id);
+    const scores = others.map(o => relationships[`${p.id}→${o.id}`]?.score || 0.5);
+    outgoingAvg[p.id] = scores.reduce((s, v) => s + v, 0) / (scores.length || 1);
+  });
+
+  // Find strongest mutual bond
+  let strongestBond = null, strongestBondScore = 0;
+  for (let i = 0; i < profiles.length; i++) {
+    for (let j = i + 1; j < profiles.length; j++) {
+      const a = profiles[i], b = profiles[j];
+      const ab = relationships[`${a.id}→${b.id}`]?.score || 0.5;
+      const ba = relationships[`${b.id}→${a.id}`]?.score || 0.5;
+      const mutual = (ab + ba) / 2;
+      if (mutual > strongestBondScore) { strongestBondScore = mutual; strongestBond = { a, b, score: mutual }; }
+    }
+  }
+
+  // Find biggest one-sided asymmetry
+  let biggestAsymmetry = null, biggestGap = 0;
+  for (const a of profiles) {
+    for (const b of profiles) {
+      if (a.id === b.id) continue;
+      const ab = relationships[`${a.id}→${b.id}`]?.score || 0.5;
+      const ba = relationships[`${b.id}→${a.id}`]?.score || 0.5;
+      const gap = Math.abs(ab - ba);
+      if (gap > biggestGap && gap > 0.18) {
+        biggestGap = gap;
+        biggestAsymmetry = { warm: ab > ba ? a : b, cool: ab > ba ? b : a, warmScore: Math.max(ab,ba), coolScore: Math.min(ab,ba) };
+      }
+    }
+  }
+
+  // Who's most disengaged overall
+  const disengaged = [...profiles].sort((a, b) => outgoingAvg[a.id] - outgoingAvg[b.id])[0];
+  const exiters = profiles.filter(p => p.exitSignals > 0);
+  const avgEnergy = profiles.reduce((s, p) => s + p.energy, 0) / profiles.length;
+  const groupEnergy = avgEnergy > 0.65 ? 'high' : avgEnergy > 0.38 ? 'moderate' : 'low';
+
+  const parts = [];
+
+  // Warmest person
+  if (warmest && outgoingAvg[warmest.id] > 0.55) {
+    const traits = [];
+    if (warmest.questions >= 2) traits.push('asks questions');
+    if (warmest.inclusive >= 2) traits.push('uses inclusive language');
+    if (warmest.energy > 0.65) traits.push('high energy');
+    const traitStr = traits.length ? ' — ' + traits.join(', ') : '';
+    parts.push(`${getName(warmest)} is the warmest voice here${traitStr}.`);
+  }
+
+  // Strongest mutual bond
+  if (strongestBond && strongestBondScore > 0.62 && profiles.length >= 3) {
+    const bondDesc = strongestBondScore > 0.75 ? 'exceptionally strong connection' : 'strong mutual warmth';
+    parts.push(`${getName(strongestBond.a)} and ${getName(strongestBond.b)} share the ${bondDesc} in this group.`);
+  } else if (strongestBond && profiles.length === 2) {
+    const label = strongestBondScore > 0.68 ? 'genuinely warm' : strongestBondScore > 0.52 ? 'mostly balanced' : 'somewhat guarded';
+    parts.push(`The dynamic between ${getName(strongestBond.a)} and ${getName(strongestBond.b)} reads as ${label}.`);
+  }
+
+  // Most disengaged (only if notably cold and different from warmest)
+  if (disengaged && disengaged.id !== warmest.id && outgoingAvg[disengaged.id] < 0.46) {
+    const coldTraits = [];
+    if (disengaged.questions === 0) coldTraits.push('asks no questions');
+    if (disengaged.avgLen < 6) coldTraits.push('very short replies');
+    if (disengaged.exitSignals > 0) coldTraits.push('exit language');
+    const coldStr = coldTraits.length ? ' — ' + coldTraits.join(', ') : '';
+    parts.push(`${getName(disengaged)} is the most checked out${coldStr}.`);
+
+    // Who they're coldest toward
+    const coldestTarget = profiles
+      .filter(p => p.id !== disengaged.id)
+      .sort((a, b) => (relationships[`${disengaged.id}→${a.id}`]?.score || 0.5) - (relationships[`${disengaged.id}→${b.id}`]?.score || 0.5))[0];
+    if (coldestTarget) {
+      const targetScore = relationships[`${disengaged.id}→${coldestTarget.id}`]?.score || 0.5;
+      if (targetScore < 0.38) {
+        parts.push(`They're especially cold toward ${getName(coldestTarget)}, barely acknowledging them.`);
+      }
+    }
+  }
+
+  // Biggest asymmetry
+  if (biggestAsymmetry && biggestGap > 0.22) {
+    parts.push(`Biggest mismatch: ${getName(biggestAsymmetry.warm)} is significantly warmer toward ${getName(biggestAsymmetry.cool)} than they get in return.`);
+  }
+
+  // Exit signals
+  if (exiters.length === 1) {
+    parts.push(`${getName(exiters[0])} is using exit language — they may be ready to wrap up.`);
+  } else if (exiters.length > 1) {
+    parts.push(`Exit language from ${exiters.map(getName).join(' and ')} — the conversation is winding down.`);
+  }
+
+  // Group energy
+  const energyLine = groupEnergy === 'high' ? 'Group energy is high — this is an engaged conversation.'
+    : groupEnergy === 'moderate' ? 'Group energy is moderate overall.'
+    : 'Group energy is low — the conversation feels flat or forced.';
+  parts.push(energyLine);
+
+  return parts.join(' ');
+}
+
+/* ══════════════════════════════════════════════════════════════
    READER VIEW
 ══════════════════════════════════════════════════════════════ */
 function renderReader() {
   const body = document.getElementById('reader-body');
   if (!state.analysis) return;
   const { profiles } = state.analysis;
-  body.innerHTML = '<div class="reader-info-bar">Tap a speaker bar for their full profile &nbsp;·&nbsp; Tap the colored circles to see relationships &nbsp;·&nbsp; Select multiple circles for group dynamics</div>';
+  body.innerHTML = '';
+
+  // Narrative summary card
+  const narrative = generateNarrative(state.analysis);
+  if (narrative) {
+    const card = document.createElement('div');
+    card.className = 'narrative-card';
+    card.innerHTML = `<div class="narrative-card-label">Social Read</div><div class="narrative-card-text">${narrative}</div>`;
+    body.appendChild(card);
+  }
+
+  const infoBar = document.createElement('div');
+  infoBar.className = 'reader-info-bar';
+  infoBar.textContent = 'Tap a speaker bar for their full profile · Tap the colored circles to see relationships';
+  body.appendChild(infoBar);
 
   profiles.forEach((profile, idx) => {
     const others = profiles.filter(p => p.id !== profile.id);
@@ -2510,6 +2863,97 @@ function startFromLanding() {
 
   document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 })();
+
+/* ══════════════════════════════════════════════════════════════
+   DEMO CONVERSATION
+══════════════════════════════════════════════════════════════ */
+const DEMO_TEXT = `[2:30 PM] Alice: Hey everyone! So excited about the trip next weekend 😊
+[2:31 PM] Bob: Yeah should be fun
+[2:32 PM] Carol: OMG yes!! I've been looking forward to this all month. Alice, your idea to go to the coast was brilliant
+[2:32 PM] Alice: Aww thanks Carol! I found this amazing restaurant we HAVE to try
+[2:33 PM] Bob: Sure whatever works
+[2:33 PM] Carol: Yes!! Send me the link! Bob, are you bringing Sarah?
+[2:34 PM] Bob: Idk maybe
+[2:34 PM] Alice: That would be great if she came! The more the merrier
+[2:35 PM] Bob: We'll see
+[2:35 PM] Carol: Alice do you still have that playlist from last time? It was so good
+[2:36 PM] Alice: Haha yes! I'll share it tonight. I added some new songs too
+[2:36 PM] Carol: You always have the best music taste honestly
+[2:37 PM] Bob: Are we done planning? I have stuff to do
+[2:37 PM] Alice: Oh sure! Sorry Bob, didn't mean to keep you. Talk later?
+[2:38 PM] Bob: Yeah later
+[2:38 PM] Carol: Bye Bob! Alice want to keep chatting about the restaurant?
+[2:39 PM] Alice: Absolutely! So I was thinking we could do lunch there Saturday and then...`;
+
+function loadDemo() {
+  const ta = document.getElementById('paste-textarea');
+  ta.value = DEMO_TEXT;
+  onPasteInput(ta);
+  showToast('Demo loaded — tap Analyze →');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SHARE / EXPORT
+══════════════════════════════════════════════════════════════ */
+function buildShareText() {
+  if (!state.analysis) return 'No analysis yet.';
+  const { profiles, relationships } = state.analysis;
+  const getName = (p) => p.name || p.rawName || p.id;
+  const lines = ['🔥❄️ Hot/Cold — Social Dynamic Read', ''];
+
+  const narrative = generateNarrative(state.analysis);
+  if (narrative) { lines.push(narrative, ''); }
+
+  lines.push('── Relationship Scores ──');
+  profiles.forEach(a => {
+    profiles.forEach(b => {
+      if (a.id === b.id) return;
+      const rel = relationships[`${a.id}→${b.id}`];
+      if (!rel) return;
+      const pct = Math.round(rel.score * 100);
+      const bar = pct >= 65 ? '🔥' : pct >= 52 ? '⚡' : pct >= 42 ? '→' : '❄️';
+      lines.push(`${bar} ${getName(a)} → ${getName(b)}: ${pct}%`);
+    });
+  });
+
+  lines.push('');
+  lines.push('── Key Signals ──');
+  profiles.forEach(p => {
+    const tags = [];
+    if (p.energy > 0.7) tags.push('high energy');
+    if (p.energy < 0.3) tags.push('disengaged');
+    if (p.exitSignals > 0) tags.push('exit language');
+    if (p.questions > 2) tags.push(`${p.questions} questions asked`);
+    if (p.trend === 'Rising') tags.push('warming up');
+    if (p.trend === 'Falling') tags.push('cooling down');
+    if (tags.length) lines.push(`${getName(p)}: ${tags.join(', ')}`);
+  });
+
+  lines.push('', '— analyzed with Hot/Cold (on-device, private)');
+  return lines.join('\n');
+}
+
+async function shareAnalysis() {
+  if (!state.analysis) { showToast('Nothing to share yet'); return; }
+  const text = buildShareText();
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: 'Hot/Cold Analysis', text });
+      return;
+    } catch (e) {
+      // user cancelled or not supported — fall through to clipboard
+      if (e.name === 'AbortError') return;
+    }
+  }
+  // Clipboard fallback
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast('Copied to clipboard');
+  } catch (e) {
+    // Final fallback: prompt
+    prompt('Copy this summary:', text);
+  }
+}
 
 /* ══════════════════════════════════════════════════════════════
    INIT
