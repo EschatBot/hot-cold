@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Hot/Cold — Social Intelligence Suite</title>
+<title>Max-Social — Social Intelligence Suite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -12,16 +12,19 @@
    ================================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a0a0a;--bg2:#111;--bg3:#1a1a1a;
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#1a1a1a;
   --text:#fff;--dim:rgba(255,255,255,.62);--muted:rgba(255,255,255,.35);
-  --border:rgba(255,255,255,.13);--bw:2.5px;--r:14px;--rs:8px;
-  --hot:#FF3B30;--cold:#007AFF;--pitch:#FFD700;--pulse:#FF69B4;
+  --border:rgba(255,255,255,.13);--bw:3px;--r:14px;--rs:8px;
+  --hot:#FF2D2D;--cold:#0A84FF;--pitch:#FFD700;--pulse:#FF69B4;
   --meeting:#BF5FFF;--mood:#00E5FF;--sandbox:#00CC66;
   --glass:rgba(255,255,255,.04);--gb:rgba(255,255,255,.10);--gh:rgba(255,255,255,.08);
 }
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;
   font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E");
+  opacity:0.025;mix-blend-mode:overlay}
 .screen{display:none;min-height:100dvh;width:100%;position:relative}
 .screen.active{display:block;animation:screenIn .35s cubic-bezier(.34,1.56,.64,1)}
 @keyframes screenIn{from{opacity:0;transform:translateY(18px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -33,15 +36,17 @@ p{color:var(--dim)}
   padding:13px 26px;border-radius:var(--r);font-family:inherit;font-size:15px;
   font-weight:700;cursor:pointer;border:var(--bw) solid currentColor;
   transition:all .2s cubic-bezier(.34,1.56,.64,1);text-decoration:none;
-  white-space:nowrap;-webkit-user-select:none;user-select:none;background:none}
-.btn:active{transform:scale(.93)}
-.btn-primary{background:var(--hot);color:#000;border-color:var(--hot)}
-.btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
-.btn-ghost:hover{background:var(--glass)}
+  white-space:nowrap;-webkit-user-select:none;user-select:none;
+  background-color:transparent;background-image:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,transparent 50%)}
+.btn:active{transform:scale(.92)}
+.btn-primary{background-color:var(--hot);background-image:linear-gradient(180deg,rgba(255,255,255,0.12) 0%,transparent 50%);color:#000;border-color:var(--hot)}
+.btn-ghost{background-color:transparent;background-image:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,transparent 50%);color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{background-color:var(--glass)}
 .btn-sm{padding:8px 16px;font-size:13px;border-radius:var(--rs);border-width:2px}
 .btn-lg{padding:17px 36px;font-size:17px}
 .glass{background:var(--glass);border:var(--bw) solid var(--gb);border-radius:var(--r);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 2px 8px rgba(0,0,0,0.3),0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.05)}
 .hidden{display:none!important}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:2px}
@@ -76,7 +81,7 @@ p{color:var(--dim)}
 .live-dot{width:7px;height:7px;border-radius:50%;background:var(--sandbox);
   animation:livePulse 2s ease-in-out infinite}
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero-title{font-size:clamp(2.4rem,10vw,5.2rem);font-weight:900;line-height:1.04;
+.hero-title{font-size:clamp(2.5rem,10vw,5rem);font-weight:900;line-height:1.04;
   margin-bottom:14px;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.65) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:clamp(.95rem,3vw,1.25rem);color:var(--dim);max-width:460px;
@@ -93,11 +98,10 @@ p{color:var(--dim)}
   color:var(--hot);margin-bottom:10px;display:block}
 .ls h2{margin-bottom:10px}
 .ls > p{margin-bottom:24px}
-.hd{height:3px;background:transparent;position:relative;overflow:hidden;margin:0}
-.hd::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,var(--hot),var(--cold),var(--pitch),var(--pulse),var(--meeting),var(--mood),var(--sandbox));
-  animation:hdSlide 4s linear infinite}
-@keyframes hdSlide{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.hd{height:1px;background:var(--gb);position:relative;margin:48px 0}
+.hd::after{content:"◆";position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);background:var(--bg);
+  padding:0 12px;color:var(--muted);font-size:10px}
 .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
 @media(min-width:600px){.tools-grid{grid-template-columns:repeat(3,1fr)}}
 .tool-card{padding:18px;border-radius:var(--r);border:var(--bw) solid var(--gb);
@@ -154,12 +158,14 @@ p{color:var(--dim)}
 .hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:520px}
 @media(min-width:600px){.hub-grid{grid-template-columns:repeat(3,1fr)}}
 .mode-card{position:relative;padding:20px 15px 15px;border-radius:var(--r);
-  border:var(--bw) solid var(--gb);background:var(--glass);cursor:pointer;overflow:hidden;
-  transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s,background .2s;
-  -webkit-user-select:none;user-select:none}
+  border:var(--bw) solid var(--gb);background:var(--glass);cursor:pointer;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s,background .2s,box-shadow .2s;
+  -webkit-user-select:none;user-select:none;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3),0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.05)}
 .mode-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:var(--cc);border-radius:var(--r) var(--r) 0 0}
-.mode-card:not(.cs):hover{border-color:var(--cc);background:var(--gh);transform:scale(1.02)}
+.mode-card:not(.cs):hover{border-color:var(--cc);background:var(--gh);transform:scale(1.02);
+  box-shadow:0 0 0 1px var(--cc),0 0 28px var(--cc),0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08)}
 .mode-card:not(.cs):active{transform:scale(.91)}
 .mode-card.cs{opacity:.52;cursor:default}
 .mc-icon{font-size:30px;margin-bottom:9px;display:block;line-height:1}
@@ -255,13 +261,15 @@ p{color:var(--dim)}
 .vtab.act{background:var(--hot);color:#000}
 .tab-panel{display:none}.tab-panel.act{display:block}
 .spk-bars{display:flex;flex-direction:column;gap:11px}
-.spk-bar{display:flex;flex-direction:column;gap:7px;padding:13px;border-radius:var(--r);
-  border:var(--bw) solid var(--gb);background:var(--glass);cursor:pointer;transition:border-color .2s}
+.spk-bar{display:flex;flex-direction:column;gap:7px;padding:16px;border-radius:var(--r);
+  border:var(--bw) solid var(--gb);border-left:4px solid var(--sc,var(--hot));
+  background:var(--glass);cursor:pointer;transition:border-color .2s;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3),0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.05)}
 .spk-bar:hover{border-color:var(--sc,var(--hot))}
 .bar-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.spk-label{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:800}
+.spk-label{display:flex;align-items:center;gap:7px;font-size:16px;font-weight:800}
 .spk-dot{width:9px;height:9px;border-radius:50%;background:var(--sc)}
-.spk-score-val{font-size:22px;font-weight:900}
+.spk-score-val{font-size:20px;font-weight:900}
 .bar-track{height:5px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
 .bar-fill{height:100%;border-radius:100px;transition:width .9s cubic-bezier(.34,1.56,.64,1)}
 .bar-stats{display:flex;gap:7px;flex-wrap:wrap}
@@ -275,7 +283,9 @@ p{color:var(--dim)}
 .wxc-hline{position:absolute;height:1px;left:0;right:0;top:50%;background:rgba(255,255,255,.1)}
 .wxc-vline{position:absolute;width:1px;top:0;bottom:0;left:50%;background:rgba(255,255,255,.1)}
 .wxc-dot{position:absolute;width:9px;height:9px;border-radius:50%;
-  transform:translate(-50%,-50%);transition:all .7s cubic-bezier(.34,1.56,.64,1)}
+  transform:translate(-50%,-50%);transition:left .7s cubic-bezier(.34,1.56,.64,1),top .7s cubic-bezier(.34,1.56,.64,1);
+  animation:wxcPulse 2s ease-in-out infinite}
+@keyframes wxcPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}50%{box-shadow:0 0 8px 4px rgba(255,255,255,0.15)}}
 .wxc-info{display:flex;flex-direction:column;gap:3px}
 .wxc-labels{font-size:9px;color:var(--muted)}
 .acts-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
@@ -296,10 +306,10 @@ p{color:var(--dim)}
 .net-wrap{border-radius:var(--r);border:var(--bw) solid var(--gb);background:var(--glass);overflow:hidden}
 .net-canvas{display:block;width:100%;touch-action:none}
 .rel-panel{position:fixed;bottom:0;left:0;right:0;max-height:72vh;
-  background:rgba(18,18,18,.98);border-top:var(--bw) solid var(--gb);
+  background:rgba(10,10,10,.96);border-top:var(--bw) solid var(--gb);
   border-radius:var(--r) var(--r) 0 0;z-index:300;
-  transform:translateY(100%);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
-  overflow:hidden;backdrop-filter:blur(16px)}
+  transform:translateY(100%);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+  overflow:hidden;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 .rel-panel.open{transform:translateY(0)}
 .rp-handle{height:20px;display:flex;align-items:center;justify-content:center;cursor:pointer}
 .rp-handle::before{content:'';width:34px;height:4px;border-radius:2px;background:var(--gb)}
@@ -420,6 +430,22 @@ p{color:var(--dim)}
   0%,100%{transform:translate(0,0) scale(1)}
   33%{transform:translate(-20px,30px) scale(1.06)}
   66%{transform:translate(15px,-20px) scale(0.96)}}
+
+/* ================================================================
+   MAX-SOCIAL BRAND + CUPHEAD DESIGN SYSTEM
+   ================================================================ */
+.ms-logo{font-weight:900;letter-spacing:0.15em;color:var(--text);
+  text-shadow:0 0 20px rgba(255,45,45,0.4);text-transform:uppercase}
+.hero-brand{font-size:clamp(0.65rem,2.5vw,0.85rem);font-weight:900;letter-spacing:0.28em;
+  color:var(--hot);text-transform:uppercase;margin-bottom:12px;
+  text-shadow:0 0 24px rgba(255,45,45,0.7)}
+.hub-brand{font-size:clamp(1.5rem,6vw,2.2rem);font-weight:900;letter-spacing:0.2em;
+  color:var(--text);text-shadow:0 0 28px rgba(255,45,45,0.3);text-transform:uppercase;
+  line-height:1;margin-bottom:6px}
+.hub-suite{font-size:11px;font-weight:600;letter-spacing:0.12em;
+  color:var(--muted);text-transform:uppercase;margin-top:0}
+.wxc-ql{position:absolute;font-size:5.5px;color:rgba(255,255,255,0.2);
+  line-height:1;pointer-events:none;font-weight:600}
 </style>
 </head>
 <body>
@@ -427,9 +453,7 @@ p{color:var(--dim)}
 <!-- LANDING PAGE -->
 <div id="screen-landing" class="screen active">
   <nav class="landing-nav">
-    <span class="nav-logo" onclick="showScreen('landing')">
-      <span class="logo-hot">Hot</span>/<span class="logo-cold">Cold</span>
-    </span>
+    <span class="nav-logo ms-logo" onclick="showScreen('landing')">MAX-SOCIAL</span>
     <button class="btn btn-primary btn-sm" onclick="showScreen('hub')">Open App &#8594;</button>
   </nav>
   <section class="hero">
@@ -439,6 +463,7 @@ p{color:var(--dim)}
     </div>
     <div class="hero-content">
       <div class="hero-badge"><span class="live-dot"></span>Free &middot; Private &middot; Research-Backed</div>
+      <div class="hero-brand">MAX-SOCIAL</div>
       <h1 class="hero-title">Social Intelligence.<br>In Your Browser.</h1>
       <p class="hero-sub">Six tools for reading people. All free. All private. All research-backed.</p>
       <div class="hero-cta">
@@ -534,11 +559,11 @@ p{color:var(--dim)}
 <div id="screen-hub" class="screen">
   <nav class="top-nav">
     <button class="nav-back" onclick="showScreen('landing')">&#8592;</button>
-    <span style="font-weight:900;font-size:16px"><span class="logo-hot">Hot</span>/<span class="logo-cold">Cold</span></span>
+    <span class="ms-logo" style="font-size:15px">MAX-SOCIAL</span>
   </nav>
   <div class="hub-hdr">
-    <h1>Choose a Mode</h1>
-    <p>Six tools for social intelligence</p>
+    <div class="hub-brand">MAX-SOCIAL</div>
+    <p class="hub-suite">Social Intelligence Suite</p>
   </div>
   <div class="hub-grid">
     <div class="mode-card" style="--cc:var(--hot)" onclick="enterMode('social-reader')">
@@ -1244,6 +1269,8 @@ function renderOverview(result){
       '<div class="bar-track"><div class="bar-fill" style="width:'+pct+'%;background:'+bgc+'"></div></div>'+
       '<div class="wxc-row">'+
         '<div class="wxc-plot"><div class="wxc-hline"></div><div class="wxc-vline"></div>'+
+          '<div class="wxc-ql" style="top:2px;left:2px">W+A</div><div class="wxc-ql" style="top:2px;right:2px;left:auto">C+A</div>'+
+          '<div class="wxc-ql" style="bottom:2px;left:2px;top:auto">W+R</div><div class="wxc-ql" style="bottom:2px;right:2px;top:auto;left:auto">C+R</div>'+
           '<div class="wxc-dot" style="background:'+col+';left:'+wx.w+'%;top:'+(100-wx.c)+'%"></div></div>'+
         '<div class="wxc-info"><div class="wxc-labels">W: '+wx.w+'% &middot; C: '+wx.c+'%<br><span style="font-size:9px;color:var(--muted)">'+quad+'</span></div>'+
           '<div class="acts-row">'+acts+'</div></div>'+
@@ -1442,6 +1469,8 @@ function showRelPanel(spk,idx){
         '<div style="font-size:11px;color:var(--muted);margin-top:4px">Overall Sentiment</div></div>'+
       '<div style="flex:1"><div style="display:flex;gap:10px;align-items:center">'+
         '<div class="wxc-plot" style="width:68px;height:68px"><div class="wxc-hline"></div><div class="wxc-vline"></div>'+
+          '<div class="wxc-ql" style="top:2px;left:2px">W+A</div><div class="wxc-ql" style="top:2px;right:2px;left:auto">C+A</div>'+
+          '<div class="wxc-ql" style="bottom:2px;left:2px;top:auto">W+R</div><div class="wxc-ql" style="bottom:2px;right:2px;top:auto;left:auto">C+R</div>'+
           '<div class="wxc-dot" style="background:'+col+';left:'+wx.w+'%;top:'+(100-wx.c)+'%"></div></div>'+
         '<div><div style="font-size:13px;font-weight:700">'+quad+'</div>'+
           '<div style="font-size:11px;color:var(--muted)">W: '+wx.w+'% &middot; C: '+wx.c+'%</div></div>'+
@@ -1459,6 +1488,13 @@ document.addEventListener('click',e=>{
   const p=document.getElementById('relPanel');
   if(p&&p.classList.contains('open')&&!p.contains(e.target)&&!e.target.closest('.spk-bar')&&!e.target.closest('#netCv'))closeRelPanel();
 });
+(function(){
+  let sy=0,drag=false;
+  const gp=()=>document.getElementById('relPanel');
+  document.addEventListener('touchstart',e=>{const p=gp();if(!p||!p.classList.contains('open'))return;if(p.contains(e.target)){sy=e.touches[0].clientY;drag=true;}},{passive:true});
+  document.addEventListener('touchmove',e=>{if(!drag)return;const dy=e.touches[0].clientY-sy;if(dy>0){const p=gp();p.style.transform='translateY('+dy+'px)';}},{passive:true});
+  document.addEventListener('touchend',e=>{if(!drag)return;drag=false;const p=gp();if(!p)return;const dy=e.changedTouches[0].clientY-sy;p.style.transform='';if(dy>80)closeRelPanel();},{passive:true});
+})();
 
 /* ================================================================
    HUD
@@ -1509,7 +1545,7 @@ function toggleHUD(){
 function shareResults(){
   if(!S.analysis)return;
   const{speakers,speakerData}=S.analysis;
-  let text='Hot/Cold Social Reader\n\n';
+  let text='Max-Social \u2014 Social Intelligence Suite\n\n';
   speakers.forEach(s=>{const d=speakerData[s];text+=s+': '+(d.compound>=0?'+':'')+d.compound.toFixed(2)+' (W:'+Math.round(d.warmth*100)+'% C:'+Math.round(d.competence*100)+'%)\n';});
   text+='\nhot-cold.app';
   if(navigator.share)navigator.share({title:'Social Reader',text}).catch(()=>{});
