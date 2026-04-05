@@ -24,7 +24,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sa
   font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 .screen{display:none;min-height:100dvh;width:100%;position:relative}
 .screen.active{display:block;animation:screenIn .35s cubic-bezier(.34,1.56,.64,1)}
-@keyframes screenIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes screenIn{from{opacity:0;transform:translateY(18px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 h1{font-size:clamp(2rem,8vw,4rem);font-weight:900;line-height:1.08}
 h2{font-size:clamp(1.4rem,5vw,2.4rem);font-weight:800;line-height:1.15}
 h3{font-size:clamp(1rem,3vw,1.4rem);font-weight:700}
@@ -159,7 +159,7 @@ p{color:var(--dim)}
   -webkit-user-select:none;user-select:none}
 .mode-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:var(--cc);border-radius:var(--r) var(--r) 0 0}
-.mode-card:not(.cs):hover{border-color:var(--cc);background:var(--gh)}
+.mode-card:not(.cs):hover{border-color:var(--cc);background:var(--gh);transform:scale(1.02)}
 .mode-card:not(.cs):active{transform:scale(.91)}
 .mode-card.cs{opacity:.52;cursor:default}
 .mc-icon{font-size:30px;margin-bottom:9px;display:block;line-height:1}
@@ -313,7 +313,10 @@ p{color:var(--dim)}
   color:var(--dim);line-height:1.75;font-style:italic}
 .narrative::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
   border-radius:var(--r) 0 0 var(--r);
-  background:linear-gradient(to bottom,var(--hot),var(--cold))}
+  background:linear-gradient(to bottom,var(--hot),var(--cold),var(--hot));
+  background-size:100% 200%;background-position:0% 0%;
+  animation:narrativeShimmer 4s ease-in-out infinite}
+@keyframes narrativeShimmer{0%,100%{background-position:0% 0%}50%{background-position:0% 100%}}
 .score-legend{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
   padding:10px 12px;border-radius:var(--rs);background:var(--glass);border:1px solid var(--gb)}
 .leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--dim)}
@@ -377,6 +380,46 @@ p{color:var(--dim)}
   .sr-analysis,.sr-input{max-width:700px;margin-left:auto;margin-right:auto;
     padding-left:22px;padding-right:22px}
 }
+
+/* ================================================================
+   TOAST
+   ================================================================ */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:#1a1a1a;border:2px solid var(--hot);color:var(--text);
+  padding:12px 22px;border-radius:12px;font-size:13px;font-weight:700;
+  opacity:0;pointer-events:none;z-index:2000;transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  backdrop-filter:blur(12px);max-width:90vw;text-align:center}
+.toast.vis{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ================================================================
+   MICRO-INTERACTIONS
+   ================================================================ */
+.btn:hover,.btn:focus-visible{box-shadow:0 0 20px rgba(255,255,255,0.12)}
+.btn-primary:hover,.btn-primary:focus-visible{box-shadow:0 0 20px rgba(255,59,48,0.28)}
+@keyframes barIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.spk-bars .spk-bar{animation:barIn .4s cubic-bezier(.34,1.56,.64,1) both}
+.spk-bars .spk-bar:nth-child(1){animation-delay:0s}
+.spk-bars .spk-bar:nth-child(2){animation-delay:.08s}
+.spk-bars .spk-bar:nth-child(3){animation-delay:.16s}
+.spk-bars .spk-bar:nth-child(4){animation-delay:.24s}
+.spk-bars .spk-bar:nth-child(5){animation-delay:.32s}
+.spk-bars .spk-bar:nth-child(6){animation-delay:.40s}
+.spk-bars .spk-bar:nth-child(7){animation-delay:.48s}
+.spk-bars .spk-bar:nth-child(8){animation-delay:.56s}
+@keyframes tabIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.tab-panel.act{animation:tabIn .25s ease both}
+
+/* ================================================================
+   AMBIENT ORB (Social Reader)
+   ================================================================ */
+.sr-ambient-orb{position:fixed;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,59,48,0.05) 0%,transparent 70%);
+  top:8%;right:-60px;z-index:0;pointer-events:none;
+  animation:orbDrift 20s ease-in-out infinite}
+@keyframes orbDrift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(-20px,30px) scale(1.06)}
+  66%{transform:translate(15px,-20px) scale(0.96)}}
 </style>
 </head>
 <body>
@@ -503,31 +546,31 @@ p{color:var(--dim)}
       <div class="mc-name">Social Reader</div>
       <div class="mc-tag">Read the Room</div>
     </div>
-    <div class="mode-card cs" style="--cc:var(--pitch)">
+    <div class="mode-card cs" style="--cc:var(--pitch)" onclick="showToast('Coming soon \u2014 stay tuned!')">
       <span class="cs-badge">Soon</span>
       <span class="mc-icon">&#127908;</span>
       <div class="mc-name">Pitch Coach</div>
       <div class="mc-tag">Sound Like a Leader</div>
     </div>
-    <div class="mode-card cs" style="--cc:var(--pulse)">
+    <div class="mode-card cs" style="--cc:var(--pulse)" onclick="showToast('Coming soon \u2014 stay tuned!')">
       <span class="cs-badge">Soon</span>
       <span class="mc-icon">&#128149;</span>
       <div class="mc-name">Rel. Pulse</div>
       <div class="mc-tag">Check Your Temperature</div>
     </div>
-    <div class="mode-card cs" style="--cc:var(--meeting)">
+    <div class="mode-card cs" style="--cc:var(--meeting)" onclick="showToast('Coming soon \u2014 stay tuned!')">
       <span class="cs-badge">Soon</span>
       <span class="mc-icon">&#128084;</span>
       <div class="mc-name">Meeting Intel</div>
       <div class="mc-tag">Who Has Power?</div>
     </div>
-    <div class="mode-card cs" style="--cc:var(--mood)">
+    <div class="mode-card cs" style="--cc:var(--mood)" onclick="showToast('Coming soon \u2014 stay tuned!')">
       <span class="cs-badge">Soon</span>
       <span class="mc-icon">&#129504;</span>
       <div class="mc-name">Mood Mirror</div>
       <div class="mc-tag">How Do You Sound?</div>
     </div>
-    <div class="mode-card cs" style="--cc:var(--sandbox)">
+    <div class="mode-card cs" style="--cc:var(--sandbox)" onclick="showToast('Coming soon \u2014 stay tuned!')">
       <span class="cs-badge">Soon</span>
       <span class="mc-icon">&#127918;</span>
       <div class="mc-name">Social Sandbox</div>
@@ -538,8 +581,9 @@ p{color:var(--dim)}
 
 <!-- SOCIAL READER -->
 <div id="screen-social-reader" class="screen">
+  <div class="sr-ambient-orb"></div>
   <header class="sr-hdr">
-    <button class="sr-back" onclick="showScreen('hub')">&#8592;</button>
+    <button class="sr-back" onclick="showScreen('hub')" style="border-radius:var(--rs);width:auto;padding:0 10px;font-size:12px;font-weight:700;gap:4px">&#8592; Suite</button>
     <div class="sr-title">&#128293;&#10052;&#65039; Social Reader</div>
     <button class="demo-tog" onclick="loadDemo()">Demo</button>
     <button class="hud-tog" id="hudTogBtn" onclick="toggleHUD()">HUD</button>
@@ -626,6 +670,8 @@ p{color:var(--dim)}
     </div>
   </div>
 </div>
+
+<div class="toast" id="toastEl"></div>
 
 <script>
 /* ================================================================
@@ -1126,7 +1172,7 @@ function analyzeConversation(){
   let raw=S.captureMode==='paste'
     ?document.getElementById('pasteTA').value.trim()
     :S.liveMessages.map(m=>m.speaker+': '+m.text).join('\n');
-  if(!raw){alert('Please paste a conversation or record speech first.');return;}
+  if(!raw){showToast('Paste a conversation first, or try the demo!');return;}
   document.getElementById('srInputPhase').style.display='none';
   const a=document.getElementById('srAnalysis');
   a.innerHTML='<div class="analysis-loading"><div class="spinner"></div><p>Analyzing conversation...</p></div>';
@@ -1181,6 +1227,7 @@ function renderOverview(result){
   speakers.forEach((spk,idx)=>{
     const d=speakerData[spk];const col=getSC(idx);const sc=d.compound;
     const scol=sc>0.15?'var(--hot)':sc<-0.15?'var(--cold)':'#888';
+    const sshadow=sc>0.15?'0 0 8px rgba(255,59,48,0.3)':sc<-0.15?'0 0 8px rgba(0,122,255,0.3)':'none';
     const bgc=sc>0.15?'var(--hot)':sc<-0.15?'var(--cold)':'#555';
     const pct=((sc+1)/2*100).toFixed(0);
     const wx={w:(d.warmth*100).toFixed(0),c:(d.competence*100).toFixed(0)};
@@ -1191,8 +1238,8 @@ function renderOverview(result){
     const spkE=spk.replace(/'/g,"\\'");
     h+='<div class="spk-bar" style="--sc:'+col+'" onclick="showRelPanel(\''+spkE+'\','+idx+')">'+
       '<div class="bar-top">'+
-        '<div class="spk-label"><div class="spk-dot" style="background:'+col+'"></div><span>'+esc(spk)+'</span></div>'+
-        '<span class="spk-score-val" style="color:'+scol+'">'+(sc>=0?'+':'')+sc.toFixed(2)+'</span>'+
+        '<div class="spk-label"><div class="spk-dot" style="background:'+col+';box-shadow:0 0 8px '+col+'4d"></div><span>'+esc(spk)+'</span></div>'+
+        '<span class="spk-score-val" style="color:'+scol+';text-shadow:'+sshadow+'">'+(sc>=0?'+':'')+sc.toFixed(2)+'</span>'+
       '</div>'+
       '<div class="bar-track"><div class="bar-fill" style="width:'+pct+'%;background:'+bgc+'"></div></div>'+
       '<div class="wxc-row">'+
@@ -1476,7 +1523,7 @@ function shareResults(){
 function toggleRecording(){S.recording?stopRecording():startRecording();}
 function startRecording(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){alert('Speech recognition not supported. Use Chrome or Edge, or try Paste mode.');return;}
+  if(!SR){showToast('Speech recognition not supported in this browser. Try Chrome or paste text instead.');return;}
   const rec=new SR();rec.continuous=true;rec.interimResults=true;rec.lang='en-US';
   S.mediaRec=rec;S.recording=true;
   document.getElementById('recBtn').classList.add('recording');
@@ -1537,6 +1584,15 @@ function showTourStep(i){
 function nextTourStep(){const steps=TOURS[TS.mode];if(TS.step>=steps.length-1)endTour();else showTourStep(TS.step+1);}
 function skipTour(){endTour();}
 function endTour(){document.getElementById('tourWrap').classList.remove('act');if(TS.mode)localStorage.setItem('hc-tour-'+TS.mode,'1');}
+
+/* ================================================================
+   TOAST
+   ================================================================ */
+function showToast(msg){
+  const t=document.getElementById('toastEl');if(!t)return;
+  t.textContent=msg;t.classList.add('vis');
+  clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('vis'),2500);
+}
 
 /* ================================================================
    UTILITIES
