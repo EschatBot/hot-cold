@@ -308,8 +308,12 @@ p{color:var(--dim)}
 .rp-score-big{font-size:48px;font-weight:900;line-height:1}
 .ev-item{font-size:12px;color:var(--dim);padding:9px 12px;border-radius:var(--rs);
   border:1.5px solid var(--gb);background:var(--glass);font-style:italic;margin-top:5px}
-.narrative{padding:14px;border-radius:var(--r);border:var(--bw) solid var(--gb);
-  background:var(--glass);font-size:13px;color:var(--dim);line-height:1.75;font-style:italic}
+.narrative{position:relative;padding:20px 18px 20px 22px;border-radius:var(--r);
+  border:var(--bw) solid var(--gb);background:var(--glass);font-size:14px;
+  color:var(--dim);line-height:1.75;font-style:italic}
+.narrative::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+  border-radius:var(--r) 0 0 var(--r);
+  background:linear-gradient(to bottom,var(--hot),var(--cold))}
 .score-legend{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
   padding:10px 12px;border-radius:var(--rs);background:var(--glass);border:1px solid var(--gb)}
 .leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--dim)}
@@ -364,11 +368,9 @@ p{color:var(--dim)}
 .tdot{width:6px;height:6px;border-radius:50%;background:var(--gb);transition:background .2s}
 .tdot.act{background:var(--hot)}
 .tour-btns{display:flex;gap:7px}
+.spinner{width:36px;height:36px;border:3px solid var(--gb);border-top-color:var(--hot);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.spinner{width:24px;height:24px;border:3px solid var(--gb);border-top-color:var(--hot);
-  border-radius:50%;animation:spin .8s linear infinite}
-.analysis-loading{display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:14px;padding:56px 20px;text-align:center}
+.analysis-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px;color:var(--muted);font-size:13px}
 .analysis-loading p{font-size:14px;color:var(--dim);animation:loadPulse 1.5s ease infinite}
 @keyframes loadPulse{0%,100%{opacity:.45}50%{opacity:1}}
 @media(min-width:768px){
@@ -573,6 +575,7 @@ p{color:var(--dim)}
       </div>
       <div class="paste-area vis" id="pasteArea">
         <textarea class="paste-ta" id="pasteTA" placeholder="Paste your conversation here...&#10;&#10;Format:&#10;Alice: Hey, how are you?&#10;Bob: Great! How about you?&#10;&#10;Supports WhatsApp, iMessage, Slack,&#10;or any Name: Message format."></textarea>
+        <button class="btn btn-ghost btn-sm" style="align-self:center;border-color:var(--pitch);color:var(--pitch)" onclick="loadDemo()">&#9654; Try Demo</button>
         <div class="paste-hint">Supports WhatsApp, iMessage, Slack exports, or simple Name: Message format</div>
       </div>
       <div class="live-area" id="liveArea">
@@ -929,17 +932,19 @@ function trackContagion(messages){
 function parseConversation(text){
   const lines=text.split('\n').map(l=>l.trim()).filter(Boolean);
   const msgs=[];
+  const waPats=[
+    {re:/^\[?(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}),?\s+(\d{1,2}:\d{2}(?::\d{2})?\s*[AP]?M?)\]?\s*[-\u2013]?\s*([A-Za-z][^:]{0,30}):\s*(.+)$/i,spk:3,txt:4},
+    {re:/^\[?(\d{1,2}:\d{2}(?:\s*[AP]M)?)\]?\s+([A-Za-z][^:]{0,20}):\s*(.+)$/i,spk:2,txt:3},
+  ];
   const pats=[
     /^([A-Za-z][A-Za-z0-9_ ]{0,20}):\s*(.+)$/,
     /^\[([A-Za-z][A-Za-z0-9_ ]{0,20})\]:\s*(.+)$/,
     /^([A-Za-z][A-Za-z0-9_ ]{0,20})\s*-\s*(.+)$/,
     /^<([A-Za-z][A-Za-z0-9_ ]{0,20})>\s*(.+)$/,
   ];
-  const wa=/^\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4},?\s+[\d:]+\s*[AP]M\s*[-\u2013]\s*([^:]+):\s*(.+)$/i;
   for(const line of lines){
     let ok=false;
-    const wm=line.match(wa);
-    if(wm){msgs.push({speaker:wm[1].trim(),text:wm[2].trim()});ok=true;}
+    for(const{re,spk,txt}of waPats){const m=line.match(re);if(m){msgs.push({speaker:m[spk].trim(),text:m[txt].trim()});ok=true;break;}}
     if(!ok){for(const p of pats){const m=line.match(p);if(m){msgs.push({speaker:m[1].trim(),text:m[2].trim()});ok=true;break;}}}
     if(!ok&&msgs.length>0)msgs[msgs.length-1].text+=' '+line;
   }
@@ -1046,7 +1051,9 @@ function initSpeakerNames(){
 }
 
 function updateLiveSpeakers(){
-  const row=document.getElementById('spkSelectRow');if(!row)return;row.innerHTML='';
+  const row=document.getElementById('spkSelectRow');if(!row)return;
+  S.currentSpeaker=Math.min(S.currentSpeaker,S.speakerCount-1);
+  row.innerHTML='';
   for(let i=0;i<S.speakerCount;i++){
     const btn=document.createElement('button');
     btn.className='spk-sel-btn'+(i===S.currentSpeaker?' act':'');
@@ -1164,11 +1171,13 @@ function switchTab(tab){
 function renderOverview(result){
   const{speakers,speakerData,contagion}=result;
   const c=document.getElementById('tab-overview');
-  let h='<div class="score-legend" style="margin-bottom:14px">'+
+  let h='<div class="score-legend" style="margin-bottom:8px">'+
     '<div class="leg-item"><div class="leg-sw" style="background:var(--hot)"></div>Hot (positive)</div>'+
     '<div class="leg-item"><div class="leg-sw" style="background:var(--cold)"></div>Cold (negative)</div>'+
     '<div class="leg-item"><div class="leg-sw" style="background:#555"></div>Neutral</div>'+
-    '</div><div class="spk-bars">';
+    '</div>'+
+    '<div style="font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.5">Scores range from -1 (cold/negative) to +1 (hot/positive). VADER sentiment analysis considers words, capitalization, punctuation, emoji, negation, and intensifiers.</div>'+
+    '<div class="spk-bars">';
   speakers.forEach((spk,idx)=>{
     const d=speakerData[spk];const col=getSC(idx);const sc=d.compound;
     const scol=sc>0.15?'var(--hot)':sc<-0.15?'var(--cold)':'#888';
@@ -1374,7 +1383,7 @@ function showRelPanel(spk,idx){
     const other=r.from===spk?r.to:r.from;
     const dir=r.from===spk?esc(spk)+' \u2192 '+esc(other):esc(other)+' \u2192 '+esc(spk);
     const rc=r.score>0.1?'var(--hot)':r.score<-0.1?'var(--cold)':'#888';
-    const evs=r.messages.slice(0,2).map(m=>'<div class="ev-item">"'+esc(m.text.slice(0,90))+(m.text.length>90?'\u2026':'\'')+'</div>').join('');
+    const evs=r.messages.slice(0,2).map(m=>'<div class="ev-item">"'+esc(m.text.slice(0,90))+(m.text.length>90?'\u2026':'')+'"</div>').join('');
     relH+='<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;margin-bottom:4px"><span style="color:'+rc+'">'+dir+'</span><span style="color:'+rc+';margin-left:8px">'+(r.score>=0?'+':'')+r.score.toFixed(2)+'</span></div>'+evs+'</div>';
   }
   const co=contagion[spk];
@@ -1519,11 +1528,11 @@ function showTourStep(i){
   const el=document.getElementById(step.targetId);if(!el)return;
   const rect=el.getBoundingClientRect();const pad=8;
   const spot=document.getElementById('tourSpot');
-  spot.style.cssText='left:'+(rect.left-pad)+'px;top:'+(rect.top+scrollY-pad)+'px;width:'+(rect.width+pad*2)+'px;height:'+(rect.height+pad*2)+'px;';
+  spot.style.cssText='left:'+(rect.left-pad)+'px;top:'+(rect.top-pad)+'px;width:'+(rect.width+pad*2)+'px;height:'+(rect.height+pad*2)+'px;';
   const bub=document.getElementById('tourBub');
-  let bt=rect.bottom+pad+14+scrollY;
+  let bt=rect.bottom+pad+14;
   bub.style.cssText='left:16px;right:16px;top:'+bt+'px;bottom:auto;';
-  if(bt+130>innerHeight+scrollY){bub.style.top='auto';bub.style.bottom=(innerHeight-rect.top+14)+'px';}
+  if(bt+130>innerHeight){bub.style.top='auto';bub.style.bottom=(innerHeight-rect.top+14)+'px';}
 }
 function nextTourStep(){const steps=TOURS[TS.mode];if(TS.step>=steps.length-1)endTour();else showTourStep(TS.step+1);}
 function skipTour(){endTour();}
