@@ -510,7 +510,14 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
   padding: 12px 20px 24px;
   border-top: 2px solid #1a1a1a;
   font-size: 11px; color: #555; text-align: center; font-weight: 700; letter-spacing: 1px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
+.hud-back-btn {
+  padding: 10px 20px; border-radius: var(--radius);
+  background: rgba(255,255,255,0.06); border: 1px solid #333;
+  color: #ccc; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.hud-footer-hint { font-size: 10px; color: #444; letter-spacing: 1px; }
 
 /* ── LIVE AUDIO SCREEN ─────────────────────────────────────── */
 #screen-live {
@@ -885,17 +892,30 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
 .landing-final-sub { font-size: 14px; color: #666; margin-bottom: 32px; line-height: 1.6; }
 
 /* narrative summary card */
+@keyframes narrative-glow {
+  0%, 100% { box-shadow: 0 0 14px rgba(255,51,51,0.08), 0 0 0 1px rgba(255,51,51,0.04); }
+  50%       { box-shadow: 0 0 20px rgba(51,102,255,0.11), 0 0 0 1px rgba(51,102,255,0.07); }
+}
 .narrative-card {
+  position: relative;
   background: rgba(255,255,255,0.03);
   border: 2px solid #252525;
-  border-left: 4px solid var(--hot-yellow);
+  border-left: none;
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 18px 20px 18px 22px;
   margin-bottom: 14px;
+  animation: narrative-glow 4s ease-in-out infinite;
+}
+.narrative-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(to bottom, #FF3333, #3366FF);
+  border-radius: 4px 0 0 4px;
 }
 .narrative-card-label {
-  font-size: 10px; font-weight: 800; letter-spacing: 3px;
-  color: #555; text-transform: uppercase; margin-bottom: 8px;
+  font-size: 11px; font-weight: 800; letter-spacing: 3px;
+  color: #777; text-transform: uppercase; margin-bottom: 10px;
 }
 .narrative-card-text {
   font-size: 14px; line-height: 1.75; color: #ccc; font-weight: 400;
@@ -1284,9 +1304,9 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
     </div>
   </div>
   <div class="reader-actions">
-    <button class="action-btn primary" onclick="showScreen('screen-setup')">↺ New</button>
-    <button class="action-btn" onclick="showPaste()">📝 Paste</button>
-    <button class="action-btn" onclick="showLive()">🎤 Live</button>
+    <button class="action-btn primary" onclick="showScreen('screen-setup')">↺ Start Over</button>
+    <button class="action-btn" onclick="showPaste()">📝 New Text</button>
+    <button class="action-btn" onclick="showLive()">🎤 Go Live</button>
   </div>
 </div>
 
@@ -1316,13 +1336,13 @@ canvas.sparkline { width: 100%; height: 48px; border-radius: 6px; background: #0
       <div class="empty-state-text" style="font-size:13px">Watching for dynamics…</div>
     </div>
   </div>
-  <div class="hud-footer">TAP SPEAKER BAR TO FLIP BACK</div>
+  <div class="hud-footer"><button class="hud-back-btn" onclick="showScreen('screen-reader')">← Back to Analysis</button><span class="hud-footer-hint">TAP SPEAKER BAR TO FLIP BACK</span></div>
 </div>
 
 <!-- ══ LIVE AUDIO ══════════════════════════════════════════ -->
 <div class="screen" id="screen-live">
   <div class="live-header">
-    <button class="back-btn" onclick="showScreen('screen-reader')">←</button>
+    <button class="back-btn" onclick="showScreen('screen-setup')">←</button>
     <div class="live-title">🎤 Live Audio</div>
     <div class="live-dot" style="background:var(--hot-red)"></div>
   </div>
@@ -1880,7 +1900,7 @@ function runAnalysis(messages) {
     st.future += countFuture(msg.content);
     if (detectExitLanguage(msg.content)) st.exitSignals++;
     st.exclamations += (msg.content.match(/!/g) || []).length;
-    st.emojiCount += (msg.content.match(/[\u{1F000}-\u{1FFFF}]/gu) || []).length;
+    st.emojiCount += (msg.content.match(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu) || []).length;
     st.totalWords += msg.content.split(/\s+/).length;
 
     // Response latency
@@ -2221,7 +2241,7 @@ function renderReader() {
   if (narrative) {
     const card = document.createElement('div');
     card.className = 'narrative-card';
-    card.innerHTML = `<div class="narrative-card-label">Social Read</div><div class="narrative-card-text">${narrative}</div>`;
+    card.innerHTML = `<div class="narrative-card-label">🔮 Social Read</div><div class="narrative-card-text">${narrative}</div>`;
     body.appendChild(card);
   }
 
@@ -2379,17 +2399,24 @@ function openRelPanel(a, b) {
   const baColor = ba ? scoreToHex(ba.score) : '#888';
   const asymmetry = Math.abs(abScore - baScore);
 
+  const abResponses = ab?.responsesCount ?? 0;
+  const baResponses = ba?.responsesCount ?? 0;
+  const aMsgCount = a.msgCount ?? 0;
+  const bMsgCount = b.msgCount ?? 0;
+
   body.innerHTML = `
     <div class="warmth-arrows">
       <div class="warmth-arrow-item" style="border-color:${a.color}20">
         <div class="warmth-arrow-label">${a.id} → ${b.id}</div>
         <div class="warmth-arrow-score" style="color:${abColor}">${abScore}%</div>
         <div class="warmth-arrow-trend" style="color:${ab?.trend==='warming'?'#FF8C42':ab?.trend==='cooling'?'#3366FF':'#666'}">${ab?.trend || 'stable'}</div>
+        <div class="warmth-arrow-counts" style="color:#555;font-size:11px;margin-top:4px">${a.id} responded to ${b.id} ${abResponses}× (out of ${b.id}'s ${bMsgCount} messages)</div>
       </div>
       <div class="warmth-arrow-item" style="border-color:${b.color}20">
         <div class="warmth-arrow-label">${b.id} → ${a.id}</div>
         <div class="warmth-arrow-score" style="color:${baColor}">${baScore}%</div>
         <div class="warmth-arrow-trend" style="color:${ba?.trend==='warming'?'#FF8C42':ba?.trend==='cooling'?'#3366FF':'#666'}">${ba?.trend || 'stable'}</div>
+        <div class="warmth-arrow-counts" style="color:#555;font-size:11px;margin-top:4px">${b.id} responded to ${a.id} ${baResponses}× (out of ${a.id}'s ${aMsgCount} messages)</div>
       </div>
     </div>
     ${asymmetry > 20 ? `<div class="signal-item" style="border-color:#FFD700;margin-bottom:12px">⚠️ Asymmetric dynamic — ${asymmetry}pt gap. ${abScore > baScore ? a.id + ' shows more warmth' : b.id + ' shows more warmth'}.</div>` : ''}
@@ -2888,8 +2915,8 @@ const DEMO_TEXT = `[2:30 PM] Alice: Hey everyone! So excited about the trip next
 function loadDemo() {
   const ta = document.getElementById('paste-textarea');
   ta.value = DEMO_TEXT;
-  onPasteInput(ta);
-  showToast('Demo loaded — tap Analyze →');
+  autoAdjustSpeakers();
+  analyzeConversation();
 }
 
 /* ══════════════════════════════════════════════════════════════
