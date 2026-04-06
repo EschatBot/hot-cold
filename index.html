@@ -881,6 +881,39 @@ textarea:focus, input[type="text"]:focus {
 .screen > header:first-child, .screen > nav:first-child, .screen > div:first-child > header:first-child {
   padding-top: max(20px, env(safe-area-inset-top, 20px)) !important;
 }
+
+/* Bigger buttons, more top spacing */
+.btn, button[onclick] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  font-size: 16px !important;
+}
+.btn-sm {
+  min-height: 36px !important;
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+}
+/* Push nav bars further from top edge */
+.sr-nav, .mode-hdr, .ios-nav {
+  padding-top: max(28px, calc(env(safe-area-inset-top, 12px) + 16px)) !important;
+  padding-bottom: 14px !important;
+}
+/* Hub header more top space */
+#screen-hub > div:first-child > div:first-child {
+  padding-top: max(36px, calc(env(safe-area-inset-top, 12px) + 24px)) !important;
+}
+/* Back buttons bigger touch target */
+.sr-back, [onclick*="showScreen('hub')"] {
+  padding: 10px 14px !important;
+  font-size: 16px !important;
+  min-height: 44px !important;
+}
+/* Tool list rows taller */
+.ios-row {
+  min-height: 52px !important;
+  height: auto !important;
+  padding: 4px 16px !important;
+}
 </style>
 </head>
 <body>
