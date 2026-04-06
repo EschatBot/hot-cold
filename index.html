@@ -1107,88 +1107,87 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
   </div>
 </div>
 
-<div id="screen-hub" class="screen active"><div class="pc-bg"><div class="pc-layer"></div><div class="pc-layer"></div><div class="pc-layer"></div></div>
-  <nav class="hub-nav">
-    <div>
-      <div class="hub-logo">MAX-SOCIAL</div>
-      <div class="hub-sub">SOCIAL INTELLIGENCE SUITE (EXPERIMENTAL)</div>
-    </div>
-    <button class="btn btn-ghost btn-sm" onclick="showScreen('landing')">← Back</button>
-  </nav>
-  <div class="hub-body">
-    <div class="hub-greeting">
-      <h2>Choose a Tool</h2>
-      <p>Six tools for reading people. All free. All private.</p>
+<div id="screen-hub" class="screen active" style="background:#000;min-height:100dvh;overflow-y:auto;position:relative">
+
+  <!-- Ambient glow -->
+  <div style="position:absolute;top:-15%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,53,0.06) 0%,transparent 70%);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-10%;left:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(45,107,228,0.04) 0%,transparent 70%);pointer-events:none"></div>
+
+  <div style="position:relative;z-index:1;padding:0 0 40px">
+
+    <!-- Header -->
+    <div style="padding:24px 24px 32px;text-align:center">
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.25em;margin-bottom:8px">MAX·SOCIAL</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin-bottom:4px">Social Intelligence Suite</h1>
+      <p style="font-size:13px;color:rgba(255,255,255,0.3)">Testing Phase · On-device · Private</p>
     </div>
 
-    <!-- PRIMARY STAMP CARD — Social Reader -->
-    <div class="hub-primary" onclick="enterMode('social-reader')">
-      <div class="hp-art">
-        <div class="hp-art-layer1"></div>
-        <div class="hp-art-layer2"></div>
-        <svg style="width:48px;height:48px" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M14 9h0M10 9h0M18 9h0" stroke-width="3"/></svg>
-      </div>
-      <div class="hp-info">
-        <div class="hp-name">Social Reader</div>
-        <div class="hp-tag">Who is hot or cold to whom in any conversation</div>
-        <div class="hp-badge">● Active Now</div>
+    <!-- Featured: Social Reader -->
+    <div style="padding:0 20px 16px">
+      <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" style="background:linear-gradient(135deg,#FF6B35 0%,#E8312A 100%);border-radius:20px;padding:28px 24px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(255,107,53,0.25);transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;top:-30px;right:-30px;width:140px;height:140px;background:rgba(255,255,255,0.08);border-radius:50%;pointer-events:none"></div>
+        <div style="position:absolute;bottom:-40px;right:20px;width:100px;height:100px;background:rgba(255,255,255,0.05);border-radius:50%;pointer-events:none"></div>
+        <svg style="width:32px;height:32px;margin-bottom:14px;opacity:0.9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:6px">Social Reader</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.5;max-width:280px">See who’s really connecting — and who isn’t. Map warmth, tension, and alliances in any conversation.</div>
       </div>
     </div>
 
-    <!-- SECONDARY STAMP GRID — Coming Soon -->
-    <div class="hub-grid">
-      <div class="hub-card" onclick="enterMode('pitch-coach')">
-        <div class="hc-art" style="background:linear-gradient(135deg,#F5A623,#E8841A)">
-          <svg style="width:32px;height:32px" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-        </div>
-        <div class="hc-info">
-          <div class="hc-name">Voice Coach</div>
-          <div class="hc-tag">Hear yourself the way others hear you.</div>
+    <!-- Tool Grid -->
+    <div style="padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+
+      <!-- Voice Coach -->
+      <div onclick="enterMode('pitch-coach')" ontouchend="enterMode('pitch-coach');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FFB800,#E89400)"></div>
+        <svg style="width:24px;height:24px;margin-bottom:10px;color:#FFB800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Voice Coach</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">Find out how clear and confident you sound.</div>
+      </div>
+
+      <!-- Mood Mirror -->
+      <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#06B6D4,#0891B2)"></div>
+        <svg style="width:24px;height:24px;margin-bottom:10px;color:#06B6D4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Mood Mirror</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">A quick honest read on how you’re doing.</div>
+      </div>
+
+      <!-- Relationship Pulse -->
+      <div onclick="enterMode('pulse')" ontouchend="enterMode('pulse');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FF2D87,#C42079)"></div>
+        <svg style="width:24px;height:24px;margin-bottom:10px;color:#FF2D87" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Relationship Pulse</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">Check the real temperature between two people.</div>
+      </div>
+
+      <!-- Meeting Intel -->
+      <div onclick="enterMode('meeting')" ontouchend="enterMode('meeting');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7C3AED,#5B21B6)"></div>
+        <svg style="width:24px;height:24px;margin-bottom:10px;color:#7C3AED" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Meeting Intel</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">What went down, and who ran the room.</div>
+      </div>
+
+      <!-- Social Sandbox -->
+      <div onclick="enterMode('sandbox')" ontouchend="enterMode('sandbox');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden;grid-column:span 2" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#22C55E,#15803D)"></div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <svg style="width:24px;height:24px;flex-shrink:0;color:#22C55E" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Social Sandbox</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">Train your instincts on real conversations. A flight simulator for people skills.</div>
+          </div>
         </div>
       </div>
-      <div class="hub-card" onclick="enterMode('pulse')">
-        <div class="hc-art" style="background:linear-gradient(135deg,#E91E8C,#B5146E)">
-          <svg style="width:32px;height:32px" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/><polyline points="3 12 8 12 10 8 14 16 16 12 21 12"/></svg>
-        </div>
-        <div class="hc-info">
-          <div class="hc-name">Relationship Pulse</div>
-          <div class="hc-tag">Check the real temperature between two people.</div>
-        </div>
-      </div>
-      <div class="hub-card" onclick="enterMode('meeting')">
-        <div class="hc-art" style="background:linear-gradient(135deg,#6B21E8,#4F11C0)">
-          <svg style="width:32px;height:32px" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div class="hc-info">
-          <div class="hc-name">Meeting Intel</div>
-          <div class="hc-tag">Find out what went down, and what the group dynamics are.</div>
-        </div>
-      </div>
-      <div class="hub-card" onclick="enterMode('mood-mirror')">
-        <div class="hc-art" style="background:linear-gradient(135deg,#00A3C4,#007A93)">
-          <svg style="width:32px;height:32px" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        </div>
-        <div class="hc-info">
-          <div class="hc-name">Mood Mirror</div>
-          <div class="hc-tag">A quick read on how you're actually doing.</div>
-        </div>
-      </div>
-      <div class="hub-card" onclick="enterMode('sandbox')">
-        <div class="hc-art" style="background:linear-gradient(135deg,#16A34A,#0D7A35)">
-          <svg style="width:32px;height:32px" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        </div>
-        <div class="hc-info">
-          <div class="hc-name">Social Sandbox</div>
-          <div class="hc-tag">Train your instincts on real conversations.</div>
-        </div>
-      </div>
+
     </div>
 
-    <div class="hub-footer">Built by The Wise Men · Experimental · Open Source</div>
+    <!-- Footer -->
+    <div style="text-align:center;padding:32px 24px 0;font-size:10px;color:rgba(255,255,255,0.15)">The Wise Men · On-device · Open source</div>
+
   </div>
 </div>
 
-<!-- SOCIAL READER -->
 <div id="screen-social-reader" class="screen">
   <div class="sr-ambient-orb"></div>
   <header class="sr-hdr">
