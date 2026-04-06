@@ -17,38 +17,39 @@
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 
 :root {
-  /* Saturated section backgrounds */
-  --bg-landing: #0E4F7C;
-  --bg-hub:     #1A6B45;
-  --bg-app:     #F0F4F8;
+  /* Backgrounds */
+  --bg-landing: #FFFFFF;
+  --bg-hub:     #FFFFFF;
+  --bg-app:     #F9FAFB;
 
   /* Brand */
   --brand:    #FF6B35;
   --brand-dk: #E8501A;
 
-  /* Mode accent colors — vivid */
+  /* Mode accent colors — softer for light backgrounds */
   --hot:     #E8312A;
   --cold:    #2D6BE4;
-  --pitch:   #F5A623;
-  --pulse:   #E91E8C;
-  --meeting: #6B21E8;
-  --mood:    #00A3C4;
-  --sandbox: #16A34A;
+  --pitch:   #F59E0B;
+  --pulse:   #EC4899;
+  --meeting: #8B5CF6;
+  --mood:    #06B6D4;
+  --sandbox: #10B981;
 
   /* Card surfaces */
   --card-bg:    #FFFFFF;
   --card-dark:  #1A2235;
-  --text:       #1A2235;
-  --text-sec:   #4A5568;
-  --text-muted: #9AA5B4;
+  --text:       #111827;
+  --text-sec:   #6B7280;
+  --text-muted: #9CA3AF;
+  --border:     #E5E7EB;
   --white:      #FFFFFF;
 
-  /* DEPTH SHADOWS — downward only, like paper layers */
-  --sh-card:   0 6px 0 rgba(0,0,0,0.15), 0 12px 32px rgba(0,0,0,0.2);
-  --sh-card-hover: 0 12px 0 rgba(0,0,0,0.2), 0 24px 48px rgba(0,0,0,0.25);
-  --sh-stamp:  0 8px 0 rgba(0,0,0,0.12), 0 16px 40px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.8);
-  --sh-stamp-hover: 0 16px 0 rgba(0,0,0,0.15), 0 32px 60px rgba(0,0,0,0.22);
-  --sh-float:  0 20px 60px rgba(0,0,0,0.25), 0 8px 0 rgba(0,0,0,0.12);
+  /* SHADOWS — soft, light-mode appropriate */
+  --sh-card:   0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  --sh-card-hover: 0 4px 12px rgba(0,0,0,0.1), 0 12px 32px rgba(0,0,0,0.08);
+  --sh-stamp:  0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  --sh-stamp-hover: 0 8px 24px rgba(0,0,0,0.12), 0 20px 40px rgba(0,0,0,0.08);
+  --sh-float:  0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
 }
 
 html { -webkit-tap-highlight-color:transparent; scroll-behavior:smooth; }
@@ -330,35 +331,24 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
    ================================================================ */
 #screen-hub {
   background:var(--bg-hub);
-  color:#fff; min-height:100dvh;
+  color:var(--text); min-height:100dvh;
 }
 
-#screen-hub .pc-layer:nth-child(1) {
-  width:600px; height:600px; background:#25885A; top:-150px; right:-150px;
-  box-shadow:inset 0 -20px 40px rgba(0,0,0,0.15);
-}
-#screen-hub .pc-layer:nth-child(2) {
-  width:500px; height:500px; background:#135430; bottom:-100px; left:-100px;
-  box-shadow:inset 0 -16px 32px rgba(0,0,0,0.1);
-}
-#screen-hub .pc-layer:nth-child(3) {
-  width:350px; height:350px; background:#1E7A4A; top:45%; left:25%;
-  box-shadow:inset 0 -12px 24px rgba(0,0,0,0.08);
-}
+/* pc-layers removed for light mode */
 
 .hub-nav {
   display:flex; align-items:center; justify-content:space-between;
-  padding:20px 24px; border-bottom:1px solid rgba(255,255,255,0.1);
+  padding:20px 24px; border-bottom:1px solid var(--border);
   position:relative; z-index:10;
-  background:rgba(26,107,69,0.7); backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.92); backdrop-filter:blur(20px);
 }
-.hub-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; letter-spacing:0.2em; color:#fff; }
-.hub-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.08em; margin-top:1px; }
+.hub-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; letter-spacing:0.2em; color:var(--text); }
+.hub-sub { font-size:10px; color:var(--text-muted); letter-spacing:0.08em; margin-top:1px; }
 
 .hub-body { padding:24px; position:relative; z-index:1; }
 .hub-greeting { margin-bottom:28px; }
-.hub-greeting h2 { color:#fff; margin-bottom:4px; }
-.hub-greeting p { color:rgba(255,255,255,0.65); font-size:14px; }
+.hub-greeting h2 { color:var(--text); margin-bottom:4px; }
+.hub-greeting p { color:var(--text-sec); font-size:14px; }
 
 /* PRIMARY STAMP CARD — Social Reader */
 .hub-primary {
@@ -444,7 +434,7 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
 }
 
 .hub-footer { text-align:center; padding:32px 24px; position:relative; z-index:1;
-  font-size:11px; color:rgba(255,255,255,0.3); }
+  font-size:11px; color:var(--text-muted); }
 
 /* ================================================================
    SOCIAL READER — light app bg
@@ -459,7 +449,7 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
   display:flex; align-items:center; justify-content:space-between;
   padding:14px 20px; border-bottom:1px solid rgba(0,0,0,0.08);
   position:sticky; top:0; z-index:50;
-  background:rgba(240,244,248,0.92); backdrop-filter:blur(20px);
+  background:rgba(249,250,251,0.94); backdrop-filter:blur(20px);
 }
 .sr-back { display:flex;align-items:center;gap:6px;color:var(--text-sec);font-size:13px;font-weight:600;cursor:pointer;background:none;border:none;font-family:inherit; }
 .sr-back:hover { color:var(--text); }
@@ -769,7 +759,7 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
 .sr-btm-bar {
   position:fixed;bottom:0;left:0;right:0;z-index:100;
   display:none;
-  background:rgba(240,244,248,0.96);backdrop-filter:blur(20px);
+  background:rgba(249,250,251,0.96);backdrop-filter:blur(20px);
   border-top:1px solid rgba(0,0,0,0.08);
   padding:10px 20px calc(10px + env(safe-area-inset-bottom));
   box-shadow:0 -4px 24px rgba(0,0,0,0.08);
@@ -868,7 +858,7 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
   display:flex; align-items:center; justify-content:space-between;
   padding:14px 20px; border-bottom:1px solid rgba(0,0,0,0.08);
   position:sticky; top:0; z-index:50;
-  background:rgba(240,244,248,0.92); backdrop-filter:blur(20px);
+  background:rgba(249,250,251,0.94); backdrop-filter:blur(20px);
 }
 .mode-body { padding:20px; max-width:600px; margin:0 auto; }
 .mode-rec-wrap { display:flex; flex-direction:column; align-items:center; gap:16px; padding:32px 0; }
@@ -947,7 +937,7 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
   box-shadow:0 2px 0 rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.06);
   transition:all .2s;
 }
-.mi-tab.act { background:var(--meeting); color:#fff; box-shadow:0 3px 0 #4F11C0,0 6px 16px rgba(107,33,232,0.3); }
+.mi-tab.act { background:var(--meeting); color:#fff; box-shadow:0 3px 0 #6D28D9,0 6px 16px rgba(139,92,246,0.25); }
 .mi-panel { display:none; }
 .mi-panel.act { display:block; animation:tabIn .25s cubic-bezier(0.16,1,0.3,1); }
 .mi-bar-row { margin-bottom:12px; }
@@ -993,16 +983,17 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
 .sb-opt-btn.correct { border-color:#16A34A; background:#F0FDF4; color:#15803D; }
 .sb-opt-btn.wrong { border-color:#DC2626; background:#FEF2F2; color:#DC2626; }
 .sb-analysis-card {
-  background:linear-gradient(135deg,#0D1117,#1A2235); border-radius:16px; padding:20px; margin-bottom:16px;
-  color:#fff; box-shadow:0 6px 0 rgba(0,0,0,0.2), 0 16px 40px rgba(0,0,0,0.25);
+  background:#FFFFFF; border-radius:16px; padding:20px; margin-bottom:16px;
+  color:var(--text); box-shadow:0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+  border:1px solid #E5E7EB;
   display:none;
 }
 .sb-analysis-card.vis { display:block; animation:tabIn .35s cubic-bezier(0.16,1,0.3,1); }
 .sb-score-badge {
   font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700;
-  text-align:center; margin-bottom:12px;
+  text-align:center; margin-bottom:12px; color:var(--text);
 }
-.sb-analysis-text { font-size:13px; line-height:1.75; color:rgba(255,255,255,0.7); }
+.sb-analysis-text { font-size:13px; line-height:1.75; color:var(--text-sec); }
 /* ================================================================
    NEW MODES — additional shared styles
    ================================================================ */
@@ -1107,29 +1098,25 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
   </div>
 </div>
 
-<div id="screen-hub" class="screen active" style="background:#000;min-height:100dvh;overflow-y:auto;position:relative">
-
-  <!-- Ambient glow -->
-  <div style="position:absolute;top:-15%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,53,0.06) 0%,transparent 70%);pointer-events:none"></div>
-  <div style="position:absolute;bottom:-10%;left:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(45,107,228,0.04) 0%,transparent 70%);pointer-events:none"></div>
+<div id="screen-hub" class="screen active" style="background:#FFFFFF;min-height:100dvh;overflow-y:auto;position:relative">
 
   <div style="position:relative;z-index:1;padding:0 0 40px">
 
     <!-- Header -->
-    <div style="padding:24px 24px 32px;text-align:center">
-      <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.25em;margin-bottom:8px">MAX·SOCIAL</div>
-      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin-bottom:4px">Social Intelligence Suite</h1>
-      <p style="font-size:13px;color:rgba(255,255,255,0.3)">Testing Phase · On-device · Private</p>
+    <div style="padding:28px 24px 32px;text-align:center;border-bottom:1px solid #F3F4F6">
+      <div style="font-family:’Space Grotesk’,sans-serif;font-weight:700;font-size:11px;color:#9CA3AF;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:10px">MAX·SOCIAL</div>
+      <h1 style="font-family:’Space Grotesk’,sans-serif;font-size:26px;font-weight:700;color:#111827;letter-spacing:-0.02em;margin-bottom:6px">Social Intelligence Suite</h1>
+      <p style="font-size:13px;color:#9CA3AF">Testing Phase · On-device · Private</p>
     </div>
 
     <!-- Featured: Social Reader -->
-    <div style="padding:0 20px 16px">
-      <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" style="background:linear-gradient(135deg,#FF6B35 0%,#E8312A 100%);border-radius:20px;padding:28px 24px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(255,107,53,0.25);transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        <div style="position:absolute;top:-30px;right:-30px;width:140px;height:140px;background:rgba(255,255,255,0.08);border-radius:50%;pointer-events:none"></div>
-        <div style="position:absolute;bottom:-40px;right:20px;width:100px;height:100px;background:rgba(255,255,255,0.05);border-radius:50%;pointer-events:none"></div>
-        <svg style="width:32px;height:32px;margin-bottom:14px;opacity:0.9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:6px">Social Reader</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.5;max-width:280px">See who’s really connecting — and who isn’t. Map warmth, tension, and alliances in any conversation.</div>
+    <div style="padding:24px 20px 16px">
+      <div onclick="enterMode(‘social-reader’)" ontouchend="enterMode(‘social-reader’);event.preventDefault()" style="background:linear-gradient(135deg,#FF7A45 0%,#FF6B35 50%,#F97316 100%);border-radius:20px;padding:28px 24px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 4px 16px rgba(255,107,53,0.2),0 1px 4px rgba(255,107,53,0.15);transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform=’translateY(-2px)’;this.style.boxShadow=’0 8px 28px rgba(255,107,53,0.28),0 2px 8px rgba(255,107,53,0.15)’" onmouseout="this.style.transform=’’;this.style.boxShadow=’0 4px 16px rgba(255,107,53,0.2),0 1px 4px rgba(255,107,53,0.15)’">
+        <div style="position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:rgba(255,255,255,0.1);border-radius:50%;pointer-events:none"></div>
+        <div style="position:absolute;bottom:-40px;right:20px;width:110px;height:110px;background:rgba(255,255,255,0.06);border-radius:50%;pointer-events:none"></div>
+        <svg style="width:32px;height:32px;margin-bottom:14px;opacity:0.95" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <div style="font-family:’Space Grotesk’,sans-serif;font-weight:700;font-size:21px;color:#fff;margin-bottom:8px">Social Reader</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.55;max-width:280px">See who’s really connecting — and who isn’t. Map warmth, tension, and alliances in any conversation.</div>
       </div>
     </div>
 
@@ -1137,45 +1124,45 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
     <div style="padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
 
       <!-- Voice Coach -->
-      <div onclick="enterMode('pitch-coach')" ontouchend="enterMode('pitch-coach');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FFB800,#E89400)"></div>
-        <svg style="width:24px;height:24px;margin-bottom:10px;color:#FFB800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
-        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Voice Coach</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">Find out how clear and confident you sound.</div>
+      <div onclick="enterMode(‘pitch-coach’)" ontouchend="enterMode(‘pitch-coach’);event.preventDefault()" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)" onmouseover="this.style.transform=’translateY(-2px)’;this.style.boxShadow=’0 4px 12px rgba(0,0,0,0.08),0 12px 24px rgba(0,0,0,0.06)’" onmouseout="this.style.transform=’’;this.style.boxShadow=’0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)’">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F59E0B,#FBBF24)"></div>
+        <svg style="width:24px;height:24px;margin-bottom:10px;color:#F59E0B" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+        <div style="font-family:’Space Grotesk’,sans-serif;font-weight:700;font-size:14px;color:#111827;margin-bottom:4px">Voice Coach</div>
+        <div style="font-size:11px;color:#6B7280;line-height:1.45">Find out how clear and confident you sound.</div>
       </div>
 
       <!-- Mood Mirror -->
-      <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#06B6D4,#0891B2)"></div>
+      <div onclick="enterMode(‘mood-mirror’)" ontouchend="enterMode(‘mood-mirror’);event.preventDefault()" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)" onmouseover="this.style.transform=’translateY(-2px)’;this.style.boxShadow=’0 4px 12px rgba(0,0,0,0.08),0 12px 24px rgba(0,0,0,0.06)’" onmouseout="this.style.transform=’’;this.style.boxShadow=’0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)’">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#06B6D4,#22D3EE)"></div>
         <svg style="width:24px;height:24px;margin-bottom:10px;color:#06B6D4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Mood Mirror</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">A quick honest read on how you’re doing.</div>
+        <div style="font-family:’Space Grotesk’,sans-serif;font-weight:700;font-size:14px;color:#111827;margin-bottom:4px">Mood Mirror</div>
+        <div style="font-size:11px;color:#6B7280;line-height:1.45">A quick honest read on how you’re doing.</div>
       </div>
 
       <!-- Relationship Pulse -->
-      <div onclick="enterMode('pulse')" ontouchend="enterMode('pulse');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FF2D87,#C42079)"></div>
-        <svg style="width:24px;height:24px;margin-bottom:10px;color:#FF2D87" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>
-        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Relationship Pulse</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">Check the real temperature between two people.</div>
+      <div onclick="enterMode(‘pulse’)" ontouchend="enterMode(‘pulse’);event.preventDefault()" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)" onmouseover="this.style.transform=’translateY(-2px)’;this.style.boxShadow=’0 4px 12px rgba(0,0,0,0.08),0 12px 24px rgba(0,0,0,0.06)’" onmouseout="this.style.transform=’’;this.style.boxShadow=’0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)’">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#EC4899,#F472B6)"></div>
+        <svg style="width:24px;height:24px;margin-bottom:10px;color:#EC4899" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>
+        <div style="font-family:’Space Grotesk’,sans-serif;font-weight:700;font-size:14px;color:#111827;margin-bottom:4px">Relationship Pulse</div>
+        <div style="font-size:11px;color:#6B7280;line-height:1.45">Check the real temperature between two people.</div>
       </div>
 
       <!-- Meeting Intel -->
-      <div onclick="enterMode('meeting')" ontouchend="enterMode('meeting');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7C3AED,#5B21B6)"></div>
-        <svg style="width:24px;height:24px;margin-bottom:10px;color:#7C3AED" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Meeting Intel</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">What went down, and who ran the room.</div>
+      <div onclick="enterMode(‘meeting’)" ontouchend="enterMode(‘meeting’);event.preventDefault()" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)" onmouseover="this.style.transform=’translateY(-2px)’;this.style.boxShadow=’0 4px 12px rgba(0,0,0,0.08),0 12px 24px rgba(0,0,0,0.06)’" onmouseout="this.style.transform=’’;this.style.boxShadow=’0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)’">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#8B5CF6,#A78BFA)"></div>
+        <svg style="width:24px;height:24px;margin-bottom:10px;color:#8B5CF6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <div style="font-family:’Space Grotesk’,sans-serif;font-weight:700;font-size:14px;color:#111827;margin-bottom:4px">Meeting Intel</div>
+        <div style="font-size:11px;color:#6B7280;line-height:1.45">What went down, and who ran the room.</div>
       </div>
 
       <!-- Social Sandbox -->
-      <div onclick="enterMode('sandbox')" ontouchend="enterMode('sandbox');event.preventDefault()" style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s;position:relative;overflow:hidden;grid-column:span 2" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#22C55E,#15803D)"></div>
+      <div onclick="enterMode(‘sandbox’)" ontouchend="enterMode(‘sandbox’);event.preventDefault()" style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:16px;padding:20px 16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;grid-column:span 2;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)" onmouseover="this.style.transform=’translateY(-2px)’;this.style.boxShadow=’0 4px 12px rgba(0,0,0,0.08),0 12px 24px rgba(0,0,0,0.06)’" onmouseout="this.style.transform=’’;this.style.boxShadow=’0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04)’">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10B981,#34D399)"></div>
         <div style="display:flex;gap:16px;align-items:flex-start">
-          <svg style="width:24px;height:24px;flex-shrink:0;color:#22C55E" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <svg style="width:24px;height:24px;flex-shrink:0;color:#10B981" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           <div>
-            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Social Sandbox</div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.45">Train your instincts on real conversations. A flight simulator for people skills.</div>
+            <div style="font-family:’Space Grotesk’,sans-serif;font-weight:700;font-size:14px;color:#111827;margin-bottom:4px">Social Sandbox</div>
+            <div style="font-size:11px;color:#6B7280;line-height:1.45">Train your instincts on real conversations. A flight simulator for people skills.</div>
           </div>
         </div>
       </div>
@@ -1183,7 +1170,7 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
     </div>
 
     <!-- Footer -->
-    <div style="text-align:center;padding:32px 24px 0;font-size:10px;color:rgba(255,255,255,0.15)">The Wise Men · On-device · Open source</div>
+    <div style="text-align:center;padding:32px 24px 0;font-size:10px;color:#9CA3AF">The Wise Men · On-device · Open source</div>
 
   </div>
 </div>
@@ -2937,7 +2924,7 @@ function showPulseResults(r){
   const exitAny=(r.exitA+r.exitB)>0;
   document.getElementById('pulse-metrics').innerHTML=
     mCard2(asym,'Asymmetry',Math.round(r.asymmetry*100)+'pt gap',asymCol)+
-    mCard2(r.lenRatio.toFixed(1)+'\xD7','Length Ratio',lrText,'#1A2235')+
+    mCard2(r.lenRatio.toFixed(1)+'\xD7','Length Ratio',lrText,'#111827')+
     mCard2(r.qA+'\u2013'+r.qB,'Questions A\u2013B',qText,'#2D6BE4')+
     mCard2(exitAny?'Yes':'None','Exit Language',exitAny?'Detected':'Clean',exitAny?'#E8312A':'#16A34A');
   let ins='';
@@ -3164,7 +3151,7 @@ function showMoodResults(r){
   const loadCol=r.fillerRate>0.08?'#E8312A':r.fillerRate>0.04?'#F5A623':'#16A34A';
   const qPct=Math.round(r.qRate*100);
   document.getElementById('mood-mood-card').innerHTML=
-    mCard2(r.wc,'Word Count','Verbal fluency','#00A3C4')+
+    mCard2(r.wc,'Word Count','Verbal fluency','#06B6D4')+
     mCard2(loadLbl,'Cognitive Load',Math.round(r.fillerRate*100)+'% fillers',loadCol)+
     mCard2(r.avgSL,'Avg Sent Len','Complexity','#9AA5B4')+
     mCard2(qPct+'%','Question Rate','Self-reflection',qPct>30?'#2D6BE4':'#9AA5B4');
@@ -3200,9 +3187,9 @@ function drawMoodGauge(val){
     '<div style="display:flex;justify-content:space-between;width:195px;font-size:11px;font-weight:700;letter-spacing:.06em;color:#9AA5B4;text-transform:uppercase;margin-bottom:2px"><span>Low</span><span>Neutral</span><span>High</span></div>'+
     '<svg viewBox="0 0 220 130" style="width:220px;height:120px;max-width:100%;overflow:visible">'+
       '<path d="M 20 110 A 90 90 0 0 1 200 110" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="14" stroke-linecap="round"/>'+
-      '<path d="M 20 110 A 90 90 0 0 1 200 110" fill="none" stroke="#00A3C4" stroke-width="14" stroke-linecap="round" stroke-dasharray="'+fillLen+' 283" opacity="0.7"/>'+
-      '<line x1="110" y1="110" x2="'+nx+'" y2="'+ny+'" stroke="#1A2235" stroke-width="3" stroke-linecap="round"/>'+
-      '<circle cx="110" cy="110" r="5" fill="#1A2235"/>'+
+      '<path d="M 20 110 A 90 90 0 0 1 200 110" fill="none" stroke="#06B6D4" stroke-width="14" stroke-linecap="round" stroke-dasharray="'+fillLen+' 283" opacity="0.7"/>'+
+      '<line x1="110" y1="110" x2="'+nx+'" y2="'+ny+'" stroke="#111827" stroke-width="3" stroke-linecap="round"/>'+
+      '<circle cx="110" cy="110" r="5" fill="#111827"/>'+
     '</svg>'+
     '<div class="gauge-lbl-n">'+lbl+'</div>'+
     '<div class="gauge-sub-lbl-n">Compound: '+(val*2-1).toFixed(2)+'</div>';
