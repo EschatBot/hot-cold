@@ -905,89 +905,125 @@ textarea:focus, input[type="text"]:focus {
 <!-- HUB SCREEN -->
 <div id="screen-hub" class="screen active" style="background:#F2F2F7;min-height:100dvh;overflow-y:auto">
 
-  <!-- iOS Nav Bar -->
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 24px 8px;background:#F2F2F7;border-bottom:0.5px solid #C6C6C8;position:sticky;top:0;z-index:10">
-    <div style="font-size:17px;font-weight:600;color:#000">Max-Social</div>
-    <div style="font-size:13px;color:#8E8E93;margin-top:1px">Social Intelligence Suite</div>
+  <!-- Large title header — Apple Health "Summary" style -->
+  <div style="padding:52px 20px 4px;background:#F2F2F7">
+    <div style="font-size:34px;font-weight:700;color:#000;letter-spacing:-0.5px">Max-Social</div>
+    <div style="font-size:13px;color:#8E8E93;margin-top:2px">Social Intelligence Suite</div>
   </div>
 
-  <div style="padding:20px 16px 40px;display:flex;flex-direction:column;gap:12px">
+  <div style="padding:16px 16px 40px;display:flex;flex-direction:column;gap:24px">
 
-    <!-- Featured: Social Reader -->
+    <!-- Pinned section -->
     <div>
-      <div style="font-size:13px;font-weight:600;color:#FF6B35;padding:0 4px 6px;display:flex;align-items:center;gap:6px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#FF6B35"></div>
-        FEATURED
-      </div>
-      <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.04);overflow:hidden;cursor:pointer;border-left:4px solid #FF6B35;padding:16px">
-        <div style="display:flex;align-items:flex-start;gap:14px">
-          <div style="width:44px;height:44px;border-radius:10px;background:#FFF5F0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <svg style="width:22px;height:22px;color:#FF6B35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <div style="font-size:13px;font-weight:600;color:#8E8E93;text-transform:uppercase;letter-spacing:0.4px;padding:0 4px 8px">Pinned</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+
+        <!-- Pinned Card 1: Social Reader -->
+        <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);padding:14px 14px 12px;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:6px">
+              <div style="width:8px;height:8px;border-radius:50%;background:#FF6B35;flex-shrink:0"></div>
+              <span style="font-size:13px;font-weight:600;color:#FF6B35">Social Reader</span>
+            </div>
+            <div style="font-size:13px;color:#8E8E93;line-height:1.35">Try the demo →</div>
           </div>
-          <div style="flex:1">
-            <div style="font-size:22px;font-weight:700;color:#000;margin-bottom:4px">Social Reader</div>
-            <div style="font-size:15px;color:#8E8E93;line-height:1.45">See who's really connecting — map warmth, tension, and alliances in any conversation.</div>
+          <div style="display:flex;justify-content:flex-end;margin-top:8px">
+            <svg style="width:18px;height:18px;color:#FF6B35;opacity:0.6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </div>
-          <div style="color:#C7C7CC;font-size:18px;align-self:center">›</div>
         </div>
+
+        <!-- Pinned Card 2: Mood Mirror -->
+        <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);padding:14px 14px 12px;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:6px">
+              <div style="width:8px;height:8px;border-radius:50%;background:#06B6D4;flex-shrink:0"></div>
+              <span style="font-size:13px;font-weight:600;color:#06B6D4">Mood Mirror</span>
+            </div>
+            <div style="font-size:13px;color:#8E8E93;line-height:1.35">Track your mood</div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:8px">
+            <svg style="width:18px;height:18px;color:#06B6D4;opacity:0.6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Tool Grid -->
+    <!-- All Tools grouped list -->
     <div>
-      <div style="font-size:13px;font-weight:600;color:#8E8E93;padding:0 4px 6px">TOOLS</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="font-size:13px;font-weight:600;color:#8E8E93;text-transform:uppercase;letter-spacing:0.4px;padding:0 4px 8px">All Tools</div>
+      <div style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);overflow:hidden">
 
-        <!-- Voice Coach -->
-        <div onclick="enterMode('pitch-coach')" ontouchend="enterMode('pitch-coach');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.04);padding:16px;cursor:pointer">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;flex-shrink:0"></div>
-            <span style="font-size:17px;font-weight:600;color:#000">Voice Coach</span>
+        <!-- Social Reader -->
+        <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+          <div style="width:8px;height:8px;border-radius:50%;background:#FF6B35;flex-shrink:0;margin-right:12px"></div>
+          <div style="flex:1;padding:10px 0">
+            <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Social Reader</div>
+            <div style="font-size:15px;color:#8E8E93;line-height:1.2">See who connects</div>
           </div>
-          <div style="font-size:13px;color:#8E8E93;line-height:1.4">How clear and confident you sound.</div>
+          <div style="color:#C7C7CC;font-size:17px;font-weight:300;margin-left:8px">›</div>
+          <div style="position:absolute;bottom:0;left:44px;right:0;height:0.5px;background:#E5E5EA"></div>
         </div>
 
-        <!-- Mood Mirror -->
-        <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.04);padding:16px;cursor:pointer">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#06B6D4;flex-shrink:0"></div>
-            <span style="font-size:17px;font-weight:600;color:#000">Mood Mirror</span>
+        <!-- Voice Coach -->
+        <div onclick="enterMode('pitch-coach')" ontouchend="enterMode('pitch-coach');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+          <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;flex-shrink:0;margin-right:12px"></div>
+          <div style="flex:1;padding:10px 0">
+            <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Voice Coach</div>
+            <div style="font-size:15px;color:#8E8E93;line-height:1.2">Check your delivery</div>
           </div>
-          <div style="font-size:13px;color:#8E8E93;line-height:1.4">A quick honest read on how you're doing.</div>
+          <div style="color:#C7C7CC;font-size:17px;font-weight:300;margin-left:8px">›</div>
+          <div style="position:absolute;bottom:0;left:44px;right:0;height:0.5px;background:#E5E5EA"></div>
         </div>
 
         <!-- Relationship Pulse -->
-        <div onclick="enterMode('pulse')" ontouchend="enterMode('pulse');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.04);padding:16px;cursor:pointer">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#EC4899;flex-shrink:0"></div>
-            <span style="font-size:17px;font-weight:600;color:#000">Rel. Pulse</span>
+        <div onclick="enterMode('pulse')" ontouchend="enterMode('pulse');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+          <div style="width:8px;height:8px;border-radius:50%;background:#EC4899;flex-shrink:0;margin-right:12px"></div>
+          <div style="flex:1;padding:10px 0">
+            <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Relationship Pulse</div>
+            <div style="font-size:15px;color:#8E8E93;line-height:1.2">Two-person dynamics</div>
           </div>
-          <div style="font-size:13px;color:#8E8E93;line-height:1.4">Real temperature between two people.</div>
+          <div style="color:#C7C7CC;font-size:17px;font-weight:300;margin-left:8px">›</div>
+          <div style="position:absolute;bottom:0;left:44px;right:0;height:0.5px;background:#E5E5EA"></div>
         </div>
 
         <!-- Meeting Intel -->
-        <div onclick="enterMode('meeting')" ontouchend="enterMode('meeting');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.04);padding:16px;cursor:pointer">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#8B5CF6;flex-shrink:0"></div>
-            <span style="font-size:17px;font-weight:600;color:#000">Meeting Intel</span>
+        <div onclick="enterMode('meeting')" ontouchend="enterMode('meeting');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+          <div style="width:8px;height:8px;border-radius:50%;background:#8B5CF6;flex-shrink:0;margin-right:12px"></div>
+          <div style="flex:1;padding:10px 0">
+            <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Meeting Intel</div>
+            <div style="font-size:15px;color:#8E8E93;line-height:1.2">Who ran the meeting</div>
           </div>
-          <div style="font-size:13px;color:#8E8E93;line-height:1.4">What went down, who ran the room.</div>
+          <div style="color:#C7C7CC;font-size:17px;font-weight:300;margin-left:8px">›</div>
+          <div style="position:absolute;bottom:0;left:44px;right:0;height:0.5px;background:#E5E5EA"></div>
         </div>
 
-        <!-- Social Sandbox (full width) -->
-        <div onclick="enterMode('sandbox')" ontouchend="enterMode('sandbox');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.04);padding:16px;cursor:pointer;grid-column:span 2">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:#10B981;flex-shrink:0"></div>
-            <span style="font-size:17px;font-weight:600;color:#000">Social Sandbox</span>
+        <!-- Mood Mirror -->
+        <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+          <div style="width:8px;height:8px;border-radius:50%;background:#06B6D4;flex-shrink:0;margin-right:12px"></div>
+          <div style="flex:1;padding:10px 0">
+            <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Mood Mirror</div>
+            <div style="font-size:15px;color:#8E8E93;line-height:1.2">How you sound now</div>
           </div>
-          <div style="font-size:13px;color:#8E8E93;line-height:1.4">Train your instincts on real conversations. A flight simulator for people skills.</div>
+          <div style="color:#C7C7CC;font-size:17px;font-weight:300;margin-left:8px">›</div>
+          <div style="position:absolute;bottom:0;left:44px;right:0;height:0.5px;background:#E5E5EA"></div>
+        </div>
+
+        <!-- Social Sandbox (last — no divider) -->
+        <div onclick="enterMode('sandbox')" ontouchend="enterMode('sandbox');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer">
+          <div style="width:8px;height:8px;border-radius:50%;background:#10B981;flex-shrink:0;margin-right:12px"></div>
+          <div style="flex:1;padding:10px 0">
+            <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Social Sandbox</div>
+            <div style="font-size:15px;color:#8E8E93;line-height:1.2">Train your radar</div>
+          </div>
+          <div style="color:#C7C7CC;font-size:17px;font-weight:300;margin-left:8px">›</div>
         </div>
 
       </div>
     </div>
 
     <!-- Footer -->
-    <div style="text-align:center;padding-top:8px;font-size:11px;color:#C7C7CC">The Wise Men · On-device · Private</div>
+    <div style="text-align:center;font-size:11px;color:#C7C7CC">The Wise Men · On-device · Private</div>
 
   </div>
 </div>
@@ -1147,7 +1183,7 @@ textarea:focus, input[type="text"]:focus {
 <div id="screen-pulse" class="screen">
   <header class="mode-hdr">
     <button class="mode-back-btn" onclick="showScreen('hub')">&#x2039; Suite</button>
-    <div class="ios-nav-title">Rel. Pulse</div>
+    <div class="ios-nav-title">Relationship Pulse</div>
     <div style="width:60px"></div>
   </header>
   <div class="mode-body-n">
