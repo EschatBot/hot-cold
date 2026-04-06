@@ -1136,12 +1136,12 @@ textarea:focus, input[type="text"]:focus {
   </div>
   <div class="alerts-overlay" id="alertsOverlay">
     <div class="alerts-hdr">
-      <div class="alerts-ttl">&#9889; Live Live Alerts</div>
+      <div class="alerts-title">&#9889; Live Alerts</div>
       <button class="alerts-close" onclick="toggleAlerts()">&#x2715;</button>
     </div>
     <div class="alerts-spks" id="hudSpeakers"></div>
     <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px">Alerts</div>
-    <div class="alerts-alerts-list" id="hudAlerts"></div>
+    <div class="alerts-list" id="hudAlerts"></div>
   </div>
   <div class="rel-panel" id="relPanel">
     <div class="rp-handle" onclick="closeRelPanel()"></div>
@@ -1857,7 +1857,7 @@ function analyzeConversation(){
     const result=analyzeMessages(msgs);
     S.analysis=result;renderAnalysis(result);
     document.getElementById('srBtmBar').style.display='flex';
-    renderLive Alerts(result);
+    renderAlerts(result);
   },400);
 }
 
@@ -2175,7 +2175,7 @@ document.addEventListener('click',e=>{
 /* ================================================================
    Live Alerts
    ================================================================ */
-function renderLive Alerts(result){
+function renderAlerts(result){
   if(!result)return;
   const{speakers,speakerData,contagion}=result;
   let sh='';
@@ -2212,7 +2212,7 @@ function generateAlerts(result){
 function toggleAlerts(){
   const h=document.getElementById('alertsOverlay');const b=document.getElementById('alertsTogBtn');
   const on=h.classList.contains('vis');h.classList.toggle('vis',!on);b.classList.toggle('on',!on);
-  if(!on&&S.analysis)renderLive Alerts(S.analysis);
+  if(!on&&S.analysis)renderAlerts(S.analysis);
 }
 
 /* ================================================================
