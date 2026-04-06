@@ -914,6 +914,11 @@ textarea:focus, input[type="text"]:focus {
   height: auto !important;
   padding: 4px 16px !important;
 }
+
+/* Hub: let taps pass through to onclick parent */
+#screen-hub [onclick] > * { pointer-events: none; }
+#screen-hub [onclick] > * > * { pointer-events: none; }
+#screen-hub [onclick] { cursor: pointer; -webkit-tap-highlight-color: rgba(0,0,0,0.05); }
 </style>
 </head>
 <body>
@@ -960,7 +965,7 @@ textarea:focus, input[type="text"]:focus {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
 
         <!-- Pinned Card 1: Social Reader -->
-        <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);padding:14px 14px 12px;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between">
+        <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" ontouchend="enterMode('social-reader');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);padding:14px 14px 12px;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between">
           <div>
             <div style="display:flex;align-items:center;gap:5px;margin-bottom:6px">
               <div style="width:8px;height:8px;border-radius:50%;background:#FF6B35;flex-shrink:0"></div>
@@ -974,7 +979,7 @@ textarea:focus, input[type="text"]:focus {
         </div>
 
         <!-- Pinned Card 2: Mood Mirror -->
-        <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);padding:14px 14px 12px;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between">
+        <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);padding:14px 14px 12px;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between">
           <div>
             <div style="display:flex;align-items:center;gap:5px;margin-bottom:6px">
               <div style="width:8px;height:8px;border-radius:50%;background:#06B6D4;flex-shrink:0"></div>
@@ -996,7 +1001,7 @@ textarea:focus, input[type="text"]:focus {
       <div style="background:#FFFFFF;border-radius:12px;box-shadow:0 0.5px 2px rgba(0,0,0,0.06);overflow:hidden">
 
         <!-- Social Reader -->
-        <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+        <div onclick="enterMode('social-reader')" ontouchend="enterMode('social-reader');event.preventDefault()" ontouchend="enterMode('social-reader');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
           <div style="width:8px;height:8px;border-radius:50%;background:#FF6B35;flex-shrink:0;margin-right:12px"></div>
           <div style="flex:1;padding:10px 0">
             <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Social Reader</div>
@@ -1007,7 +1012,7 @@ textarea:focus, input[type="text"]:focus {
         </div>
 
         <!-- Voice Coach -->
-        <div onclick="enterMode('pitch-coach')" ontouchend="enterMode('pitch-coach');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+        <div onclick="enterMode('pitch-coach')" ontouchend="enterMode('pitch-coach');event.preventDefault()" ontouchend="enterMode('pitch-coach');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
           <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;flex-shrink:0;margin-right:12px"></div>
           <div style="flex:1;padding:10px 0">
             <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Voice Coach</div>
@@ -1018,7 +1023,7 @@ textarea:focus, input[type="text"]:focus {
         </div>
 
         <!-- Relationship Pulse -->
-        <div onclick="enterMode('pulse')" ontouchend="enterMode('pulse');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+        <div onclick="enterMode('pulse')" ontouchend="enterMode('pulse');event.preventDefault()" ontouchend="enterMode('pulse');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
           <div style="width:8px;height:8px;border-radius:50%;background:#EC4899;flex-shrink:0;margin-right:12px"></div>
           <div style="flex:1;padding:10px 0">
             <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Relationship Pulse</div>
@@ -1029,7 +1034,7 @@ textarea:focus, input[type="text"]:focus {
         </div>
 
         <!-- Meeting Intel -->
-        <div onclick="enterMode('meeting')" ontouchend="enterMode('meeting');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+        <div onclick="enterMode('meeting')" ontouchend="enterMode('meeting');event.preventDefault()" ontouchend="enterMode('meeting');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
           <div style="width:8px;height:8px;border-radius:50%;background:#8B5CF6;flex-shrink:0;margin-right:12px"></div>
           <div style="flex:1;padding:10px 0">
             <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Meeting Intel</div>
@@ -1040,7 +1045,7 @@ textarea:focus, input[type="text"]:focus {
         </div>
 
         <!-- Mood Mirror -->
-        <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
+        <div onclick="enterMode('mood-mirror')" ontouchend="enterMode('mood-mirror');event.preventDefault()" ontouchend="enterMode('mood-mirror');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer;position:relative">
           <div style="width:8px;height:8px;border-radius:50%;background:#06B6D4;flex-shrink:0;margin-right:12px"></div>
           <div style="flex:1;padding:10px 0">
             <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Mood Mirror</div>
@@ -1051,7 +1056,7 @@ textarea:focus, input[type="text"]:focus {
         </div>
 
         <!-- Social Sandbox (last — no divider) -->
-        <div onclick="enterMode('sandbox')" ontouchend="enterMode('sandbox');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer">
+        <div onclick="enterMode('sandbox')" ontouchend="enterMode('sandbox');event.preventDefault()" ontouchend="enterMode('sandbox');event.preventDefault()" style="display:flex;align-items:center;min-height:44px;padding:0 16px;cursor:pointer">
           <div style="width:8px;height:8px;border-radius:50%;background:#10B981;flex-shrink:0;margin-right:12px"></div>
           <div style="flex:1;padding:10px 0">
             <div style="font-size:17px;font-weight:400;color:#000;line-height:1.2">Social Sandbox</div>
