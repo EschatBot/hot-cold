@@ -3758,5 +3758,35 @@ document.querySelectorAll('#tp-wheel [title]').forEach(function(el) {
   });
 });
 
+
+// Nuclear fix: hub buttons via event delegation
+document.addEventListener('click', function(e) {
+  var el = e.target;
+  for (var i = 0; i < 15; i++) {
+    if (!el || el === document.body) break;
+    var oc = el.getAttribute('onclick');
+    if (oc && oc.indexOf('enterMode') !== -1) {
+      try { new Function(oc)(); } catch(err) {}
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    el = el.parentElement;
+  }
+});
+document.addEventListener('touchstart', function(e) {
+  var el = e.target;
+  for (var i = 0; i < 15; i++) {
+    if (!el || el === document.body) break;
+    var oc = el.getAttribute('onclick');
+    if (oc && oc.indexOf('enterMode') !== -1) {
+      try { new Function(oc)(); } catch(err) {}
+      e.preventDefault();
+      return;
+    }
+    el = el.parentElement;
+  }
+}, {passive: false});
+
 </script>
 </body>
