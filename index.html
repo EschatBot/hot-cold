@@ -915,10 +915,7 @@ textarea:focus, input[type="text"]:focus {
   padding: 4px 16px !important;
 }
 
-/* Hub: let taps pass through to onclick parent */
-#screen-hub [onclick] > * { pointer-events: none; }
-#screen-hub [onclick] > * > * { pointer-events: none; }
-#screen-hub [onclick] { cursor: pointer; -webkit-tap-highlight-color: rgba(0,0,0,0.05); }
+/* Hub clickable elements */
 </style>
 </head>
 <body>
