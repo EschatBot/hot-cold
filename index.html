@@ -873,6 +873,14 @@ textarea:focus, input[type="text"]:focus {
 /* iOS WebView: make div onclick elements behave like buttons */
 [onclick] { cursor:pointer; -webkit-tap-highlight-color:rgba(255,255,255,0.1); }
 #screen-landing svg { pointer-events:none; }
+
+/* Fix: more space at top of tool screens for mobile status bar */
+.sr-nav, .mode-hdr, [class*="nav"] {
+  padding-top: max(20px, env(safe-area-inset-top, 20px)) !important;
+}
+.screen > header:first-child, .screen > nav:first-child, .screen > div:first-child > header:first-child {
+  padding-top: max(20px, env(safe-area-inset-top, 20px)) !important;
+}
 </style>
 </head>
 <body>
