@@ -416,6 +416,24 @@ textarea:focus, input[type="text"]:focus {
 .sparkline-wrap { margin-top:8px; }
 .sparkline { width:100%; height:40px; border-radius:8px; background:#F2F2F7; }
 
+/* ================================================================
+   iOS HEALTH OVERVIEW LAYOUT
+   ================================================================ */
+.ios-section-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 20px 8px;
+}
+.ios-section-title { font-family:"Space Grotesk",sans-serif; font-size:22px; font-weight:700; color:#000; }
+.ios-section-action { font-size:15px; font-weight:400; color:#007AFF; cursor:pointer; }
+.ios-category-label { display:flex; align-items:center; gap:6px; padding:8px 20px 6px; font-size:13px; font-weight:600; }
+.ios-category-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.ios-group-card { background:#fff; border-radius:12px; margin:0 16px 4px; overflow:hidden; box-shadow:0 0.5px 2px rgba(0,0,0,0.06); }
+.ios-row { display:flex; align-items:center; justify-content:space-between; padding:0 16px; height:44px; min-height:44px; cursor:pointer; }
+.ios-row+.ios-row { border-top:1px solid #E5E5EA; }
+.ios-row-label { font-size:17px; font-weight:400; color:#000; }
+.ios-row-value { font-size:17px; font-weight:600; }
+.ios-row-chevron { font-size:17px; color:#C7C7CC; margin-left:4px; }
+
 /* NARRATIVE */
 .narrative {
   background:#FFFFFF; border-radius:12px; padding:16px; margin-bottom:14px;
@@ -1794,55 +1812,82 @@ function switchTab(tab){
 function renderOverview(result){
   const{speakers,speakerData,contagion}=result;
   const c=document.getElementById('tab-overview');
-  let h='<div class="score-legend" style="margin-bottom:8px">'+
-    '<div class="leg-item"><div class="leg-sw" style="background:var(--hot)"></div>Hot (positive)</div>'+
-    '<div class="leg-item"><div class="leg-sw" style="background:var(--cold)"></div>Cold (negative)</div>'+
-    '<div class="leg-item"><div class="leg-sw" style="background:#555"></div>Neutral</div>'+
-    '</div>'+
-    '<div style="font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.5">Scores range from -1 (cold/negative) to +1 (hot/positive). Our sentiment engine considers words, capitalization, punctuation, emoji, negation, and intensifiers.</div>'+
-    '<div class="spk-bars">';
+
+  // Conversation-level metrics
+  const totalMsgs=speakers.reduce((a,s)=>a+speakerData[s].msgCount,0)||1;
+  const avgCompound=speakers.reduce((a,s)=>a+speakerData[s].compound,0)/speakers.length;
+  const overallTone=avgCompound>0.4?'Very Warm':avgCompound>0.15?'Warm':avgCompound>-0.15?'Neutral':'Cold';
+  const toneColor=avgCompound>0.15?'var(--hot)':avgCompound<-0.15?'var(--cold)':'#8E8E93';
+  const avgMsgLen=speakers.reduce((a,s)=>a+speakerData[s].avgLen,0)/speakers.length;
+  const energyScore=(totalMsgs/50*0.6)+(avgMsgLen/40*0.4);
+  const groupEnergy=energyScore>0.7?'High':energyScore>0.35?'Moderate':'Low';
+  const energyColor=energyScore>0.7?'#34C759':energyScore>0.35?'#FF9500':'#8E8E93';
+  const moodSetter=[...speakers].sort((a,b)=>(contagion[b]?.moodSetter||0)-(contagion[a]?.moodSetter||0))[0];
+  const convLabel=totalMsgs>60?'Long':totalMsgs>20?'Medium':'Short';
+
+  let h='';
+
+  // ── Conversation section ──
+  h+='<div class="ios-section-header"><span class="ios-section-title">Conversation</span></div>';
+  h+='<div class="ios-group-card">';
+  h+='<div class="ios-row"><span class="ios-row-label">Speakers</span><span class="ios-row-value" style="color:#007AFF">'+speakers.length+' · '+convLabel+'</span></div>';
+  h+='<div class="ios-row"><span class="ios-row-label">Overall Tone</span><span class="ios-row-value" style="color:'+toneColor+'">'+overallTone+'</span></div>';
+  h+='<div class="ios-row"><span class="ios-row-label">Group Energy</span><span class="ios-row-value" style="color:'+energyColor+'">'+groupEnergy+'</span></div>';
+  h+='<div class="ios-row"><span class="ios-row-label">Mood Setter</span><span class="ios-row-value" style="color:#FF6B35">'+esc(moodSetter)+'</span></div>';
+  h+='</div>';
+
+  // ── Per-speaker sections ──
   speakers.forEach((spk,idx)=>{
-    const d=speakerData[spk];const col=getSC(idx);const sc=d.compound;
-    const scol=sc>0.15?'var(--hot)':sc<-0.15?'var(--cold)':'#888';
-    const sshadow=sc>0.15?'0 0 8px rgba(255,59,48,0.3)':sc<-0.15?'0 0 8px rgba(0,122,255,0.3)':'none';
-    const bgc=sc>0.15?'var(--hot)':sc<-0.15?'var(--cold)':'#555';
-    const pct=((sc+1)/2*100).toFixed(0);
-    const wx={w:(d.warmth*100).toFixed(0),c:(d.competence*100).toFixed(0)};
-    const quad=d.warmth>0.5&&d.competence>0.5?'Warm+Competent':d.warmth>0.5?'Warm+Reserved':d.competence>0.5?'Cool+Competent':'Reserved+Passive';
-    const acts=Object.entries(d.acts).sort((a,b)=>b[1]-a[1]).slice(0,4)
-      .map(([act,cnt])=>'<span class="act-b" style="color:'+ACT_COLORS[act]+';border-color:'+ACT_COLORS[act]+'">'+act+' x'+cnt+'</span>').join('');
-    const spark=d.compounds.map(v=>((v+1)/2*100).toFixed(1)).join(',');
+    const d=speakerData[spk];
+    const col=getSC(idx);
+    const sc=d.compound;
+    const scol=sc>0.15?'var(--hot)':sc<-0.15?'var(--cold)':'#8E8E93';
+    const warmthLabel=sc>0.5?'Very Warm':sc>0.2?'Warm':sc>-0.2?'Neutral':sc>-0.5?'Cool':'Cold';
+
+    const spkShare=d.msgCount/totalMsgs;
+    const engScore=spkShare*0.7+(d.avgLen/40)*0.3;
+    const engagement=engScore>0.35?'High':engScore>0.15?'Moderate':'Low';
+    const engColor=engScore>0.35?'#34C759':engScore>0.15?'#FF9500':'#8E8E93';
+
+    const spkPct=Math.round(spkShare*100);
+    const qCount=d.acts['QUESTION']||0;
+
+    let toneTrend='Stable →'; let trendColor='#8E8E93';
+    if(d.compounds&&d.compounds.length>=4){
+      const half=Math.floor(d.compounds.length/2);
+      const fAvg=d.compounds.slice(0,half).reduce((a,v)=>a+v,0)/half;
+      const sAvg=d.compounds.slice(half).reduce((a,v)=>a+v,0)/(d.compounds.length-half);
+      if(sAvg-fAvg>0.15){toneTrend='Rising ↑';trendColor='var(--hot)';}
+      else if(fAvg-sAvg>0.15){toneTrend='Falling ↓';trendColor='var(--cold)';}
+    }
+
+    const styleMap={QUESTION:'Questioning',AGREEMENT:'Supporting',COMMAND:'Dominant',SELF_DISCLOSURE:'Reflective',BACKCHANNEL:'Listening',COMPLIMENT:'Affirming',DISAGREEMENT:'Challenging',STATEMENT:'Direct'};
+    const topAct=(Object.entries(d.acts).sort((a,b)=>b[1]-a[1])[0]||[])[0];
+    const dialStyle=styleMap[topAct]||'Conversational';
+
     const spkE=spk.replace(/'/g,"\\'");
-    h+='<div class="spk-bar" style="--sc:'+col+'" onclick="showRelPanel(\''+spkE+'\','+idx+')">'+
-      '<div class="bar-top">'+
-        '<div class="spk-label"><div class="spk-dot" style="background:'+col+';box-shadow:0 0 8px '+col+'4d"></div><span>'+esc(spk)+'</span></div>'+
-        '<span class="spk-score-val" style="color:'+scol+';text-shadow:'+sshadow+'">'+(sc>0.5?'Very Warm':sc>0.2?'Warm':sc>-0.2?'Neutral':sc>-0.5?'Cool':'Cold')+'</span>'+
-      '</div>'+
-      '<div class="bar-track"><div class="bar-fill" style="width:'+pct+'%;background:'+bgc+'"></div></div>'+
-      '<div class="wxc-row">'+
-        '<div class="wxc-plot"><div class="wxc-hline"></div><div class="wxc-vline"></div>'+
-          '<div class="wxc-ql" style="top:2px;left:2px">Warm</div><div class="wxc-ql" style="top:2px;right:2px;left:auto">Assertive</div>'+
-          '<div class="wxc-ql" style="bottom:2px;left:2px;top:auto">Reserved</div><div class="wxc-ql" style="bottom:2px;right:2px;top:auto;left:auto">Cool</div>'+
-          '<div class="wxc-dot" style="background:'+col+';left:'+wx.w+'%;top:'+(100-wx.c)+'%"></div></div>'+
-        '<div class="wxc-info"><div class="wxc-labels"><span style="font-size:9px;color:var(--muted)">'+quad+'</span></div>'+
-          '<div class="acts-row">'+acts+'</div></div>'+
-      '</div>'+
-      '<div class="bar-stats">'+
-        '<span class="stat-b">'+d.msgCount+' msgs</span>'+
-        '<span class="stat-b">~'+Math.round(d.avgLen)+' w/msg</span>'+
-        (contagion[spk]&&contagion[spk].moodSetter>0.5?'<span class="stat-b" style="border-color:var(--hot);color:var(--hot)">Mood Setter</span>':'')+
-        (contagion[spk]&&contagion[spk].moodResistant>0.5?'<span class="stat-b" style="border-color:var(--cold);color:var(--cold)">Resistant</span>':'')+
-      '</div>'+
-      '<div class="sparkline-wrap"><canvas class="sparkline" id="spk'+idx+'" data-vals="'+spark+'" data-col="'+col+'"></canvas></div>'+
-      '</div>';
+    const tintBg=col+'14'; // ~8% opacity
+
+    h+='<div class="ios-category-label">';
+    h+='<div class="ios-category-dot" style="background:'+col+'"></div>';
+    h+='<span style="color:'+col+'">'+esc(spk)+'</span>';
+    h+='</div>';
+
+    h+='<div class="ios-group-card" style="background:'+tintBg+'" onclick="showRelPanel(\''+spkE+'\','+idx+')">';
+    h+='<div class="ios-row"><span class="ios-row-label">Warmth Level</span><span class="ios-row-value" style="color:'+scol+'">'+warmthLabel+'</span></div>';
+    h+='<div class="ios-row"><span class="ios-row-label">Engagement</span><span class="ios-row-value" style="color:'+engColor+'">'+engagement+'</span></div>';
+    h+='<div class="ios-row"><span class="ios-row-label">Speaking Time</span><span class="ios-row-value" style="color:#007AFF">'+spkPct+'%</span></div>';
+    h+='<div class="ios-row"><span class="ios-row-label">Questions Asked</span><span class="ios-row-value" style="color:#8E8E93">'+qCount+'</span></div>';
+    h+='<div class="ios-row"><span class="ios-row-label">Tone Trend</span><span class="ios-row-value" style="color:'+trendColor+'">'+toneTrend+'</span></div>';
+    h+='<div class="ios-row"><span class="ios-row-label">Dialogue Style</span><span class="ios-row-value" style="color:#5856D6">'+dialStyle+'</span></div>';
+    h+='</div>';
   });
-  h+='</div><div class="narrative" style="margin-top:4px">"'+esc(generateNarrative(result))+'"</div>';
+
+  // ── Narrative section ──
+  h+='<div class="ios-section-header"><span class="ios-section-title">Narrative</span></div>';
+  h+='<div class="ios-group-card" style="margin-bottom:32px"><div style="padding:16px"><p style="font-size:15px;color:#3C3C43;line-height:1.65;margin:0">'+esc(generateNarrative(result))+'</p></div></div>';
+
   c.innerHTML=h;
-  requestAnimationFrame(()=>{
-    document.querySelectorAll('.sparkline').forEach(cv=>{
-      drawSparkline(cv,cv.dataset.vals.split(',').map(Number),cv.dataset.col);
-    });
-  });
 }
 
 function drawSparkline(cv,vals,col){
