@@ -1070,12 +1070,41 @@ h3 { font-size:clamp(1.1rem,3vw,1.5rem); font-weight:700; }
 <body>
 
 <!-- LANDING PAGE -->
-<div id="screen-landing" class="screen active" style="background:#000;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;overflow:hidden">
-  <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,0.3);letter-spacing:0.2em;margin-bottom:40px">MAX·SOCIAL</div>
-  <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,9vw,4.5rem);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-0.03em;margin-bottom:16px">Read the room.</h1>
-  <p style="font-size:16px;color:rgba(255,255,255,0.35);margin-bottom:40px">Six tools for social intelligence.</p>
-  <button onclick="showScreen('hub')" ontouchend="showScreen('hub');event.preventDefault()" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#FF6B35;border:none;padding:16px 48px;border-radius:12px;cursor:pointer;letter-spacing:0.02em">Open</button>
-  <div style="position:absolute;bottom:24px;font-size:10px;color:rgba(255,255,255,0.15)">Testing phase</div>
+<div id="screen-landing" class="screen active" style="background:#000;min-height:100dvh;overflow:hidden;position:relative">
+
+  <!-- Ambient color bleed -->
+  <div style="position:absolute;top:-20%;right:-30%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,0.07) 0%,transparent 70%);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-20%;left:-30%;width:500px;height:500px;background:radial-gradient(circle,rgba(45,107,228,0.05) 0%,transparent 70%);pointer-events:none"></div>
+
+  <!-- Content -->
+  <div style="min-height:100dvh;display:flex;flex-direction:column;position:relative;z-index:1">
+
+    <!-- Nav -->
+    <nav style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:rgba(255,255,255,0.4);letter-spacing:0.2em">MAX·SOCIAL</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.1);padding:4px 10px;border-radius:100px;letter-spacing:0.08em">Testing Phase</div>
+    </nav>
+
+    <!-- Hero -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 32px 80px;text-align:center">
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,11vw,6rem);font-weight:700;color:#fff;line-height:0.95;letter-spacing:-0.04em;margin-bottom:20px">Read<br>the room.</h1>
+      <p style="font-size:17px;color:rgba(255,255,255,0.35);margin-bottom:44px;max-width:280px;line-height:1.5">Social intelligence tools.<br>In your browser. Always private.</p>
+      <button onclick="showScreen('hub')" ontouchend="showScreen('hub');event.preventDefault()" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:#fff;background:linear-gradient(135deg,#FF6B35,#E8501A);border:none;padding:18px 56px;border-radius:14px;cursor:pointer;letter-spacing:0.02em;box-shadow:0 4px 24px rgba(255,107,53,0.3),0 0 80px rgba(255,107,53,0.1);transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,107,53,0.4),0 0 100px rgba(255,107,53,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(255,107,53,0.3),0 0 80px rgba(255,107,53,0.1)'">Open Suite →</button>
+    </div>
+
+    <!-- Tool strip at bottom -->
+    <div style="padding:0 24px 40px">
+      <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:#FF6B35"></div><span style="font-size:11px;color:rgba(255,255,255,0.3);font-weight:600">Social Reader</span></div>
+        <div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:#FFB800"></div><span style="font-size:11px;color:rgba(255,255,255,0.3);font-weight:600">Voice Coach</span></div>
+        <div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:#FF2D87"></div><span style="font-size:11px;color:rgba(255,255,255,0.3);font-weight:600">Pulse</span></div>
+        <div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:#7C3AED"></div><span style="font-size:11px;color:rgba(255,255,255,0.3);font-weight:600">Meeting Intel</span></div>
+        <div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:#06B6D4"></div><span style="font-size:11px;color:rgba(255,255,255,0.3);font-weight:600">Mood Mirror</span></div>
+        <div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:#22C55E"></div><span style="font-size:11px;color:rgba(255,255,255,0.3);font-weight:600">Sandbox</span></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div id="screen-hub" class="screen"><div class="pc-bg"><div class="pc-layer"></div><div class="pc-layer"></div><div class="pc-layer"></div></div>
