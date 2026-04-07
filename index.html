@@ -916,6 +916,60 @@ textarea:focus, input[type="text"]:focus {
 }
 
 /* Hub clickable elements */
+
+/* ================================================================
+   SIMPLIFIED RECORDING UI
+   ================================================================ */
+.rec-zone {
+  display:flex; flex-direction:column; align-items:center;
+  padding:28px 16px 12px; gap:14px;
+}
+.rec-instruction {
+  font-size:16px; color:var(--text-sec); text-align:center;
+  line-height:1.5; max-width:280px;
+}
+.rec-btn-big {
+  width:88px; height:88px; border-radius:50%; border:none;
+  background:var(--hot); color:#fff; font-size:36px; cursor:pointer;
+  box-shadow:0 6px 20px rgba(232,49,42,0.3); transition:transform 0.15s;
+  display:flex; align-items:center; justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.rec-btn-big:active { transform:scale(0.95) !important; }
+.rec-btn-big.recording {
+  animation:recBigPulse 1.2s ease infinite; background:#C0392B; font-size:28px;
+}
+@keyframes recBigPulse {
+  0%,100%{box-shadow:0 6px 20px rgba(192,57,43,0.3)}
+  50%{box-shadow:0 6px 36px rgba(192,57,43,0.6)}
+}
+.rec-state-row { display:flex; align-items:center; gap:10px; }
+.rec-state-txt { font-size:14px; color:var(--text-sec); }
+.rec-timer-big {
+  font-family:'Inter',sans-serif; font-weight:700; font-size:20px;
+  color:var(--text); letter-spacing:-0.02em; display:none;
+}
+.paste-link {
+  font-size:13px; color:#007AFF; text-decoration:none;
+  text-align:center; display:inline-block; padding:6px 0; cursor:pointer;
+}
+.paste-panel { display:none; flex-direction:column; gap:10px; padding:4px 0 8px; }
+.paste-panel.vis { display:flex; }
+.energy-meter {
+  height:36px; width:190px; display:flex;
+  align-items:flex-end; justify-content:center; gap:3px;
+  opacity:0; transition:opacity 0.3s;
+}
+.energy-meter.active { opacity:1; }
+.em-bar {
+  width:5px; height:4px; border-radius:3px;
+  background:var(--hot); opacity:0.85;
+  transition:height 0.06s ease;
+}
+.spk-tag-row {
+  display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+  padding:4px 0;
+}
 </style>
 </head>
 <body>
@@ -1082,49 +1136,40 @@ textarea:focus, input[type="text"]:focus {
     </div>
   </header>
   <div class="sr-body">
-    <div class="sr-input" id="srInputPhase">
-      <div class="sr-input-hdr">
-        <h2>Analyze a Conversation</h2>
-        <p>Paste text or record live</p>
-      </div>
-      <div id="speakerCountSection">
-        <span class="section-label">Number of Speakers</span>
-        <div class="count-row">
+    <div id="srInputPhase">
+      <!-- Speaker setup -->
+      <div class="setup-card" style="margin-bottom:10px">
+        <div class="setup-card-label" style="color:var(--brand)">Speakers</div>
+        <div class="counter-row" style="margin-bottom:10px">
           <button class="cnt-btn" onclick="changeSpeakerCount(-1)">&#8722;</button>
           <div class="cnt-disp" id="countDisp">3</div>
           <button class="cnt-btn" onclick="changeSpeakerCount(1)">+</button>
         </div>
-      </div>
-      <div id="speakerNamesSection">
-        <span class="section-label">Speaker Names</span>
         <div class="spk-names" id="speakerNamesRow"></div>
       </div>
-      <div id="captureSection">
-        <span class="section-label">Input Mode</span>
-        <div class="cap-btns">
-          <button class="cap-btn sel" id="capPaste" onclick="selectCapture('paste')">
-            <span class="cap-icon">&#128203;</span><div class="cap-name">Paste Text</div>
-          </button>
-          <button class="cap-btn" id="capLive" onclick="selectCapture('live')">
-            <span class="cap-icon">&#127897;&#65039;</span><div class="cap-name">Record Live</div>
-          </button>
+
+      <!-- Record zone -->
+      <div class="setup-card" style="margin-bottom:10px">
+        <div class="rec-zone">
+          <div class="rec-instruction">Record a conversation.<br>Tag who's speaking as you go.</div>
+          <div class="energy-meter" id="sr-energy"></div>
+          <button class="rec-btn-big" id="recBtn" onclick="toggleRecording()">&#9679;</button>
+          <div class="rec-state-row">
+            <span class="rec-state-txt" id="liveStatus">Ready</span>
+            <span class="rec-timer-big" id="sr-timer">0:00</span>
+          </div>
+          <div class="spk-tag-row" id="spkSelectRow"></div>
         </div>
+        <div class="live-ta" id="liveTranscript" style="display:none"></div>
       </div>
-      <div class="paste-area vis" id="pasteArea">
-        <textarea class="paste-ta" id="pasteTA" placeholder="Paste your conversation here...&#10;&#10;Format:&#10;Alice: Hey, how are you?&#10;Bob: Great! How about you?&#10;&#10;Supports WhatsApp, iMessage, Slack,&#10;or any Name: Message format."></textarea>
-        <button class="btn btn-ghost btn-sm" style="align-self:center;border-color:var(--pitch);color:var(--pitch)" onclick="loadDemo()">&#9654; Try Demo</button>
-        <div class="paste-hint">Supports WhatsApp, iMessage, Slack exports, or simple Name: Message format</div>
-      </div>
-      <div class="live-area" id="liveArea">
-        <div class="live-status" id="liveStatus">Tap to start recording</div>
-        <button class="rec-btn" id="recBtn" onclick="toggleRecording()">&#127897;&#65039;</button>
-        <span class="section-label" style="margin-top:4px">Who&#x27;s speaking?</span>
-        <div class="spk-sel-row" id="spkSelectRow"></div>
-        <div class="live-ta" id="liveTranscript">Live transcript will appear here...</div>
-      </div>
-      <div class="analyze-row">
-        <button class="btn btn-primary" onclick="analyzeConversation()">Analyze &#8594;</button>
-        <button class="btn btn-ghost btn-sm" onclick="clearInput()">Clear</button>
+
+      <a class="paste-link" href="#" onclick="togglePastePanel('sr-paste',event)" style="display:block;text-align:center;margin-bottom:10px">Paste text instead</a>
+      <div class="paste-panel" id="sr-paste">
+        <textarea class="paste-ta" id="pasteTA" placeholder="Paste your conversation here...&#10;&#10;Alice: Hey, how are you?&#10;Bob: Great! How about you?"></textarea>
+        <div style="display:flex;gap:10px;justify-content:center">
+          <button class="btn btn-primary btn-sm" onclick="srAnalyzePaste()">Analyze &#8594;</button>
+          <button class="btn btn-ghost btn-sm" style="border-color:var(--pitch);color:var(--pitch)" onclick="loadDemo()">&#9654; Demo</button>
+        </div>
       </div>
     </div>
     <div class="sr-analysis" id="srAnalysis"></div>
@@ -1135,21 +1180,23 @@ textarea:focus, input[type="text"]:focus {
     <button class="btm-btn" style="border-color:var(--hot);color:var(--hot)" onclick="toggleAlerts()">Live Alerts</button>
   </div>
   <div class="alerts-overlay" id="alertsOverlay">
-    <div class="alerts-hdr">
+    <div class="alerts-header">
       <div class="alerts-title">&#9889; Live Alerts</div>
-      <button class="alerts-close" onclick="toggleAlerts()">&#x2715;</button>
+      <button style="color:#9AA5B4;background:none;border:none;cursor:pointer;font-size:18px" onclick="toggleAlerts()">&#x2715;</button>
     </div>
-    <div class="alerts-spks" id="hudSpeakers"></div>
-    <div style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px">Alerts</div>
+    <div class="alerts-speakers" id="hudSpeakers"></div>
+    <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:.08em;text-transform:uppercase;margin-top:4px">Alerts</div>
     <div class="alerts-list" id="hudAlerts"></div>
   </div>
-  <div class="rel-panel" id="relPanel">
-    <div class="rp-handle" onclick="closeRelPanel()"></div>
-    <div class="rp-content" id="relPanelContent"></div>
+  <div class="rp-overlay" id="relPanel" onclick="closeRelPanel()">
+    <div class="rp-panel" onclick="event.stopPropagation()">
+      <div class="rp-handle"></div>
+      <div id="relPanelContent"></div>
+    </div>
   </div>
 </div>
 
-<!-- PITCH COACH -->
+<!-- VOICE COACH -->
 <div id="screen-pitch-coach" class="screen">
   <header class="mode-hdr">
     <button class="mode-back-btn" onclick="showScreen('hub')">&#x2039; Suite</button>
@@ -1159,23 +1206,27 @@ textarea:focus, input[type="text"]:focus {
   <div class="mode-body-n">
     <div id="pc-setup" class="mode-section-n">
       <div class="mode-panel-n">
-        <div class="setup-card-label" style="color:var(--pitch)">Record Your Speech</div>
-        <div class="rec-center">
-          <div class="live-status" id="pc-status">Tap to start &mdash; speak for 15&ndash;60 seconds</div>
-          <button class="rec-btn" id="pc-rec-btn" onclick="pcToggleRec()">&#127908;</button>
-          <div class="rec-timer-n" id="pc-timer" style="display:none">0:00</div>
+        <div class="setup-card-label" style="color:var(--pitch)">Analyze Your Voice</div>
+        <div class="rec-zone">
+          <div class="rec-instruction">Speak for 15–60 seconds.<br>A pitch, presentation, or anything.</div>
+          <div class="energy-meter" id="pc-energy"></div>
+          <button class="rec-btn-big" id="pc-rec-btn" onclick="pcToggleRec()">&#9679;</button>
+          <div class="rec-state-row">
+            <span class="rec-state-txt" id="pc-status">Ready</span>
+            <span class="rec-timer-big" id="pc-timer">0:00</span>
+          </div>
         </div>
-        <div class="setup-card-label" style="margin-top:4px">Or paste / type text</div>
-        <textarea class="paste-ta" id="pc-text" style="margin-top:8px" placeholder="Paste or type a speech, pitch, or presentation..."></textarea>
-      </div>
-      <div class="analyze-row">
-        <button class="btn btn-primary" style="background:var(--pitch)" onclick="pcRender(pcAnalyze(document.getElementById('pc-text').value.trim(),60))">Analyze Speech &#8594;</button>
+        <a class="paste-link" href="#" onclick="togglePastePanel('pc-paste',event)" style="display:block;text-align:center;margin-top:4px">Paste text instead</a>
+        <div class="paste-panel" id="pc-paste">
+          <textarea class="paste-ta" id="pc-text" style="min-height:120px;margin-top:8px" placeholder="Paste or type a speech, pitch, or presentation..."></textarea>
+          <button class="btn btn-primary btn-sm" style="background:var(--pitch);align-self:center" onclick="pcAnalyzeText()">Analyze &#8594;</button>
+        </div>
       </div>
     </div>
     <div id="pc-results" class="mode-section-n" style="display:none">
       <div class="metric-grid-2" id="pc-metrics"></div>
       <div class="mode-panel-n" id="pc-tips">
-        <div class="setup-card-label" style="color:var(--pitch)">Research-Backed Tips</div>
+        <div class="setup-card-label" style="color:var(--pitch)">Coaching Notes</div>
         <div id="pc-tips-list"></div>
       </div>
       <div class="analyze-row"><button class="btn btn-primary" style="background:var(--pitch)" onclick="pcReset()">Record Again</button></div>
@@ -1193,16 +1244,22 @@ textarea:focus, input[type="text"]:focus {
   <div class="mode-body-n">
     <div id="mood-setup" class="mode-section-n">
       <div class="mode-panel-n">
-        <div class="setup-card-label">Speak for ~30 Seconds</div>
-        <div class="rec-center">
-          <div class="live-status" id="mood-status">Talk about anything &mdash; your day, what&apos;s on your mind</div>
-          <button class="rec-btn" id="mood-rec-btn" onclick="mmToggleRec()">&#127897;</button>
-          <div class="rec-timer-n" id="mood-timer" style="display:none">0:00</div>
+        <div class="setup-card-label" style="color:var(--mood)">Check In</div>
+        <div class="rec-zone">
+          <div class="rec-instruction">Talk about anything —<br>your day, what's on your mind.</div>
+          <div class="energy-meter" id="mm-energy"></div>
+          <button class="rec-btn-big" id="mood-rec-btn" onclick="mmToggleRec()">&#9679;</button>
+          <div class="rec-state-row">
+            <span class="rec-state-txt" id="mood-status">Ready</span>
+            <span class="rec-timer-big" id="mood-timer">0:00</span>
+          </div>
         </div>
-        <div class="setup-card-label" style="margin-top:4px">Or type what&apos;s on your mind</div>
-        <textarea class="paste-ta" id="mood-text" style="margin-top:8px" placeholder="Write freely about how you&apos;re feeling right now..."></textarea>
+        <a class="paste-link" href="#" onclick="togglePastePanel('mm-paste',event)" style="display:block;text-align:center;margin-top:4px">Paste text instead</a>
+        <div class="paste-panel" id="mm-paste">
+          <textarea class="paste-ta" id="mood-text" style="min-height:120px;margin-top:8px" placeholder="Write freely about how you're feeling right now..."></textarea>
+          <button class="btn btn-primary btn-sm" style="background:var(--mood);align-self:center" onclick="mmAnalyzeText()">Reflect &#8594;</button>
+        </div>
       </div>
-      <div class="analyze-row"><button class="btn btn-primary" style="background:var(--mood)" onclick="mmAnalyze(document.getElementById(&quot;mood-text&quot;)?.textContent||&quot;&quot;)">Reflect &#8594;</button></div>
     </div>
     <div id="mood-results" class="mode-section-n" style="display:none">
       <div id="mood-headline" class="mode-panel-n" style="border-left:4px solid var(--mood);padding-left:14px">
@@ -1234,23 +1291,35 @@ textarea:focus, input[type="text"]:focus {
       <div class="mode-panel-n">
         <div class="setup-card-label">The Two People</div>
         <div class="pair-row">
-          <input class="pair-inp" id="pulse-a" placeholder="Person A" value="Alex">
-          <input class="pair-inp" id="pulse-b" placeholder="Person B" value="Jordan">
+          <input class="pair-inp" id="pulse-a" placeholder="Person A" value="Alex" oninput="rpUpdateSpeakerBtns()">
+          <input class="pair-inp" id="pulse-b" placeholder="Person B" value="Jordan" oninput="rpUpdateSpeakerBtns()">
         </div>
-      </div>
-      <div class="mode-panel-n">
-        <div class="setup-card-label">Their Conversation</div>
-        <textarea class="paste-ta" id="pulse-text" placeholder="Alex: Hey, how are you?&#10;Jordan: Fine. Busy.&#10;Alex: I miss hanging out!&#10;Jordan: Yeah, me too I guess."></textarea>
-      </div>
-      <div class="analyze-row">
-        <button class="btn btn-primary" style="background:var(--pulse)" onclick="rpAnalyze()">Check Pulse &#8594;</button>
-        <button class="btn btn-ghost btn-sm" onclick="rpAnalyze()">&#9654; Demo</button>
+        <div class="rec-zone" style="padding-top:20px">
+          <div class="rec-instruction">Record their conversation.<br>Tag who's speaking as they talk.</div>
+          <div class="energy-meter" id="rp-energy"></div>
+          <button class="rec-btn-big" id="rp-rec-btn" onclick="rpToggleLive()">&#9679;</button>
+          <div class="rec-state-row">
+            <span class="rec-state-txt" id="rp-status">Ready</span>
+            <span class="rec-timer-big" id="rp-timer">0:00</span>
+          </div>
+          <div class="spk-tag-row" id="rp-spk-row"></div>
+        </div>
+        <div class="live-ta" id="rp-transcript" style="display:none"></div>
+        <a class="paste-link" href="#" onclick="togglePastePanel('rp-paste',event)" style="display:block;text-align:center;margin-top:4px">Paste text instead</a>
+        <div class="paste-panel" id="rp-paste">
+          <textarea class="paste-ta" id="pulse-text" placeholder="Alex: Hey, how are you?&#10;Jordan: Fine. Busy."></textarea>
+          <div style="display:flex;gap:10px;justify-content:center">
+            <button class="btn btn-primary btn-sm" style="background:var(--pulse)" onclick="rpAnalyzeText()">Check Pulse &#8594;</button>
+            <button class="btn btn-ghost btn-sm" onclick="loadPulseDemo()">&#9654; Demo</button>
+          </div>
+        </div>
       </div>
     </div>
     <div id="pulse-results" class="mode-section-n" style="display:none">
       <div class="mode-panel-n" id="pulse-warmth-card"></div>
       <div class="metric-grid-2" id="pulse-metrics"></div>
       <div class="dash-narrative-n" id="pulse-insight"></div>
+      <div class="mode-panel-n" id="pulse-vocal-card" style="display:none"></div>
       <div class="mode-panel-n" id="pulse-history-card" style="display:none">
         <div class="setup-card-label">Trend Over Time</div>
         <canvas id="pulse-sparkline" height="48" style="width:100%;display:block;border-radius:8px;margin-top:8px"></canvas>
@@ -1260,7 +1329,7 @@ textarea:focus, input[type="text"]:focus {
   </div>
 </div>
 
-<!-- MEETING INTELLIGENCE -->
+<!-- MEETING INTEL -->
 <div id="screen-meeting" class="screen">
   <header class="mode-hdr">
     <button class="mode-back-btn" onclick="showScreen('hub')">&#x2039; Suite</button>
@@ -1270,12 +1339,28 @@ textarea:focus, input[type="text"]:focus {
   <div class="mode-body-n">
     <div id="meeting-setup" class="mode-section-n">
       <div class="mode-panel-n">
-        <div class="setup-card-label">Paste Meeting Transcript</div>
-        <textarea class="paste-ta" id="meeting-text" style="min-height:200px" placeholder="Alice: Let&apos;s get started.&#10;Bob: I had a few concerns...&#10;Carol: What about the timeline?&#10;&#10;Speakers detected automatically."></textarea>
-      </div>
-      <div class="analyze-row">
-        <button class="btn btn-primary" style="background:var(--meeting)" onclick="miAnalyze()">Analyze &#8594;</button>
-        <button class="btn btn-ghost btn-sm" onclick="miAnalyze()">&#9654; Demo</button>
+        <div class="setup-card-label" style="color:var(--meeting)">Participants</div>
+        <div id="mi-spk-names" style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px"></div>
+        <button style="font-size:13px;color:var(--meeting);background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;padding:4px 0" onclick="miAddSpeaker()">+ Add Participant</button>
+        <div class="rec-zone" style="padding-top:20px">
+          <div class="rec-instruction">Record the meeting.<br>Tag each speaker as they talk.</div>
+          <div class="energy-meter" id="mi-energy"></div>
+          <button class="rec-btn-big" id="mi-rec-btn" onclick="miToggleLive()">&#9679;</button>
+          <div class="rec-state-row">
+            <span class="rec-state-txt" id="mi-status">Ready</span>
+            <span class="rec-timer-big" id="mi-timer">0:00</span>
+          </div>
+          <div class="spk-tag-row" id="mi-spk-row"></div>
+        </div>
+        <div class="live-ta" id="mi-transcript" style="display:none"></div>
+        <a class="paste-link" href="#" onclick="togglePastePanel('mi-paste',event)" style="display:block;text-align:center;margin-top:4px">Paste text instead</a>
+        <div class="paste-panel" id="mi-paste">
+          <textarea class="paste-ta" id="meeting-text" style="min-height:140px" placeholder="Alice: Let's get started.&#10;Bob: I had a few concerns...&#10;&#10;Speakers detected automatically."></textarea>
+          <div style="display:flex;gap:10px;justify-content:center">
+            <button class="btn btn-primary btn-sm" style="background:var(--meeting)" onclick="miAnalyzeText()">Analyze &#8594;</button>
+            <button class="btn btn-ghost btn-sm" onclick="loadMeetingDemo()">&#9654; Demo</button>
+          </div>
+        </div>
       </div>
     </div>
     <div id="meeting-results" class="mode-section-n" style="display:none">
@@ -1313,6 +1398,18 @@ textarea:focus, input[type="text"]:focus {
         <div id="sandbox-conv" style="font-size:13px;color:#4A5568;line-height:1.75;max-height:200px;overflow-y:auto"></div>
       </div>
       <div id="sandbox-questions" style="display:flex;flex-direction:column;gap:10px"></div>
+      <div id="sb-practice-area" style="display:none">
+        <div class="mode-panel-n">
+          <div class="setup-card-label" style="color:var(--sandbox);margin-bottom:4px">Practice Response</div>
+          <div style="font-size:13px;color:#4A5568;margin-bottom:10px;line-height:1.5">Record yourself responding. Get voice delivery feedback.</div>
+          <div class="rec-zone" style="padding-top:8px;gap:10px">
+            <div class="energy-meter" id="sb-energy"></div>
+            <button id="sb-prac-btn" class="rec-btn-big" style="width:68px;height:68px;font-size:28px" onclick="sbStartPractice()">&#9679;</button>
+            <span class="rec-state-txt" id="sb-prac-status">Tap to start</span>
+          </div>
+          <div id="sb-prac-results" style="margin-top:10px"></div>
+        </div>
+      </div>
       <div class="analyze-row">
         <button class="btn btn-primary" id="sb-next-btn" style="background:var(--sandbox)" onclick="sbReveal()">Next Scenario &#8594;</button>
         <button class="btn btn-ghost btn-sm" onclick="showScreen('hub');enterMode('sandbox')">&#8592; Scenarios</button>
@@ -1425,6 +1522,11 @@ class AudioAnalyzer {
     return{pitch:sr/bestP,confidence:Math.min(1,best/0.3)};
   }
 
+  getRMS(){
+    if(!this.history.length)return 0;
+    return this.history[this.history.length-1].rms||0;
+  }
+
   // Returns aggregated stats; pass speakerFilter to scope to one speaker
   getSummary(speakerFilter){
     let frames=this.history;
@@ -1488,6 +1590,10 @@ class AudioAnalyzer {
 }
 
 const audioEngine=new AudioAnalyzer();
+
+/* Per-mode live recording state */
+const RP={captureMode:'paste',recording:false,liveMessages:[],mediaRec:null,currentSpeaker:0,startTime:0,timerInt:null};
+const MI={captureMode:'paste',recording:false,liveMessages:[],mediaRec:null,currentSpeaker:0,speakerNames:['Alice','Bob','Carol'],startTime:0,timerInt:null};
 
 /* ================================================================
    SENTIMENT LEXICON ~1500 words: score -4 (neg) to +4 (pos)
@@ -1874,7 +1980,8 @@ const getSC=i=>SPC[i%SPC.length];
    APP STATE
    ================================================================ */
 const S={speakerCount:3,captureMode:'paste',speakerNames:['Alice','Bob','Carol'],
-  analysis:null,recording:false,liveMessages:[],currentSpeaker:0,mediaRec:null};
+  analysis:null,recording:false,liveMessages:[],currentSpeaker:0,mediaRec:null,
+  timerStart:0,timerInt:null,audioSummaries:{}};
 
 /* ================================================================
    NAVIGATION
@@ -1899,6 +2006,8 @@ function enterMode(mode){
   // Tour disabled for now — was blocking clicks
   // if(!localStorage.getItem(key))setTimeout(()=>startTour(mode),700);
   if(mode==='sandbox')setTimeout(()=>initSandbox(),50);
+  if(mode==='meeting')setTimeout(()=>miInitSpeakers(),50);
+  if(mode==='pulse')setTimeout(()=>rpUpdateSpeakerBtns(),50);
 }
 
 /* ================================================================
@@ -1943,10 +2052,13 @@ function changeSpeakerCount(d){
 
 function selectCapture(mode){
   S.captureMode=mode;
-  document.getElementById('capPaste').classList.toggle('sel',mode==='paste');
-  document.getElementById('capLive').classList.toggle('sel',mode==='live');
-  document.getElementById('pasteArea').classList.toggle('vis',mode==='paste');
-  document.getElementById('liveArea').classList.toggle('vis',mode==='live');
+  var cp=document.getElementById('capPaste');if(cp)cp.classList.toggle('sel',mode==='paste');
+  var cl=document.getElementById('capLive');if(cl)cl.classList.toggle('sel',mode==='live');
+  var pa=document.getElementById('pasteArea');if(pa)pa.classList.toggle('vis',mode==='paste');
+  var la=document.getElementById('liveArea');if(la)la.classList.toggle('vis',mode==='live');
+  // New UI: toggle paste panel visibility
+  var pp=document.getElementById('sr-paste-panel');if(pp)pp.style.display=mode==='paste'?'':'none';
+  var rp=document.getElementById('sr-rec-zone');if(rp)rp.style.display=mode==='live'?'':'none';
 }
 
 function clearInput(){
@@ -1981,10 +2093,16 @@ Carol: Yes please! That would actually make me feel so much better about the who
 Alice: I'll make a Google doc tonight!! This is going to be the BEST trip EVER \uD83C\uDF89\uD83C\uDF89\uD83C\uDF89`;
 
 function loadDemo(){
-  document.getElementById('pasteTA').value=DEMO;
-  selectCapture('paste');
+  S.captureMode='paste';
+  var ta=document.getElementById('pasteTA');
+  if(!ta){
+    // New UI: find the SR paste textarea
+    var srp=document.getElementById('sr-paste-ta');
+    if(srp){ta=srp;}
+  }
+  if(ta)ta.value=DEMO;
   S.speakerNames=['Alice','Bob','Carol'];S.speakerCount=3;
-  document.getElementById('countDisp').textContent=3;
+  var cd=document.getElementById('countDisp');if(cd)cd.textContent=3;
   initSpeakerNames();
   analyzeConversation();
 }
@@ -2404,33 +2522,91 @@ function shareResults(){
    LIVE RECORDING
    ================================================================ */
 function toggleRecording(){S.recording?stopRecording():startRecording();}
+
 function startRecording(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){showToast('Speech recognition not supported in this browser. Try Chrome or paste text instead.');return;}
+  if(!SR){showToast('Speech recognition not supported. Try Chrome or paste text instead.');return;}
   const rec=new SR();rec.continuous=true;rec.interimResults=true;rec.lang='en-US';
-  S.mediaRec=rec;S.recording=true;
+  S.mediaRec=rec;S.recording=true;S.liveMessages=[];
   audioEngine.reset();
   audioEngine.currentSpeaker=S.speakerNames[S.currentSpeaker]||('Speaker '+(S.currentSpeaker+1));
   audioEngine.start();
-  document.getElementById('recBtn').classList.add('recording');
-  document.getElementById('liveStatus').textContent='Recording... tap to stop';
+  const btn=document.getElementById('recBtn');
+  btn.classList.add('recording');btn.innerHTML='&#9632;';
+  document.getElementById('liveStatus').textContent='Recording\u2026 tap to stop';
+  const timerEl=document.getElementById('sr-timer');timerEl.style.display='';
+  S.timerStart=Date.now();
+  S.timerInt=setInterval(()=>{
+    const s=Math.floor((Date.now()-S.timerStart)/1000);
+    timerEl.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  },500);
+  const lta=document.getElementById('liveTranscript');if(lta)lta.style.display='';
+  startEnergyMeter('sr-energy');
   let interim='';
   rec.onresult=e=>{
     let final='';
     for(let i=e.resultIndex;i<e.results.length;i++){
       if(e.results[i].isFinal)final+=e.results[i][0].transcript;else interim=e.results[i][0].transcript;
     }
-    if(final){const s=S.speakerNames[S.currentSpeaker]||'Speaker '+(S.currentSpeaker+1);S.liveMessages.push({speaker:s,text:final.trim()});updateLiveTA();interim='';}
+    if(final){const sp=S.speakerNames[S.currentSpeaker]||'Speaker '+(S.currentSpeaker+1);S.liveMessages.push({speaker:sp,text:final.trim()});updateLiveTA();interim='';}
     if(interim)updateLiveTA(interim);
   };
-  rec.onerror=()=>stopRecording();rec.onend=()=>{if(S.recording)rec.start();};rec.start();
+  rec.onerror=()=>stopRecording();
+  rec.onend=()=>{if(S.recording)rec.start();};
+  rec.start();
 }
+
 function stopRecording(){
   S.recording=false;
+  clearInterval(S.timerInt);
   if(S.mediaRec){S.mediaRec.onend=null;S.mediaRec.stop();S.mediaRec=null;}
-  audioEngine.stop();
-  document.getElementById('recBtn').classList.remove('recording');
-  document.getElementById('liveStatus').textContent='Stopped. Tap to resume.';
+  audioEngine.stop();stopEnergyMeter();
+  const btn=document.getElementById('recBtn');
+  btn.classList.remove('recording');btn.innerHTML='&#9679;';
+  document.getElementById('liveStatus').textContent='Analyzing\u2026';
+  document.getElementById('sr-timer').style.display='none';
+  // Collect audio summaries
+  S.audioSummaries={};
+  if(audioEngine.history.length>10){
+    S.speakerNames.slice(0,S.speakerCount).forEach(spk=>{
+      const sum=audioEngine.getSummary(spk);
+      if(sum)S.audioSummaries[spk]=sum;
+    });
+  }
+  setTimeout(()=>{
+    if(!S.liveMessages.length){document.getElementById('liveStatus').textContent='Ready';return;}
+    const raw=S.liveMessages.map(m=>m.speaker+': '+m.text).join('\n');
+    document.getElementById('srInputPhase').style.display='none';
+    const a=document.getElementById('srAnalysis');
+    a.innerHTML='<div class="analysis-loading"><div class="spinner"></div><p>Analyzing conversation\u2026</p></div>';
+    a.classList.add('vis');
+    setTimeout(()=>{
+      const msgs=parseConversation(raw);
+      if(!msgs.length){a.innerHTML='<div class="analysis-loading"><p>Not enough speech detected. Try recording longer.</p></div>';document.getElementById('srInputPhase').style.display='';return;}
+      const result=analyzeMessages(msgs);
+      S.analysis=result;renderAnalysis(result);
+      document.getElementById('srBtmBar').style.display='flex';
+      renderAlerts(result);
+    },400);
+  },300);
+}
+
+function srAnalyzePaste(){
+  const raw=document.getElementById('pasteTA').value.trim();
+  if(!raw){showToast('Paste a conversation first.');return;}
+  S.audioSummaries={};
+  document.getElementById('srInputPhase').style.display='none';
+  const a=document.getElementById('srAnalysis');
+  a.innerHTML='<div class="analysis-loading"><div class="spinner"></div><p>Analyzing conversation\u2026</p></div>';
+  a.classList.add('vis');
+  setTimeout(()=>{
+    const msgs=parseConversation(raw);
+    if(!msgs.length){a.innerHTML='<div class="analysis-loading"><p>Could not parse. Try: Name: Message</p></div>';return;}
+    const result=analyzeMessages(msgs);
+    S.analysis=result;renderAnalysis(result);
+    document.getElementById('srBtmBar').style.display='flex';
+    renderAlerts(result);
+  },400);
 }
 function updateLiveTA(interim){
   const el=document.getElementById('liveTranscript');
@@ -2487,6 +2663,52 @@ function showToast(msg){
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 /* ================================================================
+   ENERGY METER — animates during recording
+   ================================================================ */
+let _emRaf=null,_emId=null,_emBars=[];
+
+function startEnergyMeter(meterId){
+  _emId=meterId;
+  const el=document.getElementById(meterId);if(!el)return;
+  el.innerHTML='';_emBars=[];
+  const N=20;
+  for(let i=0;i<N;i++){const d=document.createElement('div');d.className='em-bar';el.appendChild(d);_emBars.push(d);}
+  el.classList.add('active');
+  const animate=()=>{
+    if(!_emId){return;}
+    const rms=audioEngine.getRMS();
+    const base=4;
+    _emBars.forEach((b,i)=>{
+      const noise=Math.random()*0.6+0.7;
+      const center=Math.abs(i-(_emBars.length/2-0.5))/(_emBars.length/2);
+      const h=base+Math.round(rms*600*noise*(1-center*0.4));
+      b.style.height=Math.max(base,Math.min(32,h))+'px';
+    });
+    _emRaf=requestAnimationFrame(animate);
+  };
+  animate();
+}
+
+function stopEnergyMeter(){
+  _emId=null;
+  if(_emRaf){cancelAnimationFrame(_emRaf);_emRaf=null;}
+  if(_emBars.length){_emBars.forEach(b=>b.style.height='4px');}
+  const el=document.getElementById(_emId||'');if(el)el.classList.remove('active');
+  // fade all meters out
+  document.querySelectorAll('.energy-meter').forEach(e=>{e.classList.remove('active');});
+  _emBars=[];
+}
+
+/* ================================================================
+   TOGGLE PASTE PANEL
+   ================================================================ */
+function togglePastePanel(id,e){
+  if(e)e.preventDefault();
+  const p=document.getElementById(id);if(!p)return;
+  p.classList.toggle('vis');
+}
+
+/* ================================================================
    PITCH COACH
    ================================================================ */
 const PC_FILLERS=['um','uh','like','you know','basically','actually','i mean','sort of','kind of','right'];
@@ -2500,13 +2722,15 @@ function pcStartRec(){
   const rec=new SR();rec.continuous=true;rec.interimResults=false;rec.lang='en-US';
   PC.rec=rec;PC.recording=true;PC.transcript='';PC.startTime=Date.now();
   audioEngine.reset();audioEngine.start();
-  document.getElementById('pc-rec-btn').classList.add('recording');
-  document.getElementById('pc-status').textContent='Recording… tap to stop';
-  document.getElementById('pc-timer').style.display='block';
+  const btn=document.getElementById('pc-rec-btn');
+  btn.classList.add('recording');btn.innerHTML='&#9632;';
+  document.getElementById('pc-status').textContent='Recording\u2026 tap to stop';
+  const timerEl=document.getElementById('pc-timer');timerEl.style.display='';
   PC.timerInt=setInterval(()=>{
     const s=Math.floor((Date.now()-PC.startTime)/1000);
-    document.getElementById('pc-timer').textContent=Math.floor(s/60)+':'+(s%60<10?'0':'')+(s%60);
+    timerEl.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
   },500);
+  startEnergyMeter('pc-energy');
   rec.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)PC.transcript+=' '+e.results[i][0].transcript;}};
   rec.onerror=()=>pcStopRec();
   rec.onend=()=>{if(PC.recording)rec.start();};
@@ -2517,15 +2741,23 @@ function pcStopRec(){
   PC.recording=false;
   clearInterval(PC.timerInt);
   if(PC.rec){PC.rec.onend=null;PC.rec.stop();PC.rec=null;}
-  audioEngine.stop();
+  audioEngine.stop();stopEnergyMeter();
   PC.audioSummary=audioEngine.getSummary();
-  document.getElementById('pc-rec-btn').classList.remove('recording');
-  document.getElementById('pc-status').textContent='Analyzing…';
+  const btn=document.getElementById('pc-rec-btn');
+  btn.classList.remove('recording');btn.innerHTML='&#9679;';
+  document.getElementById('pc-status').textContent='Analyzing\u2026';
   const dur=(Date.now()-PC.startTime)/1000;
   setTimeout(()=>{
     const results=pcAnalyze(PC.transcript.trim(),dur);
     pcRender(results,PC.audioSummary);
   },300);
+}
+
+function pcAnalyzeText(){
+  const text=document.getElementById('pc-text').value.trim();
+  if(!text){showToast('Paste some text first.');return;}
+  const results=pcAnalyze(text,60);
+  pcRender(results,null);
 }
 
 function pcAnalyze(text,durSec){
@@ -2714,13 +2946,15 @@ function mmStartRec(){
   const rec=new SR();rec.continuous=true;rec.interimResults=false;rec.lang='en-US';
   MM.rec=rec;MM.recording=true;MM.transcript='';MM.startTime=Date.now();
   audioEngine.reset();audioEngine.start();
-  document.getElementById('mood-rec-btn').classList.add('recording');
-  document.getElementById('mood-status').textContent='Recording… tap to stop';
-  document.getElementById('mood-timer').style.display='block';
+  const btn=document.getElementById('mood-rec-btn');
+  btn.classList.add('recording');btn.innerHTML='&#9632;';
+  document.getElementById('mood-status').textContent='Recording\u2026 tap to stop';
+  const timerEl=document.getElementById('mood-timer');timerEl.style.display='';
   MM.timerInt=setInterval(()=>{
     const s=Math.floor((Date.now()-MM.startTime)/1000);
-    document.getElementById('mood-timer').textContent=Math.floor(s/60)+':'+(s%60<10?'0':'')+(s%60);
+    timerEl.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
   },500);
+  startEnergyMeter('mm-energy');
   rec.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)MM.transcript+=' '+e.results[i][0].transcript;}};
   rec.onerror=()=>mmStopRec();
   rec.onend=()=>{if(MM.recording)rec.start();};
@@ -2731,16 +2965,25 @@ function mmStopRec(){
   MM.recording=false;
   clearInterval(MM.timerInt);
   if(MM.rec){MM.rec.onend=null;MM.rec.stop();MM.rec=null;}
-  audioEngine.stop();
+  audioEngine.stop();stopEnergyMeter();
   MM.audioSummary=audioEngine.getSummary();
-  document.getElementById('mood-rec-btn').classList.remove('recording');
-  document.getElementById('mood-status').textContent='Analyzing…';
+  const btn=document.getElementById('mood-rec-btn');
+  btn.classList.remove('recording');btn.innerHTML='&#9679;';
+  document.getElementById('mood-status').textContent='Analyzing\u2026';
   const dur=(Date.now()-MM.startTime)/1000;
   setTimeout(()=>{
     const results=mmAnalyze(MM.transcript.trim(),dur);
     mmSaveToHistory(results);
     mmRender(results,MM.audioSummary);
   },300);
+}
+
+function mmAnalyzeText(){
+  const text=document.getElementById('mood-text').value.trim();
+  if(!text){showToast('Write something first.');return;}
+  const results=mmAnalyze(text,60);
+  mmSaveToHistory(results);
+  mmRender(results,null);
 }
 
 function mmAnalyze(text,durSec){
@@ -2957,10 +3200,12 @@ function mmReset(){
   MM.transcript='';MM.recording=false;
   document.getElementById('mood-setup').style.display='block';
   document.getElementById('mood-results').style.display='none';
-  document.getElementById('mood-status').textContent='Tap to start recording';
-  document.getElementById('mood-timer').textContent='0:00';
+  document.getElementById('mood-status').textContent='Ready';
   document.getElementById('mood-timer').style.display='none';
-  document.getElementById('mood-rec-btn').classList.remove('recording');
+  document.getElementById('mood-timer').textContent='0:00';
+  const btn=document.getElementById('mood-rec-btn');
+  if(btn){btn.innerHTML='&#9679;';btn.classList.remove('recording');}
+  MM.transcript='';
 }
 
 /* ================================================================
@@ -3552,6 +3797,11 @@ function sbAnswer(qi,chosen){
   document.getElementById('sbqr-'+qi).classList.add('vis');
   document.getElementById('sb-score-disp').textContent=getSBTotal()+'/12';
   showToast(correct?'\u2713 Correct!':'\u2717 Not quite \u2014 see explanation');
+  // Show practice area once all questions are answered
+  if(sc.qs.every((_,j)=>SB_STATE.answers[j]!==undefined)){
+    const prac=document.getElementById('sb-practice-area');
+    if(prac)prac.style.display='';
+  }
 }
 
 function sandboxNext(){
@@ -3581,21 +3831,143 @@ function initReveal(){
 /* ================================================================
    RELATIONSHIP PULSE
    ================================================================ */
-function rpAnalyze(){
+function rpSelectCapture(mode){
+  RP.captureMode=mode;
+  document.getElementById('rpCapPaste').classList.toggle('sel',mode==='paste');
+  document.getElementById('rpCapLive').classList.toggle('sel',mode==='live');
+  document.getElementById('rp-paste-area').classList.toggle('vis',mode==='paste');
+  document.getElementById('rp-live-area').classList.toggle('vis',mode==='live');
+  if(mode==='live')rpUpdateSpeakerBtns();
+}
+
+function rpUpdateSpeakerBtns(){
+  const row=document.getElementById('rp-spk-row');if(!row)return;
+  const nameA=document.getElementById('pulse-a').value.trim()||'Person A';
+  const nameB=document.getElementById('pulse-b').value.trim()||'Person B';
+  const names=[nameA,nameB];const cols=['#EC4899','#8B5CF6'];
+  row.innerHTML='';
+  names.forEach((name,i)=>{
+    const btn=document.createElement('button');
+    btn.className='spk-sel-btn'+(i===RP.currentSpeaker?' act':'');
+    btn.textContent=name;
+    const c=cols[i];btn.style.borderColor=c;
+    if(i===RP.currentSpeaker){btn.style.background=c;btn.style.color='#fff';}else btn.style.color=c;
+    btn.onclick=()=>{RP.currentSpeaker=i;audioEngine.currentSpeaker=name;rpUpdateSpeakerBtns();};
+    row.appendChild(btn);
+  });
+}
+
+function rpToggleLive(){RP.recording?rpStopLive():rpStartLive();}
+
+function rpStartLive(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){showToast('Speech recognition not supported. Try Chrome.');return;}
+  RP.liveMessages=[];
+  const nameA=document.getElementById('pulse-a').value.trim()||'Person A';
+  const nameB=document.getElementById('pulse-b').value.trim()||'Person B';
+  const names=[nameA,nameB];
+  audioEngine.reset();audioEngine.currentSpeaker=names[RP.currentSpeaker];audioEngine.start();
+  const rec=new SR();rec.continuous=true;rec.interimResults=true;rec.lang='en-US';
+  RP.mediaRec=rec;RP.recording=true;RP.startTime=Date.now();
+  const btn=document.getElementById('rp-rec-btn');
+  btn.classList.add('recording');btn.innerHTML='&#9632;';
+  document.getElementById('rp-status').textContent='Recording\u2026 tap to stop';
+  const timerEl=document.getElementById('rp-timer');timerEl.style.display='';
+  RP.timerInt=setInterval(()=>{
+    const s=Math.floor((Date.now()-RP.startTime)/1000);
+    timerEl.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  },500);
+  const lta=document.getElementById('rp-transcript');if(lta)lta.style.display='';
+  startEnergyMeter('rp-energy');
+  let interim='';
+  rec.onresult=e=>{
+    let final='';
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      if(e.results[i].isFinal)final+=e.results[i][0].transcript;else interim=e.results[i][0].transcript;
+    }
+    if(final){RP.liveMessages.push({speaker:names[RP.currentSpeaker],text:final.trim()});rpUpdateTranscript();interim='';}
+    if(interim)rpUpdateTranscript(interim);
+  };
+  rec.onerror=()=>rpStopLive();rec.onend=()=>{if(RP.recording)rec.start();};rec.start();
+}
+
+function rpStopLive(){
+  RP.recording=false;
+  clearInterval(RP.timerInt);
+  if(RP.mediaRec){RP.mediaRec.onend=null;RP.mediaRec.stop();RP.mediaRec=null;}
+  audioEngine.stop();stopEnergyMeter();
+  const btn=document.getElementById('rp-rec-btn');
+  btn.classList.remove('recording');btn.innerHTML='&#9679;';
+  document.getElementById('rp-status').textContent='Analyzing\u2026';
+  document.getElementById('rp-timer').style.display='none';
+  setTimeout(()=>{
+    if(!RP.liveMessages.length){document.getElementById('rp-status').textContent='Ready';return;}
+    const nameA=document.getElementById('pulse-a').value.trim()||'You';
+    const nameB=document.getElementById('pulse-b').value.trim()||'Them';
+    const text=RP.liveMessages.map(m=>m.speaker+': '+m.text).join('\n');
+    const msgs=parseConversation(text);
+    if(msgs.length<4){showToast('Keep recording — need more conversation to analyze.');document.getElementById('rp-status').textContent='Ready';return;}
+    const audioSummaries={};
+    if(audioEngine.history.length>10){
+      [nameA,nameB].forEach(spk=>{const sum=audioEngine.getSummary(spk);if(sum)audioSummaries[spk]=sum;});
+    }
+    const result=analyzeMessages(msgs);
+    rpRender(result,nameA,nameB,audioSummaries);
+    document.getElementById('pulse-setup').style.display='none';
+    document.getElementById('pulse-results').style.display='';
+    rpRenderTrend();
+  },300);
+}
+
+function rpAnalyzeText(){
   const text=document.getElementById('pulse-text').value.trim();
-  if(!text){showToast('Paste a conversation first');return;}
+  if(!text){showToast('Paste a conversation first.');return;}
   const nameA=document.getElementById('pulse-a').value.trim()||'You';
   const nameB=document.getElementById('pulse-b').value.trim()||'Them';
   const msgs=parseConversation(text);
-  if(msgs.length<4){showToast('Need at least 4 messages');return;}
+  if(msgs.length<4){showToast('Need at least 4 messages to analyze.');return;}
   const result=analyzeMessages(msgs);
-  rpRender(result,nameA,nameB);
+  rpRender(result,nameA,nameB,{});
   document.getElementById('pulse-setup').style.display='none';
   document.getElementById('pulse-results').style.display='';
   rpRenderTrend();
 }
 
-function rpRender(result,nameA,nameB){
+function rpUpdateTranscript(interim){
+  const el=document.getElementById('rp-transcript');if(!el)return;
+  const nameA=document.getElementById('pulse-a').value.trim()||'Person A';
+  const nameB=document.getElementById('pulse-b').value.trim()||'Person B';
+  const names=[nameA,nameB];const cols=['#EC4899','#8B5CF6'];
+  let h=RP.liveMessages.map(m=>{const i=names.indexOf(m.speaker);const c=i>=0?cols[i]:'#8E8E93';return'<span style="color:'+c+';font-weight:700">'+esc(m.speaker)+':</span> '+esc(m.text)+'<br>';}).join('');
+  if(interim)h+='<span style="color:#8E8E93;font-style:italic">'+esc(interim)+'...</span>';
+  el.innerHTML=h;el.scrollTop=el.scrollHeight;
+}
+
+function rpAnalyze(){
+  let text='';
+  if(RP.captureMode==='live'){
+    if(!RP.liveMessages.length){showToast('Record a conversation first');return;}
+    text=RP.liveMessages.map(m=>m.speaker+': '+m.text).join('\n');
+  }else{
+    text=document.getElementById('pulse-text').value.trim();
+    if(!text){showToast('Paste a conversation first');return;}
+  }
+  const nameA=document.getElementById('pulse-a').value.trim()||'You';
+  const nameB=document.getElementById('pulse-b').value.trim()||'Them';
+  const msgs=parseConversation(text);
+  if(msgs.length<4){showToast('Need at least 4 messages');return;}
+  const audioSummaries={};
+  if(RP.captureMode==='live'&&audioEngine.history.length>10){
+    [nameA,nameB].forEach(spk=>{const sum=audioEngine.getSummary(spk);if(sum)audioSummaries[spk]=sum;});
+  }
+  const result=analyzeMessages(msgs);
+  rpRender(result,nameA,nameB,audioSummaries);
+  document.getElementById('pulse-setup').style.display='none';
+  document.getElementById('pulse-results').style.display='';
+  rpRenderTrend();
+}
+
+function rpRender(result,nameA,nameB,audioSummaries){
   const{speakerData,messages}=result;
   const speakers=Object.keys(speakerData);
   const findSpk=(name)=>speakers.find(s=>s.toLowerCase().includes(name.toLowerCase())||name.toLowerCase().includes(s.toLowerCase()))||speakers[0];
@@ -3679,6 +4051,9 @@ function rpRender(result,nameA,nameB){
   }
   document.getElementById('pulse-insight').innerHTML=insight;
 
+  // Vocal comparison (live recording only)
+  rpRenderVocal(audioSummaries||{},spkA,spkB);
+
   // Trend sparkline — save current reading first
   const histKey='rp-hist-'+esc(spkA).toLowerCase()+'-'+esc(spkB).toLowerCase();
   let hist=[];try{hist=JSON.parse(localStorage.getItem(histKey)||'[]');}catch(e){}
@@ -3695,6 +4070,29 @@ function rpRender(result,nameA,nameB){
   }
 }
 
+function rpRenderVocal(audioSummaries,nameA,nameB){
+  const el=document.getElementById('pulse-vocal-card');if(!el)return;
+  const sumA=audioSummaries[nameA],sumB=audioSummaries[nameB];
+  if(!sumA&&!sumB){el.style.display='none';return;}
+  el.style.display='';
+  const colA='#EC4899',colB='#8B5CF6';
+  const metrics=[
+    {key:'energyScore',label:'Energy'},
+    {key:'warmthScore',label:'Warmth'},
+    {key:'confidenceScore',label:'Confidence'},
+    {key:'stressLevel',label:'Stress'},
+  ];
+  let html='<div class="setup-card-label" style="color:var(--pulse);margin-bottom:12px">Vocal Comparison</div>';
+  metrics.forEach(m=>{
+    const vA=sumA?sumA[m.key]:null,vB=sumB?sumB[m.key]:null;
+    html+='<div style="margin-bottom:10px"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#9AA5B4;margin-bottom:5px">'+m.label+'</div>';
+    if(vA!=null)html+='<div class="warmth-row"><span class="warmth-name" style="color:'+colA+'">'+esc(nameA)+'</span><div class="warmth-track"><div class="warmth-fill" style="width:'+vA+'%;background:'+colA+'"></div></div><span class="warmth-val">'+vA+'</span></div>';
+    if(vB!=null)html+='<div class="warmth-row"><span class="warmth-name" style="color:'+colB+'">'+esc(nameB)+'</span><div class="warmth-track"><div class="warmth-fill" style="width:'+vB+'%;background:'+colB+'"></div></div><span class="warmth-val">'+vB+'</span></div>';
+    html+='</div>';
+  });
+  el.innerHTML=html;
+}
+
 function rpSave(){
   // History is now saved inside rpRender per-pair; this is a no-op stub kept for compatibility.
 }
@@ -3706,12 +4104,149 @@ function rpRenderTrend(){
 /* ================================================================
    MEETING INTELLIGENCE
    ================================================================ */
-function miAnalyze(){
+function miSelectCapture(mode){
+  MI.captureMode=mode;
+  document.getElementById('miCapPaste').classList.toggle('sel',mode==='paste');
+  document.getElementById('miCapLive').classList.toggle('sel',mode==='live');
+  document.getElementById('mi-paste-area').classList.toggle('vis',mode==='paste');
+  document.getElementById('mi-live-area').classList.toggle('vis',mode==='live');
+  if(mode==='live')miInitSpeakers();
+}
+
+function miInitSpeakers(){
+  const nameRows=document.getElementById('mi-spk-names');if(!nameRows)return;
+  nameRows.innerHTML='';
+  MI.speakerNames.forEach((name,i)=>{
+    const wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:8px;align-items:center';
+    const inp=document.createElement('input');inp.type='text';inp.value=name;inp.placeholder='Speaker '+(i+1);
+    inp.style.flex='1';
+    inp.addEventListener('input',()=>{MI.speakerNames[i]=inp.value.trim()||'Speaker '+(i+1);miUpdateSpeakerBtns();});
+    const del=document.createElement('button');del.textContent='\u2715';
+    del.style.cssText='background:none;border:none;color:#9AA5B4;cursor:pointer;font-size:14px;padding:4px 6px';
+    if(MI.speakerNames.length<=2)del.style.visibility='hidden';
+    del.onclick=()=>{if(MI.speakerNames.length<=2)return;MI.speakerNames.splice(i,1);MI.currentSpeaker=Math.min(MI.currentSpeaker,MI.speakerNames.length-1);miInitSpeakers();miUpdateSpeakerBtns();};
+    wrap.appendChild(inp);wrap.appendChild(del);nameRows.appendChild(wrap);
+  });
+  miUpdateSpeakerBtns();
+}
+
+function miAddSpeaker(){
+  if(MI.speakerNames.length>=8)return;
+  MI.speakerNames.push('Speaker '+(MI.speakerNames.length+1));
+  miInitSpeakers();
+}
+
+function miUpdateSpeakerBtns(){
+  const row=document.getElementById('mi-spk-row');if(!row)return;
+  const cols=['#6B21E8','#8B5CF6','#A78BFA','#C4B5FD','#7C3AED','#9333EA','#4C1D95','#5B21B6'];
+  row.innerHTML='';
+  MI.speakerNames.forEach((name,i)=>{
+    const btn=document.createElement('button');
+    btn.className='spk-sel-btn'+(i===MI.currentSpeaker?' act':'');
+    btn.textContent=name;
+    const c=cols[i%cols.length];btn.style.borderColor=c;
+    if(i===MI.currentSpeaker){btn.style.background=c;btn.style.color='#fff';}else btn.style.color=c;
+    btn.onclick=()=>{MI.currentSpeaker=i;audioEngine.currentSpeaker=name;miUpdateSpeakerBtns();};
+    row.appendChild(btn);
+  });
+}
+
+function miToggleLive(){MI.recording?miStopLive():miStartLive();}
+
+function miStartLive(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){showToast('Speech recognition not supported. Try Chrome.');return;}
+  MI.liveMessages=[];
+  audioEngine.reset();audioEngine.currentSpeaker=MI.speakerNames[MI.currentSpeaker];audioEngine.start();
+  const rec=new SR();rec.continuous=true;rec.interimResults=true;rec.lang='en-US';
+  MI.mediaRec=rec;MI.recording=true;MI.startTime=Date.now();
+  const btn=document.getElementById('mi-rec-btn');
+  btn.classList.add('recording');btn.innerHTML='&#9632;';
+  document.getElementById('mi-status').textContent='Recording\u2026 tap to stop';
+  const timerEl=document.getElementById('mi-timer');timerEl.style.display='';
+  MI.timerInt=setInterval(()=>{
+    const s=Math.floor((Date.now()-MI.startTime)/1000);
+    timerEl.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  },500);
+  const lta=document.getElementById('mi-transcript');if(lta)lta.style.display='';
+  startEnergyMeter('mi-energy');
+  let interim='';
+  rec.onresult=e=>{
+    let final='';
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      if(e.results[i].isFinal)final+=e.results[i][0].transcript;else interim=e.results[i][0].transcript;
+    }
+    if(final){MI.liveMessages.push({speaker:MI.speakerNames[MI.currentSpeaker],text:final.trim()});miUpdateTranscript();interim='';}
+    if(interim)miUpdateTranscript(interim);
+  };
+  rec.onerror=()=>miStopLive();rec.onend=()=>{if(MI.recording)rec.start();};rec.start();
+}
+
+function miStopLive(){
+  MI.recording=false;
+  clearInterval(MI.timerInt);
+  if(MI.mediaRec){MI.mediaRec.onend=null;MI.mediaRec.stop();MI.mediaRec=null;}
+  audioEngine.stop();stopEnergyMeter();
+  const btn=document.getElementById('mi-rec-btn');
+  btn.classList.remove('recording');btn.innerHTML='&#9679;';
+  document.getElementById('mi-status').textContent='Analyzing\u2026';
+  document.getElementById('mi-timer').style.display='none';
+  setTimeout(()=>{
+    if(!MI.liveMessages.length){document.getElementById('mi-status').textContent='Ready';return;}
+    const text=MI.liveMessages.map(m=>m.speaker+': '+m.text).join('\n');
+    const msgs=parseConversation(text);
+    if(msgs.length<6){showToast('Keep recording — need at least 6 messages to analyze.');document.getElementById('mi-status').textContent='Ready';return;}
+    const audioSummaries={};
+    if(audioEngine.history.length>10){
+      MI.speakerNames.forEach(spk=>{const sum=audioEngine.getSummary(spk);if(sum)audioSummaries[spk]=sum;});
+    }
+    const result=analyzeMessages(msgs);
+    result.audioSummaries=audioSummaries;
+    miRender(result);
+    document.getElementById('meeting-setup').style.display='none';
+    document.getElementById('meeting-results').style.display='';
+    miSwitchTab('power');
+  },300);
+}
+
+function miAnalyzeText(){
   const text=document.getElementById('meeting-text').value.trim();
-  if(!text){showToast('Paste a transcript first');return;}
+  if(!text){showToast('Paste a transcript first.');return;}
+  const msgs=parseConversation(text);
+  if(msgs.length<6){showToast('Need at least 6 messages to analyze.');return;}
+  const result=analyzeMessages(msgs);
+  result.audioSummaries={};
+  miRender(result);
+  document.getElementById('meeting-setup').style.display='none';
+  document.getElementById('meeting-results').style.display='';
+  miSwitchTab('power');
+}
+
+function miUpdateTranscript(interim){
+  const el=document.getElementById('mi-transcript');if(!el)return;
+  const cols=['#6B21E8','#8B5CF6','#A78BFA','#C4B5FD','#7C3AED','#9333EA','#4C1D95','#5B21B6'];
+  let h=MI.liveMessages.map(m=>{const i=MI.speakerNames.indexOf(m.speaker);const c=i>=0?cols[i%cols.length]:'#8E8E93';return'<span style="color:'+c+';font-weight:700">'+esc(m.speaker)+':</span> '+esc(m.text)+'<br>';}).join('');
+  if(interim)h+='<span style="color:#8E8E93;font-style:italic">'+esc(interim)+'...</span>';
+  el.innerHTML=h;el.scrollTop=el.scrollHeight;
+}
+
+function miAnalyze(){
+  let text='';
+  if(MI.captureMode==='live'){
+    if(!MI.liveMessages.length){showToast('Record a meeting first');return;}
+    text=MI.liveMessages.map(m=>m.speaker+': '+m.text).join('\n');
+  }else{
+    text=document.getElementById('meeting-text').value.trim();
+    if(!text){showToast('Paste a transcript first');return;}
+  }
   const msgs=parseConversation(text);
   if(msgs.length<6){showToast('Need at least 6 messages');return;}
+  const audioSummaries={};
+  if(MI.captureMode==='live'&&audioEngine.history.length>10){
+    MI.speakerNames.forEach(spk=>{const sum=audioEngine.getSummary(spk);if(sum)audioSummaries[spk]=sum;});
+  }
   const result=analyzeMessages(msgs);
+  result.audioSummaries=audioSummaries;
   miRender(result);
   document.getElementById('meeting-setup').style.display='none';
   document.getElementById('meeting-results').style.display='';
@@ -3736,22 +4271,37 @@ function miRender(result){
   const scores=speakers.map(s=>({name:s,pct:Math.round((speakerData[s].msgCount/totalMsgs)*100),power:miPowerScore(speakerData[s],messages)}));
   scores.sort((a,b)=>b.power-a.power);
 
-  // POWER TAB — speaking % bars + dominance label
+  // POWER TAB — speaking % bars + dominance label + vocal authority if available
   const domLabels=['Dominant','Active','Supporting','Passive'];
+  const hasMiAudio=result.audioSummaries&&Object.keys(result.audioSummaries).length>0;
   document.getElementById('miPanelPower').innerHTML=
     '<div class="mode-panel-n">'
     +scores.map((s,i)=>{
       const lbl=domLabels[Math.min(i,domLabels.length-1)];
       const col=colors[i%colors.length];
+      const aud=hasMiAudio?(result.audioSummaries[s.name]||null):null;
+      const vocAuth=aud?Math.round(aud.confidenceScore*0.5+aud.energyScore*0.5):null;
       return'<div class="mi-bar-row">'
         +'<div class="mi-bar-label"><span>'+esc(s.name)+'</span>'
         +'<span style="font-size:11px;color:'+col+';font-weight:700">'+lbl+'</span></div>'
         +'<div style="display:flex;align-items:center;gap:8px">'
         +'<div class="mi-bar-track" style="flex:1"><div class="mi-bar-fill" style="width:'+s.pct+'%;background:'+col+'"></div></div>'
         +'<span style="font-size:12px;font-weight:700;color:#1A2235;min-width:36px;text-align:right">'+s.pct+'%</span>'
+        +(vocAuth!=null?'<span style="font-size:11px;color:'+col+';min-width:60px;text-align:right">&#127908; '+vocAuth+' auth</span>':'')
         +'</div></div>';
     }).join('')
-    +'</div>';
+    +'</div>'
+    +(hasMiAudio?'<div class="mode-panel-n" style="margin-top:12px"><div class="setup-card-label" style="color:var(--meeting);margin-bottom:10px">Vocal Metrics</div>'
+      +speakers.map((spk,i)=>{
+        const aud=result.audioSummaries[spk];if(!aud)return'';
+        const col=colors[i%colors.length];
+        return'<div style="margin-bottom:12px">'
+          +'<div style="font-size:12px;font-weight:700;color:'+col+';margin-bottom:5px">'+esc(spk)+'</div>'
+          +'<div class="metric-grid-2" style="gap:6px">'
+          +[{l:'Energy',v:aud.energyScore},{l:'Confidence',v:aud.confidenceScore},{l:'Warmth',v:aud.warmthScore},{l:'Stress',v:aud.stressLevel}].map(m=>'<div style="background:#F8FAFC;border-radius:8px;padding:8px;text-align:center"><div style="font-family:\'Space Grotesk\',sans-serif;font-size:20px;font-weight:700;color:'+col+'">'+m.v+'</div><div style="font-size:10px;color:#9AA5B4;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-top:1px">'+m.l+'</div></div>').join('')
+          +'</div></div>';
+      }).join('')
+      +'</div>':'');
 
   // ENGAGEMENT TAB — questions / agreements / disagreements as stat cards
   document.getElementById('miPanelEngagement').innerHTML=
@@ -3955,6 +4505,81 @@ function sbReveal(){
   document.getElementById('sandbox-quiz').textContent=s.analysis;
   document.getElementById('sandbox-quiz').classList.add('vis');
   document.getElementById('sb-next-btn').style.display='none';
+}
+
+/* ================================================================
+   SOCIAL SANDBOX — PRACTICE RECORDING
+   ================================================================ */
+const SB_LIVE={recording:false,transcript:'',mediaRec:null,audioSummary:null};
+
+function sbStartPractice(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){showToast('Speech recognition not supported. Try Chrome.');return;}
+  SB_LIVE.transcript='';SB_LIVE.audioSummary=null;
+  document.getElementById('sb-prac-results').innerHTML='';
+  audioEngine.reset();audioEngine.start();startEnergyMeter('sb-energy');
+  const rec=new SR();rec.continuous=true;rec.interimResults=false;rec.lang='en-US';
+  SB_LIVE.mediaRec=rec;SB_LIVE.recording=true;
+  const btn=document.getElementById('sb-prac-btn');
+  btn.classList.add('recording');btn.innerHTML='&#9632;';btn.onclick=sbStopPractice;
+  document.getElementById('sb-prac-status').textContent='Recording your response\u2026 tap to stop';
+  rec.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)SB_LIVE.transcript+=' '+e.results[i][0].transcript;}};
+  rec.onerror=()=>sbStopPractice();rec.onend=()=>{if(SB_LIVE.recording)rec.start();};rec.start();
+}
+
+function sbStopPractice(){
+  SB_LIVE.recording=false;
+  if(SB_LIVE.mediaRec){SB_LIVE.mediaRec.onend=null;SB_LIVE.mediaRec.stop();SB_LIVE.mediaRec=null;}
+  audioEngine.stop();stopEnergyMeter();
+  SB_LIVE.audioSummary=audioEngine.getSummary();
+  const btn=document.getElementById('sb-prac-btn');
+  btn.classList.remove('recording');
+  document.getElementById('sb-prac-status').textContent='Analyzing\u2026';
+  setTimeout(()=>sbRenderPractice(SB_LIVE.transcript.trim(),SB_LIVE.audioSummary),300);
+}
+
+function sbRenderPractice(transcript,aud){
+  const el=document.getElementById('sb-prac-results');if(!el)return;
+  if(!aud&&!transcript){
+    el.innerHTML='<div style="font-size:13px;color:#9AA5B4;text-align:center;padding:8px">Speak for at least 5 seconds to get feedback.</div>';
+    document.getElementById('sb-prac-status').textContent='Try again';
+    const btn=document.getElementById('sb-prac-btn');btn.innerHTML='&#9679;';btn.onclick=sbStartPractice;
+    return;
+  }
+  let html='<div class="metric-grid-2" style="gap:6px">';
+  if(transcript&&transcript.length>5){
+    const words=transcript.toLowerCase().split(/\s+/).filter(Boolean);
+    const dur=aud?aud.totalDuration:10;
+    const wpm=Math.round((words.length/Math.max(dur,1))*60);
+    const wpmC=wpm>=120&&wpm<=165?'#16A34A':wpm>=95&&wpm<=185?'#D97706':'#DC2626';
+    const wpmL=wpm<100?'Slow':wpm<130?'Relaxed':wpm<=165?'Ideal':wpm<=185?'Fast':'Too fast';
+    html+='<div style="background:#F8FAFC;border-radius:10px;padding:14px;text-align:center">'
+      +'<div style="font-family:\'Space Grotesk\',sans-serif;font-size:28px;font-weight:700;color:'+wpmC+'">'+wpm+'</div>'
+      +'<div style="font-size:10px;color:#9AA5B4;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-top:2px">WPM</div>'
+      +'<div style="font-size:11px;color:'+wpmC+';font-weight:600;margin-top:3px">'+wpmL+'</div></div>';
+  }
+  if(aud){
+    [{l:'Energy',v:aud.energyScore,c:'#F59E0B'},{l:'Confidence',v:aud.confidenceScore,c:'#3B82F6'},{l:'Warmth',v:aud.warmthScore,c:'#EC4899'},{l:'Stress',v:aud.stressLevel,c:aud.stressLevel>60?'#DC2626':'#16A34A'}].forEach(m=>{
+      html+='<div style="background:#F8FAFC;border-radius:10px;padding:14px;text-align:center">'
+        +'<div style="font-family:\'Space Grotesk\',sans-serif;font-size:28px;font-weight:700;color:'+m.c+'">'+m.v+'</div>'
+        +'<div style="font-size:10px;color:#9AA5B4;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-top:2px">'+m.l+'</div></div>';
+    });
+  }
+  html+='</div>';
+  if(aud){
+    let fb='';
+    if(aud.confidenceScore>=70&&aud.energyScore>=65)fb='Strong delivery \u2014 your voice projects confidence and energy.';
+    else if(aud.stressLevel>65)fb='Your voice shows tension. Slow down, breathe, and let key points land with a pause.';
+    else if(aud.energyScore<40)fb='Low vocal energy. Project more and add intentional emphasis on key phrases.';
+    else if(aud.warmthScore>=65)fb='Natural warmth comes through. Add vocal energy to make key points land harder.';
+    else fb='Solid base. Vary your pitch more to keep the listener engaged through longer responses.';
+    html+='<div style="background:#FFF9E8;border-radius:10px;padding:12px 14px;margin-top:8px;font-size:13px;color:#92400E;line-height:1.5;border-left:3px solid #F59E0B">'+fb+'</div>';
+  }
+  el.innerHTML=html;
+  document.getElementById('sb-prac-status').textContent='Your delivery';
+  const btn=document.getElementById('sb-prac-btn');
+  btn.classList.remove('recording');
+  btn.innerHTML='&#9679;';btn.onclick=sbStartPractice;
 }
 
 /* ================================================================
