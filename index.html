@@ -1340,6 +1340,156 @@ textarea:focus, input[type="text"]:focus {
 
 <script>
 /* ================================================================
+   AUDIO ANALYZER ENGINE — real-time vocal feature extraction
+   ================================================================ */
+class AudioAnalyzer {
+  constructor(){
+    this.ctx=null; this.analyser=null; this.source=null; this.stream=null;
+    this.running=false; this.history=[];
+    this.currentSpeaker=null;
+    this._lastExtract=0;
+  }
+
+  reset(){
+    this.history=[];
+    this.currentSpeaker=null;
+    this._lastExtract=0;
+  }
+
+  async start(){
+    try{
+      this.stream=await navigator.mediaDevices.getUserMedia({audio:true,video:false});
+      this.ctx=new(window.AudioContext||window.webkitAudioContext)();
+      this.source=this.ctx.createMediaStreamSource(this.stream);
+      this.analyser=this.ctx.createAnalyser();
+      this.analyser.fftSize=2048;
+      this.source.connect(this.analyser);
+      this.running=true;
+      this._loop();
+    }catch(e){
+      this.running=false; // mic denied or unsupported — audio metrics won't show
+    }
+  }
+
+  stop(){
+    this.running=false;
+    if(this.stream){this.stream.getTracks().forEach(t=>t.stop());this.stream=null;}
+    if(this.ctx){this.ctx.close();this.ctx=null;}
+    this.source=null; this.analyser=null;
+  }
+
+  _loop(){
+    if(!this.running)return;
+    const now=Date.now();
+    if(now-this._lastExtract>=50){ // ~20fps is plenty for speech features
+      this._lastExtract=now;
+      const f=this.extract();
+      if(f)this.history.push({t:now,speaker:this.currentSpeaker,...f});
+    }
+    requestAnimationFrame(()=>this._loop());
+  }
+
+  extract(){
+    if(!this.analyser)return null;
+    const bufLen=this.analyser.fftSize;
+    const td=new Float32Array(bufLen);
+    this.analyser.getFloatTimeDomainData(td);
+    // RMS
+    let sq=0; for(let i=0;i<bufLen;i++)sq+=td[i]*td[i];
+    const rms=Math.sqrt(sq/bufLen);
+    // Pitch via autocorrelation (only when signal present)
+    let pitch=0,pitchConfidence=0;
+    if(rms>0.005){const p=this._acPitch(td);pitch=p.pitch;pitchConfidence=p.confidence;}
+    // Spectral centroid
+    const fd=new Uint8Array(this.analyser.frequencyBinCount);
+    this.analyser.getByteFrequencyData(fd);
+    let wsum=0,mag=0;
+    const nyq=(this.ctx?this.ctx.sampleRate:44100)/2;
+    for(let i=0;i<fd.length;i++){const fr=(i/fd.length)*nyq;wsum+=fr*fd[i];mag+=fd[i];}
+    const spectralCentroid=mag>0?wsum/mag:0;
+    const isSpeaking=rms>0.01;
+    return{pitch,pitchConfidence,rms,spectralCentroid,isSpeaking};
+  }
+
+  _acPitch(buf){
+    const sr=this.ctx?this.ctx.sampleRate:44100;
+    const n=Math.min(1024,buf.length);
+    const lo=Math.floor(sr/500); // 500 Hz max
+    const hi=Math.min(Math.floor(sr/60),Math.floor(n/2)); // 60 Hz min
+    let best=-1,bestP=-1;
+    for(let p=lo;p<=hi;p++){
+      let c=0; for(let i=0;i<n-p;i++)c+=buf[i]*buf[i+p];
+      c/=(n-p); if(c>best){best=c;bestP=p;}
+    }
+    if(bestP<0||best<0.01)return{pitch:0,confidence:0};
+    return{pitch:sr/bestP,confidence:Math.min(1,best/0.3)};
+  }
+
+  // Returns aggregated stats; pass speakerFilter to scope to one speaker
+  getSummary(speakerFilter){
+    let frames=this.history;
+    if(speakerFilter)frames=frames.filter(f=>f.speaker===speakerFilter);
+    if(frames.length<10)return null;
+    const speaking=frames.filter(f=>f.isSpeaking);
+    if(speaking.length<5)return null;
+    // Pitches
+    const pitches=speaking.filter(f=>f.pitch>60&&f.pitch<500&&f.pitchConfidence>0.25).map(f=>f.pitch);
+    const avgPitch=pitches.length?pitches.reduce((a,b)=>a+b,0)/pitches.length:0;
+    const pitchMin=pitches.length?Math.min(...pitches):0;
+    const pitchMax=pitches.length?Math.max(...pitches):0;
+    const pitchRange=pitchMax-pitchMin;
+    const pitchStdDev=pitches.length>1?Math.sqrt(pitches.reduce((a,b)=>a+(b-avgPitch)**2,0)/pitches.length):0;
+    const pitchVariation=avgPitch>0?Math.min(1,pitchStdDev/avgPitch):0;
+    // Jitter: avg abs pitch diff between consecutive valid frames
+    let jitterSum=0,jitterN=0;
+    for(let i=1;i<pitches.length;i++){jitterSum+=Math.abs(pitches[i]-pitches[i-1]);jitterN++;}
+    const jitter=Math.min(1,(jitterN>0?jitterSum/jitterN:0)/30);
+    // RMS
+    const rmsVals=speaking.map(f=>f.rms);
+    const avgRMS=rmsVals.reduce((a,b)=>a+b,0)/rmsVals.length;
+    const rmsRange=Math.max(...rmsVals)-Math.min(...rmsVals);
+    const energyDynamics=avgRMS>0?Math.min(1,rmsRange/(avgRMS*2)):0;
+    // Pauses (consecutive silent runs >18 frames ≈ 300ms @ 20fps/50ms)
+    const PAUSE_F=6; // 6 frames × 50ms = 300ms
+    let pauseCount=0,totalPF=0,run=0;
+    for(const f of frames){if(!f.isSpeaking){run++;}else{if(run>=PAUSE_F){pauseCount++;totalPF+=run;}run=0;}}
+    if(run>=PAUSE_F){pauseCount++;totalPF+=run;}
+    const avgPauseDuration=pauseCount>0?(totalPF/pauseCount)*50:0; // ms
+    const totalPauseRatio=frames.length>0?totalPF/frames.length:0;
+    // Spectral centroid
+    const centVals=speaking.map(f=>f.spectralCentroid);
+    const spectralCentroid=centVals.reduce((a,b)=>a+b,0)/centVals.length;
+    // Duration + speaking ratio
+    const totalDuration=frames.length>1?(frames[frames.length-1].t-frames[0].t)/1000:1;
+    const speakingRatio=speaking.length/frames.length;
+    // Speech rate: RMS peaks per second
+    const RMS_T=avgRMS*1.3; let peaks=0;
+    for(let i=1;i<rmsVals.length;i++){if(rmsVals[i-1]<RMS_T&&rmsVals[i]>=RMS_T)peaks++;}
+    const speechRate=totalDuration>0?peaks/totalDuration:0;
+    // Interpreted scores 0-100
+    const confidenceScore=Math.round(Math.min(100,Math.max(0,(1-jitter)*40+(1-totalPauseRatio)*30+(avgPitch>100&&avgPitch<320?30:10))));
+    const energyScore=Math.round(Math.min(100,Math.max(0,Math.min(avgRMS/0.05,1)*60+energyDynamics*40)));
+    const paceOK=speechRate>0?Math.max(0,1-Math.abs(speechRate-2.5)/2.5):0.5;
+    const clarityScore=Math.round(Math.min(100,Math.max(0,paceOK*40+(1-jitter)*35+pitchVariation*25)));
+    const normCent=spectralCentroid>0?Math.max(0,1-spectralCentroid/4000):0.5;
+    const warmthScore=Math.round(Math.min(100,Math.max(0,normCent*60+pitchVariation*40)));
+    const pitchElevation=avgPitch>220?Math.min(1,(avgPitch-220)/150):0;
+    const stressLevel=Math.round(Math.min(100,Math.max(0,jitter*40+pitchElevation*30+Math.min(1,speechRate/6)*30)));
+    return{
+      avgPitch:Math.round(avgPitch),pitchRange:Math.round(pitchRange),
+      pitchStdDev:Math.round(pitchStdDev),pitchVariation:+pitchVariation.toFixed(2),
+      avgRMS:+avgRMS.toFixed(3),rmsRange:+rmsRange.toFixed(3),energyDynamics:+energyDynamics.toFixed(2),
+      speechRate:+speechRate.toFixed(1),pauseCount,avgPauseDuration:Math.round(avgPauseDuration),
+      totalPauseRatio:+totalPauseRatio.toFixed(2),spectralCentroid:Math.round(spectralCentroid),
+      jitter:+jitter.toFixed(2),totalDuration:+totalDuration.toFixed(1),speakingRatio:+speakingRatio.toFixed(2),
+      confidenceScore,energyScore,clarityScore,warmthScore,stressLevel
+    };
+  }
+}
+
+const audioEngine=new AudioAnalyzer();
+
+/* ================================================================
    SENTIMENT LEXICON ~1500 words: score -4 (neg) to +4 (pos)
    ================================================================ */
 const VL={
@@ -1780,7 +1930,7 @@ function updateLiveSpeakers(){
     btn.textContent=S.speakerNames[i]||'Speaker '+(i+1);
     const c=getSC(i);btn.style.borderColor=c;
     if(i===S.currentSpeaker){btn.style.background=c;btn.style.color='#000';}else btn.style.color=c;
-    btn.onclick=()=>{S.currentSpeaker=i;updateLiveSpeakers();};
+    btn.onclick=()=>{S.currentSpeaker=i;audioEngine.currentSpeaker=S.speakerNames[i]||('Speaker '+(i+1));updateLiveSpeakers();};
     row.appendChild(btn);
   }
 }
@@ -1847,6 +1997,14 @@ function analyzeConversation(){
     ?document.getElementById('pasteTA').value.trim()
     :S.liveMessages.map(m=>m.speaker+': '+m.text).join('\n');
   if(!raw){showToast('Paste a conversation first, or try the demo!');return;}
+  // Collect per-speaker audio summaries from live recording
+  S.audioSummaries={};
+  if(S.captureMode==='live'&&audioEngine.history.length>10){
+    S.speakerNames.slice(0,S.speakerCount).forEach(spk=>{
+      const sum=audioEngine.getSummary(spk);
+      if(sum)S.audioSummaries[spk]=sum;
+    });
+  }
   document.getElementById('srInputPhase').style.display='none';
   const a=document.getElementById('srAnalysis');
   a.innerHTML='<div class="analysis-loading"><div class="spinner"></div><p>Analyzing conversation...</p></div>';
@@ -1959,6 +2117,19 @@ function renderOverview(result){
     h+='<div class="ios-row"><span class="ios-row-label">Questions Asked</span><span class="ios-row-value" style="color:#8E8E93">'+qCount+'</span></div>';
     h+='<div class="ios-row"><span class="ios-row-label">Tone Trend</span><span class="ios-row-value" style="color:'+trendColor+'">'+toneTrend+'</span></div>';
     h+='<div class="ios-row"><span class="ios-row-label">Dialogue Style</span><span class="ios-row-value" style="color:#5856D6">'+dialStyle+'</span></div>';
+    // Audio metrics (live mode only — when mic data was captured for this speaker)
+    if(S.audioSummaries&&S.audioSummaries[spk]){
+      const as=S.audioSummaries[spk];
+      const voiceEngLbl=as.energyScore>=70?'High':as.energyScore>=40?'Moderate':'Low';
+      const voiceEngCol=as.energyScore>=70?'#34C759':as.energyScore>=40?'#FF9500':'#8E8E93';
+      const engageLbl2=as.pitchVariation>0.15&&as.energyScore>40?'High':as.pitchVariation>0.07?'Moderate':'Low';
+      const engageCol2=as.pitchVariation>0.15&&as.energyScore>40?'#34C759':as.pitchVariation>0.07?'#FF9500':'#8E8E93';
+      const stressLbl=as.stressLevel<30?'None':as.stressLevel<60?'Mild':'Elevated';
+      const stressCol=as.stressLevel<30?'#34C759':as.stressLevel<60?'#FF9500':'#FF3B30';
+      h+='<div class="ios-row" style="background:rgba(0,0,0,0.03)"><span class="ios-row-label" style="font-size:12px;color:#8E8E93">Voice Energy</span><span class="ios-row-value" style="color:'+voiceEngCol+'">'+voiceEngLbl+'</span></div>';
+      h+='<div class="ios-row" style="background:rgba(0,0,0,0.03)"><span class="ios-row-label" style="font-size:12px;color:#8E8E93">Vocal Engagement</span><span class="ios-row-value" style="color:'+engageCol2+'">'+engageLbl2+'</span></div>';
+      h+='<div class="ios-row" style="background:rgba(0,0,0,0.03)"><span class="ios-row-label" style="font-size:12px;color:#8E8E93">Stress Indicators</span><span class="ios-row-value" style="color:'+stressCol+'">'+stressLbl+'</span></div>';
+    }
     h+='</div>';
   });
 
@@ -2238,6 +2409,9 @@ function startRecording(){
   if(!SR){showToast('Speech recognition not supported in this browser. Try Chrome or paste text instead.');return;}
   const rec=new SR();rec.continuous=true;rec.interimResults=true;rec.lang='en-US';
   S.mediaRec=rec;S.recording=true;
+  audioEngine.reset();
+  audioEngine.currentSpeaker=S.speakerNames[S.currentSpeaker]||('Speaker '+(S.currentSpeaker+1));
+  audioEngine.start();
   document.getElementById('recBtn').classList.add('recording');
   document.getElementById('liveStatus').textContent='Recording... tap to stop';
   let interim='';
@@ -2254,6 +2428,7 @@ function startRecording(){
 function stopRecording(){
   S.recording=false;
   if(S.mediaRec){S.mediaRec.onend=null;S.mediaRec.stop();S.mediaRec=null;}
+  audioEngine.stop();
   document.getElementById('recBtn').classList.remove('recording');
   document.getElementById('liveStatus').textContent='Stopped. Tap to resume.';
 }
@@ -2324,6 +2499,7 @@ function pcStartRec(){
   if(!SR){showToast('Speech recognition not supported. Try Chrome.');return;}
   const rec=new SR();rec.continuous=true;rec.interimResults=false;rec.lang='en-US';
   PC.rec=rec;PC.recording=true;PC.transcript='';PC.startTime=Date.now();
+  audioEngine.reset();audioEngine.start();
   document.getElementById('pc-rec-btn').classList.add('recording');
   document.getElementById('pc-status').textContent='Recording… tap to stop';
   document.getElementById('pc-timer').style.display='block';
@@ -2341,12 +2517,14 @@ function pcStopRec(){
   PC.recording=false;
   clearInterval(PC.timerInt);
   if(PC.rec){PC.rec.onend=null;PC.rec.stop();PC.rec=null;}
+  audioEngine.stop();
+  PC.audioSummary=audioEngine.getSummary();
   document.getElementById('pc-rec-btn').classList.remove('recording');
   document.getElementById('pc-status').textContent='Analyzing…';
   const dur=(Date.now()-PC.startTime)/1000;
   setTimeout(()=>{
     const results=pcAnalyze(PC.transcript.trim(),dur);
-    pcRender(results);
+    pcRender(results,PC.audioSummary);
   },300);
 }
 
@@ -2379,7 +2557,7 @@ function pcAnalyze(text,durSec){
   return{wpm,fillerCount,fillerPct,clarity,energy,dur,wordCount,text};
 }
 
-function pcRender(r){
+function pcRender(r,audioSummary){
   if(!r)return;
   document.getElementById('pc-setup').style.display='none';
   document.getElementById('pc-timer').style.display='none';
@@ -2390,14 +2568,23 @@ function pcRender(r){
   const deliveryScore=Math.round(wpmScore*0.35+clarityScore*0.35+r.energy*0.30);
   const scoreColor=deliveryScore>=75?'#16A34A':deliveryScore>=50?'#D97706':'#DC2626';
 
-  // Headline
+  // Headline — combines audio + text when audio available
   let headline;
-  if(r.wpm>=120&&r.wpm<=160&&r.fillerPct<=5)headline='Your delivery is strong — clear pace with room to reduce filler words.';
-  else if(r.fillerPct>10)headline='Your pace is fine, but filler words are cutting into your message. Replace each "um" or "like" with a deliberate pause.';
-  else if(r.wpm<100)headline='Your pace is slow. Picking up to 130–160 words per minute will hold listener attention better.';
-  else if(r.wpm>180)headline='You\'re rushing. Slowing down gives key points room to land and signals confidence.';
-  else if(r.fillerPct>5)headline='Solid delivery. Reducing filler words further will make your speech noticeably more polished.';
-  else headline='Clean delivery — pace and clarity are both in good shape.';
+  if(audioSummary){
+    const aud=audioSummary;
+    if(aud.confidenceScore>=70&&r.fillerPct<=5)headline='Your voice sounds confident and your delivery is clean — pace and clarity are both on point.';
+    else if(aud.confidenceScore>=70&&r.fillerPct>10)headline='Your voice sounds confident, but filler words are diluting your message. Replace each "um" with a deliberate pause.';
+    else if(aud.stressLevel>60)headline='Your voice shows stress indicators — try breathing more deeply and using intentional pauses to project calm authority.';
+    else if(aud.energyScore>=70&&r.fillerPct<=5)headline='Strong vocal energy and clean delivery — you\'re projecting confidence well.';
+    else if(aud.energyScore>=70)headline='Good vocal energy. Trimming filler words will sharpen the impact further.';
+    else if(aud.warmthScore>=70)headline='Your voice has natural warmth. Add more vocal variety to keep listeners fully engaged.';
+    else headline='Solid delivery. Work on vocal range and energy to hold attention through longer sections.';
+  }else if(r.wpm>=120&&r.wpm<=160&&r.fillerPct<=5){headline='Your delivery is strong — clear pace with room to reduce filler words.';}
+  else if(r.fillerPct>10){headline='Your pace is fine, but filler words are cutting into your message. Replace each "um" or "like" with a deliberate pause.';}
+  else if(r.wpm<100){headline='Your pace is slow. Picking up to 130–160 words per minute will hold listener attention better.';}
+  else if(r.wpm>180){headline='You\'re rushing. Slowing down gives key points room to land and signals confidence.';}
+  else if(r.fillerPct>5){headline='Solid delivery. Reducing filler words further will make your speech noticeably more polished.';}
+  else{headline='Clean delivery — pace and clarity are both in good shape.';}
 
   // WPM zone
   let wpmZone,wpmColor;
@@ -2457,6 +2644,37 @@ function pcRender(r){
     +endLbls('Processing','Crystal clear')
     +'</div>';
 
+  // Audio metrics section (only when mic was used)
+  if(audioSummary){
+    const a=audioSummary;
+    const sc=n=>'<span style="font-size:17px;font-weight:700;color:'+(n>=70?'#16A34A':n>=45?'#D97706':'#DC2626')+'">'+n+'</span>';
+    const scoreBar=(n,col)=>{
+      const c=col||(n>=70?'#16A34A':n>=45?'#D97706':'#DC2626');
+      return'<div style="flex:1;height:5px;background:#F2F2F7;border-radius:100px;overflow:hidden;margin:0 8px"><div style="height:100%;width:'+n+'%;background:'+c+';border-radius:100px;transition:width .6s cubic-bezier(.16,1,.3,1)"></div></div>';
+    };
+    const paceLabel=a.speechRate<1.5?'Measured':a.speechRate<3?'Conversational':a.speechRate<4.5?'Animated':'Fast';
+    const paceCol=a.speechRate<1.5?'#6366F1':a.speechRate<3?'#16A34A':a.speechRate<4.5?'#D97706':'#DC2626';
+    const jitterLabel=a.jitter<0.2?'Stable':a.jitter<0.5?'Some variation':'High variation';
+    const warmthLabel=a.warmthScore>=70?'Warm':a.warmthScore>=45?'Neutral':'Bright/Thin';
+    let audioHtml='<div style="grid-column:1/-1;background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 0 rgba(0,0,0,0.05),0 8px 24px rgba(0,0,0,0.06)">';
+    audioHtml+='<div style="font-family:\'Space Grotesk\',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9AA5B4;margin-bottom:12px">Voice Analysis</div>';
+    audioHtml+='<div style="background:#F2F2F7;border-radius:10px;overflow:hidden">';
+    // Confidence
+    audioHtml+='<div class="ios-row" style="min-height:44px"><span class="ios-row-label">Confidence</span><div style="display:flex;align-items:center;min-width:120px;justify-content:flex-end">'+scoreBar(a.confidenceScore)+sc(a.confidenceScore)+'</div></div>';
+    // Energy & Dynamics
+    audioHtml+='<div class="ios-row" style="min-height:44px"><span class="ios-row-label">Energy & Dynamics</span><div style="display:flex;align-items:center;min-width:120px;justify-content:flex-end">'+scoreBar(a.energyScore)+sc(a.energyScore)+'</div></div>';
+    // Pace
+    audioHtml+='<div class="ios-row" style="min-height:44px"><span class="ios-row-label">Vocal Pace</span><span style="font-size:15px;font-weight:600;color:'+paceCol+'">'+paceLabel+' · '+a.speechRate+'/s</span></div>';
+    // Pause Pattern
+    audioHtml+='<div class="ios-row" style="min-height:44px"><span class="ios-row-label">Pause Pattern</span><span style="font-size:15px;font-weight:600;color:'+(a.pauseCount>0?'#16A34A':'#9AA5B4')+'">'+a.pauseCount+' pauses · '+(a.avgPauseDuration>0?Math.round(a.avgPauseDuration/100)/10+'s avg':'—')+'</span></div>';
+    // Vocal Warmth
+    audioHtml+='<div class="ios-row" style="min-height:44px"><span class="ios-row-label">Vocal Warmth</span><div style="display:flex;align-items:center;min-width:120px;justify-content:flex-end">'+scoreBar(a.warmthScore,'#F59E0B')+'<span style="font-size:15px;font-weight:600;color:#F59E0B">'+warmthLabel+'</span></div></div>';
+    // Stress / Jitter
+    audioHtml+='<div class="ios-row" style="min-height:44px;border-bottom:none"><span class="ios-row-label">Stress Indicators</span><div style="display:flex;align-items:center;min-width:120px;justify-content:flex-end">'+scoreBar(a.stressLevel,'#EC4899')+'<span style="font-size:15px;font-weight:600;color:'+(a.stressLevel<30?'#16A34A':a.stressLevel<60?'#D97706':'#DC2626')+'">'+jitterLabel+'</span></div></div>';
+    audioHtml+='</div></div>';
+    document.getElementById('pc-metrics').innerHTML+=audioHtml;
+  }
+
   // Tips
   const tips=[];
   if(r.wpm<100)tips.push('Pace is slow ('+r.wpm+' wpm). Aim for 130–160 wpm — pausing between thoughts creates the same rhythm without losing energy.');
@@ -2467,6 +2685,8 @@ function pcRender(r){
   else tips.push('Very few fillers — this level of speech clarity is above average.');
   if(r.clarity<50)tips.push('Try shorter sentences. Under 15 words per sentence makes speech significantly easier to follow.');
   if(r.energy<40)tips.push('Energy reads flat. Varying pitch and volume on key words prevents monotone delivery from losing your audience.');
+  if(audioSummary&&audioSummary.stressLevel>60)tips.push('Voice stress detected — high jitter suggests tension. Try diaphragmatic breathing before recording.');
+  if(audioSummary&&audioSummary.pitchRange<30)tips.push('Pitch range is narrow ('+audioSummary.pitchRange+' Hz). Exaggerate pitch variation on key words during practice to build natural expressiveness.');
   document.getElementById('pc-tips-list').innerHTML='<div class="tips-card-label">Coaching Notes</div>'+tips.map(t=>'<div class="tip-item"><span>'+t+'</span></div>').join('');
   document.getElementById('pc-results').style.display='flex';
 }
@@ -2493,6 +2713,7 @@ function mmStartRec(){
   if(!SR){showToast('Speech recognition not supported. Try Chrome.');return;}
   const rec=new SR();rec.continuous=true;rec.interimResults=false;rec.lang='en-US';
   MM.rec=rec;MM.recording=true;MM.transcript='';MM.startTime=Date.now();
+  audioEngine.reset();audioEngine.start();
   document.getElementById('mood-rec-btn').classList.add('recording');
   document.getElementById('mood-status').textContent='Recording… tap to stop';
   document.getElementById('mood-timer').style.display='block';
@@ -2510,13 +2731,15 @@ function mmStopRec(){
   MM.recording=false;
   clearInterval(MM.timerInt);
   if(MM.rec){MM.rec.onend=null;MM.rec.stop();MM.rec=null;}
+  audioEngine.stop();
+  MM.audioSummary=audioEngine.getSummary();
   document.getElementById('mood-rec-btn').classList.remove('recording');
   document.getElementById('mood-status').textContent='Analyzing…';
   const dur=(Date.now()-MM.startTime)/1000;
   setTimeout(()=>{
     const results=mmAnalyze(MM.transcript.trim(),dur);
     mmSaveToHistory(results);
-    mmRender(results);
+    mmRender(results,MM.audioSummary);
   },300);
 }
 
@@ -2537,20 +2760,32 @@ function mmAnalyze(text,durSec){
   return{mood:vs.compound,wpm,fillerCount,fillerPct,wordCount,dur,ts:Date.now()};
 }
 
-function mmRender(r){
+function mmRender(r,audioSummary){
   document.getElementById('mood-setup').style.display='none';
 
-  // Headline insight text
+  // Headline insight text — combine voice + word sentiment when audio available
   let headline;
-  if(r.mood>0.5&&r.wpm>100) headline='You sound energized and positive right now. Your speech is flowing freely.';
-  else if(r.mood>0.5&&r.wpm<80) headline='Your mood reads positive, but your pace is measured — you may be thinking carefully.';
-  else if(r.mood>0&&r.fillerPct>10) headline='Generally positive, but some hesitation in your speech suggests you are working through something.';
-  else if(r.mood<0&&r.wpm<80) headline='Your energy is low right now. Your speech pace and tone suggest fatigue or distraction.';
-  else if(r.mood<-0.3) headline='You sound stressed or weighed down. This might be a good time to pause and reset.';
-  else if(r.fillerPct===0&&r.wpm>=120) headline='Crystal clear delivery — zero filler words and strong verbal fluency.';
-  else if(r.mood>0.3) headline='Your overall tone is positive. Things seem to be in a good place right now.';
-  else if(r.mood>0) headline='Your tone reads as broadly neutral with positive undertones. Nothing alarming, nothing outstanding.';
-  else headline='Your tone is subdued right now. It may be worth checking in with yourself about what is weighing on you.';
+  if(audioSummary){
+    const a=audioSummary;
+    const textPos=r.mood>0.2, textNeg=r.mood<-0.2;
+    const voiceStressed=a.stressLevel>55, voiceTired=a.energyScore<30, voiceEngaged=a.energyScore>60&&a.pitchVariation>0.1;
+    if(textPos&&voiceEngaged) headline='Your words are positive and your voice sounds genuinely energized — you\'re in a good place.';
+    else if(textPos&&voiceTired) headline='Your words are positive, but your voice sounds tired. You may be pushing through something.';
+    else if(textPos&&voiceStressed) headline='Your words are positive, but your voice shows stress. Something might be weighing on you beneath the surface.';
+    else if(textNeg&&!voiceStressed) headline='Your words seem heavy, but your voice sounds steadier than you might feel. That\'s quiet resilience.';
+    else if(textNeg&&voiceStressed) headline='Both your words and voice signal stress right now. This might be a good moment to step away and reset.';
+    else if(voiceEngaged) headline='Good vocal energy — you sound engaged and present. Your tone reflects positive momentum.';
+    else if(voiceTired) headline='Your voice sounds fatigued. Rest, hydration, or a short break may help restore your baseline.';
+    else headline='Your vocal baseline looks steady. Nothing alarming in voice or words right now.';
+  }else if(r.mood>0.5&&r.wpm>100){headline='You sound energized and positive right now. Your speech is flowing freely.';}
+  else if(r.mood>0.5&&r.wpm<80){headline='Your mood reads positive, but your pace is measured — you may be thinking carefully.';}
+  else if(r.mood>0&&r.fillerPct>10){headline='Generally positive, but some hesitation in your speech suggests you are working through something.';}
+  else if(r.mood<0&&r.wpm<80){headline='Your energy is low right now. Your speech pace and tone suggest fatigue or distraction.';}
+  else if(r.mood<-0.3){headline='You sound stressed or weighed down. This might be a good time to pause and reset.';}
+  else if(r.fillerPct===0&&r.wpm>=120){headline='Crystal clear delivery — zero filler words and strong verbal fluency.';}
+  else if(r.mood>0.3){headline='Your overall tone is positive. Things seem to be in a good place right now.';}
+  else if(r.mood>0){headline='Your tone reads as broadly neutral with positive undertones. Nothing alarming, nothing outstanding.';}
+  else{headline='Your tone is subdued right now. It may be worth checking in with yourself about what is weighing on you.';}
 
   // Mood label + accent color
   let moodColor,moodLabel;
@@ -2641,6 +2876,44 @@ function mmRender(r){
     zoneLbl(clarityZone,clarityColor)+
     mkBar(clarityNorm,'linear-gradient(to right,#DC2626 0%,#D97706 30%,#0D9488 65%,#16A34A 100%)',clarityColor)+
     endLabels('Processing','Crystal clear')+delta(fillerDelta);
+
+  // ── Voice Audio Indicators (when mic was live) ──
+  let voiceCardEl=document.getElementById('mood-voice-card');
+  if(!voiceCardEl){
+    voiceCardEl=document.createElement('div');
+    voiceCardEl.id='mood-voice-card';
+    voiceCardEl.className='mode-panel-n';
+    document.getElementById('mood-results').insertBefore(voiceCardEl,document.getElementById('mood-history-card'));
+  }
+  if(audioSummary){
+    const a=audioSummary;
+    const mkRow=(lbl,val,col)=>'<div class="ios-row" style="min-height:44px"><span class="ios-row-label">'+lbl+'</span><span class="ios-row-value" style="color:'+col+'">'+val+'</span></div>';
+    const engLabel=a.energyScore>=70?'High':a.energyScore>=40?'Moderate':'Low';
+    const engCol=a.energyScore>=70?'#16A34A':a.energyScore>=40?'#D97706':'#8E8E93';
+    const stressLabel=a.stressLevel<30?'None detected':a.stressLevel<60?'Mild':'Elevated';
+    const stressCol=a.stressLevel<30?'#16A34A':a.stressLevel<60?'#D97706':'#DC2626';
+    const engageLbl=a.pitchVariation>0.15&&a.energyScore>40?'High':a.pitchVariation>0.07?'Moderate':'Low';
+    const engageCol=a.pitchVariation>0.15&&a.energyScore>40?'#16A34A':a.pitchVariation>0.07?'#D97706':'#8E8E93';
+    const warmthLbl=a.warmthScore>=70?'Warm':a.warmthScore>=45?'Neutral':'Bright';
+    // Voice vs Words comparison banner
+    const textMoodLabel=r.mood>0.2?'Positive':r.mood>-0.2?'Neutral':'Negative';
+    const textMoodCol=r.mood>0.2?'#16A34A':r.mood>-0.2?'#8E8E93':'#DC2626';
+    const voiceMoodLabel=a.energyScore>60&&a.stressLevel<40?'Positive':a.stressLevel>60?'Stressed':'Neutral';
+    const voiceMoodCol=a.energyScore>60&&a.stressLevel<40?'#16A34A':a.stressLevel>60?'#DC2626':'#8E8E93';
+    const mismatch=textMoodLabel!==voiceMoodLabel;
+    voiceCardEl.innerHTML=
+      '<div style="font-family:\'Space Grotesk\',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9AA5B4;margin-bottom:10px">Voice Analysis</div>'+
+      (mismatch?'<div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:13px;color:#92400E;line-height:1.45">Your words read <strong style="color:'+textMoodCol+'">'+textMoodLabel+'</strong> but your voice sounds <strong style="color:'+voiceMoodCol+'">'+voiceMoodLabel+'</strong>.</div>':'<div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:13px;color:#166534;line-height:1.45">Words and voice are aligned — both reading <strong>'+textMoodLabel+'</strong>.</div>')+
+      '<div style="background:#F2F2F7;border-radius:10px;overflow:hidden">'+
+      mkRow('Emotional Energy',engLabel,engCol)+
+      mkRow('Vocal Stress',stressLabel,stressCol)+
+      mkRow('Engagement Level',engageLbl,engageCol)+
+      mkRow('Vocal Warmth',warmthLbl,'#F59E0B')+
+      '</div>';
+    voiceCardEl.style.display='block';
+  }else{
+    voiceCardEl.style.display='none';
+  }
 
   mmRenderTrend();
   document.getElementById('mood-results').style.display='flex';
