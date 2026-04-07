@@ -2057,8 +2057,8 @@ function selectCapture(mode){
   var pa=document.getElementById('pasteArea');if(pa)pa.classList.toggle('vis',mode==='paste');
   var la=document.getElementById('liveArea');if(la)la.classList.toggle('vis',mode==='live');
   // New UI: toggle paste panel visibility
-  var pp=document.getElementById('sr-paste-panel');if(pp)pp.style.display=mode==='paste'?'':'none';
-  var rp=document.getElementById('sr-rec-zone');if(rp)rp.style.display=mode==='live'?'':'none';
+  var pp=document.getElementById('sr-paste');if(pp)pp.style.display=mode==='paste'?'':'none';
+  
 }
 
 function clearInput(){
